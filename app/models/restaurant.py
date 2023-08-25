@@ -65,7 +65,7 @@ class Restaurant(db.Model):
         return {
             "id": self.id,
             "name": self.name,
-            "streetAddress": self.street_address,
+            "streetddress": self.street_address,
             "category": self.category,
             "priceRange": self.price_range,
             "ownerId": self.owner_id,
