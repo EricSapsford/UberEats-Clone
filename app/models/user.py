@@ -14,6 +14,16 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
+    # one-to-many: one user can have many reviews
+    reviews_rel = db.relationship("Review", back_populates="users_rel")
+
+    # one-to-many: one user can have many orders
+    orders_rel = db.relationship("Order", back_populates="users_rel")
+
+    # one-to-many: one user can have many restaurants
+    restaurants_rel = db.relationship("Restaurant", back_populates="users_rel")
+
+
     @property
     def password(self):
         return self.hashed_password
