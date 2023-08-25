@@ -14,9 +14,10 @@ class Order(db.Model):
     restaurant_id = db.Column(db.Integer, db.ForeignKey("restaurants.id"), nullable=False)
     created_at = db.Column(db.Date, nullable=False)
 
-    #one-to-many: one user can have many orders
+    # one-to-many: one user can have many orders
     users_rel = db.Relationship("User", back_populates="orders_rel")
-    ##one-to-many: one restaurant can have many orders
+
+    # one-to-many: one restaurant can have many orders
     restaurants_rel = db.Relationship("Restaurant", back_populates="orders_rel")
 
     @menu_items.setter
