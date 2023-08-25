@@ -5,6 +5,22 @@
 #    pipenv lock --requirements
 #
 
+# ============ HOW TO REGENERATE THIS FILE IF THE ABOVE ONE DOESN'T WORK ============
+# ============ HOW TO REGENERATE THIS FILE IF THE ABOVE ONE DOESN'T WORK ============
+# ============ HOW TO REGENERATE THIS FILE IF THE ABOVE ONE DOESN'T WORK ============
+# ============ HOW TO REGENERATE THIS FILE IF THE ABOVE ONE DOESN'T WORK ============
+
+# pipenv requirements > requirements.txt
+
+# make sure to import your protectedroute into app.js
+
+# csrf protection on every put and post (anything with a body)
+# form['csrf_token'].data = request.cookies['csrf_token']
+# return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+# NO INDENTICAL URLS WITH DIFFERENT METHODS. ALL URLS ARE UNIQUE
+# ^ this makes it so your login auth_required's don't fuck up
+
+
 -i https://pypi.org/simple
 alembic==1.9.2
 click==8.1.3
