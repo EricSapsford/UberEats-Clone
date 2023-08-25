@@ -13,6 +13,12 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+    first_name = db.Column(db.String(50), nullable=False)
+    last_name = db.Column(db.String(80), nullable=False)
+    street_address = db.Column(db.String(255), nullable=False)
+    created_at = db.Column(db.Date, nullable=False)
+    updated_at = db.Column(db.Date, nullable=False)
+
 
     # one-to-many: one user can have many reviews
     reviews_rel = db.relationship("Review", back_populates="users_rel")

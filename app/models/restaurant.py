@@ -39,7 +39,7 @@ class Restaurant(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable=False)
-    address = db.Column(db.String(255), nullable=False)
+    street_address = db.Column(db.String(255), nullable=False)
     category = db.Column(db.Enum(RestaurantCategory), nullable=False)
     price_range = db.Column(db.Integer, nullable=False)
     owner_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
@@ -65,7 +65,7 @@ class Restaurant(db.Model):
         return {
             "id": self.id,
             "name": self.name,
-            "address": self.address,
+            "streetAddress": self.street_address,
             "category": self.category,
             "priceRange": self.price_range,
             "ownerId": self.owner_id,
