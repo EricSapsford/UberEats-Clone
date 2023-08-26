@@ -42,65 +42,72 @@ function SignupFormModal() {
 					))}
 				</ul>
 				<label>
-					First Name
+					{/* First Name */}
 					<input
 						type="text"
 						value={firstName}
 						onChange={(e) => setFirstName(e.target.value)}
+						placeholder="First name"
 						required
 					/>
 				</label>
 				<label>
-					Last Name
+					{/* Last Name */}
 					<input
 						type="text"
 						value={lastName}
 						onChange={(e) => setLastName(e.target.value)}
+						placeholder="Last name"
 						required
 					/>
 				</label>
 				<label>
-					Street Address
+					{/* Street Address */}
 					<input
 						type="text"
 						value={streetAddress}
 						onChange={(e) => setStreetAddress(e.target.value)}
+						placeholder="Street address"
 						required
 					/>
 				</label>
 				<label>
-					Email
+					{/* Email */}
 					<input
 						type="text"
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
+						placeholder="Email"
 						required
 					/>
 				</label>
 				<label>
-					Username
+					{/* Username */}
 					<input
 						type="text"
 						value={username}
 						onChange={(e) => setUsername(e.target.value)}
+						placeholder="Username"
 						required
 					/>
 				</label>
 				<label>
-					Password
+					{/* Password */}
 					<input
 						type="password"
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
+						placeholder="Password"
 						required
 					/>
 				</label>
 				<label>
-					Confirm Password
+					{/* Confirm Password */}
 					<input
 						type="password"
 						value={confirmPassword}
 						onChange={(e) => setConfirmPassword(e.target.value)}
+						placeholder="Confirm password"
 						required
 					/>
 				</label>
