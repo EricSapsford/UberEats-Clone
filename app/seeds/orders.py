@@ -11,8 +11,7 @@ def seed_orders():
             restaurant_id = order["restaurant_id"],
             total_cost = order["total_cost"],
             menu_items = order["menu_items"],
-            created_at = order["created_at"],
-            updated_at = order["updated_at"],
+            created_at = order["created_at"]
         )
         db.session.add(new_order)
 

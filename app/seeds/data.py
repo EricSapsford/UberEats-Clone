@@ -100,6 +100,7 @@ restaurants = [
         "category": "Mexican",
         "price_range": 1,
         "owner_id": 1,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -110,6 +111,7 @@ restaurants = [
         "category": "Indian",
         "price_range": 2,
         "owner_id": 1,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -120,6 +122,7 @@ restaurants = [
         "category": "Japanese",
         "price_range": 2,
         "owner_id": 2,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -130,6 +133,7 @@ restaurants = [
         "category": "Bistro",
         "price_range": 3,
         "owner_id": 2,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -140,6 +144,7 @@ restaurants = [
         "category": "French",
         "price_range": 5,
         "owner_id": 3,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -150,6 +155,7 @@ restaurants = [
         "category": "Italian",
         "price_range": 3,
         "owner_id": 4,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -160,6 +166,7 @@ restaurants = [
         "category": "Thai",
         "price_range": 4,
         "owner_id": 5,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -170,6 +177,7 @@ restaurants = [
         "category": "Fast Food",
         "price_range": 5,
         "owner_id": 6,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -180,6 +188,7 @@ restaurants = [
         "category": "Mediterranean",
         "price_range": 4,
         "owner_id": 7,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -190,6 +199,7 @@ restaurants = [
         "category": "Vegetarian",
         "price_range": 1,
         "owner_id": 8,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }
@@ -479,7 +489,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 11,
         "description": "fresh and made in house",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -489,7 +499,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 9,
         "description": "deep fried and topped with house made lime mayo, queso fresco, chili powder, and cilantro",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -499,7 +509,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 8.5,
         "description": "lightly seasoned panko battered avocado slices. fried and served with jalapeño lime aioli",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -509,7 +519,7 @@ menu_items = [{
         "type": "entree",
         "price": 16,
         "description": "steak wrapped in three corn tortillas. smothered in melted queso chihuahua and choice of sauce. topped with pico de gallo, queso fresco, and cilantro",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -519,7 +529,7 @@ menu_items = [{
         "type": "entree",
         "price": 5,
         "description": "served with choice of filling atop two layered fresh handmade warm corn tortillas. queso fresco, cilantro, and scallions",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -529,7 +539,7 @@ menu_items = [{
         "type": "entree",
         "price": 6.5,
         "description": "choice of filling. griddle fried corn tortillas with melted chihuahua cheese, green onions, red cabbage, and cilantro. not vegetarian friendly",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -539,7 +549,7 @@ menu_items = [{
         "type": "dessert",
         "price": 8,
         "description": "fried dough topped with cinnamon, house made caramel, and powdered sugar.",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -549,7 +559,7 @@ menu_items = [{
         "type": "dessert",
         "price": 7,
         "description": "fresh custard flan, made in house",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -559,7 +569,7 @@ menu_items = [{
         "type": "beverage",
         "price": 13,
         "description": "sauza silver tequila, fresh lime juice, and jarritos grapefruit soda",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -569,7 +579,7 @@ menu_items = [{
         "type": "beverage",
         "price": 11,
         "description": "house made strawberry infused silver tequila, strawberry puree, triple sec, fresh lime juice, and agave",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -579,7 +589,7 @@ menu_items = [{
         "type": "beverage",
         "price": 8,
         "description": "house made bloody mix topped with dos equis lager",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },{
@@ -589,7 +599,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 3,
         "description": "Two turnovers, stuffed with veggies & spices",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -599,7 +609,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 5,
         "description": "Homemade cheese fritters in chickpea flour",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -609,7 +619,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 4,
         "description": "Deep fried potato fritters",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -619,7 +629,7 @@ menu_items = [{
         "type": "entree",
         "price": 14,
         "description": "Fresh cauliflower and potatoes cooked in onions, tomato, and herbs",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -629,7 +639,7 @@ menu_items = [{
         "type": "entree",
         "price": 14,
         "description": "Garden vegetable & cheese dumplings cooked in a rich sauce with nuts and cream",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -639,7 +649,7 @@ menu_items = [{
         "type": "entree",
         "price": 16,
         "description": "Roasted eggplant sauteed in onion, tomato, and peas",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -649,7 +659,7 @@ menu_items = [{
         "type": "dessert",
         "price": 4,
         "description": "Traditional Indian rice pudding flavored with cardamom and raisins",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -659,7 +669,7 @@ menu_items = [{
         "type": "dessert",
         "price": 3,
         "description": "Cinnamon flavored pastry sponge, soaked in honey and rosewater",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -669,7 +679,7 @@ menu_items = [{
         "type": "beverage",
         "price": 3,
         "description": "Creamy yogurt and mango drink",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -679,7 +689,7 @@ menu_items = [{
         "type": "beverage",
         "price": 3,
         "description": "Creamy and salty yogurt drink",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -689,7 +699,7 @@ menu_items = [{
         "type": "beverage",
         "price": 6,
         "description": "Imported Indian Lager",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },{
@@ -699,7 +709,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 5.50,
         "description": "Deep fried tofu with house teriyaki sauce",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -709,7 +719,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 3,
         "description": "Lightly salted soybeans",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -719,7 +729,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 9,
         "description": "Shrimp dumplings served steamed or fried",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -729,7 +739,7 @@ menu_items = [{
         "type": "entree",
         "price": 15,
         "description": "Assorted vegetables cooked in hot stone pot",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -739,7 +749,7 @@ menu_items = [{
         "type": "entree",
         "price": 14,
         "description": "Thin-sliced beef marinated with a house special sauce",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -749,7 +759,7 @@ menu_items = [{
         "type": "entree",
         "price": 19,
         "description": "Assortment of raw fish over a bed of white rice with house special spicy sauce",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -759,7 +769,7 @@ menu_items = [{
         "type": "entree",
         "price": 16,
         "description": "Deep-fried soft shell crab, avocado, with raw fish egg and teriyaki sauce",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -769,7 +779,7 @@ menu_items = [{
         "type": "dessert",
         "price": 11,
         "description": "Fluffy sponge cake rolled up with fresh matcha cream in the middle",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -779,7 +789,7 @@ menu_items = [{
         "type": "beverage",
         "price": 4,
         "description": "Imported Japanese Sake",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -789,7 +799,7 @@ menu_items = [{
         "type": "beverage",
         "price": 6,
         "description": "Imported Japanese Beer",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -799,7 +809,7 @@ menu_items = [{
         "type": "beverage",
         "price": 4,
         "description": "Fountain drink, served with lemon peel",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -810,7 +820,7 @@ menu_items = [{
         "type": "entree",
         "price": 18,
         "description": "6oz Almanack Farms  beef patty, Plymouth cheddar, secret sauce, bibb lettuce, and red onion",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -820,7 +830,7 @@ menu_items = [{
         "type": "entree",
         "price": 17,
         "description": "White Bean and Kale patty with Bayley Hazen blue cheese, dill pickles, ranch, bibb lettuce and red onions",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -830,7 +840,7 @@ menu_items = [{
         "type": "entree",
         "price": 19,
         "description": "Turkey and Duck Confit Patty with Garlic Aioli, Plymouth Cheddar, North Country Smokehouse Bacon, Tomato, Bibb Lettuce and Red Onion",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -840,7 +850,7 @@ menu_items = [{
         "type": "entree",
         "price": 15,
         "description": "Buttermilk fried chicken thigh, Chipotle Bacon Jam, Plymouth Cheddar, Bibb Lettuce and Red Onion",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -850,7 +860,7 @@ menu_items = [{
         "type": "entree",
         "price": 19,
         "description": " 6oz Almanack Farms beef patty, Cambozola Cheese, North Country bacon, Caramelized Onions, Garlic Aioli, bibb lettuce and red onion",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -860,7 +870,7 @@ menu_items = [{
         "type": "entree",
         "price": 19,
         "description": "6oz Almanack Farms beef patty, Boggy Meadow swiss, roasted mushrooms, garlic aioli, bibb lettuce and red onion",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -870,7 +880,7 @@ menu_items = [{
         "type": "entree",
         "price": 16,
         "description": "Cajun Tuna Steak, Pickled Pineapple, Pesto Mayo, Bibb Lettuce and Red Onion",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -880,7 +890,7 @@ menu_items = [{
         "type": "dessert",
         "price": 11,
         "description": "House-made Chocolate Chip Cookie with Miso.  Topped with Black Sesame",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -890,7 +900,7 @@ menu_items = [{
         "type": "dessert",
         "price": 9,
         "description": "La Panciata Dough, Fried and Topped with Cinnamon Sugar. Served with Creme Anglaise",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -900,7 +910,7 @@ menu_items = [{
         "type": "beverage",
         "price": 8,
         "description": "16oz pour",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -910,7 +920,7 @@ menu_items = [{
         "type": "beverage",
         "price": 5,
         "description": "Local VT maple syrup in house-made seltzer water, served with a lemon slice",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -921,7 +931,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 7,
         "description": "Fresh local green tomatoes, fried in panko breadcrumbs and served with a house special sauce",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -931,7 +941,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 5,
         "description": "Local greens with a choice of dressings",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -941,7 +951,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 9,
         "description": "Puff pastry with VT aged cheddar cheese and sesame seeds",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -951,7 +961,7 @@ menu_items = [{
         "type": "entree",
         "price": 37,
         "description": "Grade A steak tartare, made fresh every day with imported Italian olive oil",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -961,7 +971,7 @@ menu_items = [{
         "type": "entree",
         "price": 33,
         "description": "Perfectly cooked salmon filet with cream sauce and crispy brussel sprouts",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -971,7 +981,7 @@ menu_items = [{
         "type": "entree",
         "price": 19,
         "description": "Homemade quinoa and sweet potato burger served with all the usual toppings",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -981,7 +991,7 @@ menu_items = [{
         "type": "entree",
         "price": 42,
         "description": "House Speciality Dish",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -991,7 +1001,7 @@ menu_items = [{
         "type": "dessert",
         "price": 16,
         "description": "Three layered terrine served with raspberry coulis",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1002,7 +1012,7 @@ menu_items = [{
         "type": "dessert",
         "price": 14,
         "description": "Choux pastry ball with filling of pastry cream and dark chocolate ganache",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1013,7 +1023,7 @@ menu_items = [{
         "type": "beverage",
         "price": 7,
         "description": "River Roost Brewery's most sought after beer",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1024,7 +1034,7 @@ menu_items = [{
         "type": "beverage",
         "price": 50,
         "description": "Chef curated list of rotating French wines, starting at $50",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1035,7 +1045,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 8,
         "description": "Fresh baguette and housemade garlic sauce",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1046,7 +1056,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 9,
         "description": "Local eggplant sliced thinly with tomato sauce and aged parmesan",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1057,7 +1067,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 25,
         "description": "20 Regular, Buffalo, or Lemon-Pepper wings",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1068,7 +1078,7 @@ menu_items = [{
         "type": "entree",
         "price": 25,
         "description": "World renowned GF crust, choice of up to three toppings",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1079,7 +1089,7 @@ menu_items = [{
         "type": "entree",
         "price": 19,
         "description": "Choice of up to three toppings",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1090,7 +1100,7 @@ menu_items = [{
         "type": "entree",
         "price": 19,
         "description": "Choice of up to three fillings",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1101,7 +1111,7 @@ menu_items = [{
         "type": "entree",
         "price": 33,
         "description": "Choice of up to four toppings",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1112,7 +1122,7 @@ menu_items = [{
         "type": "dessert",
         "price": 9,
         "description": "Cake made of ladyfingers dipped in coffee, layered with a whipped mixture of eggs, sugar, mascarpone cheese, and flavoured with cocoa",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1123,7 +1133,7 @@ menu_items = [{
         "type": "dessert",
         "price": 6,
         "description": "12 rotating flavors of housemade gelato, one size",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1134,7 +1144,7 @@ menu_items = [{
         "type": "beverage",
         "price": 5,
         "description": "Selection of Coca-cola drinks",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1145,7 +1155,7 @@ menu_items = [{
         "type": "beverage",
         "price": 8,
         "description": "Weekly rotation of domestic and international beers",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1156,7 +1166,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 8,
         "description": "Carrot, cucumber, basil leaves and fresh lettuce, wrapped in soft rice paper, served with homemade peanut sauce",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1167,7 +1177,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 11,
         "description": "Deep Fried Scallion Pancakes and Served with homemade curry sauce",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1178,7 +1188,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 13,
         "description": "Grilled chicken breast marinated with yellow curry powder and coconut milk and served with cucumber sauce and peanut sauce",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1189,7 +1199,7 @@ menu_items = [{
         "type": "entree",
         "price": 15,
         "description": "Thin rice noodles stir-fried with egg, green onions, bean sprouts and ground peanuts on the side",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1200,7 +1210,7 @@ menu_items = [{
         "type": "entree",
         "price": 17,
         "description": "Wide rice noodles stir-fried with egg, sweet soy sauce, broccoli and carrots",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1211,7 +1221,7 @@ menu_items = [{
         "type": "entree",
         "price": 22,
         "description": "Thai Massamun curry paste with coconut milk, sweet potatoes, carrots, & onions",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1222,7 +1232,7 @@ menu_items = [{
         "type": "entree",
         "price": 22,
         "description": "Thai Red curry paste with coconut milk, basil leaves, bamboo shoots, green beans and bell peppers",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1233,7 +1243,7 @@ menu_items = [{
         "type": "entree",
         "price": 26,
         "description": "Fried rice with egg, onions, carrots, green peas topped with crispy duck",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1244,7 +1254,7 @@ menu_items = [{
         "type": "dessert",
         "price": 7,
         "description": "Rice covered in sweetened condensed milk with fresh mango slices",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1255,7 +1265,7 @@ menu_items = [{
         "type": "beverage",
         "price": 6,
         "description": "Speciality Thai Iced Tea with sweetened condensed milk, boba optional",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1266,7 +1276,7 @@ menu_items = [{
         "type": "beverage",
         "price": 6,
         "description": "Speciality Thai Iced Coffee with sweetened condensed milk",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1277,7 +1287,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 14,
         "description": "Deep-fried cornmeal batter balls, crispy on the outside and soft on the inside, served with house dipping sauce",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1288,7 +1298,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 12,
         "description": "A creamy spread made from sharp cheddar cheese, mayonnaise, and pimento peppers, served with fresh salt crackers",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1299,7 +1309,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 9,
         "description": "Sliced okra coated in cornmeal and spices. Deep-fried until golden and crispy",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1310,7 +1320,7 @@ menu_items = [{
         "type": "entree",
         "price": 22,
         "description": "Slow-cooked and smoked pork shoulder pulled into tender shreds, served on a freshly baked bun",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1321,7 +1331,7 @@ menu_items = [{
         "type": "entree",
         "price": 28,
         "description": "A Texas specialty, beef brisket slow-cooked over apple wood until tender, served with a choice of two sides",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1332,7 +1342,7 @@ menu_items = [{
         "type": "entree",
         "price": 28,
         "description": "Local farm-raised pork ribs seasoned with a secret dry rub and grilled, served with a choice of two sides",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1343,7 +1353,7 @@ menu_items = [{
         "type": "entree",
         "price": 25,
         "description": "A classic Southern fried chicken sandwich, served with a choice of three sides",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1354,7 +1364,7 @@ menu_items = [{
         "type": "dessert",
         "price": 13,
         "description": "A Southern classic, made with love",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1365,7 +1375,7 @@ menu_items = [{
         "type": "dessert",
         "price": 9,
         "description": "Fresh peaches, served with a scoop of delicious vanilla ice cream",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1376,7 +1386,7 @@ menu_items = [{
         "type": "beverage",
         "price": 5,
         "description": "Black tea sweetened with sugar and served over ice",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1387,7 +1397,7 @@ menu_items = [{
         "type": "beverage",
         "price": 11,
         "description": "Bourbon of your choosing, mint leaves, cane sugar and water",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1398,7 +1408,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 19,
         "description": "Haydari, hummus, babaganoush, turkish salsa, stuffed grape leaves. Served with lavash bread. For gluten free option add fresh cut veggie sticks",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1409,7 +1419,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 13,
         "description": "Smoked eggplant, roasted red pepper, tahini, garlic, fresh lemon, organic turkish extra virgin olive oil served with lavash bread",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1420,7 +1430,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 11,
         "description": "Extra thin vine leaves imported from turkey and hand stuffed with turkish rice, pine nuts, black currants, turkish herbs",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1431,7 +1441,7 @@ menu_items = [{
         "type": "entree",
         "price": 16,
         "description": "Marinated lamb & beef slow roasted on vertical rotisserie, sliced thin to serve on homemade bun or fresh lavash wrap with lettuce, tomato, onion, pickled red cabbage, served with side of yogurt sauce",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1442,7 +1452,7 @@ menu_items = [{
         "type": "entree",
         "price": 16,
         "description": "Imported Turkish Haloumi grilled to perfection inside lavash bread, served with a yogurt sauce",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1453,7 +1463,7 @@ menu_items = [{
         "type": "entree",
         "price": 17,
         "description": "Homemade falafel made with organic turkish chickpeas, celery, parsley, onion, garlic, and tahini, served on homemade bun or fresh lavash wrap with lettuce, onion, tomato, & pickled red cabbage",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1464,7 +1474,7 @@ menu_items = [{
         "type": "entree",
         "price": 22,
         "description": "Very flavorful house marinated chicken, full of turkish herbs and spices, oven roasted and julienne cut, served on homemade bun or fresh lavash wrap with lettuce, tomato, onion, pickled red cabbage, served with side of yogurt sauce",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1475,7 +1485,7 @@ menu_items = [{
         "type": "entree",
         "price": 14,
         "description": "A delicious blend of organic turkish red lentils, turkish seasoning, fresh herbs",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1486,7 +1496,7 @@ menu_items = [{
         "type": "dessert",
         "price": 7,
         "description": "A mix of fresh, local fruit",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1497,7 +1507,7 @@ menu_items = [{
         "type": "beverage",
         "price": 4,
         "description": "Very sweet tea made with fresh mint leaves",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1508,7 +1518,7 @@ menu_items = [{
         "type": "beverage",
         "price": 6,
         "description": "Imported Coca-cola made with cane sugar",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1519,7 +1529,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 7,
         "description": "Baked fresh every morning, served with salted butter",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1530,7 +1540,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 13,
         "description": "Choice of goat cheese or blue cheese, comes with herb vinaigrette",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1541,7 +1551,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 13,
         "description": "Served with golden raisins, cashews and Vadouvan curry yogurt",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1552,7 +1562,7 @@ menu_items = [{
         "type": "entree",
         "price": 75,
         "description": "confit smashed fingerling potatoes, melted leeks, grilled asparagus with roasted garlic and a thyme demi glace",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1563,7 +1573,7 @@ menu_items = [{
         "type": "entree",
         "price": 47,
         "description": "Served with kimchi fried rice, green beans and a cherry gastrique",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1574,7 +1584,7 @@ menu_items = [{
         "type": "entree",
         "price": 36,
         "description": "Served with herb mashed potatoes, crispy leeks and a balsamic reduction",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1585,7 +1595,7 @@ menu_items = [{
         "type": "entree",
         "price": 41,
         "description": "Served with crispy fingerling potatoes, broccoli, artichoke, and a peppercorn cognac cream sauce",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1596,7 +1606,7 @@ menu_items = [{
         "type": "dessert",
         "price": 9,
         "description": "macerated strawberries and blueberries, toasted walnuts, strawberry sauce, and whipped cream",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1607,7 +1617,7 @@ menu_items = [{
         "type": "dessert",
         "price": 12,
         "description": "graham cracker crust served with creme anglaise",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1618,7 +1628,7 @@ menu_items = [{
         "type": "dessert",
         "price": 8.5,
         "description": "almond tuile",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1629,7 +1639,7 @@ menu_items = [{
         "type": "dessert",
         "price": 10,
         "description": "served with chocolate sauce",
-        "image_url": 0,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }

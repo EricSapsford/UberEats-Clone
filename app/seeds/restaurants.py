@@ -12,6 +12,7 @@ def seed_restaurants():
             category = rest["category"],
             price_range = rest["price_range"],
             owner_id = rest["owner_id"],
+            image_url = rest["image_url"],
             created_at=rest["created_at"],
             updated_at=rest["updated_at"]
         )
