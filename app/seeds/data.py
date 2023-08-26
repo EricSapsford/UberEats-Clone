@@ -174,7 +174,7 @@ restaurants = [
         "id": 8,
         "name": "Mike's Grill",
         "address": "876 Oak Rd, Grilleville",
-        "category": "Fast Food",
+        "category": "Fast_Food",
         "price_range": 5,
         "owner_id": 6,
         "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
