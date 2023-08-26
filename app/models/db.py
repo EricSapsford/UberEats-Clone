@@ -144,7 +144,7 @@ class Restaurant(db.Model):
             "ownerId": self.owner_id,
             "imageUrl": self.image_url,
             "createdAt": self.created_at,
-            "updatedAt": self.updated_at
+            "updatedAt": self.updated_at,
         }
 
 

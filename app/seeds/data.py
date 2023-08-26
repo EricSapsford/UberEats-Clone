@@ -202,6 +202,17 @@ restaurants = [
         "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
+    },
+    {
+        "id": 11,
+        "name": "Mount Ida",
+        "address": "5931 Blenheim Rd",
+        "category": "Mediterranean",
+        "price_range": 3,
+        "owner_id": 8,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "created_at": datetime.datetime.now(),
+        "updated_at": datetime.datetime.now()
     }
 ]
 
