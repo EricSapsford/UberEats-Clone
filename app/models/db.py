@@ -115,7 +115,7 @@ class Restaurant(db.Model):
     street_address = db.Column(db.String(255), nullable=False)
     category = db.Column(db.Enum(RestaurantCategory), nullable=False)
     price_range = db.Column(db.Integer, nullable=False)
-    owner_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    owner_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
     image_url = db.Column(db.String, nullable=False)
     created_at = db.Column(db.Date, nullable=False)
     updated_at = db.Column(db.Date, nullable=False)
@@ -161,8 +161,8 @@ class Review(db.Model):
         __table_args__ = {"schema": SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-    restaurant_id = db.Column(db.Integer, db.ForeignKey("restaurants.id"), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
+    restaurant_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("restaurants.id")), nullable=False)
     review_text = db.Column(db.String(800), nullable=False)
     stars = db.Column(db.Integer, nullable=False)
     created_at = db.Column(db.Date, nullable=False)
@@ -208,7 +208,7 @@ class MenuItem(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    restaurant_id = db.Column(db.Integer, db.ForeignKey("restaurants.id"), nullable=False)
+    restaurant_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("restaurants.id")), nullable=False)
     name = db.Column(db.String(100), nullable=False)
     type = db.Column(db.Enum(MenuItemEnum), nullable=False)
     price = db.Column(db.Float, nullable=False)
@@ -249,8 +249,8 @@ class Order(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     menu_items = db.Column(db.String(255), nullable=False)
     total_cost = db.Column(db.Float, nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-    restaurant_id = db.Column(db.Integer, db.ForeignKey("restaurants.id"), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
+    restaurant_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("restaurants.id")), nullable=False)
     created_at = db.Column(db.Date, nullable=False)
 
     # one-to-many: one user can have many orders
