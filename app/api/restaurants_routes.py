@@ -16,5 +16,5 @@ def get_all_rests_with_one():
     #     print(res1)
     # print(restaurants)
     # res = [{"body": rest.to_dict(), "mu":res1 } for rest in restaurants]
-    res = {"restaurants": [rest.to_dict() for rest in restaurants]}
+    res = [rest.to_dict() for rest in restaurants]
     return res

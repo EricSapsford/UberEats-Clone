@@ -26,9 +26,6 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path="/restaurants">
-            <h1>Get all Restaurants that have at least one menu item page</h1>
-          </Route>
         </Switch>
       )}
     </>
