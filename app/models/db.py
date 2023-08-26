@@ -68,7 +68,12 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'username': self.username,
-            'email': self.email
+            'email': self.email,
+            'firstName': self.first_name,
+            'lastName': self.last_name,
+            'streetAddress': self.street_address,
+            'createdAt': self.created_at,
+            'updatedAt': self.updated_at
         }
 
 
