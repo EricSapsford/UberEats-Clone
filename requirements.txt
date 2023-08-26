@@ -14,8 +14,6 @@
 
 # make sure to import your protectedroute into app.js
 
-# this is a commit line, ignore.
-
 # csrf protection on every put and post (anything with a body)
 # form['csrf_token'].data = request.cookies['csrf_token']
 # return {'errors': validation_errors_to_error_messages(form.errors)}, 401
