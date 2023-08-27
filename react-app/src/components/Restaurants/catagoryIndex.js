@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import * as restaurantActions from "../../store/restaurant"
 
@@ -19,16 +19,18 @@ const restaurantCatagoryArr = [
   'Vegetarian',
 ];
 
-function RestaurantsNav() {
+function RestaurantsByCatagoryNav() {
+
   const dispatch = useDispatch();
+  const { catagory } = useParams();
 
   useEffect(() => {
-    dispatch(restaurantActions.getAllRestaurantsWithOneMenuItemThunk());
-  }, [dispatch])
+    dispatch(restaurantActions.getAllRestaurantsByCatagoryThunk(catagory));
+  }, [dispatch, catagory]);
 
   const restState = useSelector((state) => (state.restaurant ? state.restaurant : {}))
 
-  const restStateArr = Object.values(restState.allRestaurants)
+  const restStateArr = Object.values(restState.catagoryRestaurants)
 
 
   return (
@@ -40,18 +42,18 @@ function RestaurantsNav() {
         </div>
         <div>
           <h1>Explore by catagory</h1>
-          {restaurantCatagoryArr.map((catagory) => (
-            <div key={`${catagory}Nav`}>
+          {restaurantCatagoryArr.map((cata) => (
+            <div key={`${cata}Nav`}>
               <NavLink
-                exact to ={`/restaurants/${catagory}`}
+                exact to ={`/restaurants/${cata}`}
               >
-                {catagory}
+                {cata}
               </NavLink>
             </div>
           ))}
         </div>
         <div>
-          <h1>Restaurants</h1>
+          <h1>{catagory} Restaurants</h1>
         </div>
         <div>
           {restStateArr.map((restaurant) => (
@@ -65,4 +67,4 @@ function RestaurantsNav() {
   )
 }
 
-export default RestaurantsNav
+export default RestaurantsByCatagoryNav
