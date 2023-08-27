@@ -36,10 +36,36 @@ const getAllRestaurantsByCatagory = (restaurants) => {
   }
 }
 
+const getOneRestaurant = (restaurant) => {
+  return {
+    type: GET_ONE_RESTAURANT,
+    restaurant
+  }
+};
+
 //===================================== THUNKS ====================================
 //===================================== THUNKS ====================================
 //===================================== THUNKS ====================================
 //===================================== THUNKS ====================================
+
+// THUNK: GET ONE RESTAURANT
+export const getOneRestaurantThunk = (restaurantId) => async (dispatch) => {
+  const res = await fetch(`/api/restaurants/${restaurantId}`, { method: "GET" });
+  // console.log("***** in getOneRestaurantThunk: res ****", res)
+
+  if (res.ok) {
+    // console.log("***** in getOneRestaurantThunk: res.ok ****")
+    // console.log("***** in getOneRestaurantThunk: res ****", res)
+    const restaurant = await res.json();
+    // console.log("***** in getOneRestaurantThunk: restaurant ****", restaurant)
+    dispatch(getOneRestaurant(restaurant));
+  } else {
+    // console.log("***** in getOneRestaurantThunk: RES NOT OK ****")
+    const errors = await res.json();
+    // console.log("***** in getOneRestaurantThunk: errors ****", errors)
+    return errors;
+  };
+};
 
 export const getAllRestaurantsWithOneMenuItemThunk = () => async (dispatch) => {
   const res = await fetch("/api/restaurants", {
@@ -93,7 +119,18 @@ const initialState = {
 
 const restaurantReducer = (state = initialState, action) => {
 
-  switch(action.type) {
+  switch (action.type) {
+
+    case GET_ONE_RESTAURANT: {
+      // console.log("***** in GET_ONE_RESTAURANT: Reducer ****")
+      // console.log("***** in GET_ONE_RESTAURANT: state ****", state)
+      // console.log("***** in GET_ONE_RESTAURANT: action ****", action)
+      const newState = { ...state, singleRestaurant: {} };
+      newState.singleRestaurant = action.restaurant.restaurant;
+      // console.log("***** in GET_ONE_RESTAURANT: newState ****", newState)
+      return newState;
+    }
+
     case GET_ALL_RESTAURANTS_WITH_ONE_MENU_ITEM: {
       const newState = { ...state, allRestaurants: {} }
 
@@ -105,7 +142,7 @@ const restaurantReducer = (state = initialState, action) => {
     }
 
     case GET_ALL_RESTAURANTS_BY_CATAGORY: {
-      const newState = { ...state, catagoryRestaurants: {}}
+      const newState = { ...state, catagoryRestaurants: {} }
 
       action.restaurants.forEach((restObj) => {
         newState.catagoryRestaurants[restObj.id] = restObj
