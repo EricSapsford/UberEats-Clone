@@ -12,7 +12,7 @@ function RestaurantCard({ restaurant }) {
   return (
     <div>
       <div>
-        <NavLink to={`/restaurants/${restaurant.id}`} style={{ textDecoration: "none"}}>
+        <NavLink to={`/restaurants/${restaurant.id}/menu`}>
           <div>
             <img src={restaurant.imageUrl ? restaurant.imageUrl : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"} alt="Restaurant Image" />
           </div>
@@ -26,7 +26,7 @@ function RestaurantCard({ restaurant }) {
             <div>
               {restaurant.category}
             </div>
-              {priceRangeString}
+            {priceRangeString}
             <div>
             </div>
             <div>

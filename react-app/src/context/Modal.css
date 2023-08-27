@@ -21,7 +21,7 @@
 #modal-content {
   position: absolute;
   background-color: white;
-  border-radius: 5px;
+  border-radius: 7px;
   padding: 20px 40px;
 }
 
@@ -40,7 +40,7 @@
 #modal-content form input {
   background-color: rgb(239, 239, 239);
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 7px;
   border: 3px solid #FFFFFF;
 }
 
@@ -53,6 +53,10 @@
   background-color: #000000;
   padding: 10px;
   margin: 30px 0;
-  border-radius: 5px;
+  border-radius: 7px;
   border: 3px solid #000000;
+}
+
+.modal-content form button:hover {
+  cursor: pointer
 }
