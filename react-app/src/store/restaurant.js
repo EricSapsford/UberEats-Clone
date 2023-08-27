@@ -21,7 +21,7 @@ const UPDATE_RESTAURANT_IMAGE = "restaurants/updateRestaurantImage"
 //================================ ACTION CREATORS ================================
 //================================ ACTION CREATORS ================================
 
-const getAllRestaurantsWithOneMenuItem = (rest) => {
+const getAllRestaurantsWithOneMenuItem = (restaurants) => {
   return {
     type: GET_ALL_RESTAURANTS_WITH_ONE_MENU_ITEM,
     restaurants
@@ -39,14 +39,18 @@ export const getAllRestaurantsWithOneMenuItemThunk = () => async (dispatch) => {
   })
   if (res.ok) {
     const { restaurants } = await res.json();
-    console.log("data inside thunk", data)
-    if (data.errors) {
-      return;
-    }
-
-    dispatch(getAllRestaurantsWithOneMenuItem(data))
+    console.log("data inside thunk", restaurants)
+    // if (restaurants.errors) {
+    //   return;
+    // }
+    dispatch(getAllRestaurantsWithOneMenuItem(restaurants))
+  } else {
+    const errors = await res.json();
+    return errors
   }
+
 }
+
 
 //===================================== REDUCER ===================================
 //===================================== REDUCER ===================================
@@ -76,3 +80,5 @@ const restaurantReducer = (state = initialState, action) => {
     }
   }
 }
+
+export default restaurantReducer;
