@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 
 function PastOrdersPage() {
+    dispatch = useDispatch()
 
     orders = useSelector(state=>state.orders.pastOrders)
     restaurants = useSelector(state=>state.restaurants)
@@ -19,14 +20,8 @@ function PastOrdersPage() {
         return place.name
     }
 
-    const getMenuItems = (str) => {
-        idArr = str.split(",")
-        itemsArr = []
-        idArr.forEach(num => {
-            const item = menuItems.find(thing => thing.id === num)
-            itemsArr.push(item)
-        })
-        return itemsArr
+    const handleReorder = () => {
+        
     }
 
     return (
@@ -37,12 +32,16 @@ function PastOrdersPage() {
                         <img src={renderRestaurantImage(order.restaurantId)} />
                     </div>
                     <div>
-                        <div>Restaurant Name</div>
+                        <div>{() => getRestaurantName(order.restaurantId)}</div>
                         <div>${order.totalCost} • {order.createdAt.toDateString()}</div>
-                        <div>{}</div>
+                        <div>
+                            {order.menuItems.map(item => (
+                                <div>1 {item.name}</div>
+                            ))}
+                        </div>
                     </div>
                     <div>
-
+                        <button>Reorder</button>
                     </div>
                 </div>
             )))}
