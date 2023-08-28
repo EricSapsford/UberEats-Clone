@@ -1,10 +1,11 @@
 from flask import Blueprint, request
-from ..models.db import db, User, Restaurant, MenuItem, Review
+from ..models.db import db, User, Restaurant, MenuItem, Review, Order
 from ..forms.menu_item_form import MenuItemForm
 from ..forms.restaurant_form import RestaurantForm
 from ..forms.review_form import ReviewForm
 from flask_login import login_required, current_user
 # from ..forms.restaurant_form imprt RestaurantForm
+import datetime
 
 restaurant_routes = Blueprint("restaurants", __name__)
 
@@ -117,3 +118,30 @@ def create_restaurant():
         db.session.commit()
         return new_restaurant.to_dict()
     return {"errors": validation_errors_to_error_messages(form.errors)}
+
+### Create a Review for a Restaurant: POST /api/restaurants/:restaurantId/reviews
+@restaurant_routes.route("/<int:id>/reviews", methods=["POST"])
+@login_required
+def create_review(id):
+    form = ReviewForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    past_orders = Order.query.filter(Order.user_id == current_user.id).all()
+    past_reviews = Review.query.filter(Review.user_id == current_user.id).all()
+    if (len(past_reviews)):
+        return {'message':'You can only submit one review for a restaurant'}, 403
+    if (not len(past_orders)):
+        return {'message': 'You must have ordered from a restaurant to create a review'}, 403
+    if form.validate_on_submit():
+        new_review = Review(
+            user_id=current_user.id,
+            restaurant_id=id,
+            review_text=form.data["review_text"],
+            stars=form.data['stars'],
+            created_at=datetime.datetime.now(),
+            updated_at=datetime.datetime.now()
+        )
+        db.session.add(new_review)
+        db.session.commit()
+        return new_review.to_dict()
+    if form.errors:
+        return {"errors": form.errors}, 404
