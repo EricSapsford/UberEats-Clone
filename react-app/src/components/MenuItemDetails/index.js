@@ -13,11 +13,24 @@ export default function MenuItemDetails() {
   const menuItem = useSelector(state => state.menuItems.singleMenuItem ? state.menuItems.singleMenuItem : {}); // {}
   const restaurant = useSelector(state => state.restaurant.singleRestaurant ? state.restaurant.singleRestaurant : {}); // {}
 
-  let hideCartButtons = true;
+  console.log("***** in MenuItemDetails: sessionUser ****", sessionUser)
+
+  let hideAddButton = true;
   if (sessionUser === null) { // logged out
-    hideCartButtons = true;
+    hideAddButton = true;
   } else if (sessionUser !== null && sessionUser !== undefined) { // logged in
-    hideCartButtons = false;
+    hideAddButton = false;
+  }
+
+  let hideRemoveButton = true;
+  if (sessionUser === null) { // logged out
+    hideRemoveButton = true;
+  } else if (sessionUser !== null && sessionUser !== undefined) { // logged in
+    // TO EDIT: ONCE SHOPPING CART EXISTS
+    // LOGIC: ONLY DISPLAY 'REMOVE' BUTTON IF CART HAS ITEMS IN IT
+    // ('numCartItems' is just a placeholder/suggested var name)
+    // } else if (sessionUser !== null && numCartItems > 0) { // logged in
+    hideRemoveButton = false;
   }
 
   const dispatch = useDispatch();
@@ -53,14 +66,18 @@ export default function MenuItemDetails() {
                 {menuItem.description}
               </div>
               <div>
-                <button className='menu-item-details-add-or-remove-button'>
-                  Add to order
-                </button>
+                {hideAddButton ? null :
+                  <button className='menu-item-details-add-or-remove-button'>
+                    Add to order
+                  </button>
+                }
               </div>
               <div>
-                <button className='menu-item-details-add-or-remove-button'>
-                  Remove from order
-                </button>
+                {hideRemoveButton ? null :
+                  <button className='menu-item-details-add-or-remove-button'>
+                    Remove from order
+                  </button>
+                }
               </div>
             </div>
           </div>

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useSelector } from 'react-redux';
 import { useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-// import { createMenuItemThunk } from "../../store/menuItems";
+import { createMenuItemThunk } from "../../store/menuItems";
 // import { updateMenuItemThunk } from "../../store/menuItems";
 import './MenuItemForm.css';
 
@@ -40,7 +40,7 @@ export default function MenuItemForm({ menuItem, formType }) {
       type,
       price,
       description,
-      url,
+      imageUrl,
       menuItemId,
     }
 

@@ -1,7 +1,53 @@
 .profile-dropdown {
   position: absolute;
+  top: -16px;
+  left: -1px;
+  height: 100%;
+  width: 200px;
+  /* width: 30%; */
+  padding: 40px 50px;
+  background-color: #FFFFFF;
+  /* border: 1px solid red; */
+  box-shadow: 10px 0px 50px #e5e5e5;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#dropdown-user-icon {
+  margin-right: 5px;
+}
+
+#dropdown-sign-out-link {
+  color: #787878;
+  cursor: pointer;
+}
+
+#dropdown-sign-out-link:hover {
+  cursor: pointer;
 }
 
 .hidden {
   display: none;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  padding: 30px;
+}
+
+#nav-logo-text {
+  font-size: 30px;
+}
+
+#nav-right-hamburger-and-logo {
+  display: flex;
+  gap: 20px;
+}
+
+#nav-left-other-buttons {
+  display: flex;
+  gap: 20px;
 }
