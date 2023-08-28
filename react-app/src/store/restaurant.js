@@ -11,6 +11,7 @@
 const GET_ALL_RESTAURANTS_WITH_ONE_MENU_ITEM = "restaurants/getAllRestaurantsWithOneMenuItem"
 const GET_ALL_RESTAURANTS_BY_CATAGORY = "restaurants/getAllRestaurantsByCatagory"
 const GET_ONE_RESTAURANT = "restaurants/getOneRestaurant"
+const GET_ALL_RESTAURANTS_BY_CURRENT_USER = "restaurants/getAllRestaurantsByCurrentUser"
 const CREATE_RESTAURANT = "restaurants/createRestaurant"
 const UPDATE_RESTAURANT = "restaurants/updateRestaurant"
 const DELETE_RESTAURANT = "restaurants/deleteRestaurant"
@@ -32,6 +33,13 @@ const getAllRestaurantsWithOneMenuItem = (restaurants) => {
 const getAllRestaurantsByCatagory = (restaurants) => {
   return {
     type: GET_ALL_RESTAURANTS_BY_CATAGORY,
+    restaurants
+  }
+}
+
+const getAllRestaurantsByCurrentUser = (restaurants) => {
+  return {
+    type: GET_ALL_RESTAURANTS_BY_CURRENT_USER,
     restaurants
   }
 }
@@ -67,6 +75,7 @@ export const getOneRestaurantThunk = (restaurantId) => async (dispatch) => {
   };
 };
 
+// THUNK: GET ALL RESTAURANTS WITH ONE MENU ITEM
 export const getAllRestaurantsWithOneMenuItemThunk = () => async (dispatch) => {
   const res = await fetch("/api/restaurants", {
     method: "GET",
@@ -86,6 +95,27 @@ export const getAllRestaurantsWithOneMenuItemThunk = () => async (dispatch) => {
 
 }
 
+// THUNK: GET ALL RESTAURANTS BY CURRENT USER
+export const getAllRestaurantsByCurrentUserThunk = () => async (dispatch) => {
+  const res = await fetch("/api/restaurants/current", {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+  })
+  if (res.ok) {
+    const { restaurants } = await res.json();
+    console.log("data inside thunk", restaurants)
+    // if (restaurants.errors) {
+    //   return;
+    // }
+    dispatch(getAllRestaurantsByCurrentUser(restaurants))
+  } else {
+    const errors = await res.json();
+    return errors
+  }
+
+}
+
+// THUNK: GET ALL RESTAURANTS BY CATEGORY
 export const getAllRestaurantsByCatagoryThunk = (catagory) => async (dispatch) => {
   const res = await fetch(`/api/restaurants/${catagory}`, {
     method: "GET",
@@ -114,6 +144,7 @@ export const getAllRestaurantsByCatagoryThunk = (catagory) => async (dispatch) =
 const initialState = {
   allRestaurants: {},
   catagoryRestaurants: {},
+  usersRestaurants: {},
   singleRestaurant: {}
 }
 
@@ -133,21 +164,25 @@ const restaurantReducer = (state = initialState, action) => {
 
     case GET_ALL_RESTAURANTS_WITH_ONE_MENU_ITEM: {
       const newState = { ...state, allRestaurants: {} }
-
       action.restaurants.forEach((restObj) => {
         newState.allRestaurants[restObj.id] = restObj
       });
-
       return newState
     }
 
     case GET_ALL_RESTAURANTS_BY_CATAGORY: {
       const newState = { ...state, catagoryRestaurants: {} }
-
       action.restaurants.forEach((restObj) => {
         newState.catagoryRestaurants[restObj.id] = restObj
       });
+      return newState
+    }
 
+    case GET_ALL_RESTAURANTS_BY_CURRENT_USER: {
+      const newState = { ...state, usersRestaurants: {} }
+      action.restaurants.forEach((restObj) => {
+        newState.usersRestaurants[restObj.id] = restObj
+      });
       return newState
     }
 
