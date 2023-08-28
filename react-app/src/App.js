@@ -14,6 +14,7 @@ import RestaurantsByCatagoryNav from "./components/Restaurants/catagoryIndex"
 import MenuItemDetails from "./components/MenuItemDetails";
 import Footer from "./components/Footer";
 import './app.css';
+import PastOrdersPage from "./components/PastOrdersPage/PastOrdersPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -50,6 +51,9 @@ function App() {
           </Route>
           <Route exact path="/menu-items/:menuItemId">
             <MenuItemDetails />
+          </Route>
+          <Route exact path="/past-orders">
+            <PastOrdersPage />
           </Route>
           <Route>
             <h1>Route does not exist</h1>
