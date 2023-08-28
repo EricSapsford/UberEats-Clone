@@ -5,11 +5,11 @@ import { thunkGetPastOrders } from "../../store/orders";
 
 
 function PastOrdersPage() {
-    dispatch = useDispatch()
+    const dispatch = useDispatch()
 
-    orders = useSelector(state=>state.orders.pastOrders)
-    restaurants = useSelector(state=>state.restaurants)
-    menuItems = useSelector(state=>state.menuItems.allMenuItems)
+    const orders = useSelector(state=>state.orders.pastOrders)
+    const restaurants = useSelector(state=>state.restaurants)
+    const menuItems = useSelector(state=>state.menuItems.allMenuItems)
 
     useEffect(() => {
         dispatch(thunkGetPastOrders())

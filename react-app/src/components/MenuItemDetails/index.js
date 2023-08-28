@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { getOneMenuItemThunk } from '../../store/menuItems';
 import './MenuItemDetails.css';
 import { getOneRestaurantThunk } from '../../store/restaurant';
@@ -9,6 +9,8 @@ export default function MenuItemDetails() {
   const sessionUser = useSelector(state => state.session.user);
   const { menuItemId } = useParams();
   const menuItemIdAsNum = parseInt(menuItemId);
+
+  const [isLoaded, setIsLoaded] = useState(false)
 
   const menuItem = useSelector(state => state.menuItems.singleMenuItem ? state.menuItems.singleMenuItem : {}); // {}
   const restaurant = useSelector(state => state.restaurant.singleRestaurant ? state.restaurant.singleRestaurant : {}); // {}
@@ -37,10 +39,13 @@ export default function MenuItemDetails() {
   useEffect(() => {
     dispatch(getOneMenuItemThunk(menuItemId));
     dispatch(getOneRestaurantThunk(menuItem.restaurantId))
+    setIsLoaded(true)
   }, [dispatch, menuItemId]);
 
   return (
     <>
+    { isLoaded &&
+      (
       <div className='menu-item-details-outermost-box'>
         <div className='menu-item-details-centering-box'>
 
@@ -84,6 +89,8 @@ export default function MenuItemDetails() {
 
         </div>
       </div>
+      )
+    }
     </>
   )
 };
