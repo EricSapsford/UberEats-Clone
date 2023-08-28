@@ -46,7 +46,7 @@ def get_all_menu_items_for_rest(id):
     return { "menu_items": [menu_item.to_dict() for menu_item in menu_items] }
 
 ### Create menu item for rest: POST /api/restaurants/:restaurant_id/menu
-@restaurant_routes.route('/<int:id>/menu', methods=['POST'])
+@restaurant_routes.route('/<int:id>/menu/new', methods=['POST'])
 @login_required
 def create_menu_item_for_rest(id):
     """

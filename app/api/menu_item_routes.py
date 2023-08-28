@@ -14,7 +14,7 @@ def get_menu_item(id):
     menu_item = MenuItem.query.get(id)
     return menu_item.to_dict()
 
-### Update menu item: PUT /api/menu-items/update/:menu_item_id
+### Update menu item: PUT /api/menu-items/:menu_item_id/update
 @menu_item_routes.route('/<int:id>/update', methods=['PUT'])
 @login_required
 def update_menu_item(id):
@@ -37,7 +37,7 @@ def update_menu_item(id):
     if form.errors:
         return { "errors": form.errors }
 
-### Delete menu item: DELETE /api/menu-items/delete/:menu_item_id
+### Delete menu item: DELETE /api/menu-items/:menu_item_id/delete
 @menu_item_routes.route('/<int:id>/delete', methods=['DELETE'])
 @login_required
 def delete_menu_item(id):
@@ -50,9 +50,9 @@ def delete_menu_item(id):
     return { "Successfully deleted menu item id": id }
 
 
-############################## ADD TO OTHER FILES ##############################
-############################## ADD TO OTHER FILES ##############################
-############################## ADD TO OTHER FILES ##############################
+############################## ADDED TO OTHER FILES ##############################
+############################## ADDED TO OTHER FILES ##############################
+############################## ADDED TO OTHER FILES ##############################
 
 
 # 1. ADDED TO app/__init__.py:
