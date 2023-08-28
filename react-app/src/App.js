@@ -7,6 +7,7 @@ import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import ProtectedRoute from "./components/auth/ProtectedRoute"
 import './app.css';
+import PastOrdersPage from "./components/PastOrdersPage/PastOrdersPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,6 +26,9 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route exact path="/past-orders">
+            <PastOrdersPage />
           </Route>
         </Switch>
       )}

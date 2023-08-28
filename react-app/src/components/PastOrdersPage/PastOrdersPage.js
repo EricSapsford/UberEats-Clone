@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { thunkGetPastOrders } from "../../store/orders";
 
 
 function PastOrdersPage() {
@@ -9,6 +10,10 @@ function PastOrdersPage() {
     orders = useSelector(state=>state.orders.pastOrders)
     restaurants = useSelector(state=>state.restaurants)
     menuItems = useSelector(state=>state.menuItems.allMenuItems)
+
+    useEffect(() => {
+        dispatch(thunkGetPastOrders())
+    }, [])
 
     const renderRestaurantImage = (id) => {
         const place = restaurants.find(restaurant => restaurant.id === id)
@@ -21,7 +26,7 @@ function PastOrdersPage() {
     }
 
     const handleReorder = () => {
-        
+        alert('nice try bud')
     }
 
     return (
@@ -41,7 +46,7 @@ function PastOrdersPage() {
                         </div>
                     </div>
                     <div>
-                        <button>Reorder</button>
+                        <button onClick={() => handleReorder()}>Reorder</button>
                     </div>
                 </div>
             )))}
@@ -50,4 +55,4 @@ function PastOrdersPage() {
 }
 
 
-export default OrderPage
+export default PastOrdersPage
