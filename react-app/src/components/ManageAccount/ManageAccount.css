@@ -1,0 +1,40 @@
+#account-landing-outermost-box {
+    margin: 0 30px;
+    display: flex;
+    gap: 40px;
+}
+
+#account-landing-left-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#account-landing-sign-out-btn {
+    color: #787878;
+    cursor: pointer;
+}
+
+#account-landing-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#account-landing-header {
+    font-size: 35px;
+    padding-bottom: 15px;
+}
+
+#account-landing-subheader {
+    font-size: 24px;
+    padding-bottom: 15px;
+}
+
+.account-landing-info-header {}
+
+.account-landing-info {
+    color: #787878;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #dadada;
+}

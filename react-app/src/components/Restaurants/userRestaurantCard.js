@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-function RestaurantCard({ restaurant }) {
+function UserRestaurantCard({ restaurant }) {
 
   let priceRangeString = "";
   for (let index = 0; index < restaurant.priceRange; index++) {
@@ -32,6 +32,16 @@ function RestaurantCard({ restaurant }) {
             <div>
               {restaurant.streetAddress}
             </div>
+            <div>
+            <NavLink to={`/restaurants/${restaurant.id}/update`}>
+              Edit Restaurant
+            </NavLink>
+            </div>
+            <div>
+            <NavLink to={`/restaurants/${restaurant.id}/menu/view`}>
+              Edit Menu
+            </NavLink>
+            </div>
           </div>
         </NavLink>
       </div>
@@ -39,4 +49,4 @@ function RestaurantCard({ restaurant }) {
   )
 }
 
-export default RestaurantCard;
+export default UserRestaurantCard;

@@ -31,7 +31,7 @@ function ReviewCard() {
 
     return (
         <>
-        { && <div>
+        { <div>
             
         </div>}
             {isLoaded && (reviews.map((review) => (
