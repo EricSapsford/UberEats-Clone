@@ -20,8 +20,8 @@ export default function HomePage({ isLoaded }) {
                     <h3>Feeling hungry?</h3>
                     <div className='homePageModal'>
                         {!sessionUser && <OpenModalButton
-                        buttonText='Sign up today'
-                        modalComponent={<SignupFormModal/>}/>}
+                            buttonText='Sign up today'
+                            modalComponent={<SignupFormModal />} />}
                     </div>
                 </div>
                 <div>
@@ -34,8 +34,8 @@ export default function HomePage({ isLoaded }) {
                     <h3>Already know what you want?</h3>
                     <div className='homePageModal'>
                         {!sessionUser && <OpenModalButton
-                        buttonText='Log in to your account'
-                        modalComponent={<LoginFormModal/>}/>}
+                            buttonText='Log in to your account'
+                            modalComponent={<LoginFormModal />} />}
                     </div>
                 </div>
             </div>
