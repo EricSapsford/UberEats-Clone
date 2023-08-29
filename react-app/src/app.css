@@ -8,3 +8,7 @@
 .green {
     color: #048c44;
 }
+
+#root {
+    width: 100%;
+}

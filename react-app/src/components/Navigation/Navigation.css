@@ -69,6 +69,7 @@ nav {
 }
 
 .shopping-cart {
+  cursor: pointer;
   display: flex;
   font-size: 14pt;
   gap: 8px;
