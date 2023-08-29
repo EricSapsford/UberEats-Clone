@@ -4,8 +4,8 @@ from ..forms.menu_item_form import MenuItemForm
 from ..forms.restaurant_form import RestaurantForm
 from ..forms.review_form import ReviewForm
 from flask_login import login_required, current_user
-# from ..forms.restaurant_form imprt RestaurantForm
 import datetime
+import json
 
 restaurant_routes = Blueprint("restaurants", __name__)
 
@@ -66,7 +66,7 @@ def get_all_menu_items_for_rest(id):
     menu_items = MenuItem.query.filter(MenuItem.restaurant_id == id).all()
     return { "menu_items": [menu_item.to_dict() for menu_item in menu_items] }
 
-### Create menu item for rest: POST /api/restaurants/:restaurant_id/menu
+### Create menu item for rest: POST /api/restaurants/:restaurant_id/menu/new
 @restaurant_routes.route('/<int:id>/menu/new', methods=['POST'])
 @login_required
 def create_menu_item_for_rest(id):
@@ -83,13 +83,17 @@ def create_menu_item_for_rest(id):
             type = form.data['type'],
             price = form.data['price'],
             description = form.data['description'],
-            image_url = form.data['image_url']
+            image_url = form.data['image_url'],
+            created_at = datetime.datetime.now(),
+            updated_at = datetime.datetime.now()
         )
         db.session.add(new_item)
         db.session.commit()
-        return new_item.to_dict()
+        res = new_item.to_dict()
+        # res = json.dumps(new_item.to_dict(), indent = 2)
+        return res
     if form.errors:
-        return { "errors": validation_errors_to_error_messages(form.errors) }
+        return { "errors": form.errors }, 400
 
 ### Get reviews for a restaurant by id: GET /api/restaurants/:restaurantId/reviews
 @restaurant_routes.route("/<int:id>/reviews", methods=["GET"])
@@ -153,7 +157,8 @@ def create_review(id):
     form['csrf_token'].data = request.cookies['csrf_token']
     past_orders = Order.query.filter(Order.user_id == current_user.id).all()
     past_reviews = Review.query.filter(Review.user_id == current_user.id).all()
-    if (len(past_reviews)):
+    restaurant_rev = [review for review in past_reviews if id == review.restaurant_id]
+    if (len(restaurant_rev) > 0):
         return {'message':'You can only submit one review for a restaurant'}, 403
     if (not len(past_orders)):
         return {'message': 'You must have ordered from a restaurant to create a review'}, 403

@@ -8,10 +8,6 @@
     font-size: 40px;
 }
 
-.restaurant-details {
-    font-size: 14px;
-}
-
 .restaurant-read-reviews {
     text-decoration: underline;
 }
@@ -22,10 +18,4 @@
 
 .restaurant-menu-item-card-holder {
     width: 400px;
-}
-
-.restaurant-menu-items {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
 }

@@ -1,0 +1,10 @@
+#menu-item-delete-modal-outermost-box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+#menu-item-delete-modal-text {
+    padding-bottom: 10px;
+}

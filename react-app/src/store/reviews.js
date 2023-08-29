@@ -1,13 +1,13 @@
 // Constant
 const GET_REVIEWS = "reviews/getReviews"
 const CREATE_REVIEW = "reviews/createReview"
-
+const REMOVE_REVIEW = "reviews/removeReview"
 
 // Action Creator
-const getReviews = (restaurant) => {
+const getReviews = (reviews) => {
     return {
         type: GET_REVIEWS, 
-        restaurant
+        reviews
     }
 }
 
@@ -15,6 +15,13 @@ const createReview = (review) => {
     return {
         type: CREATE_REVIEW,
         review
+    }
+}
+
+const removeReview = (reviewId) => {
+    return {
+        type: REMOVE_REVIEW,
+        reviewId
     }
 }
 
@@ -26,8 +33,7 @@ export const thunkGetReviews = (restaurantId) => async (dispatch) => {
     })
     if (res.ok) {
         const {reviews} = await res.json()
-        console.log("review thunk data: ", reviews);
-        dispatch(getReviews(restaurantId))
+        dispatch(getReviews(reviews))
     }else{
         const errors = await res.json()
         return errors
@@ -38,13 +44,28 @@ export const thunkCreateReview = (restaurantId, review) => async (dispatch) => {
     const res = await fetch(`/api/restaurants/${restaurantId}/reviews`, {
         method: "POST",
         headers: {"Content-Type":"application/json"},
-        body: JSON.stringify(review)
+        body: JSON.stringify({
+			review_text: review.reviewText,
+			stars: review.stars,
+		})
     })
     if (res.ok) {
         const newReview = await res.json()
         dispatch(createReview(newReview))
         return newReview
     } else {
+        const errors = await res.json()
+        return errors
+    }
+}
+
+export const thunkRemoveReview = (reviewId) => async (dispatch) => {
+    const res = await fetch(`/api/reviews/${reviewId}/delete`, {
+        method: 'DELETE'
+    })
+    if (res.ok) {
+        dispatch(removeReview(reviewId))
+    }else{
         const errors = await res.json()
         return errors
     }
@@ -59,7 +80,7 @@ const reviewsReducer = (state = initialState, action ) => {
     switch(action.type) {
         case GET_REVIEWS: {
             const newState = {...state, reviews: {}}
-            action.restaurant.forEach(review => {
+            action.reviews.forEach(review => {
                 newState.reviews[review.id] = review
             });
             return newState
@@ -69,6 +90,11 @@ const reviewsReducer = (state = initialState, action ) => {
                 ...state.reviews,
                 [action.review.id]: action.review
             }}
+            return newState
+        }
+        case REMOVE_REVIEW: {
+            const newState = {...state}
+            delete newState.reviews[action.reviewId]
             return newState
         }
         default: {
