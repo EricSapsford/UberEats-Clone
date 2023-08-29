@@ -9,6 +9,7 @@ import Navigation from "./components/Navigation";
 import HomePage from "./components/HomePage";
 import ProtectedRoute from "./components/auth/ProtectedRoute"
 import RestaurantDetails from "./components/RestaurantDetails";
+import RestaurantDetailsOwner from "./components/RestaurantDetailsOwner";
 import RestaurantsNav from "./components/Restaurants";
 import RestaurantsByCatagoryNav from "./components/Restaurants/catagoryIndex"
 import MenuItemDetails from "./components/MenuItemDetails";
@@ -42,6 +43,9 @@ function App() {
           </Route>
           <Route exact path="/restaurants/:restaurantId/menu">
             <RestaurantDetails />
+          </Route>
+          <Route exact path="/restaurants/:restaurantId/menu/manage">
+            <RestaurantDetailsOwner />
           </Route>
           <Route exact path="/restaurants/:catagory">
             <RestaurantsByCatagoryNav />

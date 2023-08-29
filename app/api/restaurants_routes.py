@@ -6,6 +6,7 @@ from ..forms.review_form import ReviewForm
 from flask_login import login_required, current_user
 # from ..forms.restaurant_form imprt RestaurantForm
 import datetime
+import json
 
 restaurant_routes = Blueprint("restaurants", __name__)
 
@@ -66,7 +67,7 @@ def get_all_menu_items_for_rest(id):
     menu_items = MenuItem.query.filter(MenuItem.restaurant_id == id).all()
     return { "menu_items": [menu_item.to_dict() for menu_item in menu_items] }
 
-### Create menu item for rest: POST /api/restaurants/:restaurant_id/menu
+### Create menu item for rest: POST /api/restaurants/:restaurant_id/menu/new
 @restaurant_routes.route('/<int:id>/menu/new', methods=['POST'])
 @login_required
 def create_menu_item_for_rest(id):
@@ -83,13 +84,17 @@ def create_menu_item_for_rest(id):
             type = form.data['type'],
             price = form.data['price'],
             description = form.data['description'],
-            image_url = form.data['image_url']
+            image_url = form.data['image_url'],
+            created_at = datetime.datetime.now(),
+            updated_at = datetime.datetime.now()
         )
         db.session.add(new_item)
         db.session.commit()
-        return new_item.to_dict()
+        res = new_item.to_dict()
+        # res = json.dumps(new_item.to_dict(), indent = 2)
+        return res
     if form.errors:
-        return { "errors": form.errors }
+        return { "errors": form.errors }, 400
 
 ### Get reviews for a restaurant by id: GET /api/restaurants/:restaurantId/reviews
 @restaurant_routes.route("/<int:id>/reviews", methods=["GET"])
