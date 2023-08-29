@@ -4,7 +4,6 @@ from ..forms.menu_item_form import MenuItemForm
 from ..forms.restaurant_form import RestaurantForm
 from ..forms.review_form import ReviewForm
 from flask_login import login_required, current_user
-# from ..forms.restaurant_form imprt RestaurantForm
 import datetime
 
 restaurant_routes = Blueprint("restaurants", __name__)
@@ -127,7 +126,8 @@ def create_review(id):
     form['csrf_token'].data = request.cookies['csrf_token']
     past_orders = Order.query.filter(Order.user_id == current_user.id).all()
     past_reviews = Review.query.filter(Review.user_id == current_user.id).all()
-    if (len(past_reviews)):
+    restaurant_rev = [review for review in past_reviews if id == review.restaurant_id]
+    if (len(restaurant_rev) > 0):
         return {'message':'You can only submit one review for a restaurant'}, 403
     if (not len(past_orders)):
         return {'message': 'You must have ordered from a restaurant to create a review'}, 403
