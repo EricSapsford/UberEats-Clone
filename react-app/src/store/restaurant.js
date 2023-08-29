@@ -15,7 +15,7 @@ const GET_ALL_RESTAURANTS_BY_CURRENT_USER = "restaurants/getAllRestaurantsByCurr
 const CREATE_RESTAURANT = "restaurants/createRestaurant"
 const UPDATE_RESTAURANT = "restaurants/updateRestaurant"
 const DELETE_RESTAURANT = "restaurants/deleteRestaurant"
-const CREATE_RESTAURANT_IMAGE = "restaurants/createRestaurantImage"
+// const CREATE_RESTAURANT_IMAGE = "restaurants/createRestaurantImage"
 const UPDATE_RESTAURANT_IMAGE = "restaurants/updateRestaurantImage"
 
 //================================ ACTION CREATORS ================================
@@ -50,6 +50,26 @@ const getOneRestaurant = (restaurant) => {
     restaurant
   }
 };
+
+const createRestaurant = (restaurant) => {
+  return {
+    type: CREATE_RESTAURANT,
+    restaurant
+  }
+}
+
+const updateRestaurant = (restaurant) => {
+  return {
+    type: UPDATE_RESTAURANT,
+    restaurant
+  }
+}
+
+const deleteRestaurant = (restaurant) => {
+  return {
+    type: DELETE_RESTAURANT
+  }
+}
 
 //===================================== THUNKS ====================================
 //===================================== THUNKS ====================================
@@ -133,6 +153,56 @@ export const getAllRestaurantsByCatagoryThunk = (catagory) => async (dispatch) =
 
 }
 
+// THUNK: CREATE RESTAURANT
+export const createRestaurantThunk = (createdRestaurant) => async (dispatch) => {
+  const { name, streetAddress, category, priceRange, imageUrl } = createdRestaurant
+  const res = await fetch("/api/restaurants/new", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name,
+      street_address: streetAddress,
+      category,
+      price_range: priceRange,
+      image_url: imageUrl
+    })
+  })
+  if (res.ok) {
+    const data = await res.json();
+    // console.log("DATA IN THUNK", data)
+    // console.log("CATEGORY", category)
+    dispatch(createRestaurant(data));
+    return data
+  } else {
+    const errors = await res.json();
+    return errors
+  }
+}
+
+//THUNK: UPDATE RESTAURANT
+export const updateRestaurantThunk = (updatedRestaurant) => async (dispatch) => {
+  const { restaurantId, name, streetAddress, category, priceRange, imageUrl } = updatedRestaurant
+  const res = await fetch(`/api/restaurants/${restaurantId}/update`, {
+    method: "PUT",
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      name,
+      street_address: streetAddress,
+      category,
+      price_range: priceRange,
+      image_url: imageUrl
+    })
+  })
+  if (res.ok) {
+    const updatedRestaurant = await res.json();
+    dispatch(updateRestaurant(updatedRestaurant));
+    return updateRestaurant
+  } else {
+    const errors = await res.json();
+    return errors
+  }
+}
+
 
 //===================================== REDUCER ===================================
 //===================================== REDUCER ===================================
@@ -181,6 +251,27 @@ const restaurantReducer = (state = initialState, action) => {
       action.restaurants.forEach((restObj) => {
         newState.usersRestaurants[restObj.id] = restObj
       });
+      return newState
+    }
+
+    case CREATE_RESTAURANT: {
+      // console.log("IN CREATE RESTAURANT REDUCER")
+      // console.log("IN CREATE RESTAURANT REDUCER - STATE", state)
+      // console.log("IN CREATE RESTAURANT REDUCER - ACTION", action)
+      const newState = { ...state, usersRestaurants: { ...state.usersRestaurants }}
+      newState.usersRestaurants[action.restaurant.restaurant.id] = action.restaurant.restaurant
+      // console.log("NEWSTATE", newState)
+      return newState;
+    }
+
+    case UPDATE_RESTAURANT: {
+      // console.log("IN UPDATE RESTAURANT REDUCER")
+      // console.log("IN UPDATE RESTAURANT REDUCER - STATE", state)
+      // console.log("IN UPDATE RESTAURANT REDUCER - ACTION", action)
+      // console.log("FIND THE ID", action.restaurant.restaurant.id)
+      const newState = { ...state, usersRestaurants: { ...state.usersRestaurants }}
+      newState.usersRestaurants[action.restaurant.restaurant.id] = action.restaurant.restaurant
+      // console.log("NEWSTATE", newState)
       return newState
     }
 

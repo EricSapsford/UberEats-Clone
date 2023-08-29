@@ -145,6 +145,7 @@ class Restaurant(db.Model):
             "name": self.name,
             "streetAddress": self.street_address,
             "category": str(self.category).split(".")[1],
+            # "category": str(self.category),
             "priceRange": self.price_range,
             "ownerId": self.owner_id,
             "imageUrl": self.image_url,
