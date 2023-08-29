@@ -28,7 +28,7 @@ export default function ShoppingCartModal() {
         document.addEventListener("click", closeMenu);
 
         return () => document.removeEventListener("click", closeMenu);
-      }, [showMenu]);
+    }, [showMenu]);
 
     const ulClassName = "cart-dropdown" + (showMenu ? "" : " hidden");
 

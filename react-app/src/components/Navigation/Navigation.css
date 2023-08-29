@@ -1,4 +1,16 @@
+.profile-container button {
+  cursor: pointer;
+  font-size: 16pt;
+  background-color: transparent;
+  color: black;
+  padding: 14px 16px;
+  border-radius: 50px;
+  border: none;
+}
 
+.profile-container button:hover {
+  background-color: rgb(240, 240, 240);
+}
 
 .profile-dropdown {
   position: absolute;
@@ -46,6 +58,7 @@ nav {
 
 #nav-right-hamburger-and-logo {
   display: flex;
+  align-items: center;
   gap: 20px;
 }
 
