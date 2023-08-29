@@ -6,6 +6,9 @@ import * as sessionActions from '../../store/session';
 import { logout } from "../../store/session";
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
+import OpenModalButton from '../OpenModalButton';
+import LoginFormModal from '../LoginFormModal';
+import SignupFormModal from '../SignupFormModal';
 
 export default function Navigation({ isLoaded }) {
   const dispatch = useDispatch();
@@ -30,7 +33,7 @@ export default function Navigation({ isLoaded }) {
         {isLoaded && (<ProfileButton user={sessionUser} />)}
         <NavLink exact to="/">
           <span id='nav-logo-text'>
-            VancouverEats
+            VancoUberEats
           </span>
         </NavLink>
       </span>
@@ -42,7 +45,15 @@ export default function Navigation({ isLoaded }) {
         </NavLink>
         {sessionUser === null ?
           <>
-            <span>[Log in]</span><span>[Sign up]</span>
+            <div id='logInSignUpNavDiv'>
+              <div><OpenModalButton
+              buttonText='Log In'
+                modalComponent={<LoginFormModal/>} />
+              </div>
+              <div><OpenModalButton
+              buttonText='Sign Up'
+                modalComponent={<SignupFormModal/>} /></div>
+            </div>
           </>
           :
           <>
