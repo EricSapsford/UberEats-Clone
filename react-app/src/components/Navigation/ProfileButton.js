@@ -60,7 +60,11 @@ function ProfileButton({ user }) {
                 Manage account
               </Link>
             </div>
-            <div>Orders</div>
+            <div>
+              <Link to="/past-orders">
+                Orders
+              </Link>
+            </div>
             <div onClick={closeMenu}>
               <span id='dropdown-sign-out-link' onClick={handleLogout}>Sign out</span>
             </div>

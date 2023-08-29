@@ -5,7 +5,7 @@ import { thunkGetPastOrders } from "../../store/orders";
 import { getAllRestaurantsWithOneMenuItemThunk } from "../../store/restaurant";
 import './PastOrdersPage.css'
 
-function PastOrdersPage() {
+function PastOrdersPage({ parent }) {
     const dispatch = useDispatch()
 
     const [isLoaded, setIsLoaded] = useState(false)
@@ -22,22 +22,22 @@ function PastOrdersPage() {
     console.log("restaurants: ", restaurants)
     const user = useSelector(state=>state.session.user)
 
-    const renderRestaurantImage = (id) => {
-        return restaurantsObj[id].imageUrl
-    }
-
-    const getRestaurantName = (id) => {
-        return restaurantsObj[id].name
-    }
-
     const handleReorder = () => {
         alert('nice try bud')
     }
 
+    const handleClassName = () => {
+        if (parent === 'account') {
+            return 'orders-list-account'
+        } else {
+            return 'orders-list'
+        }
+    }
+
     return (
-        <>
+        <div className="orders-page">
             {isLoaded && orders.length > 0 && restaurants.length > 0 && (
-                <div className="orders-list">
+                <div className={handleClassName()}>
                     <h1>Past Orders</h1>
                     {orders.map((order => (
                         <div className="order-container">
@@ -60,7 +60,7 @@ function PastOrdersPage() {
                     )))}
                 </div>
             )}
-        </>
+        </div>
     )
 }
 
