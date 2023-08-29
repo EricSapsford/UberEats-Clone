@@ -61,7 +61,6 @@ export default function ManageAccount() {
     setRreateRestaurantToggle(false);
     setManageRestaurantsToggle(true);
     setCurrentView('manage')
-    console.log("toggle")
   }
 
   const accountDetails = (e) => {
@@ -73,7 +72,6 @@ export default function ManageAccount() {
   }
 
   useEffect(() => {
-    console.log("useEffect went off")
   }, [accountDetailsToggle, pastOrderToggle, createRestaurantToggle, manageRestaurantsToggle])
 
   return (

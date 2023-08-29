@@ -4,7 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logout } from "../../store/session";
 import './ManageAccount.css';
 
-function LandingPageCard(sessionUser) {
+function LandingPageCard() {
+
+  const sessionUser = useSelector(state => state.session.user);
 
   return (
     <>

@@ -83,7 +83,7 @@ export const getAllRestaurantsWithOneMenuItemThunk = () => async (dispatch) => {
   })
   if (res.ok) {
     const { restaurants } = await res.json();
-    console.log("data inside thunk", restaurants)
+
     // if (restaurants.errors) {
     //   return;
     // }
@@ -103,7 +103,6 @@ export const getAllRestaurantsByCurrentUserThunk = () => async (dispatch) => {
   })
   if (res.ok) {
     const { restaurants } = await res.json();
-    console.log("data inside thunk", restaurants)
     // if (restaurants.errors) {
     //   return;
     // }
@@ -123,7 +122,6 @@ export const getAllRestaurantsByCatagoryThunk = (catagory) => async (dispatch) =
   })
   if (res.ok) {
     const { restaurants } = await res.json();
-    console.log("data inside thunk", restaurants)
     // if (restaurants.errors) {
     //   return;
     // }
