@@ -11,7 +11,12 @@
     font-size: 30px;
 }
 
-#footer-col-1 {}
+#footerModal button {
+    background-color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
 
 #footer-col-2 {
     color: #828282;

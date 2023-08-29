@@ -17,7 +17,7 @@ export default function Footer() {
                     <Link exact to="/restaurants">
                         <div>Restaurants near me</div>
                     </Link>
-                    <div><OpenModalButton
+                    <div id='footerModal'><OpenModalButton
                         buttonText='Create an Account'
                         modalComponent={<SignupFormModal />} />
                     </div>
