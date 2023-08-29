@@ -33,14 +33,14 @@ function UserRestaurantCard({ restaurant }) {
               {restaurant.streetAddress}
             </div>
             <div>
-            <NavLink to={`/restaurants/${restaurant.id}/update`}>
-              Edit Restaurant
-            </NavLink>
+              <NavLink to={`/restaurants/${restaurant.id}/update`}>
+                Edit Restaurant
+              </NavLink>
             </div>
             <div>
-            <NavLink to={`/restaurants/${restaurant.id}/menu/view`}>
-              Edit Menu
-            </NavLink>
+              <NavLink to={`/restaurants/${restaurant.id}/menu/manage`}>
+                Edit Menu
+              </NavLink>
             </div>
           </div>
         </NavLink>

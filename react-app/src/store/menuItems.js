@@ -1,7 +1,3 @@
-// 1. ADDED TO react-app/src/store/index.js:
-// import menuItemsReducer from './menuItems'
-// menuItems: menuItemsReducer,
-
 //============================= ACTION TYPE CONSTANTS =============================
 //============================= ACTION TYPE CONSTANTS =============================
 //============================= ACTION TYPE CONSTANTS =============================
@@ -63,15 +59,10 @@ export const getOneMenuItemThunk = (menuItemId) => async (dispatch) => {
   const res = await fetch(`/api/menu-items/${menuItemId}`, { method: "GET" });
 
   if (res.ok) {
-    // console.log("***** in getOneMenuItemThunk: res.ok ****")
-    // console.log("***** in getOneMenuItemThunk: res ****", res)
     const menuItem = await res.json();
-    // console.log("***** in getOneMenuItemThunk: menuItem ****", menuItem)
     dispatch(getOneMenuItem(menuItem));
   } else {
-    // console.log("***** in getOneMenuItemThunk: RES NOT OK ****")
     const errors = await res.json();
-    // console.log("***** in getOneMenuItemThunk: errors ****", errors)
     return errors;
   };
 };
@@ -81,10 +72,7 @@ export const getAllMenuItemsForRestThunk = (restaurantId) => async (dispatch) =>
   const res = await fetch(`/api/restaurants/${restaurantId}/menu`, { method: "GET" });
 
   if (res.ok) {
-    // console.log("***** in getAllMenuItemsForRestThunk: res.ok ****")
-    // console.log("***** in getAllMenuItemsForRestThunk: res ****", res)
     const menuItems = await res.json();
-    // console.log("***** in getAllMenuItemsForRestThunk: menuItems ****", menuItems)
     dispatch(getAllMenuItemsForRest(menuItems));
   } else {
     console.log("***** in getAllMenuItemsForRestThunk: RES NOT OK ****")
@@ -96,62 +84,79 @@ export const getAllMenuItemsForRestThunk = (restaurantId) => async (dispatch) =>
 
 // THUNK: CREATE MENU ITEM FOR A RESTAURANT
 export const createMenuItemForRestThunk = (menuItem) => async (dispatch) => {
-  const { restaurantId, name, type, price, description, imageUrl } = menuItem;
+  const { name, type, price, description, imageUrl, restaurantId } = menuItem;
 
   const res = await fetch(`/api/restaurants/${restaurantId}/menu/new`, {
     method: "POST",
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      restaurant_id: restaurantId,
       name,
       type,
       price,
       description,
-      image_url: imageUrl
+      image_url: imageUrl,
+      restaurant_id: restaurantId
     })
-  });
+  })
 
   if (res.ok) {
     const menuItem = await res.json();
     dispatch(createMenuItemForRest(menuItem));
+    return menuItem; // added
   } else {
     const errors = await res.json();
     return errors;
-  };
+  }
+  // if (res.ok) {
+  //   const data = await res.json();
+  //   console.log('*** in createMenuItemForRestThunk res OK: DATA ***', data)
+  //   if (res.errors) {
+  //     const errors = await res.json();
+  //     // console.log('*** in createMenuItemForRestThunk res NOT OK: errors ***', errors)
+  //     return errors;
+  //   } else if (res.id) {
+  //     dispatch(createMenuItemForRest(data));
+  //     return data; // added
+  //   }
+  // } else {
+  //   const errors = await res.json();
+  //   // console.log('*** in createMenuItemForRestThunk res NOT OK: errors ***', errors)
+  //   return errors;
+  // }
 };
 
 // THUNK: UPDATE MENU ITEM
 export const updateMenuItemThunk = (menuItem) => async (dispatch) => {
-  const { restaurantId, name, type, price, description, imageUrl } = menuItem;
+  const { name, type, price, description, imageUrl, id } = menuItem;
 
-  const res = await fetch(`/api/restaurants/${restaurantId}/menu`, {
+  const res = await fetch(`/api/menu-items/${id}/update`, {
     method: "PUT",
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      restaurant_id: restaurantId,
       name,
       type,
       price,
       description,
       image_url: imageUrl
     })
-  });
+  })
 
   if (res.ok) {
     const menuItem = await res.json();
     dispatch(updateMenuItem(menuItem));
+    return menuItem;
   } else {
     const errors = await res.json();
     return errors;
-  };
+  }
 };
 
 // THUNK: DELETE MENU ITEM
 export const deleteMenuItemThunk = (menuItemId) => async (dispatch) => {
-  const res = await fetch(`/api/groups/${menuItemId}`, {
+  const res = await fetch(`/api/menu-items/${menuItemId}/delete`, {
     method: "DELETE",
     headers: { 'Content-Type': 'application/json' },
-  });
+  })
 
   if (res.ok) {
     const data = await res.json();
@@ -184,11 +189,9 @@ export default function menuItemsReducer(state = initialState, action) {
 
     case GET_ALL_MENU_ITEMS_FOR_REST: {
       const newState = { ...state, allMenuItemsForRest: {} };
-      // console.log("***** in GET_ALL_MENU_ITEMS_FOR_REST action.menuItems ****", action.menuItems)
       action.menuItems.menu_items.forEach((menuItemObj) => {
         newState.allMenuItemsForRest[menuItemObj.id] = menuItemObj
       });
-      // console.log("***** in GET_ALL_MENU_ITEMS_FOR_REST newState ****", newState)
       return newState;
     }
 
@@ -199,14 +202,14 @@ export default function menuItemsReducer(state = initialState, action) {
     }
 
     case UPDATE_MENU_ITEM: {
-      const newState = { ...state };
+      const newState = { ...state, singleMenuItem: {} };
       newState.allMenuItemsForRest[action.menuItem.id] = action.menuItem;
       return newState;
     }
 
     case DELETE_MENU_ITEM: {
-      const newState = { ...state };
-      delete newState.allMenuItemsForRest[action.groupId];
+      const newState = { ...state, singleMenuItem: {}, allMenuItemsForRest: { ...state.allMenuItemsForRest } };
+      delete newState.allMenuItemsForRest[action.menuItemId];
       return newState;
     }
 

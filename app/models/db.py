@@ -180,6 +180,8 @@ class Review(db.Model):
     restaurants_rel = db.relationship("Restaurant", back_populates="reviews_rel")
 
     def to_dict(self):
+      user_name = User.query.get(self.user_id)
+      user_data = user_name.to_dict()
       return {
           'id': self.id,
           'userId': self.user_id,
@@ -187,7 +189,8 @@ class Review(db.Model):
           'reviewText': self.review_text,
           'stars': self.stars,
           "createdAt": self.created_at,
-          "updatedAt": self.updated_at
+          "updatedAt": self.updated_at,
+          "user": user_data
       }
 
 
@@ -230,7 +233,8 @@ class MenuItem(db.Model):
             "id": self.id,
             "restaurantId": self.restaurant_id,
             "name": self.name,
-            "type": str(self.type).split(".")[1],
+            # "type": str(self.type).split(".")[1],
+            "type": str(self.type),
             "price": self.price,
             "description": self.description,
             "imageUrl": self.image_url,

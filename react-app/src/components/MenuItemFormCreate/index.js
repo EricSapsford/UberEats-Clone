@@ -1,16 +1,20 @@
 import MenuItemForm from '../MenuItemForm';
 
-export default function MenuItemFormCreate() {
+export default function MenuItemFormCreate({ restIdAsNum }) {
 
     let menuItem = {
         name: '',
         type: '',
         price: '',
         description: '',
-        imageUrl: ''
+        imageUrl: '',
+        restaurantId: restIdAsNum,
     }
 
     return (
-        <MenuItemForm menuItem={menuItem} formType='Create Menu Item' />
-    );
+        <MenuItemForm
+            formType='Create Menu Item'
+            menuItem={menuItem}
+        />
+    )
 };
