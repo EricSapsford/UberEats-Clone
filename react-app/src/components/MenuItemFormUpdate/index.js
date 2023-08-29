@@ -1,16 +1,33 @@
+import { useDispatch } from 'react-redux';
+import { useState, useEffect } from 'react';
 import MenuItemForm from '../MenuItemForm';
 
-export default function MenuItemFormUpdate() {
+export default function MenuItemFormUpdate({ menuItem }) {
+  const dispatch = useDispatch();
+  const [isLoaded, setIsLoaded] = useState(false);
 
-    let menuItem = {
-        name: '',
-        type: '',
-        price: '',
-        description: '',
-        imageUrl: ''
-    }
+  if (menuItem.type === "MenuItemEnum.appetizer") {
+    menuItem.type = "appetizer"
+  } else if (menuItem.type === "MenuItemEnum.entree") {
+    menuItem.type = "entree"
+  } else if (menuItem.type === "MenuItemEnum.dessert") {
+    menuItem.type = "dessert"
+  } else if (menuItem.type === "MenuItemEnum.beverage") {
+    menuItem.type = "beverage"
+  };
 
-    return (
-        <MenuItemForm menuItem={menuItem} formType='Update Menu Item' />
-    );
+  useEffect(() => {
+    setIsLoaded(true);
+  }, [dispatch]);
+
+  return (
+    <>
+      {isLoaded && (
+        <MenuItemForm
+          formType='Update Menu Item'
+          menuItem={menuItem}
+        />
+      )}
+    </>
+  )
 };

@@ -233,7 +233,8 @@ class MenuItem(db.Model):
             "id": self.id,
             "restaurantId": self.restaurant_id,
             "name": self.name,
-            "type": str(self.type).split(".")[1],
+            # "type": str(self.type).split(".")[1],
+            "type": str(self.type),
             "price": self.price,
             "description": self.description,
             "imageUrl": self.image_url,
@@ -273,11 +274,16 @@ class Order(db.Model):
     #     pass
 
     def to_dict(self):
+        menu_items_ids = [int(id) for id in self.menu_items.split(",")]
+        menu_items_query = MenuItem.query.filter(MenuItem.id.in_(menu_items_ids)).all()
+        menu_items_data = [item.to_dict() for item in menu_items_query]
+
         return {
             'id': self.id,
             'menuItems': self.menu_items,
             'totalCost': self.total_cost,
             'userId': self.user_id,
             'restaurantId': self.restaurant_id,
-            'createdAt': self.created_at
+            'createdAt': self.created_at,
+            'menuItems': menu_items_data
         }
