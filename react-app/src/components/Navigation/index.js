@@ -9,6 +9,8 @@ import './Navigation.css';
 import OpenModalButton from '../OpenModalButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
+import { useShoppingCart } from '../../context/ShoppingCart';
+import ShoppingCartModal from '../ShoppingCart/ShoppingCartModal';
 
 export default function Navigation({ isLoaded }) {
   const dispatch = useDispatch();
@@ -26,6 +28,7 @@ export default function Navigation({ isLoaded }) {
     dispatch(logout());
     history.push(`/`);
   };
+
 
   return (
     <nav>
@@ -57,7 +60,8 @@ export default function Navigation({ isLoaded }) {
           </>
           :
           <>
-            <span><button onClick={handleLogout}>Sign out</button></span>
+            {/* <span><button onClick={handleLogout}>Sign out</button></span> */}
+            {isLoaded && <ShoppingCartModal />}
           </>
         }
       </span>

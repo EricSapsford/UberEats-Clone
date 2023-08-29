@@ -15,7 +15,7 @@ import RestaurantsByCatagoryNav from "./components/Restaurants/catagoryIndex"
 import MenuItemDetails from "./components/MenuItemDetails";
 import Footer from "./components/Footer";
 import './app.css';
-import PastOrdersPage from "./components/PastOrdersPage/PastOrdersPage";
+import PastOrdersPage from "./components/PastOrdersPage";
 
 function App() {
   const dispatch = useDispatch();

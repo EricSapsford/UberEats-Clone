@@ -5,6 +5,7 @@ import { logout } from "../../store/session";
 import './ManageAccount.css';
 import LandingPageCard from './landingPageCard';
 import CurrentUserRestaurants from '../Restaurants/userRestaurants';
+import PastOrdersPage from '../PastOrdersPage';
 
 export default function ManageAccount() {
   const dispatch = useDispatch();
@@ -25,6 +26,8 @@ export default function ManageAccount() {
   const [pastOrderToggle, setPastOrderToggle] = useState(false)
   const [createRestaurantToggle, setRreateRestaurantToggle] = useState(false)
   const [manageRestaurantsToggle, setManageRestaurantsToggle] = useState(false)
+  const [currentView, setCurrentView] = useState('account')
+
 
   const handleLogout = (e) => {
     e.preventDefault();
@@ -32,11 +35,16 @@ export default function ManageAccount() {
     history.push(`/`);
   };
 
+  const setViewClass = () => {
+    return 'active'
+  }
+
   const pastOrders = (e) => {
     setAccountDetailsToggle(false);
     setPastOrderToggle(true);
     setRreateRestaurantToggle(false);
     setManageRestaurantsToggle(false);
+    setCurrentView('orders')
   }
 
   const createRestaurant = (e) => {
@@ -44,6 +52,7 @@ export default function ManageAccount() {
     setPastOrderToggle(false);
     setRreateRestaurantToggle(true);
     setManageRestaurantsToggle(false);
+    setCurrentView('create')
   }
 
   const manageRestaurants = (e) => {
@@ -51,6 +60,7 @@ export default function ManageAccount() {
     setPastOrderToggle(false);
     setRreateRestaurantToggle(false);
     setManageRestaurantsToggle(true);
+    setCurrentView('manage')
   }
 
   const accountDetails = (e) => {
@@ -58,6 +68,7 @@ export default function ManageAccount() {
     setPastOrderToggle(false);
     setRreateRestaurantToggle(false);
     setManageRestaurantsToggle(false);
+    setCurrentView('account')
   }
 
   useEffect(() => {
@@ -67,17 +78,17 @@ export default function ManageAccount() {
     <>
       <div id='account-landing-outermost-box'>
         <div id='account-landing-left-sidebar'>
-          <button onClick={pastOrders}>Orders</button>
-          <button onClick={createRestaurant}>Create Restaurant</button>
-          <button onClick={manageRestaurants}>Manage Restaurants</button>
-          <button onClick={accountDetails}>Account Details</button>
-          <span id='account-landing-sign-out-btn' onClick={handleLogout}>Sign out</span>
+          <button className={currentView === 'account' ? "active" : ""} onClick={accountDetails}>Account Details</button>
+          <button className={currentView === 'orders' ? "active" : ""} onClick={pastOrders}>Orders</button>
+          <button className={currentView === 'create' ? "active" : ""} onClick={createRestaurant}>Create Restaurant</button>
+          <button className={currentView === 'manage' ? "active" : ""} onClick={manageRestaurants}>Manage Restaurants</button>
+          <button id='account-landing-sign-out-btn' onClick={handleLogout}>Sign out</button>
         </div>
 
 
-        <div>
+        <div id='account-landing-right-content'>
           {accountDetailsToggle ? <LandingPageCard /> : null}
-          {/* {pastOrderToggle ? <PastOrdersCard /> : null} */}
+          {pastOrderToggle ? <PastOrdersPage parent="account" /> : null}
           {/* {createRestaurantToggle ? <CreateRestaurantForm /> : null} */}
           {manageRestaurantsToggle ? <CurrentUserRestaurants /> : null}
         </div>

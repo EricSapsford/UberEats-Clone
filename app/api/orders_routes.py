@@ -7,11 +7,12 @@ import datetime
 orders_routes = Blueprint("orders", __name__)
 
 
+# print("*** in getPastOrders route, current_user ***", current_user)
 
-@orders_routes.route("/", methods=["GET"])
+@orders_routes.route("/<int:id>", methods=["GET"])
 @login_required
-def get_past_orders():
-    orders = Order.query.filter(Order.user_id == current_user.id).all()
+def get_past_orders(id):
+    orders = Order.query.filter(Order.user_id == id).all()
     return { "past_orders": [order.to_dict() for order in orders] }
 
 

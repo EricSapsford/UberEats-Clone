@@ -1,3 +1,17 @@
+.profile-container button {
+  cursor: pointer;
+  font-size: 16pt;
+  background-color: transparent;
+  color: black;
+  padding: 14px 16px;
+  border-radius: 50px;
+  border: none;
+}
+
+.profile-container button:hover {
+  background-color: rgb(240, 240, 240);
+}
+
 .profile-dropdown {
   position: absolute;
   top: -16px;
@@ -34,7 +48,7 @@
 nav {
   display: flex;
   justify-content: space-between;
-  align-items: start;
+  align-items: center;
   padding: 30px;
 }
 
@@ -44,10 +58,28 @@ nav {
 
 #nav-right-hamburger-and-logo {
   display: flex;
+  align-items: center;
   gap: 20px;
 }
 
 #nav-left-other-buttons {
   display: flex;
+  align-items: center;
   gap: 20px;
+}
+
+.shopping-cart {
+  display: flex;
+  font-size: 14pt;
+  gap: 8px;
+  align-items: center;
+  color: white;
+  background-color: black;
+  border-radius: 50px;
+  border: 2px solid black;
+  padding: 12px 22px;
+}
+
+.shopping-cart:hover {
+  border: 2px solid white;
 }
