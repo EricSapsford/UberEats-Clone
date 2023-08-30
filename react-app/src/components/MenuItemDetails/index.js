@@ -51,7 +51,7 @@ export default function MenuItemDetails() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getOneMenuItemThunk(menuItemId))
-      .then(() => dispatch(getOneRestaurantThunk(menuItem.restaurantId)))
+      .then((res) => dispatch(getOneRestaurantThunk(res.restaurantId)))
       .then(() => setIsLoaded(true))
   }, [dispatch, menuItemId]);
 
