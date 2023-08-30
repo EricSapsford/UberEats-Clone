@@ -20,7 +20,7 @@ function RestaurantForm({ restaurant, formType }) {
   const [imageUrl, setImageUrl] = useState(restaurant?.imageUrl)
 
   const [disabled, setDisabled] = useState(false);
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -42,16 +42,21 @@ function RestaurantForm({ restaurant, formType }) {
 
       try {
         const res = await dispatch(createRestaurantThunk(restaurant));
-        console.log("INSIDE CREATE RESTAURANT TRY BLOCK - RES", res)
+        // console.log("INSIDE CREATE RESTAURANT TRY BLOCK - RES", res)
+        {res.errors ? setErrors(res.errors) : setErrors([]);}
         if (res.restaurant.id) {
-          setErrors({});
-          console.log("ID", res.restaurant.id)
+          setErrors([]);
+          // console.log("ID", res.restaurant.id)
           history.push(`restaurants/${res.restaurant.id}/menu/manage`);
         } else {
-          return res;
+          return res
         }
       } catch(res) {
-        const data = await res.json();
+        // const data = await res.json();
+        // if (data && data.errors) {
+        //   setErrors(data.errors);
+        // }
+        const data = res
         if (data && data.errors) {
           setErrors(data.errors);
         }
@@ -60,14 +65,19 @@ function RestaurantForm({ restaurant, formType }) {
 
       try {
         const res = await dispatch(restaurantActions.updateRestaurantThunk(restaurant));
-        // console.log("INSIDE UPDATE RESTAURANT TRY BLOCK - RES", res)
-        if (res.id) {
-          setErrors({});
+        console.log("INSIDE UPDATE RESTAURANT TRY BLOCK - RES", res)
+        {res.errors ? setErrors(res.errors) : setErrors([]);}
+        if (res.restaurant.id) {
+          setErrors([]);
         } else {
-          return res;
+          return res
         }
       } catch(res) {
-        const data = await res.json();
+        // const data = await res.json();
+        // if (data && data.errors) {
+        //   setErrors(data.errors);
+        // }
+        const data = res
         if (data && data.errors) {
           setErrors(data.errors);
         }
@@ -75,10 +85,11 @@ function RestaurantForm({ restaurant, formType }) {
     }
   }
 
+  // {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+
   return (
     <>
       <form onSubmit={handleSubmit}>
-
         <div>
           {formType === "Create Restaurant" ? <h1>Create Restaurant</h1> : <h1>Update Restaurant</h1>}
         </div>
@@ -229,6 +240,11 @@ function RestaurantForm({ restaurant, formType }) {
           </div>
           {errors.imageUrl && (<div className="menu-item-create-error-text">{errors.  imageUrl}</div>)}
         </div>
+
+        {/* ERRORS */}
+        <ul>
+          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+        </ul>
 
         {/* BUTTON */}
         <div>

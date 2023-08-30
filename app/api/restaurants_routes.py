@@ -36,7 +36,7 @@ def get_all_rests_with_one():
 ### Get all Restaurants by category: GET /api/restaurants/category/:category
 @restaurant_routes.route("/category/<string:catagory>")
 def get_restaurants_by_catagory(catagory):
-    restaurants = Restaurant.query.filter(Restaurant.category == catagory).all()
+    restaurants = Restaurant.query.filter(Restaurant.category == catagory).filter(MenuItem.restaurant_id == Restaurant.id).all()
     res = {"restaurants": [rest.to_dict() for rest in restaurants]}
     return res
 

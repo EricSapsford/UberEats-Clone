@@ -195,9 +195,9 @@ export const updateRestaurantThunk = (updatedRestaurant) => async (dispatch) => 
     })
   })
   if (res.ok) {
-    const updatedRestaurant = await res.json();
-    dispatch(updateRestaurant(updatedRestaurant));
-    return updateRestaurant
+    const data = await res.json();
+    dispatch(updateRestaurant(data));
+    return data
   } else {
     const errors = await res.json();
     return errors
@@ -242,10 +242,10 @@ const restaurantReducer = (state = initialState, action) => {
     case GET_ONE_RESTAURANT: {
       // console.log("***** in GET_ONE_RESTAURANT: Reducer ****")
       // console.log("***** in GET_ONE_RESTAURANT: state ****", state)
-      console.log("***** in GET_ONE_RESTAURANT: action ****", action)
+      // console.log("***** in GET_ONE_RESTAURANT: action ****", action)
       const newState = { ...state, singleRestaurant: {} };
       newState.singleRestaurant = action.restaurant.restaurant;
-      console.log("***** in GET_ONE_RESTAURANT: newState ****", newState)
+      // console.log("***** in GET_ONE_RESTAURANT: newState ****", newState)
       return newState;
     }
 
@@ -277,10 +277,16 @@ const restaurantReducer = (state = initialState, action) => {
       // console.log("IN CREATE RESTAURANT REDUCER")
       // console.log("IN CREATE RESTAURANT REDUCER - STATE", state)
       // console.log("IN CREATE RESTAURANT REDUCER - ACTION", action)
+      if (action.restaurant.restuarant) {
       const newState = { ...state, usersRestaurants: { ...state.usersRestaurants } }
       newState.usersRestaurants[action.restaurant.restaurant.id] = action.restaurant.restaurant
       // console.log("NEWSTATE", newState)
       return newState;
+      } else if (action.restaurant.errors) {
+        return state
+      } else {
+        return state
+      }
     }
 
     case UPDATE_RESTAURANT: {
@@ -288,10 +294,19 @@ const restaurantReducer = (state = initialState, action) => {
       // console.log("IN UPDATE RESTAURANT REDUCER - STATE", state)
       // console.log("IN UPDATE RESTAURANT REDUCER - ACTION", action)
       // console.log("FIND THE ID", action.restaurant.restaurant.id)
+      // if (action.restaurant.restuarant) {
+      if (action.restaurant.errors) {
+        return state
+      }
       const newState = { ...state, usersRestaurants: { ...state.usersRestaurants } }
       newState.usersRestaurants[action.restaurant.restaurant.id] = action.restaurant.restaurant
       // console.log("NEWSTATE", newState)
       return newState
+      // } else if (action.restaurant.errors) {
+      //   return state
+      // } else {
+      //   return state
+      // }
     }
 
     case DELETE_RESTAURANT: {
