@@ -1,8 +1,8 @@
-"""oh we rollin'
+"""empty message
 
-Revision ID: cedb66375177
+Revision ID: 1f6d41072edc
 Revises:
-Create Date: 2023-08-25 19:27:09.360226
+Create Date: 2023-08-30 08:34:38.320698
 
 """
 from alembic import op
@@ -14,7 +14,7 @@ SCHEMA = os.environ.get("SCHEMA")
 
 
 # revision identifiers, used by Alembic.
-revision = 'ffdc0a98111c'
+revision = '1f6d41072edc'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -30,6 +30,7 @@ def upgrade():
     sa.Column('first_name', sa.String(length=50), nullable=False),
     sa.Column('last_name', sa.String(length=80), nullable=False),
     sa.Column('street_address', sa.String(length=255), nullable=False),
+    sa.Column('wallet', sa.Numeric(precision=10, scale=2), nullable=False),
     sa.Column('created_at', sa.Date(), nullable=False),
     sa.Column('updated_at', sa.Date(), nullable=False),
     sa.PrimaryKeyConstraint('id'),
@@ -76,6 +77,7 @@ def upgrade():
     if environment == "production":
         op.execute(f"ALTER TABLE menu_items SET SCHEMA {SCHEMA};")
 
+
     op.create_table('orders',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('menu_items', sa.String(length=255), nullable=False),
@@ -90,6 +92,7 @@ def upgrade():
 
     if environment == "production":
         op.execute(f"ALTER TABLE orders SET SCHEMA {SCHEMA};")
+
 
     op.create_table('reviews',
     sa.Column('id', sa.Integer(), nullable=False),

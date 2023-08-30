@@ -36,24 +36,24 @@ export default function Navigation({ isLoaded }) {
         {isLoaded && (<ProfileButton user={sessionUser} />)}
         <NavLink exact to="/">
           <span id='nav-logo-text'>
-            VancoUberEats
+            VancouberEats
           </span>
         </NavLink>
       </span>
       <span id="nav-left-other-buttons">
         <NavLink exact to="/restaurants">
-          <span>
+          <span id='restaurantsNavLinkDiv'>
             Restaurants
           </span>
         </NavLink>
         {sessionUser === null ?
           <>
             <div id='logInSignUpNavDiv'>
-              <div><OpenModalButton
+              <div className='navModalButton'><OpenModalButton
               buttonText='Log In'
                 modalComponent={<LoginFormModal/>} />
               </div>
-              <div><OpenModalButton
+              <div className='navModalButton'><OpenModalButton
               buttonText='Sign Up'
                 modalComponent={<SignupFormModal/>} /></div>
             </div>
