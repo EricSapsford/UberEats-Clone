@@ -5,12 +5,20 @@ import { logout } from "../../store/session";
 import './ManageAccount.css';
 import LandingPageCard from './landingPageCard';
 import CurrentUserRestaurants from '../Restaurants/userRestaurants';
+import RestaurantFormCreate from '../RestaurantFormCreate';
 import PastOrdersPage from '../PastOrdersPage';
 
 export default function ManageAccount() {
   const dispatch = useDispatch();
   const history = useHistory();
+
+
   const sessionUser = useSelector(state => state.session.user);
+  // const userRestState = useSelector(state => state.restaurant.usersRestaurants)
+
+  // useEffect(() => {
+  //   setManageRestaurantsToggle(true);
+  // })
 
   // TO EDIT:
   // ONLY DISPLAY 'ORDERS' BTN IF USER HAS 1+ ORDERS
@@ -21,6 +29,8 @@ export default function ManageAccount() {
 
   // CONSIDER REFACTORING TO NOT DISPLAY FOOTER ON ALL PAGES
   // (SINCE REAL WEBSITE HAS NO FOOTER ON ACCOUNT PAGE)
+
+
 
   const [accountDetailsToggle, setAccountDetailsToggle] = useState(true)
   const [pastOrderToggle, setPastOrderToggle] = useState(false)
@@ -89,12 +99,9 @@ export default function ManageAccount() {
         <div id='account-landing-right-content'>
           {accountDetailsToggle ? <LandingPageCard /> : null}
           {pastOrderToggle ? <PastOrdersPage parent="account" /> : null}
-          {/* {createRestaurantToggle ? <CreateRestaurantForm /> : null} */}
+          {createRestaurantToggle ? <RestaurantFormCreate /> : null}
           {manageRestaurantsToggle ? <CurrentUserRestaurants /> : null}
         </div>
-        {/* <div>
-          <CurrentUserRestaurants />
-        </div> */}
       </div>
     </>
   )

@@ -39,18 +39,19 @@ class User(db.Model, UserMixin):
     first_name = db.Column(db.String(50), nullable=False)
     last_name = db.Column(db.String(80), nullable=False)
     street_address = db.Column(db.String(255), nullable=False)
+    wallet = db.Column(db.Numeric(10, 2), nullable=False)
     created_at = db.Column(db.Date, nullable=False)
     updated_at = db.Column(db.Date, nullable=False)
 
 
     # one-to-many: one user can have many reviews
-    reviews_rel = db.relationship("Review", back_populates="users_rel")
+    reviews_rel = db.relationship("Review", back_populates="users_rel", cascade="all, delete-orphan")
 
     # one-to-many: one user can have many orders
-    orders_rel = db.relationship("Order", back_populates="users_rel")
+    orders_rel = db.relationship("Order", back_populates="users_rel", cascade="all, delete-orphan")
 
     # one-to-many: one user can have many restaurants
-    restaurants_rel = db.relationship("Restaurant", back_populates="users_rel")
+    restaurants_rel = db.relationship("Restaurant", back_populates="users_rel", cascade="all, delete-orphan")
 
 
     @property
@@ -72,6 +73,7 @@ class User(db.Model, UserMixin):
             'firstName': self.first_name,
             'lastName': self.last_name,
             'streetAddress': self.street_address,
+            "wallet": self.wallet,
             'createdAt': self.created_at,
             'updatedAt': self.updated_at
         }
@@ -128,7 +130,7 @@ class Restaurant(db.Model):
     #Foreign Key relationship defined below
 
     #one-to-many: one restaurant can have many reviews
-    reviews_rel = db.relationship("Review", back_populates="restaurants_rel")
+    reviews_rel = db.relationship("Review", back_populates="restaurants_rel", cascade="all, delete-orphan")
 
     #many-to-one: one user can own many restaurants
     users_rel = db.relationship("User", back_populates="restaurants_rel")
@@ -137,7 +139,7 @@ class Restaurant(db.Model):
     orders_rel = db.relationship("Order", back_populates="restaurants_rel")
 
     #one-to-many: one restaurant can have many menu-items
-    menu_items_rel = db.relationship("MenuItem", back_populates="restaurants_rel")
+    menu_items_rel = db.relationship("MenuItem", back_populates="restaurants_rel", cascade="all, delete-orphan")
 
     def to_dict(self):
         return {
