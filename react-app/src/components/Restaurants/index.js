@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import * as restaurantActions from "../../store/restaurant"
 import './Restaurants.css'
 
@@ -32,6 +33,7 @@ function RestaurantsNav() {
   const restStateArr = Object.values(restState.allRestaurants)
 
 
+
   return (
     <>
       <div>
@@ -39,9 +41,11 @@ function RestaurantsNav() {
           <img id='restaurantBannerImg' src="https://i.imgur.com/rP2sDgp.jpg" title="source: imgur.com" />
           <h1>Food near you, so long as you're near Vancouver</h1>
         </div>
+        <h1>Explore by category</h1>
+
         <div>
-          <h1>Explore by category</h1> 
           <div className="restaurantCardCatDiv">
+            <Link exact to={'/restaurants/'} id='allCatButton'>All</Link>
             {restaurantCatagoryArr.map((catagory) => (
               <div key={`${catagory}Nav`}>
                 <NavLink
@@ -53,6 +57,7 @@ function RestaurantsNav() {
               </div>
             ))}
           </div>
+
           <div>
             <h1>Restaurants</h1>
           </div>
