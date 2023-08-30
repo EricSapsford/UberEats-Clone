@@ -176,3 +176,18 @@ def create_review(id):
         return new_review.to_dict()
     if form.errors:
         return {"errors": validation_errors_to_error_messages(form.errors)}, 404
+
+### Delete a restaurant: DELETE /api/restaurants/:restaurantId/delete
+@restaurant_routes.route("/<int:id>/delete", methods=["DELETE"])
+@login_required
+def delete_restaurant(id):
+    restaurant_to_delete = Restaurant.query.get(id)
+    db.session.delete(restaurant_to_delete)
+    db.session.commit()
+    was_it_deleted = Restaurant.query.get(id)
+    if was_it_deleted == None:
+        res = {
+        "message": "Successfully deleted menu item",
+        "id": id
+        }
+        return res
