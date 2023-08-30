@@ -42,10 +42,11 @@ function RestaurantForm({ restaurant, formType }) {
 
       try {
         const res = await dispatch(createRestaurantThunk(restaurant));
-        // console.log("INSIDE CREATE RESTAURANT TRY BLOCK - RES", res)
-        if (res.id) {
+        console.log("INSIDE CREATE RESTAURANT TRY BLOCK - RES", res)
+        if (res.restaurant.id) {
           setErrors({});
-          history.push("/");
+          console.log("ID", res.restaurant.id)
+          history.push(`restaurants/${res.restaurant.id}/menu/manage`);
         } else {
           return res;
         }

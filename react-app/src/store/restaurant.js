@@ -16,7 +16,7 @@ const CREATE_RESTAURANT = "restaurants/createRestaurant"
 const UPDATE_RESTAURANT = "restaurants/updateRestaurant"
 const DELETE_RESTAURANT = "restaurants/deleteRestaurant"
 // const CREATE_RESTAURANT_IMAGE = "restaurants/createRestaurantImage"
-const UPDATE_RESTAURANT_IMAGE = "restaurants/updateRestaurantImage"
+// const UPDATE_RESTAURANT_IMAGE = "restaurants/updateRestaurantImage"
 
 //================================ ACTION CREATORS ================================
 //================================ ACTION CREATORS ================================
@@ -65,9 +65,10 @@ const updateRestaurant = (restaurant) => {
   }
 }
 
-const deleteRestaurant = (restaurant) => {
+const deleteRestaurant = (restaurantId) => {
   return {
-    type: DELETE_RESTAURANT
+    type: DELETE_RESTAURANT,
+    restaurantId
   }
 }
 
@@ -203,6 +204,24 @@ export const updateRestaurantThunk = (updatedRestaurant) => async (dispatch) => 
   }
 }
 
+//THUNK: DELETE RESTAURANT
+export const deleteRestaurantThunk = (restaurantId) => async (dispatch) => {
+  const res = await fetch(`/api/restaurants/${restaurantId}/delete`, {
+    method: "DELETE",
+    headers: { 'Content-Type': 'application/json' },
+  })
+
+  if (res.ok) {
+    const data = await res.json();
+    dispatch(deleteRestaurant(restaurantId));
+    return data;
+  } else {
+    const errors = await res.json();
+    return errors;
+  }
+}
+
+
 
 //===================================== REDUCER ===================================
 //===================================== REDUCER ===================================
@@ -273,6 +292,12 @@ const restaurantReducer = (state = initialState, action) => {
       newState.usersRestaurants[action.restaurant.restaurant.id] = action.restaurant.restaurant
       // console.log("NEWSTATE", newState)
       return newState
+    }
+
+    case DELETE_RESTAURANT: {
+      const newState = { ...state, usersRestaurants: { ...state.usersRestaurants }}
+      delete newState.usersRestaurants[action.restaurantId]
+      return newState;
     }
 
     default: {

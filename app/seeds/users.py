@@ -1,5 +1,6 @@
 from app.models.db import db, User, environment, SCHEMA
 from sqlalchemy.sql import text
+import random
 import datetime
 from .data import users
 
@@ -14,6 +15,7 @@ def seed_users():
             first_name = user["first_name"],
             last_name=user["last_name"],
             street_address=user["address"],
+            wallet = round(random.uniform(1.00, 1_000_000.00), 2),
             created_at=user["created_at"],
             updated_at=user["updated_at"]
         )

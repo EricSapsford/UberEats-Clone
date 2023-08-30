@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { NavLink, Redirect, useHistory } from "react-router-dom";
 import RestaurantFormUpdate from "../RestaurantFormUpdate";
 import { useSelector } from "react-redux";
+import OpenModalButton from "../OpenModalButton";
+import RestaurantDeleteModal from "../RestaurantDeleteModal";
 
 function UserRestaurantCard({ restaurant }) {
   const history = useHistory();
@@ -29,7 +31,8 @@ function UserRestaurantCard({ restaurant }) {
   }
 
   const editMenu = (e) => {
-    history.push("/account");
+    history.push(`restaurants/${restaurant.id}/menu/manage`
+    );
   }
 
 
@@ -63,6 +66,13 @@ function UserRestaurantCard({ restaurant }) {
           </NavLink>
           <button onClick={editRestaurant}>Edit Restaurant</button>
           <button onClick={editMenu}>Edit Menu</button>
+          <div>
+            <OpenModalButton
+              // className=""
+              buttonText="Delete"
+              modalComponent={<RestaurantDeleteModal restaurantId={restaurant.id} />}
+            />
+          </div>
         </div>
       </div> : null}
     { editRestaurantToggle ? <RestaurantFormUpdate restaurantId={restaurant.id} /> : null}
