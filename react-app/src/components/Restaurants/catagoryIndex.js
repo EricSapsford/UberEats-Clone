@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { NavLink, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import * as restaurantActions from "../../store/restaurant"
@@ -42,6 +43,7 @@ function RestaurantsByCatagoryNav() {
         </div>
         <h1>Explore by category</h1>
         <div className="restaurantCardCatDiv">
+          <Link exact to={'/restaurants/'} id='allCatButton'>All</Link>
           {restaurantCatagoryArr.map((cata) => (
             <div key={`${cata}Nav`}>
               <NavLink

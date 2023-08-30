@@ -44,7 +44,7 @@ function UserRestaurantCard({ restaurant }) {
         <div>
           <NavLink to={`/restaurants/${restaurant.id}/menu`}>
             <div>
-              <img src={restaurant.imageUrl ? restaurant.imageUrl : "https:upload.  wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholdesvg"}   alt="Restaurant Image" />
+              <img className='restaurantImage' src={restaurant.imageUrl ? restaurant.imageUrl : "https:upload.  wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholdesvg"}   alt="Restaurant Image" />
             </div>
             <div>
               <div>

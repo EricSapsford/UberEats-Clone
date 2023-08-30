@@ -11,25 +11,19 @@ function RestaurantCard({ restaurant }) {
 
   return (
     <div>
-      <div>
+      <div id="restaurantWholeDiv">
         <NavLink to={`/restaurants/${restaurant.id}/menu`}>
-          <div>
-            <img src={restaurant.imageUrl ? restaurant.imageUrl : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"} alt="Restaurant Image" />
+          <div id="restaurantImageDiv">
+            <img className='restaurantImage' src={restaurant.imageUrl ? restaurant.imageUrl : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"} alt="Restaurant Image" />
           </div>
           <div>
-            <div>
+            <div id="restaurantNameDiv">
               {restaurant.name}
             </div>
-            {/* <div>
-              {restaurant.avgRating}
-            </div> */}
-            <div>
-              {restaurant.category}
+            <div id="restaurantCategoryPriceDiv">
+              {restaurant.category} • {priceRangeString}
             </div>
-            {priceRangeString}
-            <div>
-            </div>
-            <div>
+            <div id="restaurantAddressDiv">
               {restaurant.streetAddress}
             </div>
           </div>

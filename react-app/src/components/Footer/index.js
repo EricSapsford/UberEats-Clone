@@ -1,9 +1,13 @@
 import { Link } from 'react-router-dom';
 import SignupFormModal from '../SignupFormModal';
 import OpenModalButton from '../OpenModalButton';
+import { useSelector } from 'react-redux';
 import './Footer.css';
 
 export default function Footer() {
+
+    const sessionUser = useSelector(state => state.session.user)
+
     return (
         <>
             <div id="footer">
@@ -17,10 +21,10 @@ export default function Footer() {
                     <Link exact to="/restaurants">
                         <div>Restaurants near me</div>
                     </Link>
-                    <div id='footerModal'><OpenModalButton
+                    {!sessionUser && (<div id='footerModal'><OpenModalButton
                         buttonText='Create an Account'
                         modalComponent={<SignupFormModal />} />
-                    </div>
+                    </div>)}
                 </div>
             </div>
             <div id='footer-copyright'>

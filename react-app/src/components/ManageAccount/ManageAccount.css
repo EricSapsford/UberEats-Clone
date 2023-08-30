@@ -34,7 +34,7 @@
 }
 
 .active {
-    background-color: rgb(219, 219, 219) !important;
+    background-color: none !important;
 }
 
 #account-landing-right-content {
