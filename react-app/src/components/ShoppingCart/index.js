@@ -81,7 +81,7 @@ export default function ShoppingCartModal() {
                             </div>
                         </div>
                         <div className='cart-buttons'>
-                            <button className='cart-checkout' onClick={alert('Feature coming soon!')}>Go to checkout</button>
+                            <button className='cart-checkout' onClick={() => alert('Feature coming soon!')}>Go to checkout</button>
                             <button>Add items</button>
                         </div>
                     </div>
