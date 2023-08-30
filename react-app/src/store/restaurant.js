@@ -137,7 +137,7 @@ export const getAllRestaurantsByCurrentUserThunk = () => async (dispatch) => {
 
 // THUNK: GET ALL RESTAURANTS BY CATEGORY
 export const getAllRestaurantsByCatagoryThunk = (catagory) => async (dispatch) => {
-  const res = await fetch(`/api/restaurants/${catagory}`, {
+  const res = await fetch(`/api/restaurants/category/${catagory}`, {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   })
@@ -242,10 +242,10 @@ const restaurantReducer = (state = initialState, action) => {
     case GET_ONE_RESTAURANT: {
       // console.log("***** in GET_ONE_RESTAURANT: Reducer ****")
       // console.log("***** in GET_ONE_RESTAURANT: state ****", state)
-      // console.log("***** in GET_ONE_RESTAURANT: action ****", action)
+      console.log("***** in GET_ONE_RESTAURANT: action ****", action)
       const newState = { ...state, singleRestaurant: {} };
       newState.singleRestaurant = action.restaurant.restaurant;
-      // console.log("***** in GET_ONE_RESTAURANT: newState ****", newState)
+      console.log("***** in GET_ONE_RESTAURANT: newState ****", newState)
       return newState;
     }
 
@@ -277,7 +277,7 @@ const restaurantReducer = (state = initialState, action) => {
       // console.log("IN CREATE RESTAURANT REDUCER")
       // console.log("IN CREATE RESTAURANT REDUCER - STATE", state)
       // console.log("IN CREATE RESTAURANT REDUCER - ACTION", action)
-      const newState = { ...state, usersRestaurants: { ...state.usersRestaurants }}
+      const newState = { ...state, usersRestaurants: { ...state.usersRestaurants } }
       newState.usersRestaurants[action.restaurant.restaurant.id] = action.restaurant.restaurant
       // console.log("NEWSTATE", newState)
       return newState;
@@ -288,14 +288,14 @@ const restaurantReducer = (state = initialState, action) => {
       // console.log("IN UPDATE RESTAURANT REDUCER - STATE", state)
       // console.log("IN UPDATE RESTAURANT REDUCER - ACTION", action)
       // console.log("FIND THE ID", action.restaurant.restaurant.id)
-      const newState = { ...state, usersRestaurants: { ...state.usersRestaurants }}
+      const newState = { ...state, usersRestaurants: { ...state.usersRestaurants } }
       newState.usersRestaurants[action.restaurant.restaurant.id] = action.restaurant.restaurant
       // console.log("NEWSTATE", newState)
       return newState
     }
 
     case DELETE_RESTAURANT: {
-      const newState = { ...state, usersRestaurants: { ...state.usersRestaurants }}
+      const newState = { ...state, usersRestaurants: { ...state.usersRestaurants } }
       delete newState.usersRestaurants[action.restaurantId]
       return newState;
     }

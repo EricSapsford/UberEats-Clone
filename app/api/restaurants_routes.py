@@ -33,8 +33,8 @@ def get_all_rests_with_one():
     res = {"restaurants": [rest.to_dict() for rest in restaurants]}
     return res
 
-### Get all Restaurants by category: GET /api/restaurants/:category
-@restaurant_routes.route("/<string:catagory>")
+### Get all Restaurants by category: GET /api/restaurants/category/:category
+@restaurant_routes.route("/category/<string:catagory>")
 def get_restaurants_by_catagory(catagory):
     restaurants = Restaurant.query.filter(Restaurant.category == catagory).all()
     res = {"restaurants": [rest.to_dict() for rest in restaurants]}
