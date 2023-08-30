@@ -2,6 +2,7 @@
 
 //ACTION TYPES
 export const LOAD_PAST_ORDERS = "orders/getPastOrders"
+export const CREATE_ORDER = "orders/createOrder"
 
 //ACTION CREATORS
 export const getPastOrders = (orders) => {
@@ -11,26 +12,40 @@ export const getPastOrders = (orders) => {
     }
 }
 
+export const createOrder = (order) => {
+    return {
+        type: CREATE_ORDER,
+        order
+    }
+}
+
 //THUNKS
 export const thunkGetPastOrders = (id) => async (dispatch) => {
     const res = await fetch(`/api/orders/${id}`, {
-        method: "GET",
-        // headers: {"Content-Type": "application/json"}
+        method: "GET"
     })
-    // console.log("*** res from getPastOrders thunk:", res)
 
     if (res.ok) {
-        // console.log("*** in getPastOrders thunk res ok ***")
         const data = await res.json()
-        // console.log("*** in getPastOrders thunk data ***", data)
         dispatch(getPastOrders(data.past_orders))
         return data
     } else {
-        // console.log("*** in getPastOrders thunk res not ok ***")
         const errors = await res.json()
-        // console.log("*** in getPastOrders thunk errors ***", errors)
         return errors
     }
+}
+
+export const thunkCreateOrder = (order) => async (dispatch) => {
+    const restaurantId = order.menuItems[0].name
+    const res = await fetch("/api/orders/new", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            menu_items: order.menuItems,
+            total_cost: order.totalCost,
+            restaurant_id: restaurantId,
+        })
+    })
 }
 
 //REDUCER
@@ -43,6 +58,11 @@ export const ordersReducer = (state = initialState, action) => {
             // console.log("*** in LOAD_PAST_ORDERS action ***", action)
             const newState = { ...state, pastOrders: [], shoppingCart: [...state.shoppingCart] }
             newState.pastOrders = action.orders
+            return newState
+        }
+        case CREATE_ORDER: {
+            const newState = { ...state, pastOrders: [ ...state.pastOrders ], shoppingCart: [] }
+            newState.pastOrders.push(action.order)
             return newState
         }
         default:

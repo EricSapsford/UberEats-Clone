@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useShoppingCart } from '../../context/ShoppingCart';
 import './ShoppingCart.css'
 
-
 export default function ShoppingCartModal() {
     const dispatch = useDispatch();
     const ulRef = useRef();

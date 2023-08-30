@@ -85,7 +85,7 @@ export default function ManageAccount() {
   }, [accountDetailsToggle, pastOrderToggle, createRestaurantToggle, manageRestaurantsToggle])
 
   return (
-    <>
+    <div className='account-page'>
       <div id='account-landing-outermost-box'>
         <div id='account-landing-left-sidebar'>
           <button className={currentView === 'account' ? "active" : ""} onClick={accountDetails}>Account Details</button>
@@ -103,6 +103,6 @@ export default function ManageAccount() {
           {manageRestaurantsToggle ? <CurrentUserRestaurants /> : null}
         </div>
       </div>
-    </>
+    </div>
   )
 };
