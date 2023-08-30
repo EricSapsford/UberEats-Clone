@@ -61,6 +61,7 @@ export const getOneMenuItemThunk = (menuItemId) => async (dispatch) => {
   if (res.ok) {
     const menuItem = await res.json();
     dispatch(getOneMenuItem(menuItem));
+    return menuItem; // added
   } else {
     const errors = await res.json();
     return errors;

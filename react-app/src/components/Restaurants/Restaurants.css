@@ -6,15 +6,27 @@
 .restaurantCardCatDiv {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    gap: 10px;
 }
 
 .restaurantsCards {
-    margin-right: 40px;
-    padding: 5px 0.5px 5px 0.25px;
     color: white;
     background-color: black;
     border-radius: 10px;
     font-size: 25px;
+    padding: 2px 2px 2px 2px;
+    border: 2px solid black;
+}
+
+#allCatButton {
+    color: white;
+    margin-top: -5px;
+    background-color: black;
+    border-radius: 10px;
+    font-size: 25px;
+    padding: 2px 4px 2px 4px;
     border: 2px solid black;
 }
 
@@ -22,5 +34,24 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 50px;
+    gap: 20px;
+}
+
+#restaurantImageDiv {
+    border-bottom: 1px solid black;
+}
+
+#restaurantWholeDiv {
+    border: 2px black solid;
+    padding: 5px 5px 5px 5px;
+}
+
+#restaurantNameDiv {
+    font-size: 25px;
+
+}
+
+#restaurantCategoryPriceDiv {
+    display: flex;
+    flex-direction: row;
 }

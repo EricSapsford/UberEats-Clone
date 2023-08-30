@@ -4,13 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getOneRestaurantThunk } from '../../store/restaurant';
 import { getAllMenuItemsForRestThunk } from '../../store/menuItems';
 import OpenModalButton from '../../components/OpenModalButton';
-import MenuItemFormCreateModalBtn from '../MenuItemFormCreateModalBtn';
 import MenuItemFormCreate from '../MenuItemFormCreate';
 import MenuItemCardOwner from '../MenuItemCardOwner';
 import './RestaurantDetailsOwner.css';
 
-export default function RestaurantDetailsOwner() { // add: { restaurant }
-  // const sessionUser = useSelector(state => state.session.user);
+export default function RestaurantDetailsOwner() {
   const { restaurantId } = useParams();
   const restIdAsNum = parseInt(restaurantId);
   const dispatch = useDispatch();
@@ -34,8 +32,6 @@ export default function RestaurantDetailsOwner() { // add: { restaurant }
     return menuItem.type === "MenuItemEnum.beverage"
   })
 
-  // WE NEED THIS PAGE TO LISTEN TO CHANGES TO MENU ITEMS
-
   useEffect(() => {
     dispatch(getOneRestaurantThunk(restaurantId));
     dispatch(getAllMenuItemsForRestThunk(restaurantId));
@@ -47,29 +43,21 @@ export default function RestaurantDetailsOwner() { // add: { restaurant }
       {isLoaded && (
         <div className='restaurant-outermost-box'>
           <div className='restaurant-centering-box'>
-            <div>
+
+            <div className='owner-restaurant-back-to-my-account'>
               ⬅ <Link to='/account'>Back to my account</Link>
             </div>
-
             <div className='owner-restaurant-card'>
-
               <div className='restaurant-info'>
                 <div className='owner-rest-header-and-add-button'>
-                  <span className='owner-rest-header'>
-                    Edit menu: {restaurant.name ? restaurant.name : ''}
-                  </span>
-                  <span>
-                    <MenuItemFormCreateModalBtn
+                  <span className='owner-rest-add-menu-item-button'>
+                    <OpenModalButton
                       buttonText="Add Item"
                       modalComponent={<MenuItemFormCreate restIdAsNum={restIdAsNum} />}
                     />
-                    {/* <span className='add-menu-item-button'>
-                      <OpenModalButton
-                        style={{ color: 'red' }}
-                        buttonText="Add Item"
-                        modalComponent={<MenuItemFormCreate restIdAsNum={restIdAsNum} />}
-                      />
-                    </span> */}
+                  </span>
+                  <span className='owner-rest-header'>
+                    Edit Menu: {restaurant.name ? restaurant.name : ''}
                   </span>
                 </div>
               </div>
@@ -128,7 +116,6 @@ export default function RestaurantDetailsOwner() { // add: { restaurant }
                   </div>
                 </div>
               </div>
-
             </div>
 
           </div>

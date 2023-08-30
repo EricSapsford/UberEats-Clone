@@ -137,7 +137,7 @@ export const getAllRestaurantsByCurrentUserThunk = () => async (dispatch) => {
 
 // THUNK: GET ALL RESTAURANTS BY CATEGORY
 export const getAllRestaurantsByCatagoryThunk = (catagory) => async (dispatch) => {
-  const res = await fetch(`/api/restaurants/${catagory}`, {
+  const res = await fetch(`/api/restaurants/category/${catagory}`, {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   })
@@ -195,9 +195,9 @@ export const updateRestaurantThunk = (updatedRestaurant) => async (dispatch) => 
     })
   })
   if (res.ok) {
-    const updatedRestaurant = await res.json();
-    dispatch(updateRestaurant(updatedRestaurant));
-    return updateRestaurant
+    const data = await res.json();
+    dispatch(updateRestaurant(data));
+    return data
   } else {
     const errors = await res.json();
     return errors
@@ -277,10 +277,16 @@ const restaurantReducer = (state = initialState, action) => {
       // console.log("IN CREATE RESTAURANT REDUCER")
       // console.log("IN CREATE RESTAURANT REDUCER - STATE", state)
       // console.log("IN CREATE RESTAURANT REDUCER - ACTION", action)
-      const newState = { ...state, usersRestaurants: { ...state.usersRestaurants }}
+      if (action.restaurant.restuarant) {
+      const newState = { ...state, usersRestaurants: { ...state.usersRestaurants } }
       newState.usersRestaurants[action.restaurant.restaurant.id] = action.restaurant.restaurant
       // console.log("NEWSTATE", newState)
       return newState;
+      } else if (action.restaurant.errors) {
+        return state
+      } else {
+        return state
+      }
     }
 
     case UPDATE_RESTAURANT: {
@@ -288,14 +294,23 @@ const restaurantReducer = (state = initialState, action) => {
       // console.log("IN UPDATE RESTAURANT REDUCER - STATE", state)
       // console.log("IN UPDATE RESTAURANT REDUCER - ACTION", action)
       // console.log("FIND THE ID", action.restaurant.restaurant.id)
-      const newState = { ...state, usersRestaurants: { ...state.usersRestaurants }}
+      // if (action.restaurant.restuarant) {
+      if (action.restaurant.errors) {
+        return state
+      }
+      const newState = { ...state, usersRestaurants: { ...state.usersRestaurants } }
       newState.usersRestaurants[action.restaurant.restaurant.id] = action.restaurant.restaurant
       // console.log("NEWSTATE", newState)
       return newState
+      // } else if (action.restaurant.errors) {
+      //   return state
+      // } else {
+      //   return state
+      // }
     }
 
     case DELETE_RESTAURANT: {
-      const newState = { ...state, usersRestaurants: { ...state.usersRestaurants }}
+      const newState = { ...state, usersRestaurants: { ...state.usersRestaurants } }
       delete newState.usersRestaurants[action.restaurantId]
       return newState;
     }

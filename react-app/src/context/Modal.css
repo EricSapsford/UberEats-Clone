@@ -48,6 +48,29 @@
   border: 3px solid #000000;
 }
 
+#modal-content select {
+  background-color: rgb(239, 239, 239);
+  width: 175px;
+  padding: 10px 10px 10px 5px;
+  border-radius: 7px;
+  border: 3px solid #FFFFFF;
+}
+
+#modal-content select:focus {
+  border: 3px solid #000000;
+}
+
+#modal-content textarea {
+  background-color: rgb(239, 239, 239);
+  padding: 10px 10px 10px 5px;
+  border-radius: 7px;
+  border: 3px solid #FFFFFF;
+}
+
+#modal-content textarea:focus {
+  border: 3px solid #000000;
+}
+
 #modal-content form button {
   color: #FFFFFF;
   background-color: #000000;
