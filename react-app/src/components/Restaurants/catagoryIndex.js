@@ -3,8 +3,8 @@ import { useEffect } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import * as restaurantActions from "../../store/restaurant"
-
 import RestaurantCard from "./RestaurantCard"
+import "./Restaurants.css"
 
 const restaurantCatagoryArr = [
   'Mexican',
@@ -37,15 +37,16 @@ function RestaurantsByCatagoryNav() {
     <>
       <div>
         <div>
-          <h1>Banner Image</h1>
+          <img id='restaurantBannerImg' src="https://i.imgur.com/rP2sDgp.jpg" title="source: imgur.com" />
           <h1>Food near you, so long as you're near Vancouver</h1>
         </div>
-        <div>
-          <h1>Explore by catagory</h1>
+        <h1>Explore by category</h1>
+        <div className="restaurantCardCatDiv">
           {restaurantCatagoryArr.map((cata) => (
             <div key={`${cata}Nav`}>
               <NavLink
-                exact to ={`/restaurants/${cata}`}
+                exact to={`/restaurants/${cata}`}
+                className='restaurantsCards'
               >
                 {cata}
               </NavLink>
@@ -55,7 +56,7 @@ function RestaurantsByCatagoryNav() {
         <div>
           <h1>{catagory} Restaurants</h1>
         </div>
-        <div>
+        <div className="restaurantCardDiv">
           {restStateArr.map((restaurant) => (
             <div key={restaurant.id}>
               <RestaurantCard restaurant={restaurant} />

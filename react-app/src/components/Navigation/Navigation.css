@@ -54,6 +54,7 @@ nav {
 
 #nav-logo-text {
   font-size: 30px;
+  background-color: white;
 }
 
 #nav-right-hamburger-and-logo {
@@ -82,4 +83,45 @@ nav {
 
 .shopping-cart:hover {
   border: 2px solid white;
+}
+
+#logInSignUpNavDiv {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.navModalButton button {
+  display: flex;
+  background-color: white;
+  border: none;
+  display: flex;
+  font-size: 14pt;
+  grid-gap: 8px;
+  gap: 8px;
+  align-items: center;
+  color: white;
+  background-color: black;
+  border-radius: 50px;
+  border: 2px solid black;
+  padding: 12px 22px;
+}
+
+#theBurgerLogo {
+  font-size: 50px;
+}
+
+#restaurantsNavLinkDiv {
+  display: flex;
+  background-color: white;
+  margin-right: -10px;
+  border: none;
+  display: flex;
+  font-size: 14pt;
+  align-items: center;
+  color: white;
+  background-color: black;
+  border-radius: 50px;
+  border: 2px solid black;
+  padding: 12px 22px;
 }
