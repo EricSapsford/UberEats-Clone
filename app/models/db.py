@@ -39,18 +39,19 @@ class User(db.Model, UserMixin):
     first_name = db.Column(db.String(50), nullable=False)
     last_name = db.Column(db.String(80), nullable=False)
     street_address = db.Column(db.String(255), nullable=False)
+    wallet = db.Column(db.Numeric(10, 2), nullable=False)
     created_at = db.Column(db.Date, nullable=False)
     updated_at = db.Column(db.Date, nullable=False)
 
 
     # one-to-many: one user can have many reviews
-    reviews_rel = db.relationship("Review", back_populates="users_rel")
+    reviews_rel = db.relationship("Review", back_populates="users_rel", cascade="all, delete-orphan")
 
     # one-to-many: one user can have many orders
-    orders_rel = db.relationship("Order", back_populates="users_rel")
+    orders_rel = db.relationship("Order", back_populates="users_rel", cascade="all, delete-orphan")
 
     # one-to-many: one user can have many restaurants
-    restaurants_rel = db.relationship("Restaurant", back_populates="users_rel")
+    restaurants_rel = db.relationship("Restaurant", back_populates="users_rel", cascade="all, delete-orphan")
 
 
     @property
@@ -68,7 +69,13 @@ class User(db.Model, UserMixin):
         return {
             'id': self.id,
             'username': self.username,
-            'email': self.email
+            'email': self.email,
+            'firstName': self.first_name,
+            'lastName': self.last_name,
+            'streetAddress': self.street_address,
+            "wallet": self.wallet,
+            'createdAt': self.created_at,
+            'updatedAt': self.updated_at
         }
 
 
@@ -123,7 +130,7 @@ class Restaurant(db.Model):
     #Foreign Key relationship defined below
 
     #one-to-many: one restaurant can have many reviews
-    reviews_rel = db.relationship("Review", back_populates="restaurants_rel")
+    reviews_rel = db.relationship("Review", back_populates="restaurants_rel", cascade="all, delete-orphan")
 
     #many-to-one: one user can own many restaurants
     users_rel = db.relationship("User", back_populates="restaurants_rel")
@@ -132,19 +139,19 @@ class Restaurant(db.Model):
     orders_rel = db.relationship("Order", back_populates="restaurants_rel")
 
     #one-to-many: one restaurant can have many menu-items
-    menu_items_rel = db.relationship("MenuItem", back_populates="restaurants_rel")
+    menu_items_rel = db.relationship("MenuItem", back_populates="restaurants_rel", cascade="all, delete-orphan")
 
     def to_dict(self):
         return {
             "id": self.id,
             "name": self.name,
-            "streetddress": self.street_address,
-            "category": self.category,
+            "streetAddress": self.street_address,
+            "category": str(self.category).split(".")[1],
             "priceRange": self.price_range,
             "ownerId": self.owner_id,
             "imageUrl": self.image_url,
             "createdAt": self.created_at,
-            "updatedAt": self.updated_at
+            "updatedAt": self.updated_at,
         }
 
 
@@ -175,6 +182,8 @@ class Review(db.Model):
     restaurants_rel = db.relationship("Restaurant", back_populates="reviews_rel")
 
     def to_dict(self):
+      user_name = User.query.get(self.user_id)
+      user_data = user_name.to_dict()
       return {
           'id': self.id,
           'userId': self.user_id,
@@ -182,7 +191,8 @@ class Review(db.Model):
           'reviewText': self.review_text,
           'stars': self.stars,
           "createdAt": self.created_at,
-          "updatedAt": self.updated_at
+          "updatedAt": self.updated_at,
+          "user": user_data
       }
 
 
@@ -225,7 +235,8 @@ class MenuItem(db.Model):
             "id": self.id,
             "restaurantId": self.restaurant_id,
             "name": self.name,
-            "type": self.type,
+            # "type": str(self.type).split(".")[1],
+            "type": str(self.type),
             "price": self.price,
             "description": self.description,
             "imageUrl": self.image_url,
@@ -265,11 +276,16 @@ class Order(db.Model):
     #     pass
 
     def to_dict(self):
+        menu_items_ids = [int(id) for id in self.menu_items.split(",")]
+        menu_items_query = MenuItem.query.filter(MenuItem.id.in_(menu_items_ids)).all()
+        menu_items_data = [item.to_dict() for item in menu_items_query]
+
         return {
             'id': self.id,
             'menuItems': self.menu_items,
             'totalCost': self.total_cost,
             'userId': self.user_id,
             'restaurantId': self.restaurant_id,
-            'createdAt': self.created_at
+            'createdAt': self.created_at,
+            'menuItems': menu_items_data
         }

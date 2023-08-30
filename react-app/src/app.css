@@ -1,0 +1,15 @@
+/* SITEWIDE STYLES HERE IF WE WANT */
+
+* {
+    color: #000000;
+    font-family: 'Rubik', sans-serif;
+    text-decoration: none;
+}
+
+.green {
+    color: #048c44;
+}
+
+#root {
+    width: 100%;
+}

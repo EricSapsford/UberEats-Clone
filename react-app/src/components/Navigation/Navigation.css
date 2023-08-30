@@ -1,7 +1,177 @@
+.profile-container button {
+  cursor: pointer;
+  font-size: 16pt;
+  background-color: transparent;
+  color: black;
+  padding: 14px 16px;
+  border-radius: 50px;
+  border: none;
+}
+
+.profile-container button:hover {
+  background-color: rgb(240, 240, 240);
+}
+
 .profile-dropdown {
   position: absolute;
+  top: -16px;
+  left: -1px;
+  height: 100%;
+  width: 200px;
+  /* width: 30%; */
+  padding: 40px 50px;
+  background-color: #FFFFFF;
+  /* border: 1px solid red; */
+  box-shadow: 10px 0px 50px #e5e5e5;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#dropdown-user-icon {
+  margin-right: 5px;
+}
+
+#dropdown-sign-out-link {
+  color: #787878;
+  cursor: pointer;
+}
+
+#dropdown-sign-out-link:hover {
+  cursor: pointer;
 }
 
 .hidden {
   display: none;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+}
+
+#nav-logo-text {
+  font-size: 30px;
+  background-color: white;
+}
+
+#nav-right-hamburger-and-logo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+#nav-left-other-buttons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.shopping-cart {
+  cursor: pointer;
+  display: flex;
+  font-size: 14pt;
+  gap: 8px;
+  align-items: center;
+  color: white;
+  background-color: black;
+  border-radius: 50px;
+  border: 2px solid black;
+  padding: 12px 22px;
+}
+
+.shopping-cart:hover {
+  border: 2px solid white;
+}
+
+.shopping-cart i {
+  color: #FFFFFF;
+}
+
+.shopping-cart div {
+  color: #FFFFFF;
+}
+
+#logInSignUpNavDiv {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.navModalButton button {
+  display: flex;
+  background-color: white;
+  border: none;
+  display: flex;
+  font-size: 14pt;
+  grid-gap: 8px;
+  gap: 8px;
+  align-items: center;
+  color: white;
+  background-color: black;
+  border-radius: 50px;
+  border: 2px solid black;
+  padding: 12px 22px;
+}
+
+#theBurgerLogo {
+  font-size: 50px;
+}
+
+#restaurantsNavLinkDiv {
+  display: flex;
+  background-color: white;
+  margin-right: -10px;
+  border: none;
+  display: flex;
+  font-size: 14pt;
+  align-items: center;
+  color: white;
+  background-color: black;
+  border-radius: 50px;
+  border: 2px solid black;
+  padding: 12px 22px;
+}
+
+#logInSignUpNavDiv {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.navModalButton button {
+  display: flex;
+  background-color: white;
+  border: none;
+  display: flex;
+  font-size: 14pt;
+  grid-gap: 8px;
+  gap: 8px;
+  align-items: center;
+  color: white;
+  background-color: black;
+  border-radius: 50px;
+  border: 2px solid black;
+  padding: 12px 22px;
+}
+
+#theBurgerLogo {
+  font-size: 50px;
+}
+
+#restaurantsNavLinkDiv {
+  display: flex;
+  background-color: white;
+  margin-right: -10px;
+  border: none;
+  display: flex;
+  font-size: 14pt;
+  align-items: center;
+  color: white;
+  background-color: black;
+  border-radius: 50px;
+  border: 2px solid black;
+  padding: 12px 22px;
 }

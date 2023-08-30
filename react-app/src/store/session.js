@@ -67,16 +67,19 @@ export const logout = () => async (dispatch) => {
 	}
 };
 
-export const signUp = (username, email, password) => async (dispatch) => {
+export const signUp = (firstName, lastName, streetAddress, email, username, password) => async (dispatch) => {
 	const response = await fetch("/api/auth/signup", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
 		},
 		body: JSON.stringify({
-			username,
+			first_name: firstName,
+			last_name: lastName,
+			street_address: streetAddress,
 			email,
-			password,
+			username,
+			password
 		}),
 	});
 
@@ -94,7 +97,7 @@ export const signUp = (username, email, password) => async (dispatch) => {
 	}
 };
 
-export default function reducer(state = initialState, action) {
+export default function sessionReducer(state = initialState, action) {
 	switch (action.type) {
 		case SET_USER:
 			return { user: action.payload };
