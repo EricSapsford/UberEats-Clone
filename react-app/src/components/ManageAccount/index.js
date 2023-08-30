@@ -95,7 +95,7 @@ export default function ManageAccount() {
         {/* <div>
           <CurrentUserRestaurants />
         </div> */}
-      </div>
+      </div >
     </>
   )
 };

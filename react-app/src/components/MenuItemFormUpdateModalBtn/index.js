@@ -1,5 +1,6 @@
 import React from 'react';
 import { useModal } from '../../context/Modal';
+import './MenuItemFormUpdateModalBtn.css';
 
 export default function MenuItemFormUpdateModalBtn({
     modalComponent, // component to render inside the modal
@@ -16,7 +17,10 @@ export default function MenuItemFormUpdateModalBtn({
     };
 
     return (
-        <button onClick={onClick}>
+        <button
+            onClick={onClick}
+            className='menu-item-form-update-modal-button'
+        >
             {buttonText}
         </button>
     )
