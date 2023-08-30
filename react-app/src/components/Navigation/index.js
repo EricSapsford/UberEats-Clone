@@ -10,7 +10,7 @@ import OpenModalButton from '../OpenModalButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import { useShoppingCart } from '../../context/ShoppingCart';
-import ShoppingCartModal from '../ShoppingCart/ShoppingCartModal';
+import ShoppingCartModal from '../ShoppingCart';
 
 export default function Navigation({ isLoaded }) {
   const dispatch = useDispatch();
