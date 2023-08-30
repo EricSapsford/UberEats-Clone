@@ -10,7 +10,7 @@ export default function Footer() {
                 {/* <h1>footer</h1> */}
                 <div id='footer-col-1'>
                     <span id='footer-logo-text'>
-                        VancoUberEats
+                        VancouberEats
                     </span>
                 </div>
                 <div id='footer-col-2'>
@@ -24,7 +24,7 @@ export default function Footer() {
                 </div>
             </div>
             <div id='footer-copyright'>
-                @ 2023 VancoUber Eats
+                @ 2023 Vancouber Eats
             </div>
         </>
     )
