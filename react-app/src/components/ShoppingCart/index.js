@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useShoppingCart } from '../../context/ShoppingCart';
 import './ShoppingCart.css'
+import { getAllRestaurantsWithOneMenuItemThunk } from '../../store/restaurant';
 
 export default function ShoppingCartModal() {
     const dispatch = useDispatch();
@@ -9,10 +10,23 @@ export default function ShoppingCartModal() {
 
     const { cart, setCart } = useShoppingCart()
     const [showMenu, setShowMenu] = useState(false)
+    const [isLoaded, setIsLoaded] = useState(false)
+    const [total, setTotal] = useState(0)
 
-    const toggleCart = () => {
-        setShowMenu(!showMenu)
-    }
+    const restaurants = useSelector(state=>state.restaurant.allRestaurants)
+
+    useEffect(() => {
+        let newTotal = 0;
+        cart.forEach(item => {
+            newTotal += item.price
+        })
+        setTotal(newTotal)
+    }, [cart])
+
+    useEffect(() => {
+        dispatch(getAllRestaurantsWithOneMenuItemThunk())
+        setIsLoaded(true)
+    }, [dispatch])
 
     useEffect(() => {
         if (!showMenu) return;
@@ -29,6 +43,10 @@ export default function ShoppingCartModal() {
         return () => document.removeEventListener("click", closeMenu);
     }, [showMenu]);
 
+    const toggleCart = () => {
+        setShowMenu(!showMenu)
+    }
+
     const ulClassName = "cart-dropdown" + (showMenu ? "" : " hidden");
 
     return (
@@ -38,32 +56,32 @@ export default function ShoppingCartModal() {
                 <div>Cart</div>
             </button>
             <div>
-                {showMenu && (
+                {showMenu && isLoaded && (
                     <div className={ulClassName} ref={ulRef}>
                         <div className='cart-contents'>
                             <button onClick={() => setShowMenu(false)}>
                                 <i class="fa-solid fa-x"></i>
                             </button>
-                            <div className='cart-restaurant'>Restaurant</div>
-                            <div className='cart-restaurant-address'>Restaurant Address</div>
-                            <div className='cart-quantity'># of items</div>
+                            <div className='cart-restaurant'>{restaurants[cart[0].restaurantId].name}</div>
+                            <div className='cart-restaurant-address'>{restaurants[cart[0].restaurantId].streetAddress}</div>
+                            <div className='cart-quantity'>{cart.length} {cart.length === 1 ? "item" : "items"}</div>
                             <div className='cart-item-list'>
                                 {!cart.length ? (<div>No items in your cart</div>) :
                                     cart.map(item => (
-                                        <div>
+                                        <div className='item-entry'>
                                             <div>1 {item.name}</div>
-                                            <div>${item.price}</div>
+                                            <div>${item.price.toFixed(2)}</div>
                                         </div>
                                     ))
                                 }
                             </div>
                             <div className='cart-total'>
                                 <div>Subtotal</div>
-                                <div>$##.##</div>
+                                <div>${total.toFixed(2)}</div>
                             </div>
                         </div>
                         <div className='cart-buttons'>
-                            <button className='cart-checkout'>Go to checkout</button>
+                            <button className='cart-checkout' onClick={alert('Feature coming soon!')}>Go to checkout</button>
                             <button>Add items</button>
                         </div>
                     </div>
