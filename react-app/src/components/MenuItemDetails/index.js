@@ -4,12 +4,14 @@ import { useEffect, useState } from 'react';
 import { getOneMenuItemThunk } from '../../store/menuItems';
 import './MenuItemDetails.css';
 import { getOneRestaurantThunk } from '../../store/restaurant';
-// import { cart, setCart } from useShoppingCart;
+import { useShoppingCart } from '../../context/ShoppingCart';
+
 
 export default function MenuItemDetails() {
   const sessionUser = useSelector(state => state.session.user);
   const { menuItemId } = useParams();
   const menuItemIdAsNum = parseInt(menuItemId);
+  const { cart, setCart } = useShoppingCart();
 
   const [isLoaded, setIsLoaded] = useState(false)
 
@@ -25,8 +27,18 @@ export default function MenuItemDetails() {
     hideAddButton = false;
   }
 
+  const itemInCart = (menuItem) => {
+    const item = cart.find(thing => thing.id === menuItem.id)
+
+    if (item) {
+      return true
+    } else {
+      return false
+    }
+  }
+
   let hideRemoveButton = true;
-  if (sessionUser === null) { // logged out
+  if (sessionUser === null ) { // logged out
     hideRemoveButton = true;
   } else if (sessionUser !== null && sessionUser !== undefined) { // logged in
     // TO EDIT: ONCE SHOPPING CART EXISTS
@@ -36,17 +48,22 @@ export default function MenuItemDetails() {
     hideRemoveButton = false;
   }
 
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(getOneMenuItemThunk(menuItemId));
-  //   dispatch(getOneRestaurantThunk(menuItem.restaurantId))
-  //   setIsLoaded(true)
-  // }, [dispatch, menuItemId]);
+  const addToCart = (item) => {
+    const updatedCart = [...cart, item]
+    setCart(updatedCart)
+  }
 
-  // const addToCart = () => {
-  //   const updatedCart = [...cart, item]
-  //   setCart(updatedCart)
-  // }
+  const removeFromCart = (menuItem) => {
+    const updatedCart = []
+
+    cart.forEach(item => {
+      if (item.id !== menuItem.id) {
+        updatedCart.push(item)
+      }
+    });
+
+    setCart(updatedCart)
+  }
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -85,16 +102,17 @@ export default function MenuItemDetails() {
                   </div>
                   <div>
                     {hideAddButton ? null :
-                      <button className='menu-item-details-add-or-remove-button'>
+                      <button className='menu-item-details-add-or-remove-button' onClick={() => addToCart(menuItem)}>
                         Add to order
                       </button>
                     }
                   </div>
                   <div>
-                    {hideRemoveButton ? null :
-                      <button className='menu-item-details-add-or-remove-button'>
+                    {itemInCart(menuItem) ? (
+                      <button className='menu-item-details-add-or-remove-button' onClick={() => removeFromCart(menuItem)}>
                         Remove from order
                       </button>
+                    ) : null
                     }
                   </div>
                 </div>

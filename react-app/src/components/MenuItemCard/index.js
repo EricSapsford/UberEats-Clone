@@ -7,7 +7,7 @@ export default function MenuItemCard({ menuItem }) {
       <Link to={`/menu-items/${menuItem.id}`}>
         <div className='menu-item-card'>
           <div>
-            <img className='menu-item-img' src={menuItem.imageUrl}></img>
+            <img className='menu-item-img restaurantImage' src={menuItem.imageUrl}></img>
           </div>
           <div className='menu-item-name'>
             {menuItem.name}

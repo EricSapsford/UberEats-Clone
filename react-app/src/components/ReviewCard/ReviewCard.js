@@ -30,11 +30,12 @@ export default function ReviewCard() {
             {isLoaded && (
                 <>
                     <h2 id="reviewHeader">Reviews</h2>
-                    {!reviewUserIds.includes(sessionUser.id) && (<div>
-                        <OpenModalButton
-                            buttonText="Leave a review"
-                            modalComponent={<CreateReviewModal restaurantId={restaurantId} />} />
-                    </div>)}
+                    {!reviewUserIds.includes(sessionUser?.id) && (sessionUser != null) && (
+                        <div className="reviewModalButton">
+                            <OpenModalButton
+                                buttonText="Leave a review"
+                                modalComponent={<CreateReviewModal restaurantId={restaurantId} />} />
+                        </div>)}
                     {reviewList.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).map((review) => (
                         <div key={review.id} className="reviewDiv">
                             <div id="reviewStarsDiv">
@@ -43,10 +44,10 @@ export default function ReviewCard() {
                             <div id="reviewDateDiv">
                                 {review.createdAt.slice(5, -13)}
                             </div>
-                            {reviewUserIds.includes(sessionUser.id) && review.userId == sessionUser.id && (
-                                <div><OpenModalButton
+                            {reviewUserIds.includes(sessionUser?.id) && review.userId == sessionUser.id && (
+                                <div className="reviewModalButton"><OpenModalButton
                                     buttonText="Delete Review"
-                                    modalComponent={<DeleteReviewModal reviewId={review.id} restaurantId={restaurantId}/>} />
+                                    modalComponent={<DeleteReviewModal reviewId={review.id} restaurantId={restaurantId} />} />
                                 </div>)}
                             <div id="reviewTextDiv">
                                 {review.reviewText}
