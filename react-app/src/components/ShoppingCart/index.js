@@ -4,6 +4,11 @@ import { useShoppingCart } from '../../context/ShoppingCart';
 import './ShoppingCart.css'
 
 
+// const addToCart = () => {
+//     const updatedCart = [...cart, item]
+//     setUpdatedCart(updatedCart)
+// }
+
 export default function ShoppingCartModal() {
     const dispatch = useDispatch();
     const ulRef = useRef();
