@@ -1,11 +1,13 @@
 import { useEffect, useState, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { useShoppingCart } from '../../context/ShoppingCart';
 import './ShoppingCart.css'
 import { getAllRestaurantsWithOneMenuItemThunk } from '../../store/restaurant';
 
 export default function ShoppingCartModal() {
     const dispatch = useDispatch();
+    const history = useHistory();
     const ulRef = useRef();
 
     const { cart, setCart } = useShoppingCart()
@@ -56,7 +58,7 @@ export default function ShoppingCartModal() {
                 <div>Cart</div>
             </button>
             <div>
-                {showMenu && isLoaded && (
+                {showMenu ? (isLoaded && cart.length ? (
                     <div className={ulClassName} ref={ulRef}>
                         <div className='cart-contents'>
                             <button onClick={() => setShowMenu(false)}>
@@ -81,11 +83,25 @@ export default function ShoppingCartModal() {
                             </div>
                         </div>
                         <div className='cart-buttons'>
-                            <button className='cart-checkout' onClick={() => alert('Feature coming soon!')}>Go to checkout</button>
+                            <button className='cart-checkout' onClick={() => history.push("/checkout")}>Go to checkout</button>
                             <button>Add items</button>
                         </div>
                     </div>
-                )}
+                ): (
+                    <div className={ulClassName} ref={ulRef}>
+                        <div className='empty-cart'>
+                            <div className='shiba'>
+                                <img src='/shibaloaf.png' alt='shibaloaf' />
+                            </div>
+                            <div className='shiba-header'>
+                                Add items to start your cart
+                            </div>
+                            {/* <div className='shiba-sentence'>
+                                Once you add items from a restaurant or store, your cart will appear here.
+                            </div> */}
+                        </div>
+                    </div>
+                )) : null}
             </div>
         </>
     )
