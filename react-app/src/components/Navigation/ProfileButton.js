@@ -60,7 +60,7 @@ function ProfileButton({ user }) {
                 Manage account
               </Link>
             </div>
-            <div>
+            <div onClick={closeMenu}>
               <Link to="/past-orders">
                 Orders
               </Link>

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { getOneMenuItemThunk } from '../../store/menuItems';
 import './MenuItemDetails.css';
 import { getOneRestaurantThunk } from '../../store/restaurant';
+// import { cart, setCart } from useShoppingCart;
 
 export default function MenuItemDetails() {
   const sessionUser = useSelector(state => state.session.user);
@@ -41,6 +42,11 @@ export default function MenuItemDetails() {
   //   dispatch(getOneRestaurantThunk(menuItem.restaurantId))
   //   setIsLoaded(true)
   // }, [dispatch, menuItemId]);
+
+  // const addToCart = () => {
+  //   const updatedCart = [...cart, item]
+  //   setCart(updatedCart)
+  // }
 
   const dispatch = useDispatch();
   useEffect(() => {

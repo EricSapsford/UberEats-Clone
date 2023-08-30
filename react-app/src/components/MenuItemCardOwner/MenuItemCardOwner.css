@@ -1,5 +1,5 @@
 #menu-item-owner-card {
-    width: 400px;
+    width: 300px;
     padding: 8px 8px 10px 8px;
     display: flex;
     flex-direction: column;
@@ -29,7 +29,7 @@
 
 #menu-item-owner-img {
     background-color: #d2d2d2;
-    width: 400px;
+    width: 300px;
     height: 190px;
     margin-right: 15px;
 }
