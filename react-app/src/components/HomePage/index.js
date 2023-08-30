@@ -1,15 +1,15 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-// import OpenModalButtonSignupHome from '../OpenModalButtonSignupHome';
-// import SignupFormModal from '../SignupFormModal';
+import RestaurantsNav from '../Restaurants';
+import HomePage from './HomePage';
 import './HomePage.css';
 
-export default function HomePage({ isLoaded }) {
+export default function BannerLogic() {
+    const sessionUser = useSelector(state => state.session.user)
 
     return (
         <>
-            <h2>🏠 Home page goes here</h2>
+            {sessionUser ? <RestaurantsNav /> : <HomePage />}
         </>
-    )
+    )  
 }

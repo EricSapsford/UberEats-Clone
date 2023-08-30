@@ -45,7 +45,7 @@ function ProfileButton({ user }) {
   return (
     <div className="profile-container">
       <button onClick={openMenu}>
-        <i class="fa-solid fa-burger"></i>
+        <i id='theBurgerLogo'class="fa-solid fa-burger"></i>
       </button>
       <div className={ulClassName} ref={ulRef}>
         {user ? (
@@ -60,7 +60,7 @@ function ProfileButton({ user }) {
                 Manage account
               </Link>
             </div>
-            <div>
+            <div onClick={closeMenu}>
               <Link to="/past-orders">
                 Orders
               </Link>

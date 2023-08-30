@@ -1,7 +1,8 @@
 import React from 'react';
 import { useModal } from '../../context/Modal';
+import './MenuItemDeleteModalBtn.css';
 
-export default function MenuItemFormCreateModalBtn({
+export default function MenuItemDeleteModalBtn({
   modalComponent, // component to render inside the modal
   buttonText, // text of the button that opens the modal
   onButtonClick, // optional: callback function that will be called once the button that opens the modal is clicked
@@ -16,7 +17,10 @@ export default function MenuItemFormCreateModalBtn({
   };
 
   return (
-    <button onClick={onClick}>
+    <button
+      onClick={onClick}
+      className='menu-item-form-delete-modal-button'
+    >
       {buttonText}
     </button>
   )

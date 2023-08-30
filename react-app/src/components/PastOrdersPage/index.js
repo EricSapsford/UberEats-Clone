@@ -16,11 +16,11 @@ function PastOrdersPage({ parent }) {
         setIsLoaded(true)
     }, [dispatch])
 
-    const orders = useSelector(state=>state.orders.pastOrders)
-    const restaurantsObj = useSelector(state=>state.restaurant.allRestaurants)
+    const orders = useSelector(state => state.orders.pastOrders)
+    const restaurantsObj = useSelector(state => state.restaurant.allRestaurants)
     const restaurants = Object.values(restaurantsObj)
     console.log("restaurants: ", restaurants)
-    const user = useSelector(state=>state.session.user)
+    const user = useSelector(state => state.session.user)
 
     const handleReorder = () => {
         alert('nice try bud')
@@ -49,7 +49,7 @@ function PastOrdersPage({ parent }) {
                                 <div>${order.totalCost.toFixed(2)} • {new Date(order.createdAt).toDateString()}</div>
                                 <div className="order-items-list">
                                     {order.menuItems.map(item => (
-                                        <li>1 {item.name}</li>
+                                        <li key={item.id}>1 {item.name}</li>
                                     ))}
                                 </div>
                             </div>

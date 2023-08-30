@@ -34,8 +34,8 @@ export default function ShoppingCartModal() {
     return (
         <>
             <button className='shopping-cart' onClick={() => toggleCart()}>
-              <i class="fa-solid fa-cart-shopping"></i>
-              <div>Cart</div>
+                <i class="fa-solid fa-cart-shopping"></i>
+                <div>Cart</div>
             </button>
             <div>
                 {showMenu && (

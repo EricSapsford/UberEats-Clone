@@ -6,10 +6,14 @@
 
 .restaurant-name {
     font-size: 40px;
+    padding-left: 9px;
+    padding-bottom: 9px;
 }
 
 .restaurant-details {
     font-size: 14px;
+    padding-left: 9px;
+    padding-bottom: 9px;
 }
 
 .restaurant-read-reviews {
@@ -21,11 +25,16 @@
 }
 
 .restaurant-menu-item-card-holder {
-    width: 400px;
+    width: 300px;
 }
 
-.restaurant-menu-items {
+.restaurant-menu-items-sections {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 10px;
+}
+
+.item-type-header {
+    font-size: 26px;
+    padding-left: 9px;
 }

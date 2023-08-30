@@ -112,16 +112,42 @@ def create_restaurant():
     if form.validate_on_submit():
         new_restaurant = Restaurant(
             name = form.data["name"],
-            street_address = form.data["address"],
+            street_address = form.data["street_address"],
             category = form.data["category"],
             price_range = form.data["price_range"],
             owner_id = current_user.id,
-            image_url = form.data["image_url"]
+            image_url = form.data["image_url"],
+            created_at=datetime.datetime.now(),
+            updated_at=datetime.datetime.now()
         )
         db.session.add(new_restaurant)
         db.session.commit()
-        return new_restaurant.to_dict()
+        return { "restaurant": new_restaurant.to_dict() }
     return {"errors": validation_errors_to_error_messages(form.errors)}
+
+### Update a restaurant: PUT /api/restaurants/:restaurantId/update
+@restaurant_routes.route("/<int:id>/update", methods=["PUT"])
+@login_required
+def update_restaurant(id):
+    form = RestaurantForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    print(form.data["category"])
+    # RestaurantCategory
+
+    if form.validate_on_submit():
+        restaurant_to_update = Restaurant.query.get(id)
+        restaurant_to_update.name = form.data["name"]
+        restaurant_to_update.street_address = form.data["street_address"]
+        restaurant_to_update.category = form.data["category"]
+        restaurant_to_update.price_range = form.data["price_range"]
+        restaurant_to_update.image_url = form.data["image_url"]
+        restaurant_to_update.updated_at=datetime.datetime.now()
+        # print("kill me")
+        db.session.commit()
+        return { "restaurant": restaurant_to_update.to_dict() }
+    if form.errors:
+        return { "errors": validation_errors_to_error_messages(form.errors) }
 
 ### Create a Review for a Restaurant: POST /api/restaurants/:restaurantId/reviews
 @restaurant_routes.route("/<int:id>/reviews", methods=["POST"])
@@ -149,4 +175,19 @@ def create_review(id):
         db.session.commit()
         return new_review.to_dict()
     if form.errors:
-        return {"errors": form.errors}, 404
+        return {"errors": validation_errors_to_error_messages(form.errors)}, 404
+
+### Delete a restaurant: DELETE /api/restaurants/:restaurantId/delete
+@restaurant_routes.route("/<int:id>/delete", methods=["DELETE"])
+@login_required
+def delete_restaurant(id):
+    restaurant_to_delete = Restaurant.query.get(id)
+    db.session.delete(restaurant_to_delete)
+    db.session.commit()
+    was_it_deleted = Restaurant.query.get(id)
+    if was_it_deleted == None:
+        res = {
+        "message": "Successfully deleted menu item",
+        "id": id
+        }
+        return res
