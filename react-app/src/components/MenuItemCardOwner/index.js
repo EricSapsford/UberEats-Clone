@@ -1,8 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
-import MenuItemDeleteModalBtn from '../MenuItemDeleteModalBtn';
+import OpenModalButton from '../../components/OpenModalButton';
 import MenuItemDeleteModal from '../MenuItemDeleteModal';
-import MenuItemFormUpdateModalBtn from '../MenuItemFormUpdateModalBtn';
 import MenuItemFormUpdate from '../MenuItemFormUpdate';
 import './MenuItemCardOwner.css';
 
@@ -33,19 +32,24 @@ export default function MenuItemCardOwner({ menuItem }) {
               </div>
             </span>
             <span id='menu-item-owner-info-col-2'>
-              <MenuItemFormUpdateModalBtn
-                buttonText="Update"
-                modalComponent={<MenuItemFormUpdate
-                  menuItem={menuItem}
-                />}
-              />
-              <MenuItemDeleteModalBtn
-                buttonText="Delete"
-                modalComponent={<MenuItemDeleteModal
-                  menuItemId={menuItemId}
-                  restaurantId={restaurantId}
-                />}
-              />
+              <span className='menu-item-form-update-and-delete-modal-btns'>
+                <OpenModalButton
+                  buttonText="Update"
+                  modalComponent={
+                    <MenuItemFormUpdate
+                      menuItem={menuItem}
+                    />}
+                />
+              </span>
+              <span className='menu-item-form-update-and-delete-modal-btns'>
+                <OpenModalButton
+                  buttonText="Delete"
+                  modalComponent={<MenuItemDeleteModal
+                    menuItemId={menuItemId}
+                    restaurantId={restaurantId}
+                  />}
+                />
+              </span>
             </span>
           </div>
         </div>

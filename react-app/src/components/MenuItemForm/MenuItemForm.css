@@ -1,4 +1,9 @@
-.menu-item-create-error-text {
+.menu-item-form-top-header {
+    font-size: 26px;
+    padding: 20px 0 10px 5px;
+}
+
+.menu-item-error-text {
     color: rgba(255, 0, 0, 0.778);
     font-size: 12px;
 }
