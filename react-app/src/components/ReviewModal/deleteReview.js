@@ -1,8 +1,8 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { thunkRemoveReview } from "../../store/reviews";
-import { useState, useEffect } from "react";
 import { getOneRestaurantThunk } from "../../store/restaurant";
+import "./ReviewModal.css"
 
 
 function DeleteReviewModal({ reviewId }) {

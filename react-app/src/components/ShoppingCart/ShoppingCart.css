@@ -51,6 +51,11 @@
     padding: 20px 0;
 }
 
+.item-entry {
+    display: flex;
+    justify-content: space-between;
+}
+
 .cart-total {
     display: flex;
     justify-content: space-between;

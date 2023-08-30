@@ -40,6 +40,7 @@ function CreateReviewModal(restaurantId) {
         <>
             <div id='createReviewModal'>
                 <div id="createReviewHeader">How was your dining experience?</div>
+                <div id="reviewLengthNote">Please write at least 10 characters about your meal</div>
                 <div>
                     <textarea id="createReviewTextArea" placeholder="Leave your review here..." onChange={(e) => setReviewText(e.target.value)}></textarea>
                 </div>
@@ -113,7 +114,7 @@ function CreateReviewModal(restaurantId) {
                         </div>
                     </div>
                     <div id='createReviewButton'>
-                        <button onClick={handleSubmit} id={(reviewText?.length <= 10 || stars === 0) ? 'disabledButton' : 'notDisabledButton'} disabled={reviewText?.length <= 10 || stars === 0}>Submit Your Review</button>
+                        <button onClick={handleSubmit} id={(reviewText?.length <= 9 || stars === 0) ? 'disabledButton' : 'notDisabledButton'} disabled={reviewText?.length <= 9 || stars === 0}>Submit Your Review</button>
                     </div>
                 </div>
             </div>
