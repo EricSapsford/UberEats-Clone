@@ -17,18 +17,11 @@ export default function Navigation({ isLoaded }) {
   const history = useHistory();
   const sessionUser = useSelector(state => state.session.user);
 
-  // const logout = (e) => {
-  //   e.preventDefault();
-  //   dispatch(sessionActions.logout());
-  //   history.push(`/`);
-  // };
-
   const handleLogout = (e) => {
     e.preventDefault();
     dispatch(logout());
     history.push(`/`);
   };
-
 
   return (
     <nav>
@@ -50,12 +43,12 @@ export default function Navigation({ isLoaded }) {
           <>
             <div id='logInSignUpNavDiv'>
               <div className='navModalButton'><OpenModalButton
-              buttonText='Log In'
-                modalComponent={<LoginFormModal/>} />
+                buttonText='Log In'
+                modalComponent={<LoginFormModal />} />
               </div>
               <div className='navModalButton'><OpenModalButton
-              buttonText='Sign Up'
-                modalComponent={<SignupFormModal/>} /></div>
+                buttonText='Sign Up'
+                modalComponent={<SignupFormModal />} /></div>
             </div>
           </>
           :

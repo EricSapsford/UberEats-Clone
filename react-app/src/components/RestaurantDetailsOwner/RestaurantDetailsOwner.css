@@ -1,7 +1,5 @@
-.restaurant-banner-image {
-    width: 100%;
-    height: 160px;
-    background-color: #d2d2d2;
+.owner-restaurant-back-to-my-account {
+    padding-left: 9px;
 }
 
 .owner-rest-header {
@@ -10,22 +8,28 @@
 
 .owner-rest-header-and-add-button {
     font-size: 32px;
+    padding-top: 9px;
     padding-left: 9px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
-    /* align-items: center; */
-    /* gap: 20px; */
+    align-items: center;
+    gap: 15px;
 }
 
-.add-menu-item-button {
+.owner-rest-add-menu-item-button button {
     color: #FFFFFF;
-    background-color: #000000;
+    background-color: #048c44;
     font-size: 17px;
-    padding: 12px;
-    margin: 10px 0;
+    padding: 10px 12px;
+    margin: 14px 0 10px 0;
     border-radius: 7px;
-    border: 3px solid #000000;
+    border: none;
+}
+
+.owner-rest-add-menu-item-button button:hover {
+    cursor: pointer;
+    background-color: #047338;
 }
 
 .restaurant-read-reviews {
@@ -55,5 +59,5 @@
 
 .item-type-header {
     font-size: 26px;
-    padding-left: 9px;
+    padding: 9px;
 }
