@@ -24,6 +24,7 @@ export default function ReviewCard() {
 
     const reviewList = Object.values(reviews.reviews)
     const reviewUserIds = reviewList.map(review => review.userId)
+    
 
     return (
         <>
