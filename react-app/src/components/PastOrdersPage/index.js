@@ -1,14 +1,18 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { thunkGetPastOrders } from "../../store/orders";
+import { useShoppingCart } from "../../context/ShoppingCart";
 import { getAllRestaurantsWithOneMenuItemThunk } from "../../store/restaurant";
 import './PastOrdersPage.css'
 
 function PastOrdersPage({ parent }) {
+    const history = useHistory()
     const dispatch = useDispatch()
 
     const [isLoaded, setIsLoaded] = useState(false)
+    const { cart, setCart } = useShoppingCart()
 
     useEffect(() => {
         dispatch(thunkGetPastOrders(user.id))
@@ -22,8 +26,10 @@ function PastOrdersPage({ parent }) {
     const restaurants = Object.values(restaurantsObj)
     const user = useSelector(state => state.session.user)
 
-    const handleReorder = () => {
-        alert('nice try bud')
+    const handleReorder = (order) => {
+        // console.log("**** order: ", order)
+        setCart(order.menuItems)
+        history.push("/checkout")
     }
 
     const handleClassName = () => {
@@ -54,7 +60,7 @@ function PastOrdersPage({ parent }) {
                                 </div>
                             </div>
                             <div className="reorder-div">
-                                <button onClick={() => handleReorder()}>Reorder</button>
+                                <button onClick={() => handleReorder(order)}>Reorder</button>
                             </div>
                         </div>
                     )))}

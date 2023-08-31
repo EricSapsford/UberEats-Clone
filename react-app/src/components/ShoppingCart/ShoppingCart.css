@@ -10,9 +10,12 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* transform: translateX(100%); */
-    transition: transform 5s ease-in-out;
     gap: 10px;
+    transition: right 3s ease-in-out;
+}
+
+.cart-dropdown.open {
+    right: 0;
 }
 
 .empty-cart {

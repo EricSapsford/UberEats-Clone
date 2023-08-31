@@ -48,6 +48,7 @@
     grid-template-columns: 1fr 5fr;
     height: 70px;
     padding-bottom: 15px;
+    gap: 15px;
 }
 
 .checkout-restaurant {

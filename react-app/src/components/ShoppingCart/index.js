@@ -90,7 +90,10 @@ export default function ShoppingCartModal() {
                         </div>
                         <div className='cart-buttons'>
                             <button className='cart-checkout' onClick={() => handleCheckout()}>Go to checkout</button>
-                            <button>Add items</button>
+                            <button onClick={() => {
+                                history.push(`/restaurants/${cart[0].restaurantId}/menu`)
+                                setShowMenu(false)
+                            }}>Add items</button>
                         </div>
                     </div>
                 ) : (
