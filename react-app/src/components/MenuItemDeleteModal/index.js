@@ -24,14 +24,18 @@ export default function MenuItemDeleteModal({ menuItemId, restaurantId }) {
     <>
       <div id='menu-item-delete-modal-outermost-box'>
         <div id='menu-item-delete-modal-text'>
-          Are you sure you want to delete this menu item?
+          Delete menu item?
         </div>
-        <button onClick={closeModal}>
-          No, keep menu item
-        </button>
-        <button onClick={handleDelete}>
-          Yes, delete menu item
-        </button>
+        <div>
+          <button onClick={closeModal} id='menu-item-cancel-delete-btn'>
+            No, keep it
+          </button>
+        </div>
+        <div>
+          <button onClick={handleDelete} id='menu-item-confirm-delete-btn'>
+            Yes, delete it
+          </button>
+        </div>
       </div>
     </>
   )

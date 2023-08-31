@@ -12,7 +12,6 @@ export default function MenuItemForm({ formType, menuItem }) {
   const { closeModal } = useModal();
   const restaurantId = menuItem.restaurantId;
 
-  // controlled inputs
   const [name, setName] = useState(menuItem?.name);
   const [type, setType] = useState(menuItem?.type);
   const [price, setPrice] = useState(menuItem?.price);
@@ -27,7 +26,6 @@ export default function MenuItemForm({ formType, menuItem }) {
     setIsLoaded(true);
   }, [dispatch]);
 
-  // submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -95,7 +93,7 @@ export default function MenuItemForm({ formType, menuItem }) {
         <form onSubmit={handleSubmit}>
 
           <div className='create-menu-item-form-section'>
-            <div className='form-top-header'>
+            <div className='menu-item-form-top-header'>
               {formType === 'Create Menu Item' ? 'Add Menu Item' : 'Update Menu Item'}
             </div>
           </div>
@@ -103,7 +101,6 @@ export default function MenuItemForm({ formType, menuItem }) {
           <div className='create-menu-item-form-section'>
             <div>
               <input
-                className="input-spacer input-text"
                 size="57"
                 type="text"
                 name="name"
@@ -113,28 +110,26 @@ export default function MenuItemForm({ formType, menuItem }) {
                 required
               />
             </div>
-            {errors.name && (<div className="menu-item-create-error-text">{errors.name}</div>)}
+            {errors.name && (<div className="menu-item-error-text">{errors.name}</div>)}
           </div>
 
           <div>
             <select
-              className="input-spacer input-text"
               onChange={(e) => setType(e.target.value)}
               value={type}
               required
             >
-              <option value="" disabled selected hidden>Type</option>
+              <option value="" disabled selected>Type</option>
               <option key='appetizer' value='appetizer'>Appetizer</option>
               <option key='entree' value='entree'>Entree</option>
               <option key='dessert' value='dessert'>Dessert</option>
               <option key='beverage' value='beverage'>Beverage</option>
             </select>
           </div>
-          {errors.type && (<div className="menu-item-create-error-text">{errors.type}</div>)}
+          {errors.type && (<div className="menu-item-error-text">{errors.type}</div>)}
 
           <div>
             <input
-              className="input-spacer input-text"
               size="57"
               type="number"
               step="0.01"
@@ -145,24 +140,22 @@ export default function MenuItemForm({ formType, menuItem }) {
               required
             />
           </div>
-          {errors.price && (<div className="menu-item-create-error-text">{errors.price}</div>)}
+          {errors.price && (<div className="menu-item-error-text">{errors.price}</div>)}
 
           <div>
             <textarea
-              className="input-spacer input-text"
               rows="8" cols="56"
               id='comments'
               name='description'
               onChange={e => setDescription(e.target.value)}
               value={description}
-              placeholder='Description'
+              placeholder='Description (optional)'
             />
           </div>
-          {errors.description && (<div className="menu-item-create-error-text">{errors.description}</div>)}
+          {errors.description && (<div className="menu-item-error-text">{errors.description}</div>)}
 
           <div>
             <input
-              className="input-spacer input-text"
               size="57"
               type="url"
               name="imageUrl"
@@ -172,7 +165,7 @@ export default function MenuItemForm({ formType, menuItem }) {
               required
             />
           </div>
-          {errors.imageUrl && (<div className="menu-item-create-error-text">{errors.imageUrl}</div>)}
+          {errors.imageUrl && (<div className="menu-item-error-text">{errors.imageUrl}</div>)}
 
 
           <button
