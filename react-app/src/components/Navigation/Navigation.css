@@ -1,3 +1,17 @@
+#profile-container-content-logged-in {
+  padding-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+#profile-container-content-logged-out {
+  padding-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
 .profile-container button {
   cursor: pointer;
   font-size: 16pt;
@@ -18,10 +32,8 @@
   left: -1px;
   height: 100%;
   width: 200px;
-  /* width: 30%; */
   padding: 40px 50px;
   background-color: #FFFFFF;
-  /* border: 1px solid red; */
   box-shadow: 10px 0px 50px #e5e5e5;
   display: flex;
   flex-direction: column;
@@ -29,7 +41,13 @@
 }
 
 #dropdown-user-icon {
-  margin-right: 5px;
+  background-color: rgb(219, 219, 219);
+  padding: 14px 16px;
+  border-radius: 50px;
+}
+
+.dropdown-icon-spacer {
+  margin-right: 12px;
 }
 
 #dropdown-sign-out-link {
@@ -114,6 +132,10 @@ nav {
   border-radius: 50px;
   border: 2px solid black;
   padding: 12px 22px;
+}
+
+.navModalButton button:hover {
+  cursor: pointer;
 }
 
 #theBurgerLogo {
