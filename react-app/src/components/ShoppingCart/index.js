@@ -49,6 +49,12 @@ export default function ShoppingCartModal() {
         setShowMenu(!showMenu)
     }
 
+    const handleCheckout = () => {
+        history.push("/checkout")
+        setShowMenu(false)
+        return;
+    }
+
     const ulClassName = "cart-dropdown" + (showMenu ? "" : " hidden");
 
     return (
@@ -83,22 +89,24 @@ export default function ShoppingCartModal() {
                             </div>
                         </div>
                         <div className='cart-buttons'>
-                            <button className='cart-checkout' onClick={() => history.push("/checkout")}>Go to checkout</button>
+                            <button className='cart-checkout' onClick={() => handleCheckout()}>Go to checkout</button>
                             <button>Add items</button>
                         </div>
                     </div>
-                ): (
+                ) : (
                     <div className={ulClassName} ref={ulRef}>
-                        <div className='empty-cart'>
-                            <div className='shiba'>
-                                <img src='/shibaloaf.png' alt='shibaloaf' />
+                        <div className='empty-cart-contents'>
+                            <button onClick={() => setShowMenu(false)}>
+                                    <i class="fa-solid fa-x"></i>
+                            </button>
+                            <div className='empty-cart'>
+                                <div className='shiba'>
+                                    <img src='/shibaloaf.png' alt='shibaloaf' />
+                                </div>
+                                <div className='shiba-header'>
+                                    Add items to start your cart
+                                </div>
                             </div>
-                            <div className='shiba-header'>
-                                Add items to start your cart
-                            </div>
-                            {/* <div className='shiba-sentence'>
-                                Once you add items from a restaurant or store, your cart will appear here.
-                            </div> */}
                         </div>
                     </div>
                 )) : null}

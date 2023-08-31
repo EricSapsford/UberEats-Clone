@@ -1,5 +1,5 @@
 .cart-dropdown {
-    position: absolute;
+    position: fixed;
     top: -16px;
     right: 0;
     height: 100%;
@@ -21,14 +21,26 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-    /* gap: 25px; */
+    gap: 30px;
 }
 
 .shiba {
-    width: 80%;
+    width: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.empty-cart-contents button {
+    cursor: pointer;
+    color: darkgray;
+    font-size: 18pt;
+    background-color: transparent !important;
+    border: none !important;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 !important;
 }
 
 .shiba img {
