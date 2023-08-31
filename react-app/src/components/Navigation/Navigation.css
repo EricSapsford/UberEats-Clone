@@ -13,6 +13,7 @@
 }
 
 .profile-container button {
+  margin-left: -9px;
   cursor: pointer;
   font-size: 16pt;
   background-color: transparent;
@@ -27,7 +28,7 @@
 }
 
 .profile-dropdown {
-  position: absolute;
+  position: fixed;
   top: -16px;
   left: -1px;
   height: 100%;
@@ -67,7 +68,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px;
+  padding: 15px 25px 22px 22px;
 }
 
 #nav-logo-text {

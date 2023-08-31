@@ -9,8 +9,6 @@ import MenuItemCard from '../MenuItemCard';
 import ReviewCard from '../ReviewCard/ReviewCard';
 
 export default function RestaurantDetails() {
-  // const sessionUser = useSelector(state => state.session.user);
-  // const restaurantIdAsNum = parseInt(restaurantId);
   const dispatch = useDispatch();
   const { restaurantId } = useParams();
   const [avgRating, setAvgRating] = useState(null)
@@ -21,10 +19,6 @@ export default function RestaurantDetails() {
   );
   const reviews = useSelector(state => state.reviews)
   const reviewList = Object.values(reviews.reviews)
-
-  // console.log("***** in RestDetails: restaurant ****", restaurant)
-  // console.log("***** in RestDetails: menuItems ****", menuItems)
-  // console.log("***** in RestDetails: menuItemsArr ****", menuItemsArr)
 
   const appetizersArr = menuItemsArr.filter(menuItem => {
     return menuItem.type === "MenuItemEnum.appetizer"
@@ -56,10 +50,6 @@ export default function RestaurantDetails() {
       {isLoaded && (<div className='restaurant-outermost-box'>
         <div className='restaurant-centering-box'>
 
-          {/* <div>
-            ⬅ <Link to='/restaurants'>Back to all restaurants</Link>
-          </div> */}
-
           <div className='restaurant-card'>
 
             <div>
@@ -67,6 +57,9 @@ export default function RestaurantDetails() {
                 <img className='restaurant-banner-image' src={restaurant.imageUrl}></img>
                 : ''
               }
+            </div>
+            <div id='rest-details-back-breadcrumb'>
+              ⬅ <Link to='/restaurants'>Back to all restaurants</Link>
             </div>
 
             {reviewList.length ?

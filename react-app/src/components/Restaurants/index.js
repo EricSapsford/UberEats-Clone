@@ -39,39 +39,55 @@ function RestaurantsNav() {
     <>
       <div>
         <div>
-          <img id='restaurantBannerImg' src="https://i.imgur.com/rP2sDgp.jpg" title="source: imgur.com" />
-          <h1>Food near you, so long as you're near Vancouver</h1>
+          <img
+            id='restaurantBannerImg'
+            src="https://i.imgur.com/rP2sDgp.jpg"
+            title="source: imgur.com"
+          />
+          {/* <h1>Food near you, so long as you're near Vancouver</h1> */}
         </div>
-        <h1 id="restCats">Explore by category</h1>
 
-        <div>
-          <div className="restaurantCardCatDiv">
-            <Link exact to={'/restaurants/'} id='allCatButton'>All</Link>
-            {restaurantCatagoryArr.map((catagory) => (
-              <div key={`${catagory}Nav`}>
-                <NavLink
-                  {...catagory === 'All' ? path = '/restaurants' : catagory === 'Fast Food' ? path = '/restaurants/Fast_Food' : path = `/restaurants/${catagory}`}
-                  exact to={path}
-                  className='restaurantsCards'
-                >
-                  {catagory}
-                </NavLink>
-              </div>
-            ))}
+        <div className="restaurantsContent">
+          <div className='exploreByCategory'>
+            <h1 id="restCats">Explore by category</h1>
           </div>
 
           <div>
-            <h1>Restaurants</h1>
-          </div>
-          <div className="restaurantCardDiv">
-            {restStateArr.map((restaurant) => (
-              <div key={restaurant.id}>
-                <RestaurantCard restaurant={restaurant} />
-              </div>
-            ))}
+            <div className="restaurantCardCatDiv">
+              <span>
+                <Link exact to={'/restaurants'} id='allCatButton'>
+                  All
+                </Link>
+              </span>
+              {restaurantCatagoryArr.map((catagory) => (
+                <span key={`${catagory}Nav`}>
+                  <Link
+                    {...catagory === 'All' ? path = '/restaurants' : catagory === 'Fast Food' ? path = '/restaurants/Fast_Food' : path = `/restaurants/${catagory}`}
+                    exact to={path}
+                    className='restCatButtons'
+                  >
+                    {catagory}
+                  </Link>
+                </span>
+              ))}
+            </div>
+
+            <div className="restCatHeader">
+              <h1>All Restaurants</h1>
+            </div>
+            <div className="restaurantCardsDiv">
+              {restStateArr.map((restaurant) => (
+                <div key={restaurant.id}>
+                  <RestaurantCard restaurant={restaurant} />
+                </div>
+              ))}
+            </div>
+            <div id='rest-back-to-cats'>
+              <a href="#restCats">Back up to categories</a>
+            </div>
           </div>
         </div>
-        <a href="#restCats">Jump To Categories</a>
+
       </div>
     </>
   )
