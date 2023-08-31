@@ -69,32 +69,56 @@ export default function RestaurantDetails() {
               }
             </div>
 
-            <div className='restaurant-info'>
-              <div className='restaurant-name'>
-                {restaurant.name ? restaurant.name : ''}
+            {reviewList.length ?
+              <div className='restaurant-info'>
+                <div className='restaurant-name'>
+                  {restaurant.name ? restaurant.name : ''}
+                </div>
+                <div className='restaurant-details'>
+                  <span>
+                    <i className="fa-solid fa-star"></i> {avgRating.toFixed(1)} ({reviewList.length} reviews)
+                  </span>
+
+                  <span>
+                    <span></span> • {restaurant.category ? restaurant.category : ''}
+                  </span>
+                  <span>
+                    <span></span> • <span></span>
+                    {restaurant.priceRange === 1 ? '$' : ''}
+                    {restaurant.priceRange === 2 ? '$$' : ''}
+                    {restaurant.priceRange === 3 ? '$$$' : ''}
+                    {restaurant.priceRange === 4 ? '$$$$' : ''}
+                    {restaurant.priceRange === 5 ? '$$$$$' : ''}
+                  </span>
+                  <span>
+                    <span></span> • <a className='restaurant-read-reviews' href='#reviewHeader'>Read Reviews</a>
+                  </span>
+                </div>
               </div>
-              <div className='restaurant-details'>
-                <span>
-                  <i class="fa-solid fa-star"></i> {avgRating.toFixed(1)} ({reviewList.length} reviews)
-                </span>
-                <span>
-                  <span></span> • {restaurant.category ? restaurant.category : ''}
-                </span>
-                <span>
-                  <span></span> • <span></span>
-                  {restaurant.priceRange === 1 ? '$' : ''}
-                  {restaurant.priceRange === 2 ? '$$' : ''}
-                  {restaurant.priceRange === 3 ? '$$$' : ''}
-                  {restaurant.priceRange === 4 ? '$$$$' : ''}
-                </span>
-                <span>
-                  <span></span> • <a className='restaurant-read-reviews' href='#reviewHeader'>Read Reviews</a>
-                </span>
-                {/* <span>
-                  • More Info
-                </span> */}
-              </div>
-            </div>
+              :
+              <div className='restaurant-info'>
+                <div className='restaurant-name'>
+                  {restaurant.name ? restaurant.name : ''}
+                </div>
+                <div className='restaurant-details'>
+                  <span>
+                    0 Reviews
+                  </span>
+
+                  <span>
+                    <span></span> • {restaurant.category ? restaurant.category : ''}
+                  </span>
+                  <span>
+                    <span></span> • <span></span>
+                    {restaurant.priceRange === 1 ? '$' : ''}
+                    {restaurant.priceRange === 2 ? '$$' : ''}
+                    {restaurant.priceRange === 3 ? '$$$' : ''}
+                    {restaurant.priceRange === 4 ? '$$$$' : ''}
+                    {restaurant.priceRange === 5 ? '$$$$$' : ''}
+                  </span>
+                </div>
+              </div>}
+
 
             <div className='restaurant-menu-items-sections'>
               <div>

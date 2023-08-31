@@ -32,6 +32,7 @@ function RestaurantsNav() {
 
   const restStateArr = Object.values(restState.allRestaurants)
 
+  let path = ''
 
 
   return (
@@ -41,7 +42,7 @@ function RestaurantsNav() {
           <img id='restaurantBannerImg' src="https://i.imgur.com/rP2sDgp.jpg" title="source: imgur.com" />
           <h1>Food near you, so long as you're near Vancouver</h1>
         </div>
-        <h1>Explore by category</h1>
+        <h1 id="restCats">Explore by category</h1>
 
         <div>
           <div className="restaurantCardCatDiv">
@@ -49,7 +50,8 @@ function RestaurantsNav() {
             {restaurantCatagoryArr.map((catagory) => (
               <div key={`${catagory}Nav`}>
                 <NavLink
-                  exact to={`/restaurants/${catagory}`}
+                  {...catagory === 'All' ? path = '/restaurants' : catagory === 'Fast Food' ? path = '/restaurants/Fast_Food' : path = `/restaurants/${catagory}`}
+                  exact to={path}
                   className='restaurantsCards'
                 >
                   {catagory}
@@ -69,6 +71,7 @@ function RestaurantsNav() {
             ))}
           </div>
         </div>
+        <a href="#restCats">Jump To Categories</a>
       </div>
     </>
   )

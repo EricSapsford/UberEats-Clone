@@ -21,7 +21,8 @@ function RestaurantCard({ restaurant }) {
               {restaurant.name}
             </div>
             <div id="restaurantCategoryPriceDiv">
-              {restaurant.category} • {priceRangeString}
+              {restaurant.category === 'Fast_Food' ? 'Fast Food' : restaurant.category} • {priceRangeString}
+              
             </div>
             <div id="restaurantAddressDiv">
               {restaurant.streetAddress}
