@@ -55,6 +55,17 @@ export default function ShoppingCartModal() {
         return;
     }
 
+    const deleteItem = (e, id) => {
+        e.stopPropagation()
+        let newCart = []
+        cart.forEach(item => {
+            if (item.id !== id) {
+                newCart.push(item)
+            }
+        })
+        setCart(newCart)
+    }
+
     const ulClassName = "cart-dropdown" + (showMenu ? "" : " hidden");
 
     return (
@@ -67,7 +78,7 @@ export default function ShoppingCartModal() {
                 {showMenu ? (isLoaded && cart.length ? (
                     <div className={ulClassName} ref={ulRef}>
                         <div className='cart-contents'>
-                            <button onClick={() => setShowMenu(false)}>
+                            <button onClick={() => setShowMenu(false)} className='close-cart'>
                                 <i class="fa-solid fa-x"></i>
                             </button>
                             <div className='cart-restaurant'>{restaurants[cart[0].restaurantId].name}</div>
@@ -78,7 +89,14 @@ export default function ShoppingCartModal() {
                                     cart.map(item => (
                                         <div className='item-entry'>
                                             <div>1 {item.name}</div>
-                                            <div>${item.price.toFixed(2)}</div>
+                                            <div className='item-entry-right'>
+                                                <div>${item.price.toFixed(2)}</div>
+                                                <div>
+                                                    <button className='item-entry-delete' onClick={(e) => deleteItem(e, item.id)}>
+                                                        <i class="fa-regular fa-trash-can"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </div>
                                     ))
                                 }
