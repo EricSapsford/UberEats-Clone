@@ -19,7 +19,7 @@
 
 .owner-rest-add-menu-item-button button {
     color: #FFFFFF;
-    background-color: #048c44;
+    background-color: #08c464;
     font-size: 17px;
     padding: 10px 12px;
     margin: 14px 0 10px 0;
@@ -29,7 +29,7 @@
 
 .owner-rest-add-menu-item-button button:hover {
     cursor: pointer;
-    background-color: #047338;
+    background-color: #07a051;
 }
 
 .restaurant-read-reviews {
