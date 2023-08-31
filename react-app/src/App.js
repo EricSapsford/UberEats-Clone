@@ -16,6 +16,7 @@ import MenuItemDetails from "./components/MenuItemDetails";
 import Footer from "./components/Footer";
 import './app.css';
 import PastOrdersPage from "./components/PastOrdersPage";
+import CheckoutPage from "./components/CheckoutPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -58,6 +59,9 @@ function App() {
           </Route>
           <Route exact path="/past-orders">
             <PastOrdersPage />
+          </Route>
+          <Route exact path="/checkout">
+            <CheckoutPage />
           </Route>
           <Route>
             <h1>Route does not exist</h1>

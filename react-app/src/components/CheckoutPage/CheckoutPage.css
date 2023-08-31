@@ -1,0 +1,136 @@
+.checkout-content {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 5fr 4fr;
+    padding: 20px 10%;
+    padding-top: 50px;
+    gap: 30px;
+}
+
+.checkout-left {
+    padding: 15px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 20px;
+}
+
+.checkout-total-summary {
+    padding: 15px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 20px;
+    padding: 15px;
+}
+
+.checkout-right button {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16pt;
+    width: 100%;
+    height: 70px;
+    border: 2px solid green;
+    background-color: green;
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.checkout-right button:hover {
+    border: 2px solid white;
+}
+
+/* .checkout-right {
+    padding: 15px;
+} */
+
+.checkout-left-top {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    height: 70px;
+    padding-bottom: 15px;
+    gap: 15px;
+}
+
+.checkout-restaurant {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.checkout-name {
+    font-size: 16pt;
+    font-weight: bold;
+}
+
+.checkout-addy {
+    font-size: 10pt;
+    font-weight: lighter;
+}
+
+.checkout-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkout-image img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+    object-fit: cover;
+}
+
+.checkout-restaurant {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.checkout-header {
+    font-size: 16pt;
+    font-weight: bolder;
+    border-top: 2px solid lightgray;
+    padding: 15px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.checkout-header button {
+    cursor: pointer;
+    padding: 6px 10px;
+    color: white !important;
+    border: 2px solid green;
+    background-color: green;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.checkout-header button:hover {
+    border: 2px solid white !important;
+}
+
+#order-total {
+    border: none;
+    padding-top: 5px;
+}
+
+.checkout-item-count {
+    padding-bottom: 5px;
+    border-bottom: 1px solid lightgray;
+}
+
+.checkout-item-list {
+    font-size: 12pt;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.item-entry {
+    padding: 5px 0;
+}
