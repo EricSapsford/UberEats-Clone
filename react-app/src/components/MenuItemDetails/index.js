@@ -37,6 +37,17 @@ export default function MenuItemDetails() {
     }
   }
 
+  const restaurantInCart = (menuItem) => {
+    if (!cart.length) return false;
+
+    const id = cart[0].restaurantId;
+    if (menuItem.restaurantId === id) {
+      return false
+    } else {
+      return true
+    }
+  }
+
   let hideRemoveButton = true;
   if (sessionUser === null ) { // logged out
     hideRemoveButton = true;
@@ -101,7 +112,7 @@ export default function MenuItemDetails() {
                     {menuItem.description}
                   </div>
                   <div>
-                    {hideAddButton ? null :
+                    {restaurantInCart(menuItem) ? null :
                       <button className='menu-item-details-add-or-remove-button' onClick={() => addToCart(menuItem)}>
                         Add to order
                       </button>

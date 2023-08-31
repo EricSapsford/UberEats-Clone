@@ -36,16 +36,24 @@ export const thunkGetPastOrders = (id) => async (dispatch) => {
 }
 
 export const thunkCreateOrder = (order) => async (dispatch) => {
-    const restaurantId = order.menuItems[0].name
     const res = await fetch("/api/orders/new", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
             menu_items: order.menuItems,
             total_cost: order.totalCost,
-            restaurant_id: restaurantId,
+            restaurant_id: order.restaurantId,
         })
     })
+
+    if (res.ok) {
+        const data = await res.json()
+        dispatch(createOrder(data))
+        return data
+    } else {
+        const errors = await res.json()
+        return errors
+    }
 }
 
 //REDUCER

@@ -17,9 +17,9 @@ function PastOrdersPage({ parent }) {
     }, [dispatch])
 
     const orders = useSelector(state => state.orders.pastOrders)
+    const reverseOrders = orders.reverse()
     const restaurantsObj = useSelector(state => state.restaurant.allRestaurants)
     const restaurants = Object.values(restaurantsObj)
-    console.log("restaurants: ", restaurants)
     const user = useSelector(state => state.session.user)
 
     const handleReorder = () => {
@@ -39,7 +39,7 @@ function PastOrdersPage({ parent }) {
             {isLoaded && orders.length > 0 && restaurants.length > 0 && (
                 <div className={handleClassName()}>
                     <h1>Past Orders</h1>
-                    {orders.map((order => (
+                    {[...orders].reverse().map((order => (
                         <div className="order-container">
                             <div className="order-image">
                                 <img src={restaurantsObj[order.restaurantId].imageUrl} />

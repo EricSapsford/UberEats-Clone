@@ -1,13 +1,16 @@
 import { useEffect, useState, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { useShoppingCart } from '../../context/ShoppingCart';
 import { getAllRestaurantsWithOneMenuItemThunk, getOneRestaurantThunk } from '../../store/restaurant';
 import './CheckoutPage.css'
+import { thunkCreateOrder } from '../../store/orders';
 
 export default function CheckoutPage() {
     const dispatch = useDispatch()
+    const history = useHistory()
 
-    const { cart } = useShoppingCart();
+    const { cart, setCart } = useShoppingCart();
     const [isLoaded, setIsLoaded] = useState(false)
     const [subtotal, setSubtotal] = useState(0)
 
@@ -47,6 +50,34 @@ export default function CheckoutPage() {
         return total.toFixed(2);
     }
 
+    const placeOrder = () => {
+        let itemsStr = ""
+        cart.forEach(item => {
+            if (!itemsStr) {
+                itemsStr += item.id.toString()
+            } else {
+                itemsStr += "," + item.id.toString()
+            }
+        })
+
+        const newOrder = {
+            menuItems: itemsStr,
+            totalCost: parseFloat(handleTotal()),
+            restaurantId: cart[0].restaurantId
+        }
+
+        console.log("***** new order: ", newOrder)
+
+        dispatch(thunkCreateOrder(newOrder))
+            .then((res) => {
+                if (!res.errors) {
+                    history.push("/past-orders")
+                    alert("Order successfully placed")
+                    setCart([])
+                }
+            })
+    }
+
     return (
         <>
             {isLoaded && cart.length && (<div className='checkout-content'>
@@ -63,7 +94,7 @@ export default function CheckoutPage() {
                     <div className='checkout-left-bottom'>
                         <div className='checkout-header'>
                             <span>Order Summary</span>
-                            <button>
+                            <button onClick={() => history.push(`/restaurants/${cart[0].restaurantId}/menu`)}>
                                 Add items
                             </button>
                         </div>
@@ -79,7 +110,7 @@ export default function CheckoutPage() {
                     </div>
                 </div>
                 <div className='checkout-right'>
-                    <button>Place Order</button>
+                    <button onClick={() => placeOrder()}>Place Order</button>
                     <div className='checkout-total-summary'>
                         <div className='checkout-header' id='order-total'>
                             Order Total
