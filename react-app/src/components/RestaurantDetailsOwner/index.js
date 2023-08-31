@@ -1,18 +1,23 @@
 import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { getOneRestaurantThunk } from '../../store/restaurant';
 import { getAllMenuItemsForRestThunk } from '../../store/menuItems';
 import OpenModalButton from '../../components/OpenModalButton';
 import MenuItemFormCreate from '../MenuItemFormCreate';
 import MenuItemCardOwner from '../MenuItemCardOwner';
 import './RestaurantDetailsOwner.css';
+import ManageAccount from '../ManageAccount';
+import { useAccountView } from '../../context/AccountView';
 
 export default function RestaurantDetailsOwner() {
   const { restaurantId } = useParams();
+  const history = useHistory()
   const restIdAsNum = parseInt(restaurantId);
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+  const { view, setView } = useAccountView();
 
   const restaurant = useSelector(state => state.restaurant.singleRestaurant ? state.restaurant.singleRestaurant : {}); // {}
   const menuItemsArr = Object.values(
@@ -38,6 +43,11 @@ export default function RestaurantDetailsOwner() {
     setIsLoaded(true);
   }, [dispatch, restaurantId]);
 
+  const backToAccount = () => {
+    setView('manage')
+    history.push("/account")
+  }
+
   return (
     <>
       {isLoaded && (
@@ -45,7 +55,8 @@ export default function RestaurantDetailsOwner() {
           <div className='restaurant-centering-box'>
 
             <div className='owner-restaurant-back-to-my-account'>
-              ⬅ <Link to='/account'>Back to my account</Link>
+              <button onClick={backToAccount}>⬅ Back to my account</button>
+              {/* ⬅ <Link to='/account'>Back to my account</Link> */}
             </div>
             <div className='owner-restaurant-card'>
               <div className='restaurant-info'>
