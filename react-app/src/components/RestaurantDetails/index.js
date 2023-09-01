@@ -71,20 +71,18 @@ export default function RestaurantDetails() {
                   <span>
                     <i className="fa-solid fa-star"></i> {avgRating.toFixed(1)} ({reviewList.length} reviews)
                   </span>
-
                   <span>
-                    <span></span> • {restaurant.category ? restaurant.category : ''}
+                    <span></span> • 
+                    <span></span> {restaurant.category === 'Fast_Food' ? 'Fast Food' : restaurant.category} •  
                   </span>
                   <span>
-                    <span></span> • <span></span>
-                    {restaurant.priceRange === 1 ? '$' : ''}
-                    {restaurant.priceRange === 2 ? '$$' : ''}
-                    {restaurant.priceRange === 3 ? '$$$' : ''}
-                    {restaurant.priceRange === 4 ? '$$$$' : ''}
-                    {restaurant.priceRange === 5 ? '$$$$$' : ''}
+                    {restaurant.priceRange === 1 ? ' $' : ''}
+                    {restaurant.priceRange === 2 ? ' $$' : ''}
+                    {restaurant.priceRange === 3 ? ' $$$' : ''}
+                    {restaurant.priceRange === 4 ? ' $$$$' : ''}
                   </span>
                   <span>
-                    <span></span> • <a className='restaurant-read-reviews' href='#reviewHeader'>Read Reviews</a>
+                    <span></span>    <a className='restaurant-read-reviews' href='#reviewHeader'>Read Reviews</a>
                   </span>
                 </div>
               </div>
@@ -107,7 +105,6 @@ export default function RestaurantDetails() {
                     {restaurant.priceRange === 2 ? '$$' : ''}
                     {restaurant.priceRange === 3 ? '$$$' : ''}
                     {restaurant.priceRange === 4 ? '$$$$' : ''}
-                    {restaurant.priceRange === 5 ? '$$$$$' : ''}
                   </span>
                 </div>
               </div>}

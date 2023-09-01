@@ -55,7 +55,7 @@ function PastOrdersPage({ parent }) {
                                 <div>${order.totalCost.toFixed(2)} • {new Date(order.createdAt).toDateString()}</div>
                                 <div className="order-items-list">
                                     {order.menuItems.map(item => (
-                                        <li key={item.id}>1 {item.name}</li>
+                                        <div>1 {item.name}</div>
                                     ))}
                                 </div>
                             </div>
