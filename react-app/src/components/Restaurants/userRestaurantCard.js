@@ -4,9 +4,11 @@ import RestaurantFormUpdate from "../RestaurantFormUpdate";
 import { useSelector } from "react-redux";
 import OpenModalButton from "../OpenModalButton";
 import RestaurantDeleteModal from "../RestaurantDeleteModal";
+import { useAccountView } from "../../context/AccountView";
 
 function UserRestaurantCard({ restaurant }) {
   const history = useHistory();
+  const { setView } = useAccountView();
 
   let priceRangeString = "";
   for (let index = 0; index < restaurant.priceRange; index++) {
@@ -33,6 +35,7 @@ function UserRestaurantCard({ restaurant }) {
   const editMenu = (e) => {
     history.push(`restaurants/${restaurant.id}/menu/manage`
     );
+    // setView('menu')
   }
 
 

@@ -10,6 +10,7 @@ import App from "./App";
 
 import "./index.css";
 import { ShoppingCartProvider } from "./context/ShoppingCart";
+import { ManageAccountProvider } from "./context/AccountView";
 
 const store = configureStore();
 
@@ -26,10 +27,12 @@ function Root() {
 		<ModalProvider>
 			<Provider store={store}>
 				<ShoppingCartProvider>
-					<BrowserRouter>
-						<App />
-						<Modal />
-					</BrowserRouter>
+					<ManageAccountProvider>
+						<BrowserRouter>
+							<App />
+							<Modal />
+						</BrowserRouter>
+					</ManageAccountProvider>
 				</ShoppingCartProvider>
 			</Provider>
 		</ModalProvider>
