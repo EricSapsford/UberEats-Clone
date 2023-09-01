@@ -25,27 +25,23 @@
 }
 
 .footer-right {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 100px;
 }
 
 .footer-right-header {
     font-size: 16pt;
     padding-right: 15px;
-    border-right: 1px solid lightgray;
     color: darkgray;
+    padding-bottom: 10px;
 }
 
-#footer-col-2 {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 20px;
-}
-
-#footer-col-3 {
-    color: #828282;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 20px;
+.footer-col {
+    display: flex;
+    width: 1fr;
+    flex-direction: column;
+    gap: 40px;
 }
 
 .footer-list {
