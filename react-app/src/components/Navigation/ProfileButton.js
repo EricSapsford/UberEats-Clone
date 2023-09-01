@@ -50,41 +50,63 @@ function ProfileButton({ user }) {
       <div className={ulClassName} ref={ulRef}>
         {user ? (
           <>
-            <div><span id='dropdown-user-icon'>👤</span> {user.firstName}</div>
-            {/* <div>{user.email}</div> */}
-            <div onClick={closeMenu}>
-              <Link
-                to='/account'
-                className="green"
-              >
-                Manage account
-              </Link>
-            </div>
-            <div onClick={closeMenu}>
-              <Link to="/past-orders">
-                Orders
-              </Link>
-            </div>
-            <div onClick={closeMenu}>
-              <span id='dropdown-sign-out-link' onClick={handleLogout}>Sign out</span>
+            <div id='profile-container-content-logged-in'>
+              <div>
+                <span className="dropdown-icon-spacer" >
+                  <i id='dropdown-user-icon' class="fa-solid fa-user"></i>
+                </span>
+                <span>
+                  {user.firstName}
+                </span>
+              </div>
+              {/* <div>{user.email}</div> */}
+              <div onClick={closeMenu}>
+                <Link
+                  to='/account'
+                  className="green"
+                >
+                  Manage account
+                </Link>
+              </div>
+              <div onClick={closeMenu}>
+                <Link to="/past-orders">
+                  <span className="dropdown-icon-spacer" >
+                    <i class="fa-solid fa-clipboard-list"></i>
+                  </span>
+                  Orders
+                </Link>
+              </div>
+              <div onClick={closeMenu}>
+                <Link to="/account">
+                  <span className="dropdown-icon-spacer" >
+                    <i class="fa-solid fa-wallet"></i>
+                  </span>
+                  Wallet
+                </Link>
+              </div>
+              <div onClick={closeMenu}>
+                <span id='dropdown-sign-out-link' onClick={handleLogout}>Sign out</span>
+              </div>
             </div>
           </>
         ) : (
           <>
-            <span onClick={closeMenu}>
-              <OpenModalButton
-                buttonText="Sign up"
-                onItemClick={closeMenu}
-                modalComponent={<SignupFormModal />}
-              />
-            </span>
-            <span onClick={closeMenu}>
-              <OpenModalButton
-                buttonText="Log in"
-                onItemClick={closeMenu}
-                modalComponent={<LoginFormModal />}
-              />
-            </span>
+            <div id='profile-container-content-logged-out'>
+              <span onClick={closeMenu}>
+                <OpenModalButton
+                  buttonText="Sign up"
+                  onItemClick={closeMenu}
+                  modalComponent={<SignupFormModal />}
+                />
+              </span>
+              <span onClick={closeMenu}>
+                <OpenModalButton
+                  buttonText="Log in"
+                  onItemClick={closeMenu}
+                  modalComponent={<LoginFormModal />}
+                />
+              </span>
+            </div>
           </>
         )}
       </div>

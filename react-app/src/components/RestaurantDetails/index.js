@@ -9,8 +9,6 @@ import MenuItemCard from '../MenuItemCard';
 import ReviewCard from '../ReviewCard/ReviewCard';
 
 export default function RestaurantDetails() {
-  // const sessionUser = useSelector(state => state.session.user);
-  // const restaurantIdAsNum = parseInt(restaurantId);
   const dispatch = useDispatch();
   const { restaurantId } = useParams();
   const [avgRating, setAvgRating] = useState(null)
@@ -21,10 +19,6 @@ export default function RestaurantDetails() {
   );
   const reviews = useSelector(state => state.reviews)
   const reviewList = Object.values(reviews.reviews)
-
-  // console.log("***** in RestDetails: restaurant ****", restaurant)
-  // console.log("***** in RestDetails: menuItems ****", menuItems)
-  // console.log("***** in RestDetails: menuItemsArr ****", menuItemsArr)
 
   const appetizersArr = menuItemsArr.filter(menuItem => {
     return menuItem.type === "MenuItemEnum.appetizer"
@@ -56,10 +50,6 @@ export default function RestaurantDetails() {
       {isLoaded && (<div className='restaurant-outermost-box'>
         <div className='restaurant-centering-box'>
 
-          {/* <div>
-            ⬅ <Link to='/restaurants'>Back to all restaurants</Link>
-          </div> */}
-
           <div className='restaurant-card'>
 
             <div>
@@ -68,33 +58,60 @@ export default function RestaurantDetails() {
                 : ''
               }
             </div>
-
-            <div className='restaurant-info'>
-              <div className='restaurant-name'>
-                {restaurant.name ? restaurant.name : ''}
-              </div>
-              <div className='restaurant-details'>
-                <span>
-                  <i class="fa-solid fa-star"></i> {avgRating.toFixed(1)} ({reviewList.length} reviews)
-                </span>
-                <span>
-                  <span></span> • {restaurant.category ? restaurant.category : ''}
-                </span>
-                <span>
-                  <span></span> • <span></span>
-                  {restaurant.priceRange === 1 ? '$' : ''}
-                  {restaurant.priceRange === 2 ? '$$' : ''}
-                  {restaurant.priceRange === 3 ? '$$$' : ''}
-                  {restaurant.priceRange === 4 ? '$$$$' : ''}
-                </span>
-                <span>
-                  <span></span> • <a className='restaurant-read-reviews' href='#reviewHeader'>Read Reviews</a>
-                </span>
-                {/* <span>
-                  • More Info
-                </span> */}
-              </div>
+            <div id='rest-details-back-breadcrumb'>
+              ⬅ <Link to='/restaurants'>Back to all restaurants</Link>
             </div>
+
+            {reviewList.length ?
+              <div className='restaurant-info'>
+                <div className='restaurant-name'>
+                  {restaurant.name ? restaurant.name : ''}
+                </div>
+                <div className='restaurant-details'>
+                  <span>
+                    <i className="fa-solid fa-star"></i> {avgRating.toFixed(1)} ({reviewList.length} reviews)
+                  </span>
+
+                  <span>
+                    <span></span> • {restaurant.category ? restaurant.category : ''}
+                  </span>
+                  <span>
+                    <span></span> • <span></span>
+                    {restaurant.priceRange === 1 ? '$' : ''}
+                    {restaurant.priceRange === 2 ? '$$' : ''}
+                    {restaurant.priceRange === 3 ? '$$$' : ''}
+                    {restaurant.priceRange === 4 ? '$$$$' : ''}
+                    {restaurant.priceRange === 5 ? '$$$$$' : ''}
+                  </span>
+                  <span>
+                    <span></span> • <a className='restaurant-read-reviews' href='#reviewHeader'>Read Reviews</a>
+                  </span>
+                </div>
+              </div>
+              :
+              <div className='restaurant-info'>
+                <div className='restaurant-name'>
+                  {restaurant.name ? restaurant.name : ''}
+                </div>
+                <div className='restaurant-details'>
+                  <span>
+                    0 Reviews
+                  </span>
+
+                  <span>
+                    <span></span> • {restaurant.category ? restaurant.category : ''}
+                  </span>
+                  <span>
+                    <span></span> • <span></span>
+                    {restaurant.priceRange === 1 ? '$' : ''}
+                    {restaurant.priceRange === 2 ? '$$' : ''}
+                    {restaurant.priceRange === 3 ? '$$$' : ''}
+                    {restaurant.priceRange === 4 ? '$$$$' : ''}
+                    {restaurant.priceRange === 5 ? '$$$$$' : ''}
+                  </span>
+                </div>
+              </div>}
+
 
             <div className='restaurant-menu-items-sections'>
               <div>

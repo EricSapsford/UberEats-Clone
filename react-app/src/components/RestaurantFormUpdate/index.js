@@ -1,4 +1,3 @@
-import { useParams, Redirect } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as restaurantActions from "../../store/restaurant"
@@ -9,12 +8,11 @@ function RestaurantFormUpdate(restaurantId) {
 
   let id = restaurantId.restaurantId
 
-  const session = useSelector(state => state.session)
   const restaurant = useSelector(state => state.restaurant.usersRestaurants[id])
 
   useEffect(() => {
     dispatch(restaurantActions.getOneRestaurantThunk(id))
-  }, [dispatch, id])
+  }, [dispatch, restaurant])
 
 
   return (

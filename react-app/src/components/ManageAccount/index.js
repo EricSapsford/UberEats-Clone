@@ -7,30 +7,16 @@ import LandingPageCard from './landingPageCard';
 import CurrentUserRestaurants from '../Restaurants/userRestaurants';
 import RestaurantFormCreate from '../RestaurantFormCreate';
 import PastOrdersPage from '../PastOrdersPage';
+import MenuItemFormUpdate from '../MenuItemFormUpdate';
+import { useAccountView } from '../../context/AccountView';
 
 export default function ManageAccount() {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  const { view, setView } = useAccountView();
 
   const sessionUser = useSelector(state => state.session.user);
-  // const userRestState = useSelector(state => state.restaurant.usersRestaurants)
-
-  // useEffect(() => {
-  //   setManageRestaurantsToggle(true);
-  // })
-
-  // TO EDIT:
-  // ONLY DISPLAY 'ORDERS' BTN IF USER HAS 1+ ORDERS
-  // ONLY DISPLAY 'MANAGE RESTS' BTN IF USER OWNS 1+ RESTS
-  // OR -- could have simple landing pages, like:
-  // "You don't have any orders yet! button:[Explore Restaurants]"
-  // "You don't have any restaurants yet! button:[Create Restaurant]"
-
-  // CONSIDER REFACTORING TO NOT DISPLAY FOOTER ON ALL PAGES
-  // (SINCE REAL WEBSITE HAS NO FOOTER ON ACCOUNT PAGE)
-
-
 
   const [accountDetailsToggle, setAccountDetailsToggle] = useState(true)
   const [pastOrderToggle, setPastOrderToggle] = useState(false)
@@ -45,42 +31,6 @@ export default function ManageAccount() {
     history.push(`/`);
   };
 
-  const setViewClass = () => {
-    return 'active'
-  }
-
-  const pastOrders = (e) => {
-    setAccountDetailsToggle(false);
-    setPastOrderToggle(true);
-    setRreateRestaurantToggle(false);
-    setManageRestaurantsToggle(false);
-    setCurrentView('orders')
-  }
-
-  const createRestaurant = (e) => {
-    setAccountDetailsToggle(false);
-    setPastOrderToggle(false);
-    setRreateRestaurantToggle(true);
-    setManageRestaurantsToggle(false);
-    setCurrentView('create')
-  }
-
-  const manageRestaurants = (e) => {
-    setAccountDetailsToggle(false);
-    setPastOrderToggle(false);
-    setRreateRestaurantToggle(false);
-    setManageRestaurantsToggle(true);
-    setCurrentView('manage')
-  }
-
-  const accountDetails = (e) => {
-    setAccountDetailsToggle(true);
-    setPastOrderToggle(false);
-    setRreateRestaurantToggle(false);
-    setManageRestaurantsToggle(false);
-    setCurrentView('account')
-  }
-
   useEffect(() => {
   }, [accountDetailsToggle, pastOrderToggle, createRestaurantToggle, manageRestaurantsToggle])
 
@@ -88,19 +38,24 @@ export default function ManageAccount() {
     <div className='account-page'>
       <div id='account-landing-outermost-box'>
         <div id='account-landing-left-sidebar'>
-          <button className={currentView === 'account' ? "active" : ""} onClick={accountDetails}>Account Details</button>
-          <button className={currentView === 'orders' ? "active" : ""} onClick={pastOrders}>Orders</button>
-          <button className={currentView === 'create' ? "active" : ""} onClick={createRestaurant}>Create Restaurant</button>
-          <button className={currentView === 'manage' ? "active" : ""} onClick={manageRestaurants}>Manage Restaurants</button>
+          <button className={view === 'account' ? "active" : ""} onClick={() => setView('account')}>Account Details</button>
+          <button className={view === 'orders' ? "active" : ""} onClick={() => setView('orders')}>Orders</button>
+          <button className={view === 'create' ? "active" : ""} onClick={() => setView('create')}>Create Restaurant</button>
+          <button className={view === 'manage' ? "active" : ""} onClick={() => setView('manage')}>Manage Restaurants</button>
           <button id='account-landing-sign-out-btn' onClick={handleLogout}>Sign out</button>
         </div>
 
 
         <div id='account-landing-right-content'>
-          {accountDetailsToggle ? <LandingPageCard /> : null}
+          {/* {accountDetailsToggle ? <LandingPageCard /> : null}
           {pastOrderToggle ? <PastOrdersPage parent="account" /> : null}
           {createRestaurantToggle ? <RestaurantFormCreate /> : null}
-          {manageRestaurantsToggle ? <CurrentUserRestaurants /> : null}
+          {manageRestaurantsToggle ? <CurrentUserRestaurants /> : null} */}
+          {view === 'account' ? <LandingPageCard /> : null}
+          {view === 'orders'? <PastOrdersPage parent="account" /> : null}
+          {view === 'create' ? <RestaurantFormCreate /> : null}
+          {view === 'manage' ? <CurrentUserRestaurants /> : null}
+          {view === 'menu' ? <MenuItemFormUpdate /> : null}
         </div>
       </div>
     </div>

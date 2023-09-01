@@ -11,11 +11,12 @@ import ProtectedRoute from "./components/auth/ProtectedRoute"
 import RestaurantDetails from "./components/RestaurantDetails";
 import RestaurantDetailsOwner from "./components/RestaurantDetailsOwner";
 import RestaurantsNav from "./components/Restaurants";
-import RestaurantsByCatagoryNav from "./components/Restaurants/catagoryIndex"
+import RestaurantsByCategoryNav from "./components/Restaurants/categoryIndex"
 import MenuItemDetails from "./components/MenuItemDetails";
 import Footer from "./components/Footer";
 import './app.css';
 import PastOrdersPage from "./components/PastOrdersPage";
+import CheckoutPage from "./components/CheckoutPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -47,8 +48,8 @@ function App() {
           <Route exact path="/restaurants/:restaurantId/menu/manage">
             <RestaurantDetailsOwner />
           </Route>
-          <Route exact path="/restaurants/:catagory">
-            <RestaurantsByCatagoryNav />
+          <Route exact path="/restaurants/:category">
+            <RestaurantsByCategoryNav />
           </Route>
           <Route exact path="/restaurants">
             <RestaurantsNav />
@@ -58,6 +59,9 @@ function App() {
           </Route>
           <Route exact path="/past-orders">
             <PastOrdersPage />
+          </Route>
+          <Route exact path="/checkout">
+            <CheckoutPage />
           </Route>
           <Route>
             <h1>Route does not exist</h1>

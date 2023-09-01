@@ -34,9 +34,9 @@ def get_all_rests_with_one():
     return res
 
 ### Get all Restaurants by category: GET /api/restaurants/category/:category
-@restaurant_routes.route("/category/<string:catagory>")
-def get_restaurants_by_catagory(catagory):
-    restaurants = Restaurant.query.filter(Restaurant.category == catagory).filter(MenuItem.restaurant_id == Restaurant.id).all()
+@restaurant_routes.route("/category/<string:category>")
+def get_restaurants_by_category(category):
+    restaurants = Restaurant.query.filter(Restaurant.category == category).filter(MenuItem.restaurant_id == Restaurant.id).all()
     res = {"restaurants": [rest.to_dict() for rest in restaurants]}
     return res
 
@@ -124,6 +124,7 @@ def create_restaurant():
         db.session.commit()
         return { "restaurant": new_restaurant.to_dict() }
     return {"errors": validation_errors_to_error_messages(form.errors)}
+    # return {"errors": form.errors}
 
 ### Update a restaurant: PUT /api/restaurants/:restaurantId/update
 @restaurant_routes.route("/<int:id>/update", methods=["PUT"])
@@ -187,7 +188,7 @@ def delete_restaurant(id):
     was_it_deleted = Restaurant.query.get(id)
     if was_it_deleted == None:
         res = {
-        "message": "Successfully deleted menu item",
+        "message": "Successfully deleted restaurant",
         "id": id
         }
         return res

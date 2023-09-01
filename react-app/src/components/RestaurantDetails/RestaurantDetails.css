@@ -5,6 +5,10 @@
     object-fit: cover;
 }
 
+#rest-details-back-breadcrumb {
+    padding-left: 9px;
+}
+
 .restaurant-name {
     font-size: 40px;
     padding-left: 9px;
@@ -38,4 +42,10 @@
 .item-type-header {
     font-size: 26px;
     padding: 9px;
+}
+
+.reviewCon {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid red;
 }

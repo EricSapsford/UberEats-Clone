@@ -24,6 +24,7 @@ export default function ReviewCard() {
 
     const reviewList = Object.values(reviews.reviews)
     const reviewUserIds = reviewList.map(review => review.userId)
+    
 
     return (
         <>
@@ -44,7 +45,7 @@ export default function ReviewCard() {
                             <div id="reviewDateDiv">
                                 {review.createdAt.slice(5, -13)}
                             </div>
-                            {reviewUserIds.includes(sessionUser?.id) && review.userId == sessionUser.id && (
+                            {reviewUserIds.includes(sessionUser?.id) && review.userId === sessionUser.id && (
                                 <div className="reviewModalButton"><OpenModalButton
                                     buttonText="Delete Review"
                                     modalComponent={<DeleteReviewModal reviewId={review.id} restaurantId={restaurantId} />} />
