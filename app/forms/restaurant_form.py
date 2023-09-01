@@ -10,7 +10,7 @@ restaurant_categories = [
             "French",
             "Italian",
             "Thai",
-            "Fast Food",
+            "Fast_Food",
             "Mediterranean",
             "Vegetarian"
         ]

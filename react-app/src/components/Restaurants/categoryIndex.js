@@ -7,7 +7,7 @@ import * as restaurantActions from "../../store/restaurant"
 import RestaurantCard from "./RestaurantCard"
 import "./Restaurants.css"
 
-const restaurantCatagoryArr = [
+const restaurantCategoryArr = [
   'All',
   'Mexican',
   'Indian',
@@ -21,18 +21,18 @@ const restaurantCatagoryArr = [
   'Vegetarian',
 ];
 
-function RestaurantsByCatagoryNav() {
+function RestaurantsByCategoryNav() {
 
   const dispatch = useDispatch();
-  const { catagory } = useParams();
+  const { category } = useParams();
 
   useEffect(() => {
-    dispatch(restaurantActions.getAllRestaurantsByCatagoryThunk(catagory));
-  }, [dispatch, catagory]);
+    dispatch(restaurantActions.getAllRestaurantsByCategoryThunk(category));
+  }, [dispatch, category]);
 
   const restState = useSelector((state) => (state.restaurant ? state.restaurant : {}))
 
-  const restStateArr = Object.values(restState.catagoryRestaurants)
+  const restStateArr = Object.values(restState.categoryRestaurants)
 
   const location = useLocation();
 
@@ -64,22 +64,22 @@ function RestaurantsByCatagoryNav() {
           <div className="restaurantCardCatDiv">
             {/* <Link exact to={'/restaurants/'} id='allCatButton'>All</Link> */}
             {/* <a href = "/restaurants/#restCats">Your Text</a> */}
-            {restaurantCatagoryArr.map((cata) => (
-              <div key={`${cata}Nav`}>
+            {restaurantCategoryArr.map((cat) => (
+              <div key={`${cat}Nav`}>
                 <Link
-                  {...cata === 'All' ? path = '/restaurants' : cata === 'Fast Food' ? path = '/restaurants/Fast_Food' : path = `/restaurants/${cata}`}
+                  {...cat === 'All' ? path = '/restaurants' : cat === 'Fast Food' ? path = '/restaurants/Fast_Food' : path = `/restaurants/${cat}`}
 
                   exact to={path}
                   className='restCatButtons'
                   onClick={scrolltoId}
                 >
-                  {cata === 'Fast_Food' ? 'Fast Food' : cata}
+                  {cat === 'Fast_Food' ? 'Fast Food' : cat}
                 </Link>
               </div>
             ))}
           </div>
           <div>
-            <h1>{catagory === 'Fast_Food' ? 'Fast Food' : catagory} Restaurants</h1>
+            <h1>{category === 'Fast_Food' ? 'Fast Food' : category} Restaurants</h1>
           </div>
           <div className="restaurantCardDiv">
             {restStateArr.map((restaurant) => (
@@ -98,4 +98,4 @@ function RestaurantsByCatagoryNav() {
   )
 }
 
-export default RestaurantsByCatagoryNav
+export default RestaurantsByCategoryNav

@@ -1,0 +1,91 @@
+.update-restaurant-flex-div {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid;
+  border-color: grey;
+  border-radius: 7px;
+  padding: 10px 10px;
+  margin: 5px 0;
+}
+
+/* 265.367 */
+
+.update-restaurant-input-name {
+  font-size: xx-large;
+  width: 50%;
+  background-color: rgb(239, 239, 239);
+  padding: 10px;
+  border-radius: 7px;
+  border: 3px solid #FFFFFF;
+  /* margin: 15px 0; */
+}
+
+.update-restaurant-cat-address-div {
+  display: flex;
+  flex-direction: row;
+}
+
+.update-restaurant-select {
+  background-color: rgb(239, 239, 239);
+  width: 175px;
+  padding: 10px 10px 10px 5px;
+  border-radius: 7px;
+  border: 3px solid #FFFFFF;
+  margin: 15px 0;
+}
+
+.update-restaurant-input-address {
+  background-color: rgb(239, 239, 239);
+  padding: 10px;
+  border-radius: 7px;
+  border: 3px solid #FFFFFF;
+  margin: 5px 0;
+  width: 50%;
+}
+
+.update-restaurant-radio-fieldset {
+  display: flex;
+  flex-direction: row;
+  margin: 15px 15px;
+}
+
+.update-restaurant-button {
+  color: #FFFFFF;
+  background-color: #000000;
+  padding: 10px 40px;
+  margin: 10px 15px;
+  border-radius: 7px;
+  border: 3px solid #000000;
+  cursor: pointer;
+}
+
+.update-restaurant-button-parent-div {
+  position: relative;
+  width: 96%;
+  height: 100%;
+  padding-left: 30px;
+}
+
+.update-restaurant-button-div {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.update-restaurant-button-div button {
+  color: #FFFFFF;
+  background-color: #000000;
+  padding: 10px;
+  margin: 10px 10px;
+  /* width: 200px; */
+  border-radius: 7px;
+  border: 3px solid #000000;
+  cursor: pointer;
+}
+
+.restaurantImage {
+  width: 300px;
+  height: 300px;
+}

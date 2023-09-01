@@ -1,6 +1,5 @@
 import React from "react";
 import { useEffect } from "react";
-import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import * as restaurantActions from "../../store/restaurant"
 
@@ -24,9 +23,6 @@ function CurrentUserRestaurants() {
       <div>
         <div>
           <h1>Your Restaurants</h1>
-        </div>
-        <div>
-          <h1>Restaurants</h1>
         </div>
         <div>
           {restStateArr.map((restaurant) => (

@@ -12,6 +12,8 @@ export default function ReviewCard() {
     const { restaurantId } = useParams()
     const reviews = useSelector(state => state.reviews)
     const sessionUser = useSelector(state => state.session.user)
+    const restaurant = useSelector(state => state.restaurant.singleRestaurant)
+    console.log("HERE IS THE REST: ", restaurant);
     const [isLoaded, setIsLoaded] = useState(false)
 
     useEffect(() => {
@@ -25,13 +27,13 @@ export default function ReviewCard() {
     const reviewList = Object.values(reviews.reviews)
     const reviewUserIds = reviewList.map(review => review.userId)
     
-
+    
     return (
         <>
             {isLoaded && (
                 <>
                     <h2 id="reviewHeader">Reviews</h2>
-                    {!reviewUserIds.includes(sessionUser?.id) && (sessionUser != null) && (
+                    {!reviewUserIds.includes(sessionUser?.id) && (sessionUser?.id != restaurant?.ownerId) && (sessionUser != null) && (
                         <div className="reviewModalButton">
                             <OpenModalButton
                                 buttonText="Leave a review"
@@ -45,7 +47,7 @@ export default function ReviewCard() {
                             <div id="reviewDateDiv">
                                 {review.createdAt.slice(5, -13)}
                             </div>
-                            {reviewUserIds.includes(sessionUser?.id) && review.userId == sessionUser.id && (
+                            {reviewUserIds.includes(sessionUser?.id) && review.userId === sessionUser.id && (
                                 <div className="reviewModalButton"><OpenModalButton
                                     buttonText="Delete Review"
                                     modalComponent={<DeleteReviewModal reviewId={review.id} restaurantId={restaurantId} />} />

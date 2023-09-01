@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import * as restaurantActions from "../../store/restaurant"
 import { createRestaurantThunk } from "../../store/restaurant";
+import "./RestaurantFormCreate.css"
+import "./RestaurantFormUpdate.css"
 
 // restaurantActions.createRestaurantThunk(restaurant)
 
@@ -21,6 +23,37 @@ function RestaurantForm({ restaurant, formType }) {
 
   const [disabled, setDisabled] = useState(false);
   const [errors, setErrors] = useState([]);
+
+  const handleCancel = async (e) => {
+    e.preventDefault();
+
+
+    restaurant = {
+      ...restaurant,
+      restaurantId: restaurant.id
+    }
+
+    try {
+      const res = await dispatch(restaurantActions.updateRestaurantThunk(restaurant));
+      // console.log("INSIDE UPDATE RESTAURANT TRY BLOCK - RES", res)
+      {res.errors ? setErrors(res.errors) : setErrors([]);}
+      if (res.restaurant.id) {
+        setErrors([]);
+      } else {
+        return res
+      }
+    } catch(res) {
+      // const data = await res.json();
+      // if (data && data.errors) {
+      //   setErrors(data.errors);
+      // }
+      const data = res
+      if (data && data.errors) {
+        setErrors(data.errors);
+      }
+    }
+
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -41,6 +74,7 @@ function RestaurantForm({ restaurant, formType }) {
     if (formType == "Create Restaurant") {
 
       try {
+        console.log("DATA BEING SENT OUT", restaurant)
         const res = await dispatch(createRestaurantThunk(restaurant));
         // console.log("INSIDE CREATE RESTAURANT TRY BLOCK - RES", res)
         {res.errors ? setErrors(res.errors) : setErrors([]);}
@@ -65,7 +99,7 @@ function RestaurantForm({ restaurant, formType }) {
 
       try {
         const res = await dispatch(restaurantActions.updateRestaurantThunk(restaurant));
-        console.log("INSIDE UPDATE RESTAURANT TRY BLOCK - RES", res)
+        // console.log("INSIDE UPDATE RESTAURANT TRY BLOCK - RES", res)
         {res.errors ? setErrors(res.errors) : setErrors([]);}
         if (res.restaurant.id) {
           setErrors([]);
@@ -85,33 +119,50 @@ function RestaurantForm({ restaurant, formType }) {
     }
   }
 
-  // {errors.map((error, idx) => <li key={idx}>{error}</li>)}
 
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <div>
-          {formType === "Create Restaurant" ? <h1>Create Restaurant</h1> : <h1>Update Restaurant</h1>}
-        </div>
 
-        { formType === "Create Restaurant" ?
+      {formType === "Create Restaurant" ?
+        <div className='create-menu-item-form-section'>
+          <div className='menu-item-form-top-header'>
+            Create Restaurant
+          </div>
+        </div>
+       : null}
+
+        {/* { formType === "Create Restaurant" ?
           <div>
             <h2>Tell us a bit about your Restaurant</h2>
           </div>
           : null
-        }
+        } */}
 
+        <div className={formType === "Update Restaurant" ? "update-restaurant-flex-div" : null}>
+        {/* IMAGE IF UPDATE */}
+        { formType === "Update Restaurant" ?
+          <div>
+            <img className='restaurantImage' src={restaurant.imageUrl ? restaurant.imageUrl : "https:upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholdesvg"}   alt="RestauImage" />
+          </div>
+        : null}
+
+        <div >
+        <div className={formType === "Update Restaurant" ? "update-restaurant-button-parent-div" : null}>
         {/* NAME */}
         <div>
-          <div>
+          {/* <div className='menu-item-form-top-header'>
           { formType === "Create Restaurant" ?
-            <h3>What is your Restaurant's name?</h3>
+            "What is your Restaurant's name?"
             : null
           }
+          </div> */}
+          <div>
             <input
-              size={40}
+              className={formType === "Create Restaurant" ? "create-restaurant-input" : "update-restaurant-input-name"}
               type="text"
               name="name"
+              size={57}
               onChange={(e) => setName(e.target.value)}
               value={name}
               placeholder="Name"
@@ -121,36 +172,18 @@ function RestaurantForm({ restaurant, formType }) {
           {errors.name && (<div className="errorsDiv">{errors.name}</div>)}
         </div>
 
-        {/* ADDRESS */}
-        <div>
-          <div>
-            { formType === "Create Restaurant" ?
-              <h3>What is your Restaurant's street address?</h3>
-              : null
-            }
-            <input
-              size={40}
-              type="text"
-              name="streetAddress"
-              onChange={(e) => setStreetAddress(e.target.value)}
-              value={streetAddress}
-              placeholder="Address"
-              required
-            />
-          </div>
-          {errors.streetAddress && (<div className="errorsDiv">{errors.streetAddress}</div>)}
-        </div>
-
+        <div className={formType === "Update Restaurant" ? "update-restaurant-cat-address-div" : null}>
         {/* CATEGORY */}
         <div>
           <div>
-            { formType === "Create Restaurant" ?
+            {/* { formType === "Create Restaurant" ?
               <h3>What Category best describes your Restaurant's cuisine?</h3>
               : null
-            }
+            } */}
             <select
               onChange={(e) => setCategory(e.target.value)}
               value={category}
+              className={formType === "Create Restaurant" ? "create-restaurant-select" : "update-restaurant-select"}
             >
               <option value="(select one)">
                 (select one)
@@ -171,65 +204,96 @@ function RestaurantForm({ restaurant, formType }) {
         </div>
 
         {/* PRICE RANGE */}
-        <div>
-          <div>
+          <div className={formType === "Create Restaurant" ? "create-restaurant-radio" : "update-restaurant-radio"}>
+          <fieldset className={formType === "Create Restaurant" ? "create-restaurant-radio-fieldset" : "update-restaurant-radio-fieldset"}>
             { formType === "Create Restaurant" ?
               <legend>What price range best characterizes your Restaurant?</legend>
               : null
             }
-            <div>
-              <input
-                type="radio"
-                id="$"
-                name="priceRange"
-                value={1}
-                onChange={(e) => setPriceRange(e.target.value)}
-              />
-              <label for="$">$</label>
-            </div>
 
-            <div>
-              <input
-                type="radio"
-                id="$$"
-                name="priceRange"
-                value={2}
-                onChange={(e) => setPriceRange(e.target.value)}
-              />
-              <label for="$$">$$</label>
-            </div>
-
-            <div>
-              <input
-                type="radio"
-                id="$$$"
-                name="priceRange"
-                value={3}
-                onChange={(e) => setPriceRange(e.target.value)}
-              />
-              <label for="$$$">$$$</label>
-            </div>
-
-            <div>
-              <input
-                type="radio"
-                id="$$$$"
-                name="priceRange"
-                value={4}
-                onChange={(e) => setPriceRange(e.target.value)}
-              />
-              <label for="$$$$">$$$$</label>
-            </div>
-
+          <div>
+            <input
+              className="restaurant-form-radio-input"
+              type="radio"
+              id="$"
+              name="priceRange"
+              value={1}
+              onChange={(e) => setPriceRange(e.target.value)}
+              defaultChecked={formType === "Update Restaurant" && priceRange === 1}
+            />
+            <label htmlFor="$">$</label>
           </div>
+          <div>
+            <input
+              className="restaurant-form-radio-input"
+              type="radio"
+              id="$$"
+              name="priceRange"
+              value={2}
+              onChange={(e) => setPriceRange(e.target.value)}
+              defaultChecked={formType === "Update Restaurant" && priceRange === 2}
+            />
+            <label htmlFor="$$">$$</label>
+          </div>
+          <div>
+            <input
+              className="restaurant-form-radio-input"
+              type="radio"
+              id="$$$"
+              name="priceRange"
+              value={3}
+              onChange={(e) => setPriceRange(e.target.value)}
+              defaultChecked={formType === "Update Restaurant" && priceRange === 3}
+            />
+            <label htmlFor="$$$">$$$</label>
+          </div>
+          <div>
+            <input
+              className="restaurant-form-radio-input"
+              type="radio"
+              id="$$$$"
+              name="priceRange"
+              value={4}
+              onChange={(e) => setPriceRange(e.target.value)}
+              defaultChecked={formType === "Update Restaurant" && priceRange === 4}
+            />
+            <label htmlFor="$$$$">$$$$</label>
+          </div>
+          </fieldset>
           {errors.priceRange && (<div className="errorsDiv">{errors.priceRange}</div>)}
         </div>
+        </div>
 
-        {/* IMAGEURL */}
+        {/* ADDRESS */}
+        <div>
+          {/* <div className='menu-item-form-top-header'>
+            { formType === "Create Restaurant" ?
+              "What is your Restaurant's street address?"
+              : null
+            }
+          </div> */}
+          <div>
+            <input
+              className={formType === "Create Restaurant" ? "create-restaurant-input" : "update-restaurant-input-address"}
+              type="text"
+              size={57}
+              name="streetAddress"
+              onChange={(e) => setStreetAddress(e.target.value)}
+              value={streetAddress}
+              placeholder="Address"
+              required
+            />
+          </div>
+          {errors.streetAddress && (<div className="errorsDiv">{errors.streetAddress}</div>)}
+        </div>
+
+        {/* IMAGEURL - CREATE*/}
+        {formType === "Create Restaurant" ?
         <div>
           <div>
             <input
-              size={40}
+              className={formType === "Create Restaurant" ? "create-restaurant-input" : "update-restaurant-input"}
+              size={57}
               type="url"
               name="imageUrl"
               onChange={(e) => setImageUrl(e.target.value)}
@@ -240,6 +304,7 @@ function RestaurantForm({ restaurant, formType }) {
           </div>
           {errors.imageUrl && (<div className="menu-item-create-error-text">{errors.  imageUrl}</div>)}
         </div>
+        : null }
 
         {/* ERRORS */}
         <ul>
@@ -247,14 +312,18 @@ function RestaurantForm({ restaurant, formType }) {
         </ul>
 
         {/* BUTTON */}
-        <div>
-          <button disabled={disabled}>
-            {formType === "Create Restaurant" ? "Next" : "Update"}
+        <div className={formType === "Update Restaurant" ? "update-restaurant-button-div" : null}>
+          <button className={formType === "Create Restaurant" ? "create-restaurant-button" : null}>
+          {formType === "Create Restaurant" ? "Next" : "Update"}
           </button>
+          {formType === "Update Restaurant" ? <button onClick={handleCancel}>Cancel</button> : null }
         </div>
 
+        </div>
+      </div>
+    </div>
+
       </form>
-      {formType === "Update Restaurant" ? <button>Cancel</button> : null }
     </>
   )
 }

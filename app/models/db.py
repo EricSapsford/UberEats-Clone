@@ -93,7 +93,7 @@ class RestaurantCategory(enum.Enum):
     French = "French"
     Italian = "Italian"
     Thai = "Thai"
-    Fast_Food = "Fast Food"
+    Fast_Food = "Fast_Food"
     Mediterranean = "Mediterranean"
     Vegetarian = "Vegetarian"
 
@@ -136,7 +136,7 @@ class Restaurant(db.Model):
     users_rel = db.relationship("User", back_populates="restaurants_rel")
 
     #one-to-many: one restaurant can have many orders
-    orders_rel = db.relationship("Order", back_populates="restaurants_rel")
+    orders_rel = db.relationship("Order", back_populates="restaurants_rel", cascade="all, delete-orphan")
 
     #one-to-many: one restaurant can have many menu-items
     menu_items_rel = db.relationship("MenuItem", back_populates="restaurants_rel", cascade="all, delete-orphan")
