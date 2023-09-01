@@ -1,11 +1,13 @@
 import { useEffect, useState, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { useShoppingCart } from '../../context/ShoppingCart';
 import './ShoppingCart.css'
 import { getAllRestaurantsWithOneMenuItemThunk } from '../../store/restaurant';
 
 export default function ShoppingCartModal() {
     const dispatch = useDispatch();
+    const history = useHistory();
     const ulRef = useRef();
 
     const { cart, setCart } = useShoppingCart()
@@ -47,6 +49,23 @@ export default function ShoppingCartModal() {
         setShowMenu(!showMenu)
     }
 
+    const handleCheckout = () => {
+        history.push("/checkout")
+        setShowMenu(false)
+        return;
+    }
+
+    const deleteItem = (e, id) => {
+        e.stopPropagation()
+        let newCart = []
+        cart.forEach(item => {
+            if (item.id !== id) {
+                newCart.push(item)
+            }
+        })
+        setCart(newCart)
+    }
+
     const ulClassName = "cart-dropdown" + (showMenu ? "" : " hidden");
 
     return (
@@ -56,10 +75,10 @@ export default function ShoppingCartModal() {
                 <div>Cart</div>
             </button>
             <div>
-                {showMenu && isLoaded && (
+                {showMenu ? (isLoaded && cart.length ? (
                     <div className={ulClassName} ref={ulRef}>
                         <div className='cart-contents'>
-                            <button onClick={() => setShowMenu(false)}>
+                            <button onClick={() => setShowMenu(false)} className='close-cart'>
                                 <i class="fa-solid fa-x"></i>
                             </button>
                             <div className='cart-restaurant'>{restaurants[cart[0].restaurantId].name}</div>
@@ -70,7 +89,14 @@ export default function ShoppingCartModal() {
                                     cart.map(item => (
                                         <div className='item-entry'>
                                             <div>1 {item.name}</div>
-                                            <div>${item.price.toFixed(2)}</div>
+                                            <div className='item-entry-right'>
+                                                <div>${item.price.toFixed(2)}</div>
+                                                <div>
+                                                    <button className='item-entry-delete' onClick={(e) => deleteItem(e, item.id)}>
+                                                        <i class="fa-regular fa-trash-can"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </div>
                                     ))
                                 }
@@ -81,11 +107,30 @@ export default function ShoppingCartModal() {
                             </div>
                         </div>
                         <div className='cart-buttons'>
-                            <button className='cart-checkout' onClick={() => alert('Feature coming soon!')}>Go to checkout</button>
-                            <button>Add items</button>
+                            <button className='cart-checkout' onClick={() => handleCheckout()}>Go to checkout</button>
+                            <button onClick={() => {
+                                history.push(`/restaurants/${cart[0].restaurantId}/menu`)
+                                setShowMenu(false)
+                            }}>Add items</button>
                         </div>
                     </div>
-                )}
+                ) : (
+                    <div className={ulClassName} ref={ulRef}>
+                        <div className='empty-cart-contents'>
+                            <button onClick={() => setShowMenu(false)}>
+                                    <i class="fa-solid fa-x"></i>
+                            </button>
+                            <div className='empty-cart'>
+                                <div className='shiba'>
+                                    <img src='/shibaloaf.png' alt='shibaloaf' />
+                                </div>
+                                <div className='shiba-header'>
+                                    Add items to start your cart
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )) : null}
             </div>
         </>
     )

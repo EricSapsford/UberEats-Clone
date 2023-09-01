@@ -109,6 +109,7 @@ export const getAllRestaurantsWithOneMenuItemThunk = () => async (dispatch) => {
     //   return;
     // }
     dispatch(getAllRestaurantsWithOneMenuItem(restaurants))
+    return restaurants
   } else {
     const errors = await res.json();
     return errors

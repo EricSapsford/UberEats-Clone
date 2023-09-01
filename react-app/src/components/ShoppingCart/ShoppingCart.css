@@ -1,5 +1,5 @@
 .cart-dropdown {
-    position: absolute;
+    position: fixed;
     top: -16px;
     right: 0;
     height: 100%;
@@ -10,16 +10,62 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* transform: translateX(100%); */
-    transition: transform 5s ease-in-out;
     gap: 10px;
+    transition: right 3s ease-in-out;
+}
+
+.cart-dropdown.open {
+    right: 0;
+}
+
+.empty-cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 30px;
+}
+
+.shiba {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.empty-cart-contents button {
+    cursor: pointer;
+    color: darkgray;
+    font-size: 18pt;
+    background-color: transparent !important;
+    border: none !important;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 !important;
+}
+
+.shiba img {
+    height: 100%;
+    width: 100%;
+}
+
+.shiba-header {
+    font-size: 14pt;
+    align-content: center !important;
+}
+
+.shiba-sentence {
+    font-size: 12pt;
+    align-content: center;
 }
 
 .cart-contents {
     overflow-y: auto;
 }
 
-.cart-contents button {
+.close-cart {
     cursor: pointer;
     color: darkgray;
     font-size: 18pt;
@@ -54,6 +100,37 @@
 .item-entry {
     display: flex;
     justify-content: space-between;
+}
+
+.item-entry-right {
+    display: flex;
+    gap: 13px;
+}
+
+.item-entry-delete {
+    cursor: pointer;
+    font-size: 12pt;
+    background-color: transparent !important;
+    border: none !important;
+    display: flex;
+    justify-content: center;
+    padding: 0 !important;
+}
+
+.fa-trash-can:hover {
+    color: red;
+}
+
+.item-entry-delete:hover {
+    color: red !important;
+}
+
+.item-entry-delete button {
+    font-size: 12pt;
+}
+
+.item-entry-delete button:hover {
+    color: red;
 }
 
 .cart-total {

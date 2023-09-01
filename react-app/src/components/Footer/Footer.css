@@ -8,7 +8,7 @@
 }
 
 #footer-logo-text {
-    font-size: 30px;
+    font-size: 28pt;
 }
 
 #footerModal button {
@@ -19,17 +19,58 @@
     cursor: pointer;
 }
 
+#footer-col-1 {
+    display: flex;
+    gap: 50px;
+}
+
+.footer-right {
+    display: flex;
+}
+
+.footer-right-header {
+    font-size: 16pt;
+    padding-right: 15px;
+    border-right: 1px solid lightgray;
+    color: darkgray;
+}
+
 #footer-col-2 {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+}
+
+#footer-col-3 {
     color: #828282;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+}
+
+.footer-list {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 15px;
+    font-weight: lighter;
+}
+
+.footer-name {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.footer-links {
+    font-size: 14pt;
+    display: flex;
+    gap: 15px;
 }
 
 #footer-copyright {
     color: #828282;
     display: flex;
     justify-content: end;
-    padding: 30px 30px 50px 30px;
+    padding: 30px;
     font-size: 13px;
 }

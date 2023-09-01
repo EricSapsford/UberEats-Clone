@@ -2,8 +2,11 @@
     width: 400px;
 }
 
-
 .signUpLabel {
     background-color: red;
     width: 94%;
+}
+
+#signupModalSignupButton {
+    cursor: pointer;
 }
