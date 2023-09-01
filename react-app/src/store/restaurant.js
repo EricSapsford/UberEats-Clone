@@ -157,6 +157,7 @@ export const getAllRestaurantsByCategoryThunk = (category) => async (dispatch) =
 
 // THUNK: CREATE RESTAURANT
 export const createRestaurantThunk = (createdRestaurant) => async (dispatch) => {
+
   const { name, streetAddress, category, priceRange, imageUrl } = createdRestaurant
   const res = await fetch("/api/restaurants/new", {
     method: "POST",

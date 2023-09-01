@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import * as restaurantActions from "../../store/restaurant"
 import { createRestaurantThunk } from "../../store/restaurant";
+import { getImageUrl, deleteImageUrl } from "../../store/image"
 import "./RestaurantFormCreate.css"
 import "./RestaurantFormUpdate.css"
 
@@ -20,6 +21,7 @@ function RestaurantForm({ restaurant, formType }) {
   const [category, setCategory] = useState(restaurant?.category)
   const [priceRange, setPriceRange] = useState(restaurant?.priceRange)
   const [imageUrl, setImageUrl] = useState(restaurant?.imageUrl)
+  const [newImageToggle, setNewImageToggle] = useState(false)
 
   const [disabled, setDisabled] = useState(false);
   const [errors, setErrors] = useState([]);
@@ -58,20 +60,46 @@ function RestaurantForm({ restaurant, formType }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (formType  === "Create Restaurant") {
+      try {
+        const res = await dispatch(getImageUrl(imageUrl))
+        {res.errors ? setErrors(res.errors) : setErrors([]);}
+
+        if (!res.errors) {
+          setImageUrl(res)
+        }
+      } catch (res) {
+        return res
+      }
+    } else if (formType === "Update Restaurant" && newImageToggle) {
+      try {
+        const deleteImage = await dispatch(deleteImageUrl())
+        if (deleteImage.message) {
+          const res = await dispatch(getImageUrl(imageUrl))
+          {res.errors ? setErrors(res.errors) : setErrors([]);}
+
+          if (!res.errors) {
+            setImageUrl(res)
+          }
+        } else if (deleteImage.errors) {
+          setErrors(deleteImage.errors)
+        }
+      } catch (res) {
+        return res
+      }
+    }
 
     restaurant = {
       ...restaurant,
       name,
       streetAddress,
       category,
-      priceRange,
       imageUrl,
+      priceRange,
       restaurantId: restaurant.id
     }
 
-
-
-    if (formType == "Create Restaurant") {
+    if (formType === "Create Restaurant") {
 
       try {
         console.log("DATA BEING SENT OUT", restaurant)
@@ -291,15 +319,26 @@ function RestaurantForm({ restaurant, formType }) {
         {formType === "Create Restaurant" ?
         <div>
           <div>
-            <input
+            {/* <input
               className={formType === "Create Restaurant" ? "create-restaurant-input" : "update-restaurant-input"}
               size={57}
               type="url"
               name="imageUrl"
-              onChange={(e) => setImageUrl(e.target.value)}
+              onChange={(e) => {
+                setImageUrl(e.target.value)
+                setNewImageToggle(true)
+              }}
               value={imageUrl}
               placeholder="Image URL"
               required
+            /> */}
+            <input
+              type="file"
+              value={imageUrl}
+              onChange={(e) => {
+                setImageUrl(e.target.value)
+                setNewImageToggle(true)
+              }}
             />
           </div>
           {errors.imageUrl && (<div className="menu-item-create-error-text">{errors.  imageUrl}</div>)}
