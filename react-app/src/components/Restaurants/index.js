@@ -8,7 +8,7 @@ import './Restaurants.css'
 
 import RestaurantCard from "./RestaurantCard"
 
-const restaurantCatagoryArr = [
+const restaurantCategoryArr = [
   'Mexican',
   'Indian',
   'Japanese',
@@ -59,14 +59,14 @@ function RestaurantsNav() {
                   All
                 </Link>
               </span>
-              {restaurantCatagoryArr.map((catagory) => (
-                <span key={`${catagory}Nav`}>
+              {restaurantCategoryArr.map((category) => (
+                <span key={`${category}Nav`}>
                   <Link
-                    {...catagory === 'All' ? path = '/restaurants' : catagory === 'Fast Food' ? path = '/restaurants/Fast_Food' : path = `/restaurants/${catagory}`}
+                    {...category === 'All' ? path = '/restaurants' : category === 'Fast Food' ? path = '/restaurants/Fast_Food' : path = `/restaurants/${category}`}
                     exact to={path}
                     className='restCatButtons'
                   >
-                    {catagory}
+                    {category}
                   </Link>
                 </span>
               ))}

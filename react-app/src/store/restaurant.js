@@ -9,7 +9,7 @@
 //=================================== CONSTANTS ===================================
 
 const GET_ALL_RESTAURANTS_WITH_ONE_MENU_ITEM = "restaurants/getAllRestaurantsWithOneMenuItem"
-const GET_ALL_RESTAURANTS_BY_CATAGORY = "restaurants/getAllRestaurantsByCatagory"
+const GET_ALL_RESTAURANTS_BY_CATEGORY = "restaurants/getAllRestaurantsByCategory"
 const GET_ONE_RESTAURANT = "restaurants/getOneRestaurant"
 const GET_ALL_RESTAURANTS_BY_CURRENT_USER = "restaurants/getAllRestaurantsByCurrentUser"
 const CREATE_RESTAURANT = "restaurants/createRestaurant"
@@ -30,9 +30,9 @@ const getAllRestaurantsWithOneMenuItem = (restaurants) => {
   }
 }
 
-const getAllRestaurantsByCatagory = (restaurants) => {
+const getAllRestaurantsByCategory = (restaurants) => {
   return {
-    type: GET_ALL_RESTAURANTS_BY_CATAGORY,
+    type: GET_ALL_RESTAURANTS_BY_CATEGORY,
     restaurants
   }
 }
@@ -137,8 +137,8 @@ export const getAllRestaurantsByCurrentUserThunk = () => async (dispatch) => {
 }
 
 // THUNK: GET ALL RESTAURANTS BY CATEGORY
-export const getAllRestaurantsByCatagoryThunk = (catagory) => async (dispatch) => {
-  const res = await fetch(`/api/restaurants/category/${catagory}`, {
+export const getAllRestaurantsByCategoryThunk = (category) => async (dispatch) => {
+  const res = await fetch(`/api/restaurants/category/${category}`, {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   })
@@ -147,7 +147,7 @@ export const getAllRestaurantsByCatagoryThunk = (catagory) => async (dispatch) =
     // if (restaurants.errors) {
     //   return;
     // }
-    dispatch(getAllRestaurantsByCatagory(restaurants))
+    dispatch(getAllRestaurantsByCategory(restaurants))
   } else {
     const errors = await res.json();
     return errors
@@ -214,9 +214,11 @@ export const deleteRestaurantThunk = (restaurantId) => async (dispatch) => {
 
   if (res.ok) {
     const data = await res.json();
+    console.log("INSIDE DELETE THUNK RES.OK", data)
     dispatch(deleteRestaurant(restaurantId));
     return data;
   } else {
+    console.log("INSIDE DELETE THUNK ELSE", res)
     const errors = await res.json();
     return errors;
   }
@@ -231,7 +233,7 @@ export const deleteRestaurantThunk = (restaurantId) => async (dispatch) => {
 
 const initialState = {
   allRestaurants: {},
-  catagoryRestaurants: {},
+  categoryRestaurants: {},
   usersRestaurants: {},
   singleRestaurant: {}
 }
@@ -258,10 +260,10 @@ const restaurantReducer = (state = initialState, action) => {
       return newState
     }
 
-    case GET_ALL_RESTAURANTS_BY_CATAGORY: {
-      const newState = { ...state, catagoryRestaurants: {} }
+    case GET_ALL_RESTAURANTS_BY_CATEGORY: {
+      const newState = { ...state, categoryRestaurants: {} }
       action.restaurants.forEach((restObj) => {
-        newState.catagoryRestaurants[restObj.id] = restObj
+        newState.categoryRestaurants[restObj.id] = restObj
       });
       return newState
     }

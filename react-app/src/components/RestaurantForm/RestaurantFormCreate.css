@@ -1,0 +1,60 @@
+.create-restaurant-button {
+  color: #FFFFFF;
+  background-color: #000000;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 7px;
+  width: 517.6px;
+  border: 3px solid #000000;
+  cursor: pointer;
+}
+
+.create-restaurant-input {
+  background-color: rgb(239, 239, 239);
+  padding: 10px;
+  border-radius: 7px;
+  border: 3px solid #FFFFFF;
+  margin: 15px 0;
+}
+
+.create-restaurant-select {
+  background-color: rgb(239, 239, 239);
+  width: 175px;
+  padding: 10px 10px 10px 5px;
+  border-radius: 7px;
+  border: 3px solid #FFFFFF;
+  margin: 15px 0;
+}
+
+.create-restaurant-radio {
+  /* padding: 27px 0; */
+  margin: 15px 0;
+  width: 517.6px;
+}
+
+.create-restaurant-radio-fieldset {
+  display: flex;
+  flex-direction: row;
+  border-radius: 7px;
+  font-family: 'Rubik', sans-serif;
+}
+
+.create-restaurant-radio-fieldset div {
+  padding: 0 35px;
+}
+
+.restaurant-form-radio-input {
+  appearance: none;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #999;
+  transition: 0.2s all linear;
+  margin-right: 5px;
+  position: relative;
+  top: 2px;
+}
+
+.restaurant-form-radio-input:checked {
+  border: 6px solid black;
+}

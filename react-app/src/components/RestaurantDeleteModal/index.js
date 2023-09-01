@@ -14,6 +14,7 @@ function RestaurantDeleteModal({ restaurantId }) {
 
     try {
       const res = await dispatch(restaurantActions.deleteRestaurantThunk(restaurantId));
+      console.log("HANDLE DELETE RES", res)
       if (res.message) {
         setErrors({});
         closeModal();
