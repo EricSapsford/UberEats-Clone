@@ -20,9 +20,18 @@ export default function Footer() {
                 <div className='footer-right'>
                     <div id='footer-col-3'>
                         <div className='footer-right-header'>Features</div>
-                        <div>
+                        <div className='footer-list'>
                             <Link exact to="/restaurants">
-                                <div>Restaurants near me</div>
+                                <div>Restaurants</div>
+                            </Link>
+                            <Link exact to="/restaurants/1/menu">
+                                <div>Menu Items</div>
+                            </Link>
+                            <Link exact to="/restaurants/1/menu">
+                                <div>Reviews</div>
+                            </Link>
+                            <Link exact to="/past-orders">
+                                <div>Orders</div>
                             </Link>
                             {!sessionUser && (<div id='footerModal'><OpenModalButton
                                 buttonText='Create an Account'
@@ -32,7 +41,7 @@ export default function Footer() {
                     </div>
                     <div id='footer-col-2'>
                         <div className='footer-right-header'>Contact Us</div>
-                        <div className='footer-name-list'>
+                        <div className='footer-list'>
                             <div className='footer-name'>
                                 <div>Will Campbell</div>
                                 <div className='footer-links'>
@@ -47,10 +56,10 @@ export default function Footer() {
                             <div className='footer-name'>
                                 <div>Erica Maranowski</div>
                                 <div className='footer-links'>
-                                    <a href="" target="_blank" rel="noopener noreferrer">
+                                    <a href="https://github.com/emaranowski" target="_blank" rel="noopener noreferrer">
                                         <i class="fa-brands fa-linkedin"></i>
                                     </a>
-                                    <a href="" target="_blank" rel="noopener noreferrer">
+                                    <a href="https://www.linkedin.com/in/erica-maranowski/" target="_blank" rel="noopener noreferrer">
                                         <i class="fa-brands fa-github"></i>
                                     </a>
                                 </div>
@@ -69,10 +78,7 @@ export default function Footer() {
                             <div className='footer-name'>
                                 <div>Eric Sapsford</div>
                                 <div className='footer-links'>
-                                    <a href="" target="_blank" rel="noopener noreferrer">
-                                        <i class="fa-brands fa-linkedin"></i>
-                                    </a>
-                                    <a href="" target="_blank" rel="noopener noreferrer">
+                                    <a href="https://github.com/EricSapsford" target="_blank" rel="noopener noreferrer">
                                         <i class="fa-brands fa-github"></i>
                                     </a>
                                 </div>
