@@ -81,7 +81,6 @@ export default function RestaurantDetails() {
                     {restaurant.priceRange === 2 ? '$$' : ''}
                     {restaurant.priceRange === 3 ? '$$$' : ''}
                     {restaurant.priceRange === 4 ? '$$$$' : ''}
-                    {restaurant.priceRange === 5 ? '$$$$$' : ''}
                   </span>
                   <span>
                     <span></span> • <a className='restaurant-read-reviews' href='#reviewHeader'>Read Reviews</a>
@@ -107,7 +106,6 @@ export default function RestaurantDetails() {
                     {restaurant.priceRange === 2 ? '$$' : ''}
                     {restaurant.priceRange === 3 ? '$$$' : ''}
                     {restaurant.priceRange === 4 ? '$$$$' : ''}
-                    {restaurant.priceRange === 5 ? '$$$$$' : ''}
                   </span>
                 </div>
               </div>}
