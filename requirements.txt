@@ -42,4 +42,4 @@ python-editor==1.0.4
 six==1.16.0
 sqlalchemy==1.4.46
 werkzeug==2.2.2
-wtforms=={version=="*", extras==["email"]}
+wtforms=={version="*", extras=["email"]}
