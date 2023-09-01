@@ -119,7 +119,9 @@ function SignupFormModal() {
 							required
 						/>
 					</label>
-					<button type="submit">Sign Up</button>
+					<button id='signupModalSignupButton' type="submit">
+						Sign Up
+					</button>
 				</form>
 			</div>
 		</>

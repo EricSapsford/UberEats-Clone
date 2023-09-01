@@ -13,6 +13,7 @@
 }
 
 .profile-container button {
+  margin-left: -9px;
   cursor: pointer;
   font-size: 16pt;
   background-color: transparent;
@@ -27,7 +28,7 @@
 }
 
 .profile-dropdown {
-  position: absolute;
+  position: fixed;
   top: -16px;
   left: -1px;
   height: 100%;
@@ -67,7 +68,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px;
+  padding: 15px 25px 22px 22px;
 }
 
 #nav-logo-text {
@@ -78,7 +79,7 @@ nav {
 #nav-right-hamburger-and-logo {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 6px;
 }
 
 #nav-left-other-buttons {
@@ -138,10 +139,6 @@ nav {
   cursor: pointer;
 }
 
-#theBurgerLogo {
-  font-size: 50px;
-}
-
 #restaurantsNavLinkDiv {
   display: flex;
   background-color: white;
@@ -180,7 +177,8 @@ nav {
 }
 
 #theBurgerLogo {
-  font-size: 50px;
+  margin-left: 1px;
+  font-size: 33px;
 }
 
 #restaurantsNavLinkDiv {
