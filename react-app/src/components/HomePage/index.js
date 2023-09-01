@@ -5,11 +5,11 @@ import HomePage from './HomePage';
 import './HomePage.css';
 
 export default function BannerLogic() {
-    const sessionUser = useSelector(state => state.session.user)
+  const sessionUser = useSelector(state => state.session.user)
 
-    return (
-        <>
-            {sessionUser ? <RestaurantsNav /> : <HomePage />}
-        </>
-    )  
+  return (
+    <>
+      {sessionUser ? <RestaurantsNav /> : <HomePage />}
+    </>
+  )
 }
