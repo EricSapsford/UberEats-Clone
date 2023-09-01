@@ -44,7 +44,7 @@ export default function ReviewCard() {
                             <div id="reviewDateDiv">
                                 {review.createdAt.slice(5, -13)}
                             </div>
-                            {reviewUserIds.includes(sessionUser?.id) && review.userId == sessionUser.id && (
+                            {reviewUserIds.includes(sessionUser?.id) && review.userId === sessionUser.id && (
                                 <div className="reviewModalButton"><OpenModalButton
                                     buttonText="Delete Review"
                                     modalComponent={<DeleteReviewModal reviewId={review.id} restaurantId={restaurantId} />} />

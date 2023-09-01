@@ -8,7 +8,7 @@ import './Restaurants.css'
 
 import RestaurantCard from "./RestaurantCard"
 
-const restaurantCatagoryArr = [
+const restaurantCategoryArr = [
   'Mexican',
   'Indian',
   'Japanese',
@@ -46,13 +46,13 @@ function RestaurantsNav() {
         <div>
           <div className="restaurantCardCatDiv">
             <Link exact to={'/restaurants/'} id='allCatButton'>All</Link>
-            {restaurantCatagoryArr.map((catagory) => (
-              <div key={`${catagory}Nav`}>
+            {restaurantCategoryArr.map((category) => (
+              <div key={`${category}Nav`}>
                 <NavLink
-                  exact to={`/restaurants/${catagory}`}
+                  exact to={`/restaurants/${category}`}
                   className='restaurantsCards'
                 >
-                  {catagory}
+                  {category}
                 </NavLink>
               </div>
             ))}

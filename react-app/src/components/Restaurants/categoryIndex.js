@@ -20,18 +20,18 @@ const restaurantCatagoryArr = [
   'Vegetarian',
 ];
 
-function RestaurantsByCatagoryNav() {
+function RestaurantsByCategoryNav() {
 
   const dispatch = useDispatch();
-  const { catagory } = useParams();
+  const { category } = useParams();
 
   useEffect(() => {
-    dispatch(restaurantActions.getAllRestaurantsByCatagoryThunk(catagory));
-  }, [dispatch, catagory]);
+    dispatch(restaurantActions.getAllRestaurantsByCategoryThunk(category));
+  }, [dispatch, category]);
 
   const restState = useSelector((state) => (state.restaurant ? state.restaurant : {}))
 
-  const restStateArr = Object.values(restState.catagoryRestaurants)
+  const restStateArr = Object.values(restState.categoryRestaurants)
 
 
   return (
@@ -44,19 +44,19 @@ function RestaurantsByCatagoryNav() {
         <h1>Explore by category</h1>
         <div className="restaurantCardCatDiv">
           <Link exact to={'/restaurants/'} id='allCatButton'>All</Link>
-          {restaurantCatagoryArr.map((cata) => (
-            <div key={`${cata}Nav`}>
+          {restaurantCatagoryArr.map((cat) => (
+            <div key={`${cat}Nav`}>
               <NavLink
-                exact to={`/restaurants/${cata}`}
+                exact to={`/restaurants/${cat}`}
                 className='restaurantsCards'
               >
-                {cata}
+                {cat}
               </NavLink>
             </div>
           ))}
         </div>
         <div>
-          <h1>{catagory} Restaurants</h1>
+          <h1>{category} Restaurants</h1>
         </div>
         <div className="restaurantCardDiv">
           {restStateArr.map((restaurant) => (
@@ -70,4 +70,4 @@ function RestaurantsByCatagoryNav() {
   )
 }
 
-export default RestaurantsByCatagoryNav
+export default RestaurantsByCategoryNav
