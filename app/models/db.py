@@ -277,8 +277,12 @@ class Order(db.Model):
 
     def to_dict(self):
         menu_items_ids = [int(id) for id in self.menu_items.split(",")]
-        menu_items_query = MenuItem.query.filter(MenuItem.id.in_(menu_items_ids)).all()
-        menu_items_data = [item.to_dict() for item in menu_items_query]
+
+        menu_items_data = [MenuItem.query.get(id).to_dict() for id in menu_items_ids]
+
+        # menu_items_query = MenuItem.query.filter(MenuItem.id.in_(menu_items_ids)).all()
+        # print("********** menu_items_query: ", menu_items_query)
+        # menu_items_data = [item.to_dict() for item in menu_items_query]
 
         return {
             'id': self.id,
