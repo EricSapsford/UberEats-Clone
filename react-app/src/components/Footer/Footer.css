@@ -13,10 +13,11 @@
 
 #footerModal button {
     background-color: white;
-    color: blue;
+    color: black;
     border: none;
     font-size: 16px;
     cursor: pointer;
+    margin-left: -6px;
 }
 
 #footer-col-1 {
@@ -34,7 +35,7 @@
     font-size: 16pt;
     padding-right: 15px;
     color: darkgray;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
 }
 
 .footer-col {
@@ -61,6 +62,7 @@
     font-size: 14pt;
     display: flex;
     gap: 15px;
+    margin-left: 50px;
 }
 
 #footer-copyright {

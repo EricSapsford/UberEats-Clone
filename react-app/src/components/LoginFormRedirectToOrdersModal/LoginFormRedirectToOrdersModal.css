@@ -1,0 +1,28 @@
+#logInModalDiv {
+    width: 400px;
+}
+
+.logInLabel {
+    width: 94%;
+}
+
+#loginFormLoginButton {
+    cursor: pointer;
+}
+
+#demoUserButton {
+    display: flex;
+    justify-content: center;
+    width: 400px;
+    color: #FFFFFF;
+    background-color: black;
+    padding: 10px;
+    border-radius: 7px;
+    border: 3px solid #000000;
+    margin-top: -15px;
+    margin-bottom: 30px;
+}
+
+#demoUserButton:hover {
+    cursor: pointer;
+}
