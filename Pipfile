@@ -25,6 +25,7 @@ markupsafe = "==2.1.2"
 sqlalchemy = "==1.4.46"
 werkzeug = "==2.2.2"
 wtforms = {version = "*", extras = ["email"]}
+boto3 = "*"
 email-validator = "*"
 
 [dev-packages]

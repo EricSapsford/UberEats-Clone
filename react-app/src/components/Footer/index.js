@@ -18,7 +18,7 @@ export default function Footer() {
                     </div>
                 </div>
                 <div className='footer-right'>
-                    <div id='footer-col-3'>
+                    <div id='footer-col'>
                         <div className='footer-right-header'>Features</div>
                         <div className='footer-list'>
                             <Link exact to="/restaurants">
@@ -39,16 +39,16 @@ export default function Footer() {
                             </div>)}
                         </div>
                     </div>
-                    <div id='footer-col-2'>
+                    <div id='footer-col'>
                         <div className='footer-right-header'>Contact Us</div>
                         <div className='footer-list'>
                             <div className='footer-name'>
                                 <div>Will Campbell</div>
                                 <div className='footer-links'>
-                                    <a href="" target="_blank" rel="noopener noreferrer">
+                                    <a href="https://www.linkedin.com/in/will-campbell22/" target="_blank" rel="noopener noreferrer">
                                         <i class="fa-brands fa-linkedin"></i>
                                     </a>
-                                    <a href="" target="_blank" rel="noopener noreferrer">
+                                    <a href="https://github.com/wpcamp" target="_blank" rel="noopener noreferrer">
                                         <i class="fa-brands fa-github"></i>
                                     </a>
                                 </div>
