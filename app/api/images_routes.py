@@ -28,11 +28,8 @@ def upload_image():
 @login_required
 def delete_image_restaurant(id):
     restaurant_to_update = Restaurant.query.get(id)
-    print('**** in delete_image_restaurant, restaurant_to_update: ****', restaurant_to_update)
-    print('**** in delete_image_restaurant, restaurant_to_update.image_url: ****', restaurant_to_update.image_url)
 
     image_deleted = remove_file_from_s3(restaurant_to_update.image_url)
-    print('**** in delete_image_restaurant, image_deleted: ****', image_deleted)
 
     if image_deleted is True:
         return {"message": "Successfully deleted image for restaurant"}
@@ -44,11 +41,8 @@ def delete_image_restaurant(id):
 @login_required
 def delete_image_menu_item(id):
     menu_item_to_update = MenuItem.query.get(id)
-    print('**** in delete_image_menu_item, menu_item_to_update: ****', menu_item_to_update)
-    print('**** in delete_image_menu_item, menu_item_to_update.image_url: ****', menu_item_to_update.image_url)
 
     image_deleted = remove_file_from_s3(menu_item_to_update.image_url)
-    print('**** in delete_image_menu_item, image_deleted: ****', image_deleted)
 
     if image_deleted is True:
         return {"message": "Successfully deleted image for menu item"}

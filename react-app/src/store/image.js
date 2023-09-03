@@ -20,10 +20,8 @@ export const deleteImageFileRestaurant = (restaurantId) => async (dispatch) => {
     const res = await fetch(`/api/images/restaurants/${restaurantId}/delete`, {
         method: "DELETE"
     });
-    console.log("**** deleteImageFileRestaurant, res: ****", res)
 
     const data = await res.json();
-    console.log("**** deleteImageFileRestaurant, data: ****", data)
     return data;
 };
 
@@ -33,9 +31,7 @@ export const deleteImageFileMenuItem = (menuItemId) => async (dispatch) => {
     const res = await fetch(`/api/images/menu-items/${menuItemId}/delete`, {
         method: "DELETE"
     });
-    console.log("**** deleteImageFileMenuItem, res: ****", res)
 
     const data = await res.json();
-    console.log("**** deleteImageFileMenuItem, data: ****", data)
     return data;
 };
