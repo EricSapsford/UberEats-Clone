@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
+import { deleteImageFileRestaurant } from "../../store/image";
 import * as restaurantActions from "../../store/restaurant"
 
 function RestaurantDeleteModal({ restaurantId }) {
@@ -13,13 +14,14 @@ function RestaurantDeleteModal({ restaurantId }) {
     e.preventDefault();
 
     try {
+      const resDeleteImg = await dispatch(deleteImageFileRestaurant(restaurantId));
       const res = await dispatch(restaurantActions.deleteRestaurantThunk(restaurantId));
-      console.log("HANDLE DELETE RES", res)
-      if (res.message) {
+      // console.log("HANDLE DELETE RES", res)
+      if (resDeleteImg.message && res.message) {
         setErrors({});
         closeModal();
       }
-    } catch(res) {
+    } catch (res) {
       const data = await res.json();
       if (data && data.errors) {
         setErrors(data.errors);

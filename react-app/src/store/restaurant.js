@@ -215,11 +215,11 @@ export const deleteRestaurantThunk = (restaurantId) => async (dispatch) => {
 
   if (res.ok) {
     const data = await res.json();
-    console.log("INSIDE DELETE THUNK RES.OK", data)
+    // console.log("INSIDE DELETE THUNK RES.OK", data)
     dispatch(deleteRestaurant(restaurantId));
     return data;
   } else {
-    console.log("INSIDE DELETE THUNK ELSE", res)
+    // console.log("INSIDE DELETE THUNK ELSE", res)
     const errors = await res.json();
     return errors;
   }
@@ -282,10 +282,10 @@ const restaurantReducer = (state = initialState, action) => {
       // console.log("IN CREATE RESTAURANT REDUCER - STATE", state)
       // console.log("IN CREATE RESTAURANT REDUCER - ACTION", action)
       if (action.restaurant.restuarant) {
-      const newState = { ...state, usersRestaurants: { ...state.usersRestaurants } }
-      newState.usersRestaurants[action.restaurant.restaurant.id] = action.restaurant.restaurant
-      // console.log("NEWSTATE", newState)
-      return newState;
+        const newState = { ...state, usersRestaurants: { ...state.usersRestaurants } }
+        newState.usersRestaurants[action.restaurant.restaurant.id] = action.restaurant.restaurant
+        // console.log("NEWSTATE", newState)
+        return newState;
       } else if (action.restaurant.errors) {
         return state
       } else {

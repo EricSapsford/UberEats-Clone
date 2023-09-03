@@ -8,31 +8,49 @@ from ..models.db import db, User, Restaurant, MenuItem
 
 images_routes = Blueprint("images", __name__)
 
-
+# CREATE/HOST FILE ON AWS, THEN RETURN UPLOAD: POST /api/images/create
 @images_routes.route("/create", methods=["POST"])
 @login_required
 def upload_image():
     form = ImageForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
         image = form.data["image"]
         image.filename = get_unique_filename(image.filename)
         upload = upload_file_to_s3(image)
-        url = upload["url"]
-        print("**** url: ", url)
-        return url
+        return upload
     if form.errors:
-        print(form.errors)
         return {"errors": form.errors}, 400
 
-@images_routes.route("/delete/<int:id>", methods=["DELETE"])
+# DELETE FILE ON AWS (RESTAURANT): DELETE /api/images/restaurants/:restaurantId/delete
+@images_routes.route("/restaurants/<int:id>/delete", methods=["DELETE"])
 @login_required
-def delete_image(id):
-    rest_to_update = Restaurant.query.get(id)
+def delete_image_restaurant(id):
+    restaurant_to_update = Restaurant.query.get(id)
+    print('**** in delete_image_restaurant, restaurant_to_update: ****', restaurant_to_update)
+    print('**** in delete_image_restaurant, restaurant_to_update.image_url: ****', restaurant_to_update.image_url)
 
-    image_deleted = remove_file_from_s3(rest_to_update.image_url)
+    image_deleted = remove_file_from_s3(restaurant_to_update.image_url)
+    print('**** in delete_image_restaurant, image_deleted: ****', image_deleted)
 
     if image_deleted is True:
-        return {"message": "Successfully deleted"}, 200
+        return {"message": "Successfully deleted image for restaurant"}
     else:
-        return {"errors": "image could not be deleted"}
+        return {"errors": "Could not delete image for restaurant"}
+
+# DELETE FILE ON AWS (MENU ITEM): DELETE /api/images/menu-items/:menuItemId/delete
+@images_routes.route("/menu-items/<int:id>/delete", methods=["DELETE"])
+@login_required
+def delete_image_menu_item(id):
+    menu_item_to_update = MenuItem.query.get(id)
+    print('**** in delete_image_menu_item, menu_item_to_update: ****', menu_item_to_update)
+    print('**** in delete_image_menu_item, menu_item_to_update.image_url: ****', menu_item_to_update.image_url)
+
+    image_deleted = remove_file_from_s3(menu_item_to_update.image_url)
+    print('**** in delete_image_menu_item, image_deleted: ****', image_deleted)
+
+    if image_deleted is True:
+        return {"message": "Successfully deleted image for menu item"}
+    else:
+        return {"errors": "Could not delete image for menu item"}

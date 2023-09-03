@@ -1,30 +1,41 @@
+//================================ IMAGE DEMI-THUNKS =================================
 
-export const getImageUrl = async (image) => {
-    const formData = new FormData()
-    formData.append("image", image)
+// DEMI-THUNK: CREATE/HOST FILE ON AWS, AND RETURN URL
+export const createImageFileAndUrl = (image) => async (dispatch) => {
+    const formData = new FormData();
+    formData.append("image", image);
 
     const res = await fetch("/api/images/create", {
         method: "POST",
-        // headers: { "Content-Type": "application/json" },
         body: formData
-    })
+    });
 
-    const data = await res.json()
-    return data
-}
+    const data = await res.json();
+    return data;
+};
 
-export const deleteImageUrl = async (restaurantId) => {
-    const res = await fetch(`/api/images/delete/${restaurantId}`, {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json" },
-    })
+// DEMI-THUNK: DELETE FILE ON AWS, FOR RESTAURANT
+export const deleteImageFileRestaurant = (restaurantId) => async (dispatch) => {
 
-    const data = await res.json()
-    return data
+    const res = await fetch(`/api/images/restaurants/${restaurantId}/delete`, {
+        method: "DELETE"
+    });
+    console.log("**** deleteImageFileRestaurant, res: ****", res)
 
-    // if (res.message) {
-    //     return data
-    // } else {
-    //     return data
-    // }
-}
+    const data = await res.json();
+    console.log("**** deleteImageFileRestaurant, data: ****", data)
+    return data;
+};
+
+// DEMI-THUNK: DELETE FILE ON AWS, FOR MENU ITEM
+export const deleteImageFileMenuItem = (menuItemId) => async (dispatch) => {
+
+    const res = await fetch(`/api/images/menu-items/${menuItemId}/delete`, {
+        method: "DELETE"
+    });
+    console.log("**** deleteImageFileMenuItem, res: ****", res)
+
+    const data = await res.json();
+    console.log("**** deleteImageFileMenuItem, data: ****", data)
+    return data;
+};

@@ -41,13 +41,15 @@ def upload_file_to_s3(file, acl="public-read"):
 def remove_file_from_s3(image_url):
     # AWS needs the image file name, not the URL,
     # so you split that out of the URL
+    print('**** in remove_file_from_s3, image_url: ****', image_url)
     key = image_url.rsplit("/", 1)[1]
-    print(key)
+    print('**** in remove_file_from_s3, key: ****', key)
     try:
         s3.delete_object(
         Bucket=BUCKET_NAME,
         Key=key
         )
     except Exception as e:
+        print('**** in remove_file_from_s3, str(e): ****', str(e))
         return { "errors": str(e) }
     return True

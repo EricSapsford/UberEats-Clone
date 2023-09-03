@@ -5,6 +5,7 @@ import restaurantReducer from './restaurant'
 import reviewsReducer from './reviews';
 import menuItemsReducer from './menuItems';
 import { ordersReducer } from './orders';
+import imagesReducer from './image';
 
 const rootReducer = combineReducers({
   session: sessionReducer,

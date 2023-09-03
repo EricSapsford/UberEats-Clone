@@ -1,5 +1,11 @@
 .owner-restaurant-back-to-my-account {
     padding-left: 9px;
+    cursor: pointer;
+}
+
+.please-add-item-to-restaurant {
+    margin: 20px 0 0 30px;
+    font-size: 17px;
 }
 
 .owner-rest-header {
