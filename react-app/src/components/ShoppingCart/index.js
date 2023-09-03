@@ -57,13 +57,14 @@ export default function ShoppingCartModal() {
 
     const deleteItem = (e, id) => {
         e.stopPropagation()
-        let newCart = []
-        cart.forEach(item => {
-            if (item.id !== id) {
-                newCart.push(item)
-            }
-        })
-        setCart(newCart)
+
+        const indexToDelete = cart.findIndex(item => item.id === id)
+
+        if (indexToDelete !== -1) {
+            let newCart = [...cart]
+            newCart.splice(indexToDelete, 1);
+            setCart(newCart)
+        }
     }
 
     const ulClassName = "cart-dropdown" + (showMenu ? "" : " hidden");
