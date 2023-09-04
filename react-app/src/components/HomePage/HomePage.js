@@ -23,8 +23,6 @@ export default function HomePage() {
         </div>
         <div>
           <span id='homePageBannerTextOverlay'>
-            {/* Top dining in Vancouver,<br></br>
-            right at your fingertips */}
             Enjoy top dining<br></br>
             in Vancouver
           </span>
@@ -39,7 +37,7 @@ export default function HomePage() {
             src="https://i.imgur.com/XjeURwBl.jpg"
             title="source: imgur.com"
           />
-          <h3 className='home-subheader'>Feeling hungry?</h3>
+          <h3 className='homeSubheader'>Feeling hungry?</h3>
           <div className='homePageModal homePageSubsectionLink1'>
             <OpenModalButton
               buttonText='Sign up today'
@@ -54,12 +52,12 @@ export default function HomePage() {
             src="https://i.imgur.com/cBdF6vdl.jpg"
             title="source: imgur.com"
           />
-          <h3 className='home-subheader'>New to the Vancouver Food Scene?</h3>
+          <h3 className='homeSubheader'>New to the food scene?</h3>
           <div className='homePageSubsectionLink2'>
             <Link
-              to='/restaurants/'
-              id='checkoutOutRestLink'>
-              Check out restaurants near you
+              to='/restaurants'
+              id='checkoutRestLink'>
+              Find restaurants near you
             </Link>
           </div>
         </div>
@@ -70,7 +68,7 @@ export default function HomePage() {
             src="https://i.imgur.com/2FW8qkBl.jpg"
             title="source: imgur.com"
           />
-          <h3 className='home-subheader'>Already know what you want?</h3>
+          <h3 className='homeSubheader'>Know what you want?</h3>
           <div className='homePageModal homePageSubsectionLink3'>
             <OpenModalButton
               buttonText='Log in to your account'

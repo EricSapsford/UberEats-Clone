@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, session, request
 from app.models.db import User, db
 from app.forms import LoginForm
 from app.forms import SignUpForm
+from app.forms.login_form import WalletForm
 from flask_login import current_user, login_user, logout_user, login_required
 import random
 import datetime
@@ -28,6 +29,27 @@ def authenticate():
     if current_user.is_authenticated:
         return current_user.to_dict()
     return {'errors': ['Unauthorized']}
+
+
+@auth_routes.route("/wallet")
+def get_new_amount():
+    """
+    Gets current amount of "money" in user's wallet
+    """
+    if current_user.is_authenticated:
+        return current_user.pick_wallet()
+    return {'errors': ['Unauthorized']}
+
+@auth_routes.route("/wallet/update", methods=["PUT"])
+@login_required
+def update_wallet():
+    form = WalletForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    current_user.wallet = (current_user.wallet + form.data["amount"])
+
+    db.session.commit()
+    return current_user.pick_wallet()
 
 
 @auth_routes.route('/login', methods=['POST'])

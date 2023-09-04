@@ -17,6 +17,7 @@ import Footer from "./components/Footer";
 import './app.css';
 import PastOrdersPage from "./components/PastOrdersPage";
 import CheckoutPage from "./components/CheckoutPage";
+import WalletLandingPage from "./components/Wallet";
 
 function App() {
   const dispatch = useDispatch();
@@ -33,36 +34,51 @@ function App() {
           <Route exact path='/'>
             <HomePage />
           </Route>
+
           <Route exact path="/login" >
             <LoginFormPage />
           </Route>
+
           <Route exact path="/signup">
             <SignupFormPage />
           </Route>
-          <Route exact path="/account">
+
+          <ProtectedRoute exact path="/account">
             <ManageAccount />
-          </Route>
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/wallet">
+            <WalletLandingPage />
+          </ProtectedRoute>
+
           <Route exact path="/restaurants/:restaurantId/menu">
             <RestaurantDetails />
           </Route>
-          <Route exact path="/restaurants/:restaurantId/menu/manage">
+
+          <ProtectedRoute exact path="/restaurants/:restaurantId/menu/manage">
             <RestaurantDetailsOwner />
-          </Route>
+          </ProtectedRoute>
+
           <Route exact path="/restaurants/:category">
             <RestaurantsByCategoryNav />
           </Route>
+
           <Route exact path="/restaurants">
             <RestaurantsNav />
           </Route>
+
           <Route exact path="/menu-items/:menuItemId">
             <MenuItemDetails />
           </Route>
-          <Route exact path="/past-orders">
+
+          <ProtectedRoute exact path="/past-orders">
             <PastOrdersPage />
-          </Route>
+          </ProtectedRoute>
+
           <Route exact path="/checkout">
             <CheckoutPage />
           </Route>
+
           <Route>
             <h1>Route does not exist</h1>
           </Route>

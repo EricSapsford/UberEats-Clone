@@ -81,7 +81,7 @@ function RestaurantsByCategoryNav() {
           <div>
             <h1>{category === 'Fast_Food' ? 'Fast Food' : category} Restaurants</h1>
           </div>
-          <div className="restaurantCardDiv">
+          <div className="restaurantCardsDiv">
             {restStateArr.map((restaurant) => (
               <div key={restaurant.id}>
                 <RestaurantCard restaurant={restaurant} />

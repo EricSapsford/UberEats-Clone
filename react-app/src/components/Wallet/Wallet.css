@@ -1,0 +1,116 @@
+.wallet-overdiv {
+width: 50%;
+margin: auto;
+}
+
+.wallet-top-div {
+  text-align: left;
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  width: 50%;
+  margin: auto;
+}
+
+.charity-top-div {
+  width: 80%;
+  margin: auto;
+}
+
+.wallet-user-name-div {
+  font-size: x-large;
+  padding: 40px 0;
+  border-bottom: 1px solid lightgrey;
+}
+
+.wallet-current-ammount {
+  padding-top: 40px;
+  font-size: large;
+  padding-bottom: 5px;
+
+}
+
+.wallet-number {
+  padding-bottom: 40px;
+  border-bottom: 1px solid lightgrey;
+}
+
+.wallet-top-div button {
+  color: #FFFFFF;
+  background-color: #000000;
+  padding: 10px 40px;
+  margin: 20px 0;
+  border-radius: 7px;
+  border: 3px solid #000000;
+  cursor: pointer;
+}
+
+.rainbow-div {
+  width: 300px;
+}
+
+.rainbow-div button {
+  animation: rainbowBall 5s infinite;
+  color: black;
+  background-color: #000000;
+  padding: 10px 40px;
+  margin: 20px 0;
+  margin-right: 20px;
+  border-radius: 7px;
+  border: 3px solid #000000;
+  cursor: pointer;
+}
+
+@keyframes rainbowBall {
+  0%   {background-color: gold;}
+  15%  {background-color: coral;}
+  29%  {background-color: papayawhip;}
+  43%  {background-color: darkseagreen;}
+  57%  {background-color: lightcyan;}
+  71% {background-color: dodgerblue;}
+  84% {background-color: violet;}
+  100% {background-color: rgb(187, 93, 255);}
+}
+
+.this-is-a-plea-for-help {
+  text-align: center;
+}
+
+.pfh-header {
+  font-size: x-large;
+}
+
+.pfh-footer {
+  font-size: xx-small;
+}
+
+.donate-to-dev-p {
+  text-align: center;
+  color: #FFFFFF;
+  background-color: #000000;
+  padding: 10px 40px;
+  margin: 20px 0;
+  margin-right: 20px;
+  border-radius: 7px;
+  border: 3px solid #000000;
+  cursor: pointer;
+  font-size: smaller;
+}
+
+.donate-to-dev-button {
+  color: #FFFFFF;
+  background-color: #000000;
+  padding: 10px 40px;
+  margin: 20px 0;
+  margin-right: 20px;
+  border-radius: 7px;
+  border: 3px solid #000000;
+  cursor: pointer;
+}
+
+.donate-to-dev-div {
+  width: 500px;
+}
+
+.donate-to-dev-words {
+  text-align: center;
+}

@@ -13,7 +13,6 @@ export default function ReviewCard() {
     const reviews = useSelector(state => state.reviews)
     const sessionUser = useSelector(state => state.session.user)
     const restaurant = useSelector(state => state.restaurant.singleRestaurant)
-    console.log("HERE IS THE REST: ", restaurant);
     const [isLoaded, setIsLoaded] = useState(false)
 
     useEffect(() => {

@@ -49,13 +49,9 @@ export default function MenuItemDetails() {
   }
 
   let hideRemoveButton = true;
-  if (sessionUser === null ) { // logged out
+  if (sessionUser === null) { // logged out
     hideRemoveButton = true;
   } else if (sessionUser !== null && sessionUser !== undefined) { // logged in
-    // TO EDIT: ONCE SHOPPING CART EXISTS
-    // LOGIC: ONLY DISPLAY 'REMOVE' BUTTON IF CART HAS ITEMS IN IT
-    // ('numCartItems' is just a placeholder/suggested var name)
-    // } else if (sessionUser !== null && numCartItems > 0) { // logged in
     hideRemoveButton = false;
   }
 
