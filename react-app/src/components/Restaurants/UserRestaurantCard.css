@@ -20,9 +20,10 @@
 .restaurant-card-button-div {
   display: flex;
   flex-direction: row;
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  justify-content: right;
+  flex-wrap: wrap;
+  align-items: end;
+  height: 55%;
 }
 
 .restaurant-card-button-div button {

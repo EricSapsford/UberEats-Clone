@@ -17,6 +17,7 @@ import Footer from "./components/Footer";
 import './app.css';
 import PastOrdersPage from "./components/PastOrdersPage";
 import CheckoutPage from "./components/CheckoutPage";
+import WalletLandingPage from "./components/Wallet";
 
 function App() {
   const dispatch = useDispatch();
@@ -44,6 +45,10 @@ function App() {
 
           <ProtectedRoute exact path="/account">
             <ManageAccount />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/wallet">
+            <WalletLandingPage />
           </ProtectedRoute>
 
           <Route exact path="/restaurants/:restaurantId/menu">
