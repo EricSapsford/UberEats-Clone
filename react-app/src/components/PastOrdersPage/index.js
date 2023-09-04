@@ -14,17 +14,28 @@ function PastOrdersPage({ parent }) {
     const [isLoaded, setIsLoaded] = useState(false)
     const { cart, setCart } = useShoppingCart()
 
-    useEffect(() => {
-        dispatch(thunkGetPastOrders(user.id))
-        dispatch(getAllRestaurantsWithOneMenuItemThunk())
-        setIsLoaded(true)
-    }, [dispatch])
-
     const orders = useSelector(state => state.orders.pastOrders)
-    const reverseOrders = orders.reverse()
     const restaurantsObj = useSelector(state => state.restaurant.allRestaurants)
     const restaurants = Object.values(restaurantsObj)
     const user = useSelector(state => state.session.user)
+
+    useEffect(() => {
+        // dispatch(thunkGetPastOrders(user.id))
+        // dispatch(getAllRestaurantsWithOneMenuItemThunk())
+        // setIsLoaded(true);
+
+        const fetchData = async () => {
+            const pastOrdersResponse = await dispatch(thunkGetPastOrders(user.id));
+            if (pastOrdersResponse.ok) {
+                await dispatch(getAllRestaurantsWithOneMenuItemThunk());
+                console.log("****AFTER THE GET ALL RESTS THUNK IN USEEFFECT***")
+            }
+        };
+
+        setIsLoaded(true);
+
+        fetchData();
+    }, [dispatch, user])
 
     const handleReorder = (order) => {
         // console.log("**** order: ", order)
@@ -42,10 +53,10 @@ function PastOrdersPage({ parent }) {
 
     return (
         <div className="orders-page">
-            {isLoaded && orders.length > 0 && restaurants.length > 0 && (
+            {isLoaded && orders.length && restaurants.length && (
                 <div className={handleClassName()}>
                     <h1>Past Orders</h1>
-                    {[...orders].reverse().map((order => (
+                    {orders.reverse().map((order => (
                         <div className="order-container">
                             <div className="order-image">
                                 <img src={restaurantsObj[order.restaurantId].imageUrl} />

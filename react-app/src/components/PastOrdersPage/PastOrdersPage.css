@@ -48,12 +48,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    object-fit: cover;
+    object-fit: cover !important;
 }
 
 .order-image img {
     height: 100px;
-    /* z-index: -1; */
+    object-fit: cover !important;
 }
 
 .order-info {
