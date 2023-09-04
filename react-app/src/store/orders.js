@@ -64,12 +64,12 @@ export const ordersReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD_PAST_ORDERS: {
             // console.log("*** in LOAD_PAST_ORDERS action ***", action)
-            const newState = { ...state, pastOrders: [], shoppingCart: [...state.shoppingCart] }
+            const newState = { ...state, pastOrders: [] }
             newState.pastOrders = action.orders
             return newState
         }
         case CREATE_ORDER: {
-            const newState = { ...state, pastOrders: [ ...state.pastOrders ], shoppingCart: [] }
+            const newState = { ...state, pastOrders: [ ...state.pastOrders ] }
             newState.pastOrders.push(action.order)
             return newState
         }

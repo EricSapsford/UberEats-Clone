@@ -15,9 +15,18 @@ function PastOrdersPage({ parent }) {
     const { cart, setCart } = useShoppingCart()
 
     useEffect(() => {
-        dispatch(thunkGetPastOrders(user.id))
-        dispatch(getAllRestaurantsWithOneMenuItemThunk())
-        setIsLoaded(true)
+        // dispatch(thunkGetPastOrders(user.id))
+        // dispatch(getAllRestaurantsWithOneMenuItemThunk())
+
+        const fetchData = async () => {
+            const pastOrdersResponse = await dispatch(thunkGetPastOrders(user.id));
+            if (pastOrdersResponse.ok) {
+                await dispatch(getAllRestaurantsWithOneMenuItemThunk());
+            }
+            setIsLoaded(true);
+        };
+
+        fetchData();
     }, [dispatch])
 
     const orders = useSelector(state => state.orders.pastOrders)
