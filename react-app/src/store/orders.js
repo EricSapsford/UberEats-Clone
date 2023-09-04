@@ -57,7 +57,7 @@ export const thunkCreateOrder = (order) => async (dispatch) => {
 }
 
 //REDUCER
-const initialState = { pastOrders: [], shoppingCart: [] }
+const initialState = { pastOrders: [] }
 
 export const ordersReducer = (state = initialState, action) => {
     // let newState;

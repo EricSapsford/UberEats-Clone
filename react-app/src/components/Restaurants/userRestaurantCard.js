@@ -7,6 +7,7 @@ import RestaurantDeleteModal from "../RestaurantDeleteModal";
 import { thunkGetReviews } from '../../store/reviews';
 import "./UserRestaurantCard.css"
 import { useAccountView } from "../../context/AccountView";
+import RestaurantDetailsOwner from "../RestaurantDetailsOwner"
 
 function UserRestaurantCard({ restaurant }) {
   const history = useHistory();
@@ -65,9 +66,6 @@ function UserRestaurantCard({ restaurant }) {
 
               <div>
                 <span className="restaurant-card-name">{restaurant.name}</span>
-                <span className="restaurant-card-avgRating">
-                <i class="fa-solid fa-star"></i>
-                </span>
               </div>
 
               <div className="restaurant-card-cat-price">

@@ -77,7 +77,7 @@ function ProfileButton({ user }) {
                 </Link>
               </div>
               <div onClick={closeMenu}>
-                <Link to="/account">
+                <Link to="/wallet">
                   <span className="dropdown-icon-spacer" >
                     <i class="fa-solid fa-wallet"></i>
                   </span>
