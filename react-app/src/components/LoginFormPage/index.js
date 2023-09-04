@@ -63,10 +63,10 @@ function LoginFormPage() {
           />
         </div>
         <div id='loginPageButtons'>
-          <button id='loginPageLoginButton' type="submit">
+          <button id='loginPageLoginButton' className='login-button' type="submit">
             Log In
           </button>
-          <button id='loginPageLoginButton' onClick={handleDemoUser}>
+          <button id='loginPageLoginButton' className='login-button' onClick={handleDemoUser}>
             Log In as Demo User
           </button>
         </div>

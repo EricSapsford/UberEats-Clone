@@ -27,6 +27,10 @@
   background-color: rgb(240, 240, 240);
 }
 
+.profile-container button:active {
+  color: green !important;
+}
+
 .profile-dropdown {
   position: fixed;
   top: -16px;
@@ -80,7 +84,7 @@ nav {
 #nav-right-hamburger-and-logo {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 10px;
 }
 
 #logo-eats-text {
@@ -107,7 +111,12 @@ nav {
 }
 
 .shopping-cart:hover {
-  border: 2px solid white;
+  background-color: green;
+  border: 2px solid green;
+}
+
+.shopping-cart:active {
+  border: 2px solid white !important;
 }
 
 .shopping-cart i {
@@ -167,9 +176,21 @@ nav {
   padding: 12px 22px;
 }
 
+.navModalButton button:hover {
+  background-color: green;
+  border: 2px solid green;
+}
+.navModalButton button:active {
+  border: 2px solid white;
+}
+
 #theBurgerLogo {
   margin-left: 1px;
   font-size: 33px;
+}
+
+#theBurgerLogo:active {
+  color: green !important;
 }
 
 #restaurantsNavLinkDiv {
@@ -185,4 +206,13 @@ nav {
   border-radius: 50px;
   border: 2px solid black;
   padding: 12px 22px;
+}
+
+#restaurantsNavLinkDiv:hover {
+  background-color: green;
+  border: 2px solid green !important;
+}
+
+#restaurantsNavLinkDiv:active {
+  border: 2px solid white !important;
 }

@@ -50,7 +50,6 @@ function RestaurantsByCategoryNav() {
           <img
             id='restaurantBannerImg'
             src="https://i.imgur.com/rP2sDgp.jpg"
-            title="source: imgur.com"
           />
           {/* <h1>Food near you, so long as you're near Vancouver</h1> */}
         </div>
