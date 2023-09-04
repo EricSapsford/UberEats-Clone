@@ -124,6 +124,7 @@ def create_restaurant():
         db.session.commit()
         return { "restaurant": new_restaurant.to_dict() }
     return {"errors": validation_errors_to_error_messages(form.errors)}
+    # print("**** in create_restaurant, form.errors ****", form.errors)
     # return {"errors": form.errors}
 
 ### Update a restaurant: PUT /api/restaurants/:restaurantId/update

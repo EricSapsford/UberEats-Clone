@@ -54,9 +54,10 @@ export default function RestaurantDetailsOwner() {
         <div className='restaurant-outermost-box'>
           <div className='restaurant-centering-box'>
 
-            <div className='owner-restaurant-back-to-my-account'>
-              <button onClick={backToAccount}>⬅ Back to my account</button>
-              {/* ⬅ <Link to='/account'>Back to my account</Link> */}
+            <div>
+              <span className='owner-restaurant-back-to-my-account' onClick={backToAccount}>
+                ⬅ Back to my account
+              </span>
             </div>
             <div className='owner-restaurant-card'>
               <div className='restaurant-info'>
@@ -75,7 +76,12 @@ export default function RestaurantDetailsOwner() {
 
               <div className='restaurant-menu-items-sections'>
                 <div>
-                  {!menuItemsArr.length ? <div>Please add a menu item for your restaurant!</div> : ''}
+                  {!menuItemsArr.length ?
+                    <div className='please-add-item-to-restaurant'>
+                      Your have no menu items. Please add a menu item to your restaurant!
+                    </div>
+                    : ''
+                  }
                 </div>
                 <div>
                   {appetizersArr.length ? <div className='item-type-header'>Appetizers</div> : ''}

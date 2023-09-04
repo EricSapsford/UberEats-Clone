@@ -157,6 +157,7 @@ export const getAllRestaurantsByCategoryThunk = (category) => async (dispatch) =
 
 // THUNK: CREATE RESTAURANT
 export const createRestaurantThunk = (createdRestaurant) => async (dispatch) => {
+
   const { name, streetAddress, category, priceRange, imageUrl } = createdRestaurant
   const res = await fetch("/api/restaurants/new", {
     method: "POST",
@@ -281,10 +282,10 @@ const restaurantReducer = (state = initialState, action) => {
       // console.log("IN CREATE RESTAURANT REDUCER - STATE", state)
       // console.log("IN CREATE RESTAURANT REDUCER - ACTION", action)
       if (action.restaurant.restuarant) {
-      const newState = { ...state, usersRestaurants: { ...state.usersRestaurants } }
-      newState.usersRestaurants[action.restaurant.restaurant.id] = action.restaurant.restaurant
-      // console.log("NEWSTATE", newState)
-      return newState;
+        const newState = { ...state, usersRestaurants: { ...state.usersRestaurants } }
+        newState.usersRestaurants[action.restaurant.restaurant.id] = action.restaurant.restaurant
+        // console.log("NEWSTATE", newState)
+        return newState;
       } else if (action.restaurant.errors) {
         return state
       } else {

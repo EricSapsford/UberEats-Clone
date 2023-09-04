@@ -12,6 +12,7 @@ export default function ReviewCard() {
     const { restaurantId } = useParams()
     const reviews = useSelector(state => state.reviews)
     const sessionUser = useSelector(state => state.session.user)
+    const restaurant = useSelector(state => state.restaurant.singleRestaurant)
     const [isLoaded, setIsLoaded] = useState(false)
 
     useEffect(() => {
@@ -25,13 +26,13 @@ export default function ReviewCard() {
     const reviewList = Object.values(reviews.reviews)
     const reviewUserIds = reviewList.map(review => review.userId)
     
-
+    
     return (
         <>
             {isLoaded && (
                 <>
                     <h2 id="reviewHeader">Reviews</h2>
-                    {!reviewUserIds.includes(sessionUser?.id) && (sessionUser != null) && (
+                    {!reviewUserIds.includes(sessionUser?.id) && (sessionUser?.id != restaurant?.ownerId) && (sessionUser != null) && (
                         <div className="reviewModalButton">
                             <OpenModalButton
                                 buttonText="Leave a review"

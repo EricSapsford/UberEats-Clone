@@ -58,3 +58,9 @@
 .restaurant-form-radio-input:checked {
   border: 6px solid black;
 }
+
+.rest-price-range-error-text {
+  color: red;
+  font-size: 14px;
+  margin: 5px 0 -21px 19px;
+}

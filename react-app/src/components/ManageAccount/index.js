@@ -39,11 +39,11 @@ export default function ManageAccount() {
     <div className='account-page'>
       <div id='account-landing-outermost-box'>
         <div id='account-landing-left-sidebar'>
-          <button className={view === 'account' ? "active" : ""} onClick={() => setView('account')}>Account Details</button>
-          <button className={view === 'orders' ? "active" : ""} onClick={() => setView('orders')}>Orders</button>
-          <button className={view === 'wallet' ? "active" : ""} onClick={() => setView('wallet')}>Wallet</button>
-          <button className={view === 'create' ? "active" : ""} onClick={() => setView('create')}>Create Restaurant</button>
-          <button className={view === 'manage' ? "active" : ""} onClick={() => setView('manage')}>Manage Restaurants</button>
+          <button className={view === 'account' ? "active-page" : ""} onClick={() => setView('account')}>Account Details</button>
+          <button className={view === 'orders' ? "active-page" : ""} onClick={() => setView('orders')}>Orders</button>
+          <button className={view === 'wallet' ? "active-page" : ""} onClick={() => setView('wallet')}>Wallet</button>
+          <button className={view === 'create' ? "active-page" : ""} onClick={() => setView('create')}>Create Restaurant</button>
+          <button className={view === 'manage' ? "active-page" : ""} onClick={() => setView('manage')}>Manage Restaurants</button>
           <button id='account-landing-sign-out-btn' onClick={handleLogout}>Sign out</button>
         </div>
 
