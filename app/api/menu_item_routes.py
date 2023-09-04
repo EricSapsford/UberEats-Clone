@@ -14,7 +14,11 @@ def get_menu_item(id):
     Gets the details of a menu item
     """
     menu_item = MenuItem.query.get(id)
+
+    # if menu_item.id:
     return menu_item.to_dict()
+    # else:
+        # return { "error": "Menu item couldn't be found" }, 404
 
 ### Update menu item: PUT /api/menu-items/:menu_item_id/update
 @menu_item_routes.route('/<int:id>/update', methods=['PUT'])

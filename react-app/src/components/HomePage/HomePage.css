@@ -18,15 +18,15 @@
   left: 45px;
   top: -430px;
   font-size: 55px;
-  font-weight: 900;
+  font-weight: 500;
 }
 
 .homePageImgBoxes {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 40px;
-  margin-top: -60px;
+  gap: 35px;
+  margin: -60px 30px 0 30px;
 }
 
 .homePageImgs {
@@ -35,9 +35,10 @@
   object-fit: cover;
 }
 
-.home-subheader {
+.homeSubheader {
   margin-top: 7px;
-  font-size: 25px;
+  font-size: 21px;
+  font-weight: 400;
 }
 
 .homePageModal button {
@@ -47,7 +48,7 @@
   cursor: pointer;
 }
 
-#checkoutOutRestLink {
+#checkoutRestLink {
   color: black;
 }
 

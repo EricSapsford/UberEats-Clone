@@ -30,12 +30,12 @@ export default function MenuItemDeleteModal({ menuItemId, restaurantId }) {
         </div>
         <div>
           <button onClick={closeModal} id='menu-item-cancel-delete-btn'>
-            No, keep it
+            No, keep
           </button>
         </div>
         <div>
           <button onClick={handleDelete} id='menu-item-confirm-delete-btn'>
-            Yes, delete it
+            Yes, delete
           </button>
         </div>
       </div>
