@@ -7,6 +7,7 @@ import LandingPageCard from './landingPageCard';
 import CurrentUserRestaurants from '../Restaurants/userRestaurants';
 import RestaurantFormCreate from '../RestaurantFormCreate';
 import PastOrdersPage from '../PastOrdersPage';
+import WalletLandingPage from '../Wallet';
 import MenuItemFormUpdate from '../MenuItemFormUpdate';
 import { useAccountView } from '../../context/AccountView';
 
@@ -40,6 +41,7 @@ export default function ManageAccount() {
         <div id='account-landing-left-sidebar'>
           <button className={view === 'account' ? "active" : ""} onClick={() => setView('account')}>Account Details</button>
           <button className={view === 'orders' ? "active" : ""} onClick={() => setView('orders')}>Orders</button>
+          <button className={view === 'wallet' ? "active" : ""} onClick={() => setView('wallet')}>Wallet</button>
           <button className={view === 'create' ? "active" : ""} onClick={() => setView('create')}>Create Restaurant</button>
           <button className={view === 'manage' ? "active" : ""} onClick={() => setView('manage')}>Manage Restaurants</button>
           <button id='account-landing-sign-out-btn' onClick={handleLogout}>Sign out</button>
@@ -53,6 +55,7 @@ export default function ManageAccount() {
           {manageRestaurantsToggle ? <CurrentUserRestaurants /> : null} */}
           {view === 'account' ? <LandingPageCard /> : null}
           {view === 'orders'? <PastOrdersPage parent="account" /> : null}
+          {view === 'wallet'? <WalletLandingPage /> : null}
           {view === 'create' ? <RestaurantFormCreate /> : null}
           {view === 'manage' ? <CurrentUserRestaurants /> : null}
           {view === 'menu' ? <MenuItemFormUpdate /> : null}

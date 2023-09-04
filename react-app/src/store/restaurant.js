@@ -214,11 +214,11 @@ export const deleteRestaurantThunk = (restaurantId) => async (dispatch) => {
 
   if (res.ok) {
     const data = await res.json();
-    console.log("INSIDE DELETE THUNK RES.OK", data)
+    // console.log("INSIDE DELETE THUNK RES.OK", data)
     dispatch(deleteRestaurant(restaurantId));
     return data;
   } else {
-    console.log("INSIDE DELETE THUNK ELSE", res)
+    // console.log("INSIDE DELETE THUNK ELSE", res)
     const errors = await res.json();
     return errors;
   }

@@ -78,6 +78,11 @@ class User(db.Model, UserMixin):
             'updatedAt': self.updated_at
         }
 
+    def pick_wallet(self):
+        return {
+            "wallet": self.wallet
+        }
+
 
 
 # ================================ RESTAURANT MODEL ================================

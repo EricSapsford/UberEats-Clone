@@ -5,6 +5,7 @@ import { useShoppingCart } from '../../context/ShoppingCart';
 import { getAllRestaurantsWithOneMenuItemThunk, getOneRestaurantThunk } from '../../store/restaurant';
 import './CheckoutPage.css'
 import { thunkCreateOrder } from '../../store/orders';
+import * as sessionActions from "../../store/session";
 
 export default function CheckoutPage() {
     const dispatch = useDispatch()
@@ -67,6 +68,8 @@ export default function CheckoutPage() {
         }
 
         console.log("***** new order: ", newOrder)
+
+        dispatch(sessionActions.updateCurrentWalletThunk(-parseFloat(handleTotal())))
 
         dispatch(thunkCreateOrder(newOrder))
             .then((res) => {
