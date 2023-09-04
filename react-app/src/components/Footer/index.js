@@ -14,9 +14,11 @@ export default function Footer() {
          <div id="footer">
             {/* <h1>footer</h1> */}
             <div id='footer-col-1'>
-               <div id='footer-logo-text'>
-                  VancouberEats
-               </div>
+               <Link exact to="/">
+                  <div id='footer-logo-text'>
+                     Vancouber<span id='logo-eats-text'>Eats</span>
+                  </div>
+               </Link>
             </div>
             <div className='footer-right'>
                <div id='footer-col'>

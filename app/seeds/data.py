@@ -100,7 +100,7 @@ restaurants = [
         "category": "Mexican",
         "price_range": 1,
         "owner_id": 1,
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/res1-main-image.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -111,7 +111,7 @@ restaurants = [
         "category": "Indian",
         "price_range": 2,
         "owner_id": 1,
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/res2-main-image.jpeg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -122,7 +122,7 @@ restaurants = [
         "category": "Japanese",
         "price_range": 2,
         "owner_id": 2,
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/sushiya-main-image.png",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -133,7 +133,7 @@ restaurants = [
         "category": "Bistro",
         "price_range": 3,
         "owner_id": 2,
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/res4-main-image.png",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -144,7 +144,7 @@ restaurants = [
         "category": "French",
         "price_range": 4,
         "owner_id": 3,
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/L_elephant+Vert+Banner.avif",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -155,7 +155,7 @@ restaurants = [
         "category": "Italian",
         "price_range": 3,
         "owner_id": 4,
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/Mr.+Pizza+Banner.avif",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -166,7 +166,7 @@ restaurants = [
         "category": "Thai",
         "price_range": 4,
         "owner_id": 5,
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/rest7-mainImage--credit-jerome-jome.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -177,7 +177,7 @@ restaurants = [
         "category": "Fast_Food",
         "price_range": 4,
         "owner_id": 6,
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/rest8-mainImage--credit-victoria-shes.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -188,7 +188,7 @@ restaurants = [
         "category": "Mediterranean",
         "price_range": 4,
         "owner_id": 7,
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/tuckerbox-banner.avif",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -199,7 +199,7 @@ restaurants = [
         "category": "Vegetarian",
         "price_range": 1,
         "owner_id": 8,
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/killdeer-banner.jpeg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -209,8 +209,8 @@ restaurants = [
         "address": "5931 Blenheim Rd",
         "category": "Mediterranean",
         "price_range": 3,
-        "owner_id": 8,
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "owner_id": 1,
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/Mt.+Ida+Banner.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }
@@ -500,7 +500,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 11,
         "description": "fresh and made in house",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id1.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -510,7 +510,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 9,
         "description": "deep fried and topped with house made lime mayo, queso fresco, chili powder, and cilantro",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id2.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -520,7 +520,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 8.5,
         "description": "lightly seasoned panko battered avocado slices. fried and served with jalapeño lime aioli",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id3.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -530,7 +530,7 @@ menu_items = [{
         "type": "entree",
         "price": 16,
         "description": "steak wrapped in three corn tortillas. smothered in melted queso chihuahua and choice of sauce. topped with pico de gallo, queso fresco, and cilantro",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id4.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -540,7 +540,7 @@ menu_items = [{
         "type": "entree",
         "price": 5,
         "description": "served with choice of filling atop two layered fresh handmade warm corn tortillas. queso fresco, cilantro, and scallions",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id5.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -550,7 +550,7 @@ menu_items = [{
         "type": "entree",
         "price": 6.5,
         "description": "choice of filling. griddle fried corn tortillas with melted chihuahua cheese, green onions, red cabbage, and cilantro. not vegetarian friendly",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id6.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -560,7 +560,7 @@ menu_items = [{
         "type": "dessert",
         "price": 8,
         "description": "fried dough topped with cinnamon, house made caramel, and powdered sugar.",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id7.png",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -570,7 +570,7 @@ menu_items = [{
         "type": "dessert",
         "price": 7,
         "description": "fresh custard flan, made in house",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id8.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -580,7 +580,7 @@ menu_items = [{
         "type": "beverage",
         "price": 13,
         "description": "sauza silver tequila, fresh lime juice, and jarritos grapefruit soda",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id9.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -590,7 +590,7 @@ menu_items = [{
         "type": "beverage",
         "price": 11,
         "description": "house made strawberry infused silver tequila, strawberry puree, triple sec, fresh lime juice, and agave",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id10.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -600,7 +600,7 @@ menu_items = [{
         "type": "beverage",
         "price": 8,
         "description": "house made bloody mix topped with dos equis lager",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id11.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },{
@@ -610,7 +610,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 3,
         "description": "Two turnovers, stuffed with veggies & spices",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id12.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -620,7 +620,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 5,
         "description": "Homemade cheese fritters in chickpea flour",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id13.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -630,7 +630,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 4,
         "description": "Deep fried potato fritters",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id14.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -640,7 +640,7 @@ menu_items = [{
         "type": "entree",
         "price": 14,
         "description": "Fresh cauliflower and potatoes cooked in onions, tomato, and herbs",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id15.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -650,7 +650,7 @@ menu_items = [{
         "type": "entree",
         "price": 14,
         "description": "Garden vegetable & cheese dumplings cooked in a rich sauce with nuts and cream",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id16.png",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -660,7 +660,7 @@ menu_items = [{
         "type": "entree",
         "price": 16,
         "description": "Roasted eggplant sauteed in onion, tomato, and peas",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id17.png",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -670,7 +670,7 @@ menu_items = [{
         "type": "dessert",
         "price": 4,
         "description": "Traditional Indian rice pudding flavored with cardamom and raisins",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id18.png",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -680,7 +680,7 @@ menu_items = [{
         "type": "dessert",
         "price": 3,
         "description": "Cinnamon flavored pastry sponge, soaked in honey and rosewater",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id19.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -690,7 +690,7 @@ menu_items = [{
         "type": "beverage",
         "price": 3,
         "description": "Creamy yogurt and mango drink",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id20.png",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -700,7 +700,7 @@ menu_items = [{
         "type": "beverage",
         "price": 3,
         "description": "Creamy and salty yogurt drink",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id21.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -710,7 +710,7 @@ menu_items = [{
         "type": "beverage",
         "price": 6,
         "description": "Imported Indian Lager",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id22.png",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },{
@@ -720,7 +720,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 5.50,
         "description": "Deep fried tofu with house teriyaki sauce",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id23.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -730,7 +730,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 3,
         "description": "Lightly salted soybeans",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id24.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -740,7 +740,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 9,
         "description": "Shrimp dumplings served steamed or fried",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id25.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -750,7 +750,7 @@ menu_items = [{
         "type": "entree",
         "price": 15,
         "description": "Assorted vegetables cooked in hot stone pot",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id26.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -760,7 +760,7 @@ menu_items = [{
         "type": "entree",
         "price": 14,
         "description": "Thin-sliced beef marinated with a house special sauce",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id27.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -770,7 +770,7 @@ menu_items = [{
         "type": "entree",
         "price": 19,
         "description": "Assortment of raw fish over a bed of white rice with house special spicy sauce",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id28.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -780,7 +780,7 @@ menu_items = [{
         "type": "entree",
         "price": 16,
         "description": "Deep-fried soft shell crab, avocado, with raw fish egg and teriyaki sauce",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id29.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -790,7 +790,7 @@ menu_items = [{
         "type": "dessert",
         "price": 11,
         "description": "Fluffy sponge cake rolled up with fresh matcha cream in the middle",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id30.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -800,7 +800,7 @@ menu_items = [{
         "type": "beverage",
         "price": 4,
         "description": "Imported Japanese Sake",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id31.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -810,7 +810,7 @@ menu_items = [{
         "type": "beverage",
         "price": 6,
         "description": "Imported Japanese Beer",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id32.webp",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -820,7 +820,7 @@ menu_items = [{
         "type": "beverage",
         "price": 4,
         "description": "Fountain drink, served with lemon peel",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id33.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -831,7 +831,7 @@ menu_items = [{
         "type": "entree",
         "price": 18,
         "description": "6oz Almanack Farms  beef patty, Plymouth cheddar, secret sauce, bibb lettuce, and red onion",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id34.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -841,7 +841,7 @@ menu_items = [{
         "type": "entree",
         "price": 17,
         "description": "White Bean and Kale patty with Bayley Hazen blue cheese, dill pickles, ranch, bibb lettuce and red onions",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id35.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -851,7 +851,7 @@ menu_items = [{
         "type": "entree",
         "price": 19,
         "description": "Turkey and Duck Confit Patty with Garlic Aioli, Plymouth Cheddar, North Country Smokehouse Bacon, Tomato, Bibb Lettuce and Red Onion",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id36.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -861,7 +861,7 @@ menu_items = [{
         "type": "entree",
         "price": 15,
         "description": "Buttermilk fried chicken thigh, Chipotle Bacon Jam, Plymouth Cheddar, Bibb Lettuce and Red Onion",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id37.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -871,7 +871,7 @@ menu_items = [{
         "type": "entree",
         "price": 19,
         "description": " 6oz Almanack Farms beef patty, Cambozola Cheese, North Country bacon, Caramelized Onions, Garlic Aioli, bibb lettuce and red onion",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id38.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -881,7 +881,7 @@ menu_items = [{
         "type": "entree",
         "price": 19,
         "description": "6oz Almanack Farms beef patty, Boggy Meadow swiss, roasted mushrooms, garlic aioli, bibb lettuce and red onion",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id39.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -891,7 +891,7 @@ menu_items = [{
         "type": "entree",
         "price": 16,
         "description": "Cajun Tuna Steak, Pickled Pineapple, Pesto Mayo, Bibb Lettuce and Red Onion",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id40.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -901,7 +901,7 @@ menu_items = [{
         "type": "dessert",
         "price": 11,
         "description": "House-made Chocolate Chip Cookie with Miso.  Topped with Black Sesame",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id41.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -911,7 +911,7 @@ menu_items = [{
         "type": "dessert",
         "price": 9,
         "description": "La Panciata Dough, Fried and Topped with Cinnamon Sugar. Served with Creme Anglaise",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id42.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -921,7 +921,7 @@ menu_items = [{
         "type": "beverage",
         "price": 8,
         "description": "16oz pour",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id43.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -931,7 +931,7 @@ menu_items = [{
         "type": "beverage",
         "price": 5,
         "description": "Local VT maple syrup in house-made seltzer water, served with a lemon slice",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/id44.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -942,7 +942,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 7,
         "description": "Fresh local green tomatoes, fried in panko breadcrumbs and served with a house special sauce",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/menu-item-45.avif",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -952,7 +952,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 5,
         "description": "Local greens with a choice of dressings",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/menu-item-46.avif",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -962,7 +962,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 9,
         "description": "Puff pastry with VT aged cheddar cheese and sesame seeds",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/menu-item-47.avif",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -972,7 +972,7 @@ menu_items = [{
         "type": "entree",
         "price": 37,
         "description": "Grade A steak tartare, made fresh every day with imported Italian olive oil",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/menu-item-48.avif",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -982,7 +982,7 @@ menu_items = [{
         "type": "entree",
         "price": 33,
         "description": "Perfectly cooked salmon filet with cream sauce and crispy brussel sprouts",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/menu-item-49.avif",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -992,7 +992,7 @@ menu_items = [{
         "type": "entree",
         "price": 19,
         "description": "Homemade quinoa and sweet potato burger served with all the usual toppings",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/menu-item-50.avif",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -1002,7 +1002,7 @@ menu_items = [{
         "type": "entree",
         "price": 42,
         "description": "House Speciality Dish",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/menu-item-51.avif",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }, {
@@ -1012,7 +1012,7 @@ menu_items = [{
         "type": "dessert",
         "price": 16,
         "description": "Three layered terrine served with raspberry coulis",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/menu-item-52.avif",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1023,7 +1023,7 @@ menu_items = [{
         "type": "dessert",
         "price": 14,
         "description": "Choux pastry ball with filling of pastry cream and dark chocolate ganache",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/menu-item-53.avif",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1034,7 +1034,7 @@ menu_items = [{
         "type": "beverage",
         "price": 7,
         "description": "River Roost Brewery's most sought after beer",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/menu-item-54.avif",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1045,7 +1045,7 @@ menu_items = [{
         "type": "beverage",
         "price": 50,
         "description": "Chef curated list of rotating French wines, starting at $50",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/menu-item-55.avif",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1056,7 +1056,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 8,
         "description": "Fresh baguette and housemade garlic sauce",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/menu-item-56.avif",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1067,7 +1067,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 9,
         "description": "Local eggplant sliced thinly with tomato sauce and aged parmesan",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/menu-item-57.avif",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1078,7 +1078,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 25,
         "description": "20 Regular, Buffalo, or Lemon-Pepper wings",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/menu-item-58.avif",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1089,7 +1089,7 @@ menu_items = [{
         "type": "entree",
         "price": 25,
         "description": "World renowned GF crust, choice of up to three toppings",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/menu-item-59.avif",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1100,7 +1100,7 @@ menu_items = [{
         "type": "entree",
         "price": 19,
         "description": "Choice of up to three toppings",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/menu-item-60.avif",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1111,7 +1111,7 @@ menu_items = [{
         "type": "entree",
         "price": 19,
         "description": "Choice of up to three fillings",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/menu-item-61.avif",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1122,7 +1122,7 @@ menu_items = [{
         "type": "entree",
         "price": 33,
         "description": "Choice of up to four toppings",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/menu-item-62.avif",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1133,7 +1133,7 @@ menu_items = [{
         "type": "dessert",
         "price": 9,
         "description": "Cake made of ladyfingers dipped in coffee, layered with a whipped mixture of eggs, sugar, mascarpone cheese, and flavoured with cocoa",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/menu-item-63.avif",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1144,7 +1144,7 @@ menu_items = [{
         "type": "dessert",
         "price": 6,
         "description": "12 rotating flavors of housemade gelato, one size",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/menu-item-64.avif",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1155,7 +1155,7 @@ menu_items = [{
         "type": "beverage",
         "price": 5,
         "description": "Selection of Coca-cola drinks",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/menu-item-65.avif",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1166,7 +1166,7 @@ menu_items = [{
         "type": "beverage",
         "price": 8,
         "description": "Weekly rotation of domestic and international beers",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/menu-item-66.avif",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1177,7 +1177,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 8,
         "description": "Carrot, cucumber, basil leaves and fresh lettuce, wrapped in soft rice paper, served with homemade peanut sauce",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/rest7-menuItem67-freshSummerRolls--credit-cocobols.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1188,7 +1188,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 11,
         "description": "Deep Fried Scallion Pancakes and Served with homemade curry sauce",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/rest7-menuItem68-scallionPancakes--credit-clasiqh.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1199,7 +1199,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 13,
         "description": "Grilled chicken breast marinated with yellow curry powder and coconut milk and served with cucumber sauce and peanut sauce",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/rest7-menuItem69-chickenSatay--credit-syauqy-ayyash.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1210,7 +1210,7 @@ menu_items = [{
         "type": "entree",
         "price": 15,
         "description": "Thin rice noodles stir-fried with egg, green onions, bean sprouts and ground peanuts on the side",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/rest7-menuItem71-padSeeEw--credit-john-aledia.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1221,7 +1221,7 @@ menu_items = [{
         "type": "entree",
         "price": 17,
         "description": "Wide rice noodles stir-fried with egg, sweet soy sauce, broccoli and carrots",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/rest7-menuItem70-padThai--credit-ruth-georgiev.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1232,7 +1232,7 @@ menu_items = [{
         "type": "entree",
         "price": 22,
         "description": "Thai Massamun curry paste with coconut milk, sweet potatoes, carrots, & onions",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/rest7-menuItem72-massamunCurry--credit-bruna-branco.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1243,7 +1243,7 @@ menu_items = [{
         "type": "entree",
         "price": 22,
         "description": "Thai Red curry paste with coconut milk, basil leaves, bamboo shoots, green beans and bell peppers",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/rest7-menuItem73-redCurry--credit-emy.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1254,7 +1254,7 @@ menu_items = [{
         "type": "entree",
         "price": 26,
         "description": "Fried rice with egg, onions, carrots, green peas topped with crispy duck",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/rest7-menuItem74-crispyDuckFriedRice--credit-christopher-alvarenga.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1265,7 +1265,7 @@ menu_items = [{
         "type": "dessert",
         "price": 7,
         "description": "Rice covered in sweetened condensed milk with fresh mango slices",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/rest7-menuItem75-mangoStickyRice--credit-markus-winkler.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1276,7 +1276,7 @@ menu_items = [{
         "type": "beverage",
         "price": 6,
         "description": "Speciality Thai Iced Tea with sweetened condensed milk, boba optional",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/rest7-menuItem76-thaiIcedTea--credit-markus-winkler.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1287,7 +1287,7 @@ menu_items = [{
         "type": "beverage",
         "price": 6,
         "description": "Speciality Thai Iced Coffee with sweetened condensed milk",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/rest7-menuItem77-thaiIcedCoffee--credit-demi-deherrera.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1298,7 +1298,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 14,
         "description": "Deep-fried cornmeal batter balls, crispy on the outside and soft on the inside, served with house dipping sauce",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/rest8-menuItem78-hushPuppies--credit-mak.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1309,7 +1309,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 12,
         "description": "A creamy spread made from sharp cheddar cheese, mayonnaise, and pimento peppers, served with fresh salt crackers",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/rest8-menuItem79-pimentoCheese--credit-rob-wicks.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1320,7 +1320,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 9,
         "description": "Sliced okra coated in cornmeal and spices. Deep-fried until golden and crispy",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/rest8-menuItem80-friedOkra--credit-rakshit-yadav.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1331,7 +1331,7 @@ menu_items = [{
         "type": "entree",
         "price": 22,
         "description": "Slow-cooked and smoked pork shoulder pulled into tender shreds, served on a freshly baked bun",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/rest8-menuItem81-pulledPorkSandwich--credit-rachel-bramlett.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1342,7 +1342,7 @@ menu_items = [{
         "type": "entree",
         "price": 28,
         "description": "A Texas specialty, beef brisket slow-cooked over apple wood until tender, served with a choice of two sides",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/rest8-menuItem82-smokedBrisket--credit-sebastian-doll.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1353,18 +1353,18 @@ menu_items = [{
         "type": "entree",
         "price": 28,
         "description": "Local farm-raised pork ribs seasoned with a secret dry rub and grilled, served with a choice of two sides",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/rest8-menuItem83-spareRibs--credit-bao-menglong.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
     {
         "id": 84,
-        "restaurant_id": 7,
+        "restaurant_id": 8,
         "name": "Buttermilk Fried Chicken",
         "type": "entree",
         "price": 25,
         "description": "A classic Southern fried chicken sandwich, served with a choice of three sides",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/rest8-menuItem84-buttermilkFriedChicken--credit-erik-mclean.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1375,7 +1375,7 @@ menu_items = [{
         "type": "dessert",
         "price": 13,
         "description": "A Southern classic, made with love",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/rest8-menuItem85-pecanPie--credit-keighla-exum.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1386,7 +1386,7 @@ menu_items = [{
         "type": "dessert",
         "price": 9,
         "description": "Fresh peaches, served with a scoop of delicious vanilla ice cream",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/rest8-menuItem86-peachCobbler--credit-sarah-brown.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1397,7 +1397,7 @@ menu_items = [{
         "type": "beverage",
         "price": 5,
         "description": "Black tea sweetened with sugar and served over ice",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/rest8-menuItem87-sweetTea--credit-crystal-tubens.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1408,7 +1408,7 @@ menu_items = [{
         "type": "beverage",
         "price": 11,
         "description": "Bourbon of your choosing, mint leaves, cane sugar and water",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/rest8-menuItem88-mintJulep--credit-alison-marras.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1419,7 +1419,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 19,
         "description": "Haydari, hummus, babaganoush, turkish salsa, stuffed grape leaves. Served with lavash bread. For gluten free option add fresh cut veggie sticks",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/tuckerbox-tukishmeze.jpeg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1430,7 +1430,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 13,
         "description": "Smoked eggplant, roasted red pepper, tahini, garlic, fresh lemon, organic turkish extra virgin olive oil served with lavash bread",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/vicky-ng-baba.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1441,7 +1441,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 11,
         "description": "Extra thin vine leaves imported from turkey and hand stuffed with turkish rice, pine nuts, black currants, turkish herbs",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/levi-meir-clancy-grapeleaves.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1452,7 +1452,7 @@ menu_items = [{
         "type": "entree",
         "price": 16,
         "description": "Marinated lamb & beef slow roasted on vertical rotisserie, sliced thin to serve on homemade bun or fresh lavash wrap with lettuce, tomato, onion, pickled red cabbage, served with side of yogurt sauce",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/z-grills-australia-kebab.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1463,7 +1463,7 @@ menu_items = [{
         "type": "entree",
         "price": 16,
         "description": "Imported Turkish Haloumi grilled to perfection inside lavash bread, served with a yogurt sauce",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/jay-gajjar-a4pnELU87jE-unsplash.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1474,7 +1474,7 @@ menu_items = [{
         "type": "entree",
         "price": 17,
         "description": "Homemade falafel made with organic turkish chickpeas, celery, parsley, onion, garlic, and tahini, served on homemade bun or fresh lavash wrap with lettuce, onion, tomato, & pickled red cabbage",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/freunde-des-snacks-e-v-iIlVIWdf_b0-unsplash.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1485,7 +1485,7 @@ menu_items = [{
         "type": "entree",
         "price": 22,
         "description": "Very flavorful house marinated chicken, full of turkish herbs and spices, oven roasted and julienne cut, served on homemade bun or fresh lavash wrap with lettuce, tomato, onion, pickled red cabbage, served with side of yogurt sauce",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/angela-bailey-chicken.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1496,7 +1496,7 @@ menu_items = [{
         "type": "entree",
         "price": 14,
         "description": "A delicious blend of organic turkish red lentils, turkish seasoning, fresh herbs",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/steve-tsang-lentilsoup.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1507,7 +1507,7 @@ menu_items = [{
         "type": "dessert",
         "price": 7,
         "description": "A mix of fresh, local fruit",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/jo-sonn-zeFy-fruitsalad.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1518,7 +1518,7 @@ menu_items = [{
         "type": "beverage",
         "price": 4,
         "description": "Very sweet tea made with fresh mint leaves",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/gustavo-de-camargo-minttea.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1529,7 +1529,7 @@ menu_items = [{
         "type": "beverage",
         "price": 6,
         "description": "Imported Coca-cola made with cane sugar",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/paul-gaudriault-coke.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1540,7 +1540,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 7,
         "description": "Baked fresh every morning, served with salted butter",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/toa-heftiba-ciabatta.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1551,7 +1551,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 13,
         "description": "Choice of goat cheese or blue cheese, comes with herb vinaigrette",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/anna-pelzer_house-greens.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1562,7 +1562,7 @@ menu_items = [{
         "type": "appetizer",
         "price": 13,
         "description": "Served with golden raisins, cashews and Vadouvan curry yogurt",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/adam-jaime_carrots.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1573,7 +1573,7 @@ menu_items = [{
         "type": "entree",
         "price": 75,
         "description": "confit smashed fingerling potatoes, melted leeks, grilled asparagus with roasted garlic and a thyme demi glace",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/justus-menke-wagyu.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1584,7 +1584,7 @@ menu_items = [{
         "type": "entree",
         "price": 47,
         "description": "Served with kimchi fried rice, green beans and a cherry gastrique",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/emma-houghton-duck.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1595,7 +1595,7 @@ menu_items = [{
         "type": "entree",
         "price": 36,
         "description": "Served with herb mashed potatoes, crispy leeks and a balsamic reduction",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/david-b-townsend-cod.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1606,7 +1606,7 @@ menu_items = [{
         "type": "entree",
         "price": 41,
         "description": "Served with crispy fingerling potatoes, broccoli, artichoke, and a peppercorn cognac cream sauce",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/alex-munsell-porkchop.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1617,7 +1617,7 @@ menu_items = [{
         "type": "dessert",
         "price": 9,
         "description": "macerated strawberries and blueberries, toasted walnuts, strawberry sauce, and whipped cream",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/toa-heftiba-pavlova.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1628,7 +1628,7 @@ menu_items = [{
         "type": "dessert",
         "price": 12,
         "description": "graham cracker crust served with creme anglaise",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/kayla-speid-smore.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1639,7 +1639,7 @@ menu_items = [{
         "type": "dessert",
         "price": 8.5,
         "description": "almond tuile",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/kobby-mendez-cream.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     },
@@ -1650,7 +1650,7 @@ menu_items = [{
         "type": "dessert",
         "price": 10,
         "description": "served with chocolate sauce",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg",
+        "image_url": "https://vancouber-eats.s3.us-west-2.amazonaws.com/brooke-cagle_maple-cream.jpg",
         "created_at": datetime.datetime.now(),
         "updated_at": datetime.datetime.now()
     }

@@ -74,12 +74,17 @@ nav {
 #nav-logo-text {
   font-size: 30px;
   background-color: white;
+  font-weight: 300;
 }
 
 #nav-right-hamburger-and-logo {
   display: flex;
   align-items: center;
   gap: 6px;
+}
+
+#logo-eats-text {
+  font-weight: 500;
 }
 
 #nav-left-other-buttons {
@@ -181,5 +186,3 @@ nav {
   border: 2px solid black;
   padding: 12px 22px;
 }
-
-

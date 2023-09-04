@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { login } from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-import './LoginForm.css';
+import './LoginFormPage.css';
 
 function LoginFormPage() {
   const dispatch = useDispatch();
@@ -21,36 +21,57 @@ function LoginFormPage() {
     }
   };
 
+  const handleDemoUser = async (e) => {
+    e.preventDefault()
+    let demoEmail = 'user@demo.io'
+    let demoPassword = 'password'
+    const data = await dispatch(login(demoEmail, demoPassword));
+    if (data) {
+      setErrors(data);
+    } else {
+      // closeModal()
+    }
+  };
+
   return (
-    <>
-      <h1>Log In</h1>
+    <div id='loginPageOutermostBox'>
+      <div id='loginPageHeader'>Please log in to access this feature</div>
       <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
-          ))}
-        </ul>
-        <label>
-          Email
+        <div>
+          <ul>
+            {errors.map((error, idx) => (
+              <li key={idx}>{error}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
           <input
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email"
             required
           />
-        </label>
-        <label>
-          Password
+        </div>
+        <div>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
             required
           />
-        </label>
-        <button type="submit">Log In</button>
+        </div>
+        <div id='loginPageButtons'>
+          <button id='loginPageLoginButton' type="submit">
+            Log In
+          </button>
+          <button id='loginPageLoginButton' onClick={handleDemoUser}>
+            Log In as Demo User
+          </button>
+        </div>
       </form>
-    </>
+    </div>
   );
 }
 
