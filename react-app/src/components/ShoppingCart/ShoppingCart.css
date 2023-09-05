@@ -1,3 +1,9 @@
+.shopping-cart:hover {
+    border: 2px solid green;
+    background-color: green;
+}
+
+
 .cart-dropdown {
     position: fixed;
     top: -16px;

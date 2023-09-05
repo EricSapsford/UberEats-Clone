@@ -10,3 +10,12 @@
 #signupModalSignupButton {
     cursor: pointer;
 }
+
+#signupModalSignupButton:hover {
+    background-color: green;
+    border: 3px solid green !important;
+}
+
+#signupModalSignupButton:active {
+    border: 3px solid green !important;
+}

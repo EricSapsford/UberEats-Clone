@@ -36,6 +36,11 @@
 }
 
 .checkout-right button:hover {
+    border: 2px solid rgb(59, 182, 59);
+    background-color: rgb(59, 182, 59);
+}
+
+.checkout-right button:active {
     border: 2px solid white;
 }
 
@@ -109,6 +114,11 @@
 }
 
 .checkout-header button:hover {
+    border: 2px solid rgb(59, 182, 59);
+    background-color: rgb(59, 182, 59);
+}
+
+.checkout-header button:active {
     border: 2px solid white !important;
 }
 

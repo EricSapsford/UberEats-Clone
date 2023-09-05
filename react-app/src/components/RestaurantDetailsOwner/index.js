@@ -53,13 +53,18 @@ export default function RestaurantDetailsOwner() {
       {isLoaded && (
         <div className='restaurant-outermost-box'>
           <div className='restaurant-centering-box'>
-
+          <div>
+            {restaurant.imageUrl ?
+              <img className='restaurant-banner-image' src={restaurant.imageUrl}></img>
+              : ''
+            }
+          </div>
+            <div className='owner-restaurant-card'>
             <div>
               <span className='owner-restaurant-back-to-my-account' onClick={backToAccount}>
                 ⬅ Back to my account
               </span>
             </div>
-            <div className='owner-restaurant-card'>
               <div className='restaurant-info'>
                 <div className='owner-rest-header-and-add-button'>
                   <span className='owner-rest-add-menu-item-button'>
