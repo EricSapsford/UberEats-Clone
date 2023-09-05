@@ -193,3 +193,5 @@ def delete_restaurant(id):
         "id": id
         }
         return res
+    else:
+        return { "message": "Unable to delete"}, 400

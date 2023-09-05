@@ -13,10 +13,14 @@ function WalletLandingPage() {
   const sessionUser = useSelector(state => state.session.user);
   const wallet = useSelector(state => state.session.user.wallet)
 
-   useEffect(() => {
-    dispatch(sessionActions.getCurrentWalletThunk());
-    // dispatch(sessionActions.updateCurrentWalletThunk(amount));
-   }, [dispatch, wallet])
+  const addMonies = (e) => {
+    dispatch(sessionActions.updateCurrentWalletThunk(100000))
+  }
+
+  useEffect(() => {
+   dispatch(sessionActions.getCurrentWalletThunk());
+   // dispatch(sessionActions.updateCurrentWalletThunk(amount));
+  }, [dispatch, wallet])
 
 
   return (
@@ -38,7 +42,7 @@ function WalletLandingPage() {
             buttonText="Get More"
             modalComponent={<Maze />}
           /> */}
-          <button>Get More</button>
+          <button onClick={addMonies}>Get More</button>
         </div>
         <div>
         <OpenModalButton
