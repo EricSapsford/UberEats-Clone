@@ -83,7 +83,7 @@ export default function RestaurantDetailsOwner() {
                 <div>
                   {!menuItemsArr.length ?
                     <div className='please-add-item-to-restaurant'>
-                      Your have no menu items. Please add a menu item to your restaurant!
+                      You have no menu items. Please add a menu item to your restaurant!
                     </div>
                     : ''
                   }
