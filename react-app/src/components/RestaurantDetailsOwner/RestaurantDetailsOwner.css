@@ -1,5 +1,13 @@
 .restaurant-outermost-box {
-    margin-left: 25px;
+    width: 100%;
+}
+
+.owner-restaurant-card {
+    padding: 0 3%;
+}
+
+.owner-restaurant-back-to-my-account:hover {
+    text-decoration: underline;
 }
 
 .owner-restaurant-back-to-my-account {

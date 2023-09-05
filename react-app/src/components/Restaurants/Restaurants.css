@@ -5,7 +5,8 @@
 }
 
 .restaurantsContent {
-    margin-left: 27px;
+    /* margin-left: 27px; */
+    padding: 0 3%;
 }
 
 .exploreByCategory {
@@ -37,18 +38,28 @@
 
 .restCatButtons {
     color: #000000;
-    background-color: rgb(219, 219, 219);
-    border-radius: 10px;
+    background-color: rgb(235, 235, 235);
+    border-radius: 50px;
     font-size: 20px;
-    padding: 8px 16px 8px 16px;
+    padding: 8px 18px;
+}
+
+.restCatButtons:hover {
+    background-color: green;
+    color: white;
 }
 
 #allCatButton {
     color: #000000;
-    background-color: rgb(219, 219, 219);
-    border-radius: 10px;
+    background-color: rgb(235, 235, 235);
+    border-radius: 50px;
     font-size: 20px;
-    padding: 8px 16px 8px 16px;
+    padding: 8px 18px;
+}
+
+#allCatButton:hover {
+    background-color: green;
+    color: white;
 }
 
 #restaurantWholeDiv {
