@@ -49,17 +49,17 @@ export default function RestaurantDetails() {
     <>
       {isLoaded && (<div className='restaurant-outermost-box'>
         <div className='restaurant-centering-box'>
+          <div>
+            {restaurant.imageUrl ?
+              <img className='restaurant-banner-image' src={restaurant.imageUrl}></img>
+              : ''
+            }
+          </div>
 
           <div className='restaurant-card'>
 
-            <div>
-              {restaurant.imageUrl ?
-                <img className='restaurant-banner-image' src={restaurant.imageUrl}></img>
-                : ''
-              }
-            </div>
             <div id='rest-details-back-breadcrumb'>
-              ⬅ <Link to='/restaurants'>Back to all restaurants</Link>
+              <Link to='/restaurants'>⬅ Back to all restaurants</Link>
             </div>
 
             {reviewList.length ?
@@ -72,8 +72,8 @@ export default function RestaurantDetails() {
                     <i className="fa-solid fa-star"></i> {avgRating.toFixed(1)} ({reviewList.length} reviews)
                   </span>
                   <span>
-                    <span></span> • 
-                    <span></span> {restaurant.category === 'Fast_Food' ? 'Fast Food' : restaurant.category} •  
+                    <span></span> •
+                    <span></span> {restaurant.category === 'Fast_Food' ? 'Fast Food' : restaurant.category} •
                   </span>
                   <span>
                     {restaurant.priceRange === 1 ? ' $' : ''}
