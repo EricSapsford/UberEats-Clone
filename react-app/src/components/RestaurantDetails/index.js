@@ -48,7 +48,6 @@ export default function RestaurantDetails() {
 
   useEffect(() => {
     if (restaurant.id == restaurantId) {
-      console.log("hello")
       setIsLoaded(true)
     }
   }, [restaurant])
