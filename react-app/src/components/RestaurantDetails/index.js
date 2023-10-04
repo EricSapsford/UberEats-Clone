@@ -7,6 +7,7 @@ import { thunkGetReviews } from '../../store/reviews';
 import './RestaurantDetails.css';
 import MenuItemCard from '../MenuItemCard';
 import ReviewCard from '../ReviewCard/ReviewCard';
+import LoadingComponent from '../Loading';
 
 export default function RestaurantDetails() {
   const dispatch = useDispatch();
@@ -42,12 +43,19 @@ export default function RestaurantDetails() {
     dispatch(thunkGetReviews(restaurantId))
     dispatch(getOneRestaurantThunk(restaurantId));
     dispatch(getAllMenuItemsForRestThunk(restaurantId));
-    setIsLoaded(true)
-  }, [dispatch, restaurantId]);
+    // setIsLoaded(true)
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (restaurant.id == restaurantId) {
+      setIsLoaded(true)
+    }
+  }, [restaurant])
+
 
   return (
     <>
-      {isLoaded && (<div className='restaurant-outermost-box'>
+      {isLoaded && menuItemsArr ? (<div className='restaurant-outermost-box'>
         <div className='restaurant-centering-box'>
           <div>
             {restaurant.imageUrl ?
@@ -168,7 +176,10 @@ export default function RestaurantDetails() {
           </div>
 
         </div>
-      </div>)}
+      </div>
+      ) : (
+        <LoadingComponent />
+      )}
     </>
   )
 };

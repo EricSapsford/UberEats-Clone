@@ -108,7 +108,16 @@ export default function MenuItemDetails() {
                     {menuItem.description}
                   </div>
                   <div>
-                    {restaurantInCart(menuItem) ? null :
+                    {restaurantInCart(menuItem) ?
+                      <>
+                        <p>
+                          Orders may only be placed from one restaurant at a time.
+                        </p>
+                        <p>
+                          Please complete current order, or empty cart to order from another restaurant.
+                        </p>
+                      </>
+                      :
                       <button className='menu-item-details-add-or-remove-button' onClick={() => addToCart(menuItem)}>
                         Add to order
                       </button>
