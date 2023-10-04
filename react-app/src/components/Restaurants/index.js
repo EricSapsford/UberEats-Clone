@@ -6,6 +6,7 @@ import * as restaurantActions from "../../store/restaurant"
 import './Restaurants.css'
 
 import RestaurantCard from "./RestaurantCard"
+import LoadingComponent from "../Loading";
 
 const restaurantCategoryArr = [
   'Mexican',
@@ -74,11 +75,13 @@ function RestaurantsNav() {
               <h1>All Restaurants</h1>
             </div>
             <div className="restaurantCardsDiv">
-              {restStateArr.map((restaurant) => (
+              {restStateArr ? (restStateArr.map((restaurant) => (
                 <div key={restaurant.id}>
                   <RestaurantCard restaurant={restaurant} />
                 </div>
-              ))}
+              ))) : (
+                <LoadingComponent />
+              )}
             </div>
             <div id='rest-back-to-cats'>
               <a href="#restCats">Back up to categories</a>

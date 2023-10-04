@@ -254,7 +254,7 @@ const restaurantReducer = (state = initialState, action) => {
     }
 
     case GET_ALL_RESTAURANTS_WITH_ONE_MENU_ITEM: {
-      const newState = { ...state, allRestaurants: {} }
+      const newState = { ...state, allRestaurants: {}, singleRestaurant: {} }
       action.restaurants.forEach((restObj) => {
         newState.allRestaurants[restObj.id] = restObj
       });
@@ -262,7 +262,7 @@ const restaurantReducer = (state = initialState, action) => {
     }
 
     case GET_ALL_RESTAURANTS_BY_CATEGORY: {
-      const newState = { ...state, categoryRestaurants: {} }
+      const newState = { ...state, singleRestaurant: {}, categoryRestaurants: {} }
       action.restaurants.forEach((restObj) => {
         newState.categoryRestaurants[restObj.id] = restObj
       });
@@ -270,7 +270,7 @@ const restaurantReducer = (state = initialState, action) => {
     }
 
     case GET_ALL_RESTAURANTS_BY_CURRENT_USER: {
-      const newState = { ...state, usersRestaurants: {} }
+      const newState = { ...state, singleRestaurant: {}, usersRestaurants: {} }
       action.restaurants.forEach((restObj) => {
         newState.usersRestaurants[restObj.id] = restObj
       });
