@@ -34,7 +34,7 @@ function CreateReviewModal(restaurantId) {
         }
         closeModal()
     };
-    console.log("heres the number of stars:", stars)
+    // console.log("heres the number of stars:", stars)
 
     return (
         <>
@@ -124,4 +124,3 @@ function CreateReviewModal(restaurantId) {
 
 
 export { CreateReviewModal };
-
