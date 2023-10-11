@@ -1,5 +1,5 @@
 .reviewDiv {
-    border-top: 2px black solid;
+    border-top: 1px solid #2d2d2d;
     width: 75%;
     margin-top: 10px;
     margin-left: 15px;
@@ -13,6 +13,7 @@
 
 #reviewDateDiv {
     color: grey;
+    overflow-x: auto;
 }
 
 #reviewTextDiv {
@@ -21,6 +22,15 @@
     font-size: 20px;
     margin-bottom: 25px;
     margin-top: 15px;
+    overflow: auto;
+}
+
+.leaveReviewButton {
+    margin: 25px 15px 30px 15px;
+}
+
+.deleteReviewButton {
+    margin: 20px 0;
 }
 
 .reviewModalButton button {
