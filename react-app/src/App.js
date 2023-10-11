@@ -28,63 +28,69 @@ function App() {
 
   return (
     <>
-      <Navigation isLoaded={isLoaded} />
-      {isLoaded && (
-        <Switch>
-          <Route exact path='/'>
-            <HomePage />
-          </Route>
+      <div id="page-container">
+        <div id="content-wrap">
+          <Navigation isLoaded={isLoaded} />
+          {isLoaded && (
+            <Switch>
+              <Route exact path='/'>
+                <HomePage />
+              </Route>
 
-          <Route exact path="/login" >
-            <LoginFormPage />
-          </Route>
+              <Route exact path="/login" >
+                <LoginFormPage />
+              </Route>
 
-          <Route exact path="/signup">
-            <SignupFormPage />
-          </Route>
+              <Route exact path="/signup">
+                <SignupFormPage />
+              </Route>
 
-          <ProtectedRoute exact path="/account">
-            <ManageAccount />
-          </ProtectedRoute>
+              <ProtectedRoute exact path="/account">
+                <ManageAccount />
+              </ProtectedRoute>
 
-          <ProtectedRoute exact path="/wallet">
-            <WalletLandingPage />
-          </ProtectedRoute>
+              <ProtectedRoute exact path="/wallet">
+                <WalletLandingPage />
+              </ProtectedRoute>
 
-          <Route exact path="/restaurants/:restaurantId/menu">
-            <RestaurantDetails />
-          </Route>
+              <Route exact path="/restaurants/:restaurantId/menu">
+                <RestaurantDetails />
+              </Route>
 
-          <ProtectedRoute exact path="/restaurants/:restaurantId/menu/manage">
-            <RestaurantDetailsOwner />
-          </ProtectedRoute>
+              <ProtectedRoute exact path="/restaurants/:restaurantId/menu/manage">
+                <RestaurantDetailsOwner />
+              </ProtectedRoute>
 
-          <Route exact path="/restaurants/:category">
-            <RestaurantsByCategoryNav />
-          </Route>
+              <Route exact path="/restaurants/:category">
+                <RestaurantsByCategoryNav />
+              </Route>
 
-          <Route exact path="/restaurants">
-            <RestaurantsNav />
-          </Route>
+              <Route exact path="/restaurants">
+                <RestaurantsNav />
+              </Route>
 
-          <Route exact path="/menu-items/:menuItemId">
-            <MenuItemDetails />
-          </Route>
+              <Route exact path="/menu-items/:menuItemId">
+                <MenuItemDetails />
+              </Route>
 
-          <ProtectedRoute exact path="/past-orders">
-            <PastOrdersPage />
-          </ProtectedRoute>
+              <ProtectedRoute exact path="/past-orders">
+                <PastOrdersPage />
+              </ProtectedRoute>
 
-          <Route exact path="/checkout">
-            <CheckoutPage />
-          </Route>
+              <Route exact path="/checkout">
+                <CheckoutPage />
+              </Route>
 
-          <Route>
-            <h1>Route does not exist</h1>
-          </Route>
-        </Switch>
-      )}
-      <Footer />
+              <Route>
+                <h1>Route does not exist</h1>
+              </Route>
+            </Switch>
+          )}
+        </div>
+        <div id="footer-container">
+          <Footer />
+        </div>
+      </div>
     </>
   );
 }

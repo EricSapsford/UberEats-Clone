@@ -24,6 +24,10 @@
     object-fit: cover;
 }
 
+.menu-item-details-info {
+    margin-left: 10px;
+}
+
 .menu-item-details-name {
     color: #000000;
     font-size: 34px;
@@ -34,14 +38,14 @@
     color: #000000;
     font-size: 18px;
     font-weight: 200;
-    margin-bottom: 5px;
+    margin: 15px 0;
 }
 
 .menu-item-details-description {
     color: #7b7b7b;
     font-size: 14px;
     font-weight: 200;
-    margin-bottom: 5px;
+    margin: 15px 0;
 }
 
 .menu-item-details-add-or-remove-button {

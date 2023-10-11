@@ -134,7 +134,7 @@ def update_restaurant(id):
     form = RestaurantForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
-    print(form.data["category"])
+    # print(form.data["category"])
     # RestaurantCategory
 
     if form.validate_on_submit():
@@ -145,7 +145,6 @@ def update_restaurant(id):
         restaurant_to_update.price_range = form.data["price_range"]
         restaurant_to_update.image_url = form.data["image_url"]
         restaurant_to_update.updated_at=datetime.datetime.now()
-        # print("kill me")
         db.session.commit()
         return { "restaurant": restaurant_to_update.to_dict() }
     if form.errors:
@@ -193,3 +192,5 @@ def delete_restaurant(id):
         "id": id
         }
         return res
+    else:
+        return { "message": "Unable to delete"}, 400

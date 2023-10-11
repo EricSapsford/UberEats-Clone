@@ -76,9 +76,9 @@ export const getAllMenuItemsForRestThunk = (restaurantId) => async (dispatch) =>
     const menuItems = await res.json();
     dispatch(getAllMenuItemsForRest(menuItems));
   } else {
-    console.log("***** in getAllMenuItemsForRestThunk: RES NOT OK ****")
+    // console.log("***** in getAllMenuItemsForRestThunk: RES NOT OK ****")
     const errors = await res.json();
-    console.log("***** in getAllMenuItemsForRestThunk: errors ****", errors)
+    // console.log("***** in getAllMenuItemsForRestThunk: errors ****", errors)
     return errors;
   };
 };

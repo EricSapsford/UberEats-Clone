@@ -3,9 +3,9 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { NavLink, useParams, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import * as restaurantActions from "../../store/restaurant"
-import RestaurantCard from "./RestaurantCard"
-import "./Restaurants.css"
+import * as restaurantActions from "../../store/restaurant";
+import RestaurantCard from "./RestaurantCard";
+import "./Restaurants.css";
 import LoadingComponent from "../Loading";
 
 const restaurantCategoryArr = [
@@ -31,18 +31,18 @@ function RestaurantsByCategoryNav() {
     dispatch(restaurantActions.getAllRestaurantsByCategoryThunk(category));
   }, [dispatch, category]);
 
-  const restState = useSelector((state) => (state.restaurant ? state.restaurant : {}))
+  const restState = useSelector((state) => (state.restaurant ? state.restaurant : {}));
 
-  const restStateArr = Object.values(restState.categoryRestaurants)
+  const restStateArr = Object.values(restState.categoryRestaurants);
 
   const location = useLocation();
 
   function scrolltoId() {
     const access = document.getElementById("funId");
     access.scrollIntoView({ behavior: "smooth" });
-  }
+  };
 
-  let path = ""
+  let path = "";
 
   return (
     <>
@@ -90,14 +90,14 @@ function RestaurantsByCategoryNav() {
               <LoadingComponent />
             )}
           </div>
-          <div id='rest-back-to-cats'>
+          {/* <div id='rest-back-to-cats'>
             <a href="#restCats">Back up to categories</a>
-          </div>
+          </div> */}
         </div>
 
       </div>
     </>
   )
-}
+};
 
-export default RestaurantsByCategoryNav
+export default RestaurantsByCategoryNav;
