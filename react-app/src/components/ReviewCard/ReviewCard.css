@@ -31,10 +31,6 @@
 
 .deleteReviewButton {
     margin: 20px 0;
-    overflow-x: auto;
-    text-overflow: ellipsis;
-    /* flex-wrap: wrap; */
-    /* width: 100%; */
 }
 
 .reviewModalButton button {
