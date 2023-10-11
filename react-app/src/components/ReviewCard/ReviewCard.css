@@ -13,6 +13,7 @@
 
 #reviewDateDiv {
     color: grey;
+    overflow-x: auto;
 }
 
 #reviewTextDiv {
