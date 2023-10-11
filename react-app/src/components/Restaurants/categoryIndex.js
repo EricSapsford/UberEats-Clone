@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import * as restaurantActions from "../../store/restaurant"
 import RestaurantCard from "./RestaurantCard"
 import "./Restaurants.css"
+import LoadingComponent from "../Loading";
 
 const restaurantCategoryArr = [
   'All',
@@ -81,11 +82,13 @@ function RestaurantsByCategoryNav() {
             <h1>{category === 'Fast_Food' ? 'Fast Food' : category} Restaurants</h1>
           </div>
           <div className="restaurantCardsDiv">
-            {restStateArr.map((restaurant) => (
+            {restStateArr ? (restStateArr.map((restaurant) => (
               <div key={restaurant.id}>
                 <RestaurantCard restaurant={restaurant} />
               </div>
-            ))}
+            ))) : (
+              <LoadingComponent />
+            )}
           </div>
           <div id='rest-back-to-cats'>
             <a href="#restCats">Back up to categories</a>

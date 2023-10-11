@@ -13,6 +13,7 @@
 
 #reviewDateDiv {
     color: grey;
+    overflow-x: auto;
 }
 
 #reviewTextDiv {
@@ -21,6 +22,10 @@
     font-size: 20px;
     margin-bottom: 25px;
     margin-top: 15px;
+    overflow-x: auto;
+    text-overflow: ellipsis;
+    /* flex-wrap: wrap; */
+    /* width: 100%; */
 }
 
 .reviewModalButton button {
