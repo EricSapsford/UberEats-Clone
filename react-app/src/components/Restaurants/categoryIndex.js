@@ -87,9 +87,9 @@ function RestaurantsByCategoryNav() {
               </div>
             ))}
           </div>
-          <div id='rest-back-to-cats'>
+          {/* <div id='rest-back-to-cats'>
             <a href="#restCats">Back up to categories</a>
-          </div>
+          </div> */}
         </div>
 
       </div>
