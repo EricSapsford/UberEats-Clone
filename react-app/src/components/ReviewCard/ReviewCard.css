@@ -28,6 +28,10 @@
     margin: 25px 15px 30px 15px;
 }
 
+.deleteReviewButton {
+    margin: 20px 0;
+}
+
 .reviewModalButton button {
     display: flex;
     background-color: white;
