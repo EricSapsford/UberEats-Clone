@@ -25,12 +25,20 @@ export default function CheckoutPage() {
     }, [dispatch])
 
     useEffect(() => {
-        let newTotal = 0;
-        cart.forEach(item => {
-            newTotal += item.price
-        })
-        setSubtotal(newTotal)
+        if (cart.length) {
+            let newTotal = 0;
+            cart.forEach(item => {
+                newTotal += item.price
+            })
+            setSubtotal(newTotal)
+        }
     }, [])
+
+    useEffect(() => {
+        if (!cart.length) {
+            setSubtotal(0)
+        }
+    }, [cart])
 
     const handleTestingFee = () => {
         let divider = .3
@@ -67,8 +75,6 @@ export default function CheckoutPage() {
             restaurantId: cart[0].restaurantId
         }
 
-        // console.log("***** new order: ", newOrder)
-
         dispatch(sessionActions.updateCurrentWalletThunk(-parseFloat(handleTotal())))
 
         dispatch(thunkCreateOrder(newOrder))
@@ -83,7 +89,7 @@ export default function CheckoutPage() {
 
     return (
         <>
-            {isLoaded && cart.length && (<div className='checkout-content'>
+            {isLoaded && (<div className='checkout-content'>
                 <div className='checkout-left'>
                     <div className='checkout-left-top'>
                         <div className='checkout-image'>
@@ -97,18 +103,22 @@ export default function CheckoutPage() {
                     <div className='checkout-left-bottom'>
                         <div className='checkout-header'>
                             <span>Order Summary</span>
-                            <button onClick={() => history.push(`/restaurants/${cart[0].restaurantId}/menu`)}>
+                            <button onClick={() => history.push(`/restaurants/${restaurant.id}/menu`)}>
                                 Add items
                             </button>
                         </div>
                         <div className='checkout-item-count'>{cart.length} {cart.length === 1 ? "item" : "items"}</div>
                         <div className='checkout-item-list'>
-                            {cart.map(item => (
+                            {cart.length ? cart.map(item => (
                                 <div className='item-entry'>
                                     <div>1 {item.name}</div>
                                     <div>${item.price.toFixed(2)}</div>
                                 </div>
-                            ))}
+                            )) : (
+                                <div className='item-entry'>
+                                    Your cart is empty
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>
