@@ -28,7 +28,7 @@ function PastOrdersPage({ parent }) {
             const pastOrdersResponse = await dispatch(thunkGetPastOrders(user.id));
             if (pastOrdersResponse.ok) {
                 await dispatch(getAllRestaurantsWithOneMenuItemThunk());
-                console.log("****AFTER THE GET ALL RESTS THUNK IN USEEFFECT***")
+                // console.log("****AFTER THE GET ALL RESTS THUNK IN USEEFFECT***")
             }
         };
 
