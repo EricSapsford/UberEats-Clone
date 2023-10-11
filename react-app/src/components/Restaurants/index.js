@@ -2,10 +2,10 @@ import React from "react";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import * as restaurantActions from "../../store/restaurant"
-import './Restaurants.css'
+import * as restaurantActions from "../../store/restaurant";
+import './Restaurants.css';
 
-import RestaurantCard from "./RestaurantCard"
+import RestaurantCard from "./RestaurantCard";
 import LoadingComponent from "../Loading";
 
 const restaurantCategoryArr = [
@@ -26,14 +26,13 @@ function RestaurantsNav() {
 
   useEffect(() => {
     dispatch(restaurantActions.getAllRestaurantsWithOneMenuItemThunk());
-  }, [dispatch])
+  }, [dispatch]);
 
-  const restState = useSelector((state) => (state.restaurant ? state.restaurant : {}))
+  const restState = useSelector((state) => (state.restaurant ? state.restaurant : {}));
 
-  const restStateArr = Object.values(restState.allRestaurants)
+  const restStateArr = Object.values(restState.allRestaurants);
 
-  let path = ''
-
+  let path = '';
 
   return (
     <>
@@ -92,6 +91,6 @@ function RestaurantsNav() {
       </div>
     </>
   )
-}
+};
 
-export default RestaurantsNav
+export default RestaurantsNav;
