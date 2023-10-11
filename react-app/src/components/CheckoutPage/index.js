@@ -16,7 +16,7 @@ export default function CheckoutPage() {
     const [subtotal, setSubtotal] = useState(0)
 
     // const restaurants = useSelector(state=>state.restaurant.allRestaurants)
-    const restaurant = useSelector(state=>state.restaurant.singleRestaurant)
+    const restaurant = useSelector(state => state.restaurant.singleRestaurant)
     // const restaurant = restaurants[cart[0].restaurantId]
 
     useEffect(() => {
@@ -67,7 +67,7 @@ export default function CheckoutPage() {
             restaurantId: cart[0].restaurantId
         }
 
-        console.log("***** new order: ", newOrder)
+        // console.log("***** new order: ", newOrder)
 
         dispatch(sessionActions.updateCurrentWalletThunk(-parseFloat(handleTotal())))
 
