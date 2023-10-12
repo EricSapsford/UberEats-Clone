@@ -23,6 +23,7 @@
     margin-bottom: 25px;
     margin-top: 15px;
     overflow: auto;
+    word-break: break-all;
 }
 
 .leaveReviewButton {
@@ -34,6 +35,7 @@
 }
 
 .reviewModalButton button {
+    cursor: pointer;
     display: flex;
     background-color: white;
     border: none;

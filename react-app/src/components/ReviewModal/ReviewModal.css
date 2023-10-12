@@ -38,6 +38,7 @@
 }
 
 #createReviewStar {
+    cursor: pointer;
     display: flex;
     flex-direction: row;
     margin-top: 5px;
@@ -52,8 +53,13 @@
 }
 
 #createReviewButton {
+    cursor: pointer;
     display: flex;
     justify-content: center;
+}
+
+#createReviewButton button {
+    cursor: pointer;
 }
 
 #disabledButton {
@@ -91,6 +97,7 @@
 }
 
 #yesNoButtons button{
+    cursor: pointer;
     background-color: white;
     font-size: 10pt;
     color: white;
