@@ -32,10 +32,11 @@ function RestaurantsNav() {
   }, [dispatch]);
 
   useEffect(() => {
-    if (category !== 'All') {
+    if (category === 'Fast Food') {
+      dispatch(restaurantActions.getAllRestaurantsByCategoryThunk('Fast_Food'))
+    }
+    if (category !== 'All' && category !== 'Fast Food') {
       dispatch(restaurantActions.getAllRestaurantsByCategoryThunk(category))
-    } else if (category === 'Fast Food') {
-      dispatch(restaurantActions.getAllRestaurantsByCategoryThunk('fast_food'))
     }
   }, [category])
 
@@ -80,7 +81,7 @@ function RestaurantsNav() {
                 </span>
               ))} */}
               {restaurantCategoryArr.map((cat) => (
-                  <button className={category === cat ? 'cat-button' : 'cat-active'} onClick={() => setCategory(cat)}>
+                  <button className={category === cat ? 'cat-active' : 'cat-button'} onClick={() => setCategory(cat)}>
                     {cat}
                   </button>
               ))}

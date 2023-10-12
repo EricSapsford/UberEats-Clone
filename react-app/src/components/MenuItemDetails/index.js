@@ -86,8 +86,8 @@ export default function MenuItemDetails() {
           <div className='menu-item-details-outermost-box'>
             <div className='menu-item-details-centering-box'>
 
-              <div>
-                ⬅ <Link to={`/restaurants/${menuItem.restaurantId}/menu`}>Back to {restaurant.name ? restaurant.name : ''}</Link>
+              <div className='back-restaurants-mi'>
+                <Link className='back-restaurants-mi' to={`/restaurants/${menuItem.restaurantId}/menu`}>⬅ Back to {restaurant.name ? restaurant.name : ''}</Link>
               </div>
 
               <div className='menu-item-details-card'>
