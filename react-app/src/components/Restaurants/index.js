@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
@@ -9,6 +9,7 @@ import RestaurantCard from "./RestaurantCard";
 import LoadingComponent from "../Loading";
 
 const restaurantCategoryArr = [
+  'All',
   'Mexican',
   'Indian',
   'Japanese',
@@ -24,13 +25,23 @@ const restaurantCategoryArr = [
 function RestaurantsNav() {
   const dispatch = useDispatch();
 
+  const [category, setCategory] = useState('All')
+
   useEffect(() => {
     dispatch(restaurantActions.getAllRestaurantsWithOneMenuItemThunk());
   }, [dispatch]);
 
-  const restState = useSelector((state) => (state.restaurant ? state.restaurant : {}));
+  useEffect(() => {
+    if (category !== 'All') {
+      dispatch(restaurantActions.getAllRestaurantsByCategoryThunk(category))
+    } else if (category === 'Fast Food') {
+      dispatch(restaurantActions.getAllRestaurantsByCategoryThunk('fast_food'))
+    }
+  }, [category])
 
+  const restState = useSelector((state) => (state.restaurant ? state.restaurant : {}));
   const restStateArr = Object.values(restState.allRestaurants);
+  const categoryStateArr = Object.values(restState.categoryRestaurants)
 
   let path = '';
 
@@ -52,7 +63,7 @@ function RestaurantsNav() {
 
           <div>
             <div className="restaurantCardCatDiv">
-              <span>
+              {/* <span>
                 <Link exact to={'/restaurants'} id='allCatButton'>
                   All
                 </Link>
@@ -67,19 +78,34 @@ function RestaurantsNav() {
                     {category}
                   </Link>
                 </span>
+              ))} */}
+              {restaurantCategoryArr.map((cat) => (
+                  <button className={category === cat ? 'cat-button' : 'cat-active'} onClick={() => setCategory(cat)}>
+                    {cat}
+                  </button>
               ))}
             </div>
 
             <div className="restCatHeader">
-              <h1>All Restaurants</h1>
+              <h1>{category} Restaurants</h1>
             </div>
             <div className="restaurantCardsDiv">
-              {restStateArr ? (restStateArr.map((restaurant) => (
-                <div key={restaurant.id}>
-                  <RestaurantCard restaurant={restaurant} />
-                </div>
-              ))) : (
-                <LoadingComponent />
+              {category === 'All' ? (
+                restStateArr ? (restStateArr.map((restaurant) => (
+                  <div key={restaurant.id}>
+                    <RestaurantCard restaurant={restaurant} />
+                  </div>
+                ))) : (
+                  <LoadingComponent />
+                )
+              ) : (
+                categoryStateArr ? (categoryStateArr.map((restaurant) => (
+                  <div key={restaurant.id}>
+                    <RestaurantCard restaurant={restaurant} />
+                  </div>
+                ))) : (
+                  <LoadingComponent />
+                )
               )}
             </div>
             {/* <div id='rest-back-to-cats'>
