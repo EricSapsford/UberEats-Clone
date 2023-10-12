@@ -67,7 +67,7 @@ export default function RestaurantDetails() {
           <div className='restaurant-card'>
 
             <div id='rest-details-back-breadcrumb'>
-              <Link to='/restaurants'>⬅ Back to all restaurants</Link>
+              <Link id='back-restaurants-rd' to='/restaurants'>⬅ Back to all restaurants</Link>
             </div>
 
             {reviewList.length ?
