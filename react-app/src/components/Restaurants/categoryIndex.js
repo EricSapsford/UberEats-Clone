@@ -58,12 +58,12 @@ function RestaurantsByCategoryNav() {
         <div className="restaurantsContent">
           <div className='exploreByCategory' id="funId">
             {/* <span ></span> */}
-            <h1 id="restCats">Explore by category</h1>
+            <h1 id="all">Explore by category</h1>
           </div>
 
           <div className="restaurantCardCatDiv">
             {/* <Link exact to={'/restaurants/'} id='allCatButton'>All</Link> */}
-            {/* <a href = "/restaurants/#restCats">Your Text</a> */}
+            {/* <a href = "/restaurants/#all">Your Text</a> */}
             {restaurantCategoryArr.map((cat) => (
               <div key={`${cat}Nav`}>
                 <Link
@@ -91,7 +91,7 @@ function RestaurantsByCategoryNav() {
             )}
           </div>
           {/* <div id='rest-back-to-cats'>
-            <a href="#restCats">Back up to categories</a>
+            <a href="#all">Back up to categories</a>
           </div> */}
         </div>
 

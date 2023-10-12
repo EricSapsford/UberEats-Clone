@@ -59,7 +59,7 @@ function RestaurantsNav() {
 
         <div className="restaurantsContent">
           <div className='exploreByCategory'>
-            <h1 id="restCats">Explore by category</h1>
+            <h1 id="all">Explore by category</h1>
           </div>
 
           <div>
@@ -109,9 +109,9 @@ function RestaurantsNav() {
                 )
               )}
             </div>
-            {/* <div id='rest-back-to-cats'>
-              <a href="#restCats">Back up to categories</a>
-            </div> */}
+            <div id='rest-back-to-cats'>
+              <a href="#all">Back up to categories</a>
+            </div>
           </div>
         </div>
 
