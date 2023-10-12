@@ -43,7 +43,6 @@ export default function RestaurantDetails() {
     dispatch(thunkGetReviews(restaurantId))
     dispatch(getOneRestaurantThunk(restaurantId));
     dispatch(getAllMenuItemsForRestThunk(restaurantId));
-    // setIsLoaded(true)
   }, [dispatch]);
 
   useEffect(() => {
