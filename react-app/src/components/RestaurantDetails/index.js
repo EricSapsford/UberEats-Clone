@@ -104,7 +104,7 @@ export default function RestaurantDetails() {
                   </span>
 
                   <span>
-                    <span></span> • {restaurant.category ? restaurant.category : ''}
+                    <span></span> • {restaurant.category === 'Fast_Food' ? 'Fast Food' : restaurant.category}
                   </span>
                   <span>
                     <span></span> • <span></span>
