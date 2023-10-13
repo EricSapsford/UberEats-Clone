@@ -4,7 +4,7 @@ import { useModal } from "../../context/Modal";
 import { signUp } from "../../store/session";
 import "./SignupForm.css";
 
-function SignupFormModal() {
+export default function SignupFormModal() {
 	const dispatch = useDispatch();
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
@@ -42,80 +42,73 @@ function SignupFormModal() {
 							<li key={idx}>{error}</li>
 						))}
 					</ul>
-					<label >
-						{/* First Name */}
+					<label>
+						<span className='signup-label-text'>First Name</span>
 						<input
 							className="signUpLabel"
 							type="text"
 							value={firstName}
 							onChange={(e) => setFirstName(e.target.value)}
-							placeholder="First name"
 							required
 						/>
 					</label>
 					<label>
-						{/* Last Name */}
+						<span className='signup-label-text'>Last Name</span>
 						<input
 							className="signUpLabel"
 							type="text"
 							value={lastName}
 							onChange={(e) => setLastName(e.target.value)}
-							placeholder="Last name"
 							required
 						/>
 					</label>
 					<label>
-						{/* Street Address */}
+						<span className='signup-label-text'>Street Address</span>
 						<input
 							className="signUpLabel"
 							type="text"
 							value={streetAddress}
 							onChange={(e) => setStreetAddress(e.target.value)}
-							placeholder="Street address"
 							required
 						/>
 					</label>
 					<label>
-						{/* Email */}
+						<span className='signup-label-text'>Email</span>
 						<input
 							className="signUpLabel"
 							type="text"
 							value={email}
 							onChange={(e) => setEmail(e.target.value)}
-							placeholder="Email"
 							required
 						/>
 					</label>
 					<label>
-						{/* Username */}
+						<span className='signup-label-text'>Username</span>
 						<input
 							className="signUpLabel"
 							type="text"
 							value={username}
 							onChange={(e) => setUsername(e.target.value)}
-							placeholder="Username"
 							required
 						/>
 					</label>
 					<label>
-						{/* Password */}
+						<span className='signup-label-text'>Password</span>
 						<input
 							className="signUpLabel"
 							type="password"
 							value={password}
 							onChange={(e) => setPassword(e.target.value)}
-							placeholder="Password"
 							required
 						/>
 					</label>
 					<label>
-						{/* Confirm Password */}
+						<span className='signup-label-text'>Confirm Password</span>
 						<input
 							className="signUpLabel"
 							type="password"
 							value={confirmPassword}
 							onChange={(e) => setConfirmPassword(e.target.value)}
-							placeholder="Confirm password"
 							required
 						/>
 					</label>
@@ -126,6 +119,4 @@ function SignupFormModal() {
 			</div>
 		</>
 	);
-}
-
-export default SignupFormModal;
+};
