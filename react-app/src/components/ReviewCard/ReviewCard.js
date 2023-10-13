@@ -42,7 +42,7 @@ export default function ReviewCard() {
             <>
               <h2 id="reviewHeader">Reviews</h2>
               {!reviewUserIds.includes(sessionUser?.id) && (sessionUser?.id != restaurant?.ownerId) && (sessionUser != null) && (
-                <div className="reviewModalButton">
+                <div className="reviewModalButton leaveReviewButton">
                   <OpenModalButton
                     buttonText="Leave a review"
                     modalComponent={<CreateReviewModal restaurantId={restaurantId} />} />
@@ -56,7 +56,7 @@ export default function ReviewCard() {
                     {review.createdAt.slice(5, -13)}
                   </div>
                   {reviewUserIds.includes(sessionUser?.id) && review.userId === sessionUser.id && (
-                    <div className="reviewModalButton"><OpenModalButton
+                    <div className="reviewModalButton deleteReviewButton"><OpenModalButton
                       buttonText="Delete Review"
                       modalComponent={<DeleteReviewModal reviewId={review.id} restaurantId={restaurantId} />} />
                     </div>)}

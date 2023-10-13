@@ -2,7 +2,7 @@
     border-top: 1px solid #2d2d2d;
     width: 75%;
     margin-top: 10px;
-    margin-left: 15px;
+    margin-left: 10px;
     padding-left: 15px;
     padding: 20px 0;
 }
@@ -27,11 +27,11 @@
 }
 
 .leaveReviewButton {
-    margin: 25px 15px 30px 15px;
+    margin: 25px 15px 30px 10px;
 }
 
 .deleteReviewButton {
-    margin: 20px 0;
+    margin: 15px 0;
 }
 
 .reviewModalButton button {
@@ -54,14 +54,12 @@
 
 #reviewHeader {
     margin-left: 9px;
-    padding-bottom: 19px;
-    border-bottom: .5px solid #2d2d2d;
-    width: 50%;
 }
 
 #noReviewMessage {
     margin-left: 9px;
-    padding-bottom: 19px;
+    border-top: .5px solid #2d2d2d;
+    padding: 19px 0;
     border-bottom: .5px solid #2d2d2d;
     width: 50%;
 }
