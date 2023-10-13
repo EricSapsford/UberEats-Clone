@@ -47,24 +47,22 @@ function LoginFormModal() {
             ))}
           </ul>
           <label>
-            {/* Email */}
+            <span className='login-label-text'>Email</span>
             <input
               className="logInLabel"
               type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email"
               required
             />
           </label>
           <label>
-            {/* Password */}
+            <span className='login-label-text'>Password</span>
             <input
               className="logInLabel"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="Password"
               required
             />
           </label>
