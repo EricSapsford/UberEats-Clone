@@ -6,6 +6,7 @@ import { thunkGetPastOrders } from "../../store/orders";
 import { useShoppingCart } from "../../context/ShoppingCart";
 import { getAllRestaurantsWithOneMenuItemThunk } from "../../store/restaurant";
 import './PastOrdersPage.css'
+import LoadingComponent from "../Loading";
 
 function PastOrdersPage({ parent }) {
     const history = useHistory()
@@ -53,11 +54,11 @@ function PastOrdersPage({ parent }) {
 
     return (
         <div className="orders-page">
-            {isLoaded && orders.length && restaurants.length && (
+            {isLoaded && orders.length && restaurants.length ? (
                 <div className={handleClassName()}>
                     <h1>Past Orders</h1>
                     {orders.reverse().map((order => (
-                        <div className="order-container">
+                        <div className="order-container" onClick={() => history.push(`/restaurants/${order.restaurantId}/menu`)}>
                             <div className="order-image">
                                 <img src={restaurantsObj[order.restaurantId].imageUrl} />
                             </div>
@@ -76,6 +77,8 @@ function PastOrdersPage({ parent }) {
                         </div>
                     )))}
                 </div>
+            ): (
+                <LoadingComponent />
             )}
         </div>
     )
