@@ -43,7 +43,6 @@ export default function RestaurantDetails() {
     dispatch(thunkGetReviews(restaurantId))
     dispatch(getOneRestaurantThunk(restaurantId));
     dispatch(getAllMenuItemsForRestThunk(restaurantId));
-    // setIsLoaded(true)
   }, [dispatch]);
 
   useEffect(() => {
@@ -67,7 +66,7 @@ export default function RestaurantDetails() {
           <div className='restaurant-card'>
 
             <div id='rest-details-back-breadcrumb'>
-              <Link to='/restaurants'>⬅ Back to all restaurants</Link>
+              <Link id='back-restaurants-rd' to='/restaurants'>⬅ Back to all restaurants</Link>
             </div>
 
             {reviewList.length ?
@@ -105,7 +104,7 @@ export default function RestaurantDetails() {
                   </span>
 
                   <span>
-                    <span></span> • {restaurant.category ? restaurant.category : ''}
+                    <span></span> • {restaurant.category === 'Fast_Food' ? 'Fast Food' : restaurant.category}
                   </span>
                   <span>
                     <span></span> • <span></span>

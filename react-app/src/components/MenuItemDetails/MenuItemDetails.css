@@ -61,3 +61,8 @@
 .menu-item-details-add-or-remove-button:hover {
     cursor: pointer
 }
+
+.back-restaurants-mi:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}

@@ -61,9 +61,9 @@ function App() {
                 <RestaurantDetailsOwner />
               </ProtectedRoute>
 
-              <Route exact path="/restaurants/:category">
+              {/* <Route exact path="/restaurants/:category">
                 <RestaurantsByCategoryNav />
-              </Route>
+              </Route> */}
 
               <Route exact path="/restaurants">
                 <RestaurantsNav />

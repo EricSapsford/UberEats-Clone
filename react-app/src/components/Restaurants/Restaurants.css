@@ -49,6 +49,31 @@
     color: white;
 }
 
+.cat-button {
+    cursor: pointer;
+    color: #000000;
+    background-color: rgb(235, 235, 235);
+    border: 2px solid rgb(235, 235, 235);
+    border-radius: 50px;
+    font-size: 20px;
+    padding: 8px 18px;
+}
+
+.cat-button:hover {
+    background-color: rgb(220, 220, 220);
+}
+
+.cat-active {
+    cursor: pointer;
+    color: white;
+    background-color: green;
+    border: 2px solid green;
+    border-radius: 50px;
+    font-size: 20px;
+    padding: 8px 18px;
+}
+
+
 #allCatButton {
     color: #000000;
     background-color: rgb(235, 235, 235);
