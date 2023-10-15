@@ -14,8 +14,10 @@ export default function SignupFormModal() {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
-	const [isValidEmail, setIsValidEmail] = useState(false);
+	const [isValidEmail, setIsValidEmail] = useState(true);
 	const [errors, setErrors] = useState({});
+	const [submitErrors, setSubmitErrors] = useState([]);
+	const [disabled, setDisabled] = useState(true)
 	const { closeModal } = useModal();
 
 	const handleSubmit = async (e) => {
@@ -23,12 +25,13 @@ export default function SignupFormModal() {
 		if (password === confirmPassword) {
 			const data = await dispatch(signUp(firstName, lastName, streetAddress, email, username, password));
 			if (data) {
-				setErrors(data);
+				console.log(data)
+				setSubmitErrors(data);
 			} else {
 				closeModal();
 			}
 		} else {
-			setErrors([
+			setSubmitErrors([
 				"Confirm Password field must be the same as the Password field",
 			]);
 		}
@@ -53,19 +56,19 @@ export default function SignupFormModal() {
 	useEffect(() => {
 		const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-		if (email.length) {
+		if (email && email.length > 0) {
 			const isValid = emailPattern.test(email);
 			setIsValidEmail(isValid);
 		}
 	}, [email]);
 
-	useEffect(() => {
-		if (firstName && firstName.length < 2) {
-			setErrors({ 'firstName': 'Minimum 2 characters' })
-		} else {
-			setErrors({})
-		}
-	}, [firstName])
+	// useEffect(() => {
+	// 	if (firstName && firstName.length < 2) {
+	// 		setErrors({ 'firstName': 'Minimum 2 characters' })
+	// 	} else {
+	// 		setErrors({})
+	// 	}
+	// }, [firstName])
 
 	useEffect(() => {
 		if (lastName && lastName.length < 2) {
@@ -75,7 +78,23 @@ export default function SignupFormModal() {
 		}
 	}, [lastName])
 
-	console.log("errors HERE", errors);
+	useEffect(() => {
+		if (username && username.length < 4) {
+			setErrors({'username': 'Minimum 4 characters'})
+		} else {
+			setErrors({})
+		}
+	}, [username])
+
+	useEffect(() => {
+		if (errors.firstName || errors.lastName || !isValidEmail || errors.email || errors.password || errors.confirmPassword) {
+		  setDisabled(true)
+		} else {
+		  setDisabled(false)
+		}
+	  }, [errors])
+
+	// console.log("errors HERE", errors);
 
 	return (
 		<>
@@ -96,7 +115,7 @@ export default function SignupFormModal() {
 							onChange={(e) => setFirstName(e.target.value)}
 							required
 							/>
-							{errors.firstName && (<p className="error-message">{errors.firstName}</p>)}
+							{/* {errors.firstName && (<p className="error-message">{errors.firstName}</p>)} */}
 					</label>
 					<label>
 						<span className='signup-label-text'>Last Name</span>
@@ -130,6 +149,8 @@ export default function SignupFormModal() {
 							required
 						/>
 						{errors.email && (<p className="error-message">{errors.email}</p>)}
+						{!isValidEmail && <p className="error-message">Invalid email</p>}
+						{submitErrors.email && (<p className="error-message">{submitErrors.email}</p>)}
 					</label>
 					<label>
 						<span className='signup-label-text'>Username</span>
@@ -141,6 +162,7 @@ export default function SignupFormModal() {
 							required
 						/>
 						{errors.username && (<p className="error-message">{errors.username}</p>)}
+						{submitErrors.username && (<p className="error-message">{submitErrors.username}</p>)}
 					</label>
 					<label>
 						<span className='signup-label-text'>Password</span>
@@ -164,7 +186,7 @@ export default function SignupFormModal() {
 						/>
 						{errors.confirmPassword && (<p className="error-message">{errors.confirmPassword}</p>)}
 					</label>
-					<button id='signupModalSignupButton' type="submit">
+					<button id='signupModalSignupButton' type="submit" disabled={disabled}>
 						Sign Up
 					</button>
 				</form>
