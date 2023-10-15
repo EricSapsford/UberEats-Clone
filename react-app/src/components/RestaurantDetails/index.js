@@ -8,6 +8,7 @@ import './RestaurantDetails.css';
 import MenuItemCard from '../MenuItemCard';
 import ReviewCard from '../ReviewCard/ReviewCard';
 import LoadingComponent from '../Loading';
+import { thunkGetPastOrders } from '../../store/orders';
 
 export default function RestaurantDetails() {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ export default function RestaurantDetails() {
   const [avgRating, setAvgRating] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)
   const restaurant = useSelector(state => state.restaurant.singleRestaurant ? state.restaurant.singleRestaurant : {}); // {}
+  const sessionUser = useSelector(state => state.session.user)
   const menuItemsArr = Object.values(
     useSelector((state) => (state.menuItems.allMenuItemsForRest ? state.menuItems.allMenuItemsForRest : {}))
   );
@@ -43,6 +45,7 @@ export default function RestaurantDetails() {
     dispatch(thunkGetReviews(restaurantId))
     dispatch(getOneRestaurantThunk(restaurantId));
     dispatch(getAllMenuItemsForRestThunk(restaurantId));
+    dispatch(thunkGetPastOrders(sessionUser.id));
   }, [dispatch]);
 
   useEffect(() => {

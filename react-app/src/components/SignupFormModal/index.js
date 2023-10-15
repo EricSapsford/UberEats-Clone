@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { signUp } from "../../store/session";
+import { useEffect } from "react";
 import "./SignupForm.css";
 
 export default function SignupFormModal() {
@@ -13,7 +14,8 @@ export default function SignupFormModal() {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
-	const [errors, setErrors] = useState([]);
+	const [isValidEmail, setIsValidEmail] = useState(false);
+	const [errors, setErrors] = useState({});
 	const { closeModal } = useModal();
 
 	const handleSubmit = async (e) => {
@@ -32,16 +34,59 @@ export default function SignupFormModal() {
 		}
 	};
 
+	useEffect(() => {
+		if (password.length > 0 && password.length < 8) {
+			setErrors({ "password": "Password must be a minimum of 8 characters" })
+		} else {
+			setErrors({})
+		}
+	}, [password])
+
+	useEffect(() => {
+		if (confirmPassword && (confirmPassword !== password) && confirmPassword.length < 8) {
+			setErrors({ "confirmPassword": "Passwords do not match" })
+		} else {
+			setErrors({})
+		}
+	}, [confirmPassword])
+
+	useEffect(() => {
+		const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+		if (email.length) {
+			const isValid = emailPattern.test(email);
+			setIsValidEmail(isValid);
+		}
+	}, [email]);
+
+	useEffect(() => {
+		if (firstName && firstName.length < 2) {
+			setErrors({ 'firstName': 'Minimum 2 characters' })
+		} else {
+			setErrors({})
+		}
+	}, [firstName])
+
+	useEffect(() => {
+		if (lastName && lastName.length < 2) {
+			setErrors({ 'lastName': 'Minimum 2 characters' })
+		} else {
+			setErrors({})
+		}
+	}, [lastName])
+
+	console.log("errors HERE", errors);
+
 	return (
 		<>
 			<div id="signUpModalDiv">
 				<h1>Sign Up</h1>
 				<form onSubmit={handleSubmit}>
-					<ul>
+					{/* <ul>
 						{errors.map((error, idx) => (
 							<li key={idx}>{error}</li>
 						))}
-					</ul>
+					</ul> */}
 					<label>
 						<span className='signup-label-text'>First Name</span>
 						<input
@@ -50,7 +95,8 @@ export default function SignupFormModal() {
 							value={firstName}
 							onChange={(e) => setFirstName(e.target.value)}
 							required
-						/>
+							/>
+							{errors.firstName && (<p className="error-message">{errors.firstName}</p>)}
 					</label>
 					<label>
 						<span className='signup-label-text'>Last Name</span>
@@ -60,7 +106,8 @@ export default function SignupFormModal() {
 							value={lastName}
 							onChange={(e) => setLastName(e.target.value)}
 							required
-						/>
+							/>
+							{errors.lastName && (<p className="error-message">{errors.lastName}</p>)}
 					</label>
 					<label>
 						<span className='signup-label-text'>Street Address</span>
@@ -71,6 +118,7 @@ export default function SignupFormModal() {
 							onChange={(e) => setStreetAddress(e.target.value)}
 							required
 						/>
+						{errors.streetAddress && (<p className="error-message">{errors.streetAddress}</p>)}
 					</label>
 					<label>
 						<span className='signup-label-text'>Email</span>
@@ -81,6 +129,7 @@ export default function SignupFormModal() {
 							onChange={(e) => setEmail(e.target.value)}
 							required
 						/>
+						{errors.email && (<p className="error-message">{errors.email}</p>)}
 					</label>
 					<label>
 						<span className='signup-label-text'>Username</span>
@@ -91,6 +140,7 @@ export default function SignupFormModal() {
 							onChange={(e) => setUsername(e.target.value)}
 							required
 						/>
+						{errors.username && (<p className="error-message">{errors.username}</p>)}
 					</label>
 					<label>
 						<span className='signup-label-text'>Password</span>
@@ -101,6 +151,7 @@ export default function SignupFormModal() {
 							onChange={(e) => setPassword(e.target.value)}
 							required
 						/>
+						{errors.password && (<p className="error-message">{errors.password}</p>)}
 					</label>
 					<label>
 						<span className='signup-label-text'>Confirm Password</span>
@@ -111,6 +162,7 @@ export default function SignupFormModal() {
 							onChange={(e) => setConfirmPassword(e.target.value)}
 							required
 						/>
+						{errors.confirmPassword && (<p className="error-message">{errors.confirmPassword}</p>)}
 					</label>
 					<button id='signupModalSignupButton' type="submit">
 						Sign Up

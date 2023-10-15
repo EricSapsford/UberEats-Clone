@@ -11,6 +11,8 @@ import './HomePage.css'
 export default function HomePage() {
   const sessionUser = useSelector(state => state.session.user)
 
+
+
   return (
     <>
       <div id='homePageBanner'>

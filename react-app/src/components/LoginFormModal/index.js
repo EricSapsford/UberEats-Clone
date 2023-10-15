@@ -34,18 +34,23 @@ function LoginFormModal() {
     }
   };
 
-
+  console.log("errors", errors);
 
   return (
     <>
       <div id="logInModalDiv">
         <h1>Log In</h1>
         <form onSubmit={handleSubmit}>
-          <ul>
-            {errors.map((error, idx) => (
+
+          {/* {errors.map((error, idx) => (
               <li key={idx}>{error}</li>
-            ))}
-          </ul>
+            ))} */}
+          {errors && (
+            <div id='loginErrorDiv'>
+              <p id="errorLogin">Invalid credentials</p>
+            </div>
+          )}
+
           <label>
             <span className='login-label-text'>Email</span>
             <input

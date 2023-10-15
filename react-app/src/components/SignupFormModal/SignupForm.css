@@ -23,3 +23,9 @@
 #signupModalSignupButton:active {
     border: 3px solid green !important;
 }
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-left: 5px;
+}
