@@ -2,6 +2,7 @@
     width: 400px;
 }
 
+
 .login-label-text {
     margin-left: 5px;
 }
@@ -38,4 +39,15 @@
 
 .login-button:active {
     border: 3px solid white !important;
+}
+
+
+#errorLogin {
+    color: red;
+}
+
+#loginErrorDiv {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
 }

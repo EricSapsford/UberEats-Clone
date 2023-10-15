@@ -9,7 +9,7 @@ function LoginFormModal() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState({});
   const { closeModal } = useModal();
 
   const handleSubmit = async (e) => {
@@ -34,18 +34,23 @@ function LoginFormModal() {
     }
   };
 
-
+  console.log("errors", errors);
 
   return (
     <>
       <div id="logInModalDiv">
         <h1>Log In</h1>
         <form onSubmit={handleSubmit}>
-          <ul>
-            {errors.map((error, idx) => (
+
+          {/* {errors.map((error, idx) => (
               <li key={idx}>{error}</li>
-            ))}
-          </ul>
+            ))} */}
+          {/* {errors.email || errors.password && (
+            <div id='loginErrorDiv'>
+              <p id="errorLogin">Invalid credentials</p>
+            </div>
+          )} */}
+
           <label>
             <span className='login-label-text'>Email</span>
             <input
@@ -55,6 +60,7 @@ function LoginFormModal() {
               onChange={(e) => setEmail(e.target.value)}
               required
             />
+            {errors.email && (<p className="error-message">{errors.email}</p>)}
           </label>
           <label>
             <span className='login-label-text'>Password</span>
@@ -65,6 +71,7 @@ function LoginFormModal() {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
+            {!errors.email && errors.password && (<p className="error-message">{errors.password}</p>)}
           </label>
           <button id='loginFormLoginButton' className='login-button' type="submit">
             Log In

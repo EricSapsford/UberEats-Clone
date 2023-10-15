@@ -216,7 +216,7 @@ restaurants = [
     },
     {
         "id": 12,
-        "name": "The Mexican Antojitos y Cantina",
+        "name": "Antojitos y Cantina",
         "address": "1049 Granville St",
         "category": "Mexican",
         "price_range": 3,

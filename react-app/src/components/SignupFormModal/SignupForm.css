@@ -2,6 +2,10 @@
     width: 400px;
 }
 
+#signUpModalDiv form {
+    margin-top: 25px;
+}
+
 .signup-label-text {
     margin-left: 5px;
 }
@@ -22,4 +26,10 @@
 
 #signupModalSignupButton:active {
     border: 3px solid green !important;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin: 5px;
 }
