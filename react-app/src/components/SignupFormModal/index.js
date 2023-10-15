@@ -62,13 +62,13 @@ export default function SignupFormModal() {
 		}
 	}, [email]);
 
-	useEffect(() => {
-		if (firstName && firstName.length < 2) {
-			setErrors({ 'firstName': 'Minimum 2 characters' })
-		} else {
-			setErrors({})
-		}
-	}, [firstName])
+	// useEffect(() => {
+	// 	if (firstName && firstName.length < 2) {
+	// 		setErrors({ 'firstName': 'Minimum 2 characters' })
+	// 	} else {
+	// 		setErrors({})
+	// 	}
+	// }, [firstName])
 
 	useEffect(() => {
 		if (lastName && lastName.length < 2) {
@@ -115,7 +115,7 @@ export default function SignupFormModal() {
 							onChange={(e) => setFirstName(e.target.value)}
 							required
 							/>
-							{errors.firstName && (<p className="error-message">{errors.firstName}</p>)}
+							{/* {errors.firstName && (<p className="error-message">{errors.firstName}</p>)} */}
 					</label>
 					<label>
 						<span className='signup-label-text'>Last Name</span>
