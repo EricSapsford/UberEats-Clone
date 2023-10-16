@@ -15,7 +15,8 @@ export default function RestaurantDetails() {
   const { restaurantId } = useParams();
   const [avgRating, setAvgRating] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)
-  const restaurant = useSelector(state => state.restaurant.singleRestaurant ? state.restaurant.singleRestaurant : {}); // {}
+  // const restaurant = useSelector(state => state.restaurant.singleRestaurant ? state.restaurant.singleRestaurant : {}); // {}
+  const restaurant = useSelector(state => state.restaurant.singleRestaurant);
   const sessionUser = useSelector(state => state.session.user)
   const menuItemsArr = Object.values(
     useSelector((state) => (state.menuItems.allMenuItemsForRest ? state.menuItems.allMenuItemsForRest : {}))
@@ -36,6 +37,9 @@ export default function RestaurantDetails() {
     return menuItem.type === "MenuItemEnum.beverage"
   })
 
+  // console.log('******* restaurantId:', restaurantId)
+  // console.log('******* sessionUser:', sessionUser)
+
   useEffect(() => {
     const sumStars = reviewList.reduce((sum, review) => sum + review.stars, 0);
     setAvgRating(sumStars / reviewList.length);
@@ -45,7 +49,9 @@ export default function RestaurantDetails() {
     dispatch(thunkGetReviews(restaurantId))
     dispatch(getOneRestaurantThunk(restaurantId));
     dispatch(getAllMenuItemsForRestThunk(restaurantId));
-    dispatch(thunkGetPastOrders(sessionUser.id));
+    if (sessionUser != null) {
+      dispatch(thunkGetPastOrders(sessionUser.id));
+    }
   }, [dispatch]);
 
   useEffect(() => {
@@ -53,7 +59,6 @@ export default function RestaurantDetails() {
       setIsLoaded(true)
     }
   }, [restaurant])
-
 
   return (
     <>
