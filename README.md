@@ -54,12 +54,12 @@ Users can checkout to place an order from a single restaurant.
 <img width="400" alt="VancouberEats-checkout" src="https://github.com/EricSapsford/UberEats-Clone/assets/128769940/714efb87-4d16-4585-a77f-339dda9ba0eb">
 
 ### Past Orders:
-Users can view and re-order their past orders.
+Users can view and re-order past orders.
 
 <img width="400" alt="VancouberEats-orders" src="https://github.com/EricSapsford/UberEats-Clone/assets/128769940/c9a81a0a-26c8-43ed-8eea-67a2e77769d5">
 
 ### Manage Account:
-Users can manage their account and navigate to create, update, and delete restaurants and menu items.
+Users can manage their account and create, update, and delete restaurants and menu items.
 
 <img width="400" alt="VancouberEats-account" src="https://github.com/EricSapsford/UberEats-Clone/assets/128769940/ceaecb09-a6dd-465f-a4a9-5c5e031fc693">
 
