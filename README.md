@@ -2,7 +2,7 @@
 
 VancouberEats is an UberEats-inspired e-commerce platform designed to connect people with restaurants. It allows users to explore restaurants and menu items, place new orders and re-order past orders, leave reviews, and create their own restaurants and menus.
 
-[Live site](https://vancouvereats.onrender.com/) | [Wiki](https://github.com/EricSapsford/UberEats-Clone/wiki)
+[Live Site](https://vancouvereats.onrender.com/) | [Wiki](https://github.com/EricSapsford/UberEats-Clone/wiki)
 
 ## Tech Stack
 
