@@ -13,28 +13,28 @@ import { thunkGetPastOrders } from '../../store/orders';
 export default function RestaurantDetails() {
   const dispatch = useDispatch();
   const { restaurantId } = useParams();
-  const [avgRating, setAvgRating] = useState(null)
-  const [isLoaded, setIsLoaded] = useState(false)
+  const [avgRating, setAvgRating] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
   const restaurant = useSelector(state => state.restaurant.singleRestaurant ? state.restaurant.singleRestaurant : {});
-  const sessionUser = useSelector(state => state.session.user)
+  const sessionUser = useSelector(state => state.session.user);
   const menuItemsArr = Object.values(
     useSelector((state) => (state.menuItems.allMenuItemsForRest ? state.menuItems.allMenuItemsForRest : {}))
   );
-  const reviews = useSelector(state => state.reviews)
-  const reviewList = Object.values(reviews.reviews)
+  const reviews = useSelector(state => state.reviews);
+  const reviewList = Object.values(reviews.reviews);
 
   const appetizersArr = menuItemsArr.filter(menuItem => {
     return menuItem.type === "MenuItemEnum.appetizer"
-  })
+  });
   const entreesArr = menuItemsArr.filter(menuItem => {
     return menuItem.type === "MenuItemEnum.entree"
-  })
+  });
   const dessertsArr = menuItemsArr.filter(menuItem => {
     return menuItem.type === "MenuItemEnum.dessert"
-  })
+  });
   const beveragesArr = menuItemsArr.filter(menuItem => {
     return menuItem.type === "MenuItemEnum.beverage"
-  })
+  });
 
   useEffect(() => {
     const sumStars = reviewList.reduce((sum, review) => sum + review.stars, 0);
@@ -54,7 +54,7 @@ export default function RestaurantDetails() {
     if (restaurant.id == restaurantId) {
       setIsLoaded(true)
     }
-  }, [restaurant])
+  }, [restaurant]);
 
   return (
     <>
