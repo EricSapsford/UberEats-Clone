@@ -15,7 +15,19 @@ VancouberEats is an UberEats-inspired e-commerce platform designed to connect pe
  ### Hosting:
  ![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white)
 
-## Installation
+## Features
+
+1. Restaurants
+2. Menu Items
+3. Reviews
+4. Orders
+5. AWS S3 (image storage)
+
+## Future Features
+
+1. Maps API
+
+## Setup
 1. Clone this repository 
 
 2. Install dependencies
@@ -54,14 +66,9 @@ VancouberEats is an UberEats-inspired e-commerce platform designed to connect pe
 
 7. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
 
-## Features
+## Contact
 
-1. Restaurants
-2. Menu Items
-3. Reviews
-4. Orders
-5. AWS S3 (image storage)
-
-## Future Features
-
-1. Maps API
+• [Will Campbell](https://willcampbell.xyz/) | [LinkedIn](https://www.linkedin.com/in/will-campbell22/) | [GitHub](https://github.com/wpcamp)
+• [Erica Maranowski](https://emaranowski.com/) | [LinkedIn](https://www.linkedin.com/in/erica-maranowski/) | [GitHub](https://github.com/emaranowski)
+• [Josh Pascual](https://joshapascual.com/) | [LinkedIn](https://www.linkedin.com/in/josh-pascual/) | [GitHub](https://github.com/joshpas24)
+• [Eric Sapsford](https://github.com/EricSapsford) | [GitHub](https://github.com/EricSapsford)
