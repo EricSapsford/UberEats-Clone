@@ -4,7 +4,7 @@ VancouberEats is an UberEats-inspired e-commerce platform designed to connect pe
 
 [Live Site](https://vancouvereats.onrender.com/) | [Wiki](https://github.com/EricSapsford/UberEats-Clone/wiki)
 
-<img width="450" alt="VancouberEats-homepage" src="https://github.com/EricSapsford/UberEats-Clone/assets/128769940/c8dd189e-70ab-49b8-92d4-8ee41c696b6e">
+<img width="400" alt="VancouberEats-homepage" src="https://github.com/EricSapsford/UberEats-Clone/assets/128769940/1aef2c7e-043c-4a90-bba1-d04ae0c34976">
 
 ## Tech Stack
 
@@ -24,8 +24,6 @@ VancouberEats is an UberEats-inspired e-commerce platform designed to connect pe
 3. Reviews
 4. Orders
 5. AWS S3 (image storage)
-
-### Restaurants
 
 ## Future Features
 
