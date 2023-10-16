@@ -29,24 +29,31 @@ VancouberEats is an e-commerce platform designed to connect people with restaura
 8. AWS S3 (image storage)
 
 ### Restaurants:
+Users can browse restaurants to explore and order from.
 <img width="400" alt="VancouberEats-restaurants" src="https://github.com/EricSapsford/UberEats-Clone/assets/128769940/7b438fc0-24bd-4ec5-b7c8-88b7ecb97da3">
 
 ### Menu Items:
+Users can view all menu items for each restaurant.
 <img width="400" alt="VancouberEats-menu-items" src="https://github.com/EricSapsford/UberEats-Clone/assets/128769940/01b0df4f-2673-445b-abc8-12c002b9df7f">
 
 ### Reviews:
+Users can read reviews for each restaurant, and leave reviews for restaurants they have ordered from.
 <img width="400" alt="VancouberEats-reviews" src="https://github.com/EricSapsford/UberEats-Clone/assets/128769940/4b30bbbe-3bf7-453a-86b8-3fecbacb7473">
 
 ### Cart:
+Users can add items to their cart from a single restaurant.
 <img width="400" alt="VancouberEats-cart" src="https://github.com/EricSapsford/UberEats-Clone/assets/128769940/7a2109ee-25fc-41ab-8647-fcdc3f07b6a4">
 
 ### Checkout:
+Users can checkout to place an order from a single restaurant.
 <img width="400" alt="VancouberEats-checkout" src="https://github.com/EricSapsford/UberEats-Clone/assets/128769940/714efb87-4d16-4585-a77f-339dda9ba0eb">
 
 ### Past Orders:
+Users can view and re-order their past orders.
 <img width="400" alt="VancouberEats-orders" src="https://github.com/EricSapsford/UberEats-Clone/assets/128769940/c9a81a0a-26c8-43ed-8eea-67a2e77769d5">
 
 ### Manage Account:
+Users can manage their account and navigate to create, update, and delete restaurants and menu items.
 <img width="400" alt="VancouberEats-account" src="https://github.com/EricSapsford/UberEats-Clone/assets/128769940/ceaecb09-a6dd-465f-a4a9-5c5e031fc693">
 
 ## Future Features
