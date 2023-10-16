@@ -69,6 +69,9 @@ VancouberEats is an UberEats-inspired e-commerce platform designed to connect pe
 ## Contact
 
 • [Will Campbell](https://willcampbell.xyz/) | [LinkedIn](https://www.linkedin.com/in/will-campbell22/) | [GitHub](https://github.com/wpcamp)
+
 • [Erica Maranowski](https://emaranowski.com/) | [LinkedIn](https://www.linkedin.com/in/erica-maranowski/) | [GitHub](https://github.com/emaranowski)
+
 • [Josh Pascual](https://joshapascual.com/) | [LinkedIn](https://www.linkedin.com/in/josh-pascual/) | [GitHub](https://github.com/joshpas24)
+
 • [Eric Sapsford](https://github.com/EricSapsford) | [GitHub](https://github.com/EricSapsford)
