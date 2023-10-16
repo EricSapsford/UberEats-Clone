@@ -17,13 +17,37 @@ VancouberEats is an UberEats-inspired e-commerce platform designed to connect pe
  ### Hosting:
  ![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white)
 
-## Features
+## Features & Functionality
 
 1. Restaurants
 2. Menu Items
 3. Reviews
-4. Orders
-5. AWS S3 (image storage)
+4. Cart
+5. Checkout
+6. Past Orders
+7. Manage Account
+8. AWS S3 (image storage)
+
+### Restaurants:
+<img width="400" alt="VancouberEats-restaurants" src="https://github.com/EricSapsford/UberEats-Clone/assets/128769940/7b438fc0-24bd-4ec5-b7c8-88b7ecb97da3">
+
+### Menu Items:
+<img width="400" alt="VancouberEats-menu-items" src="https://github.com/EricSapsford/UberEats-Clone/assets/128769940/01b0df4f-2673-445b-abc8-12c002b9df7f">
+
+### Reviews:
+<img width="400" alt="VancouberEats-reviews" src="https://github.com/EricSapsford/UberEats-Clone/assets/128769940/4b30bbbe-3bf7-453a-86b8-3fecbacb7473">
+
+### Cart:
+<img width="400" alt="VancouberEats-cart" src="https://github.com/EricSapsford/UberEats-Clone/assets/128769940/7a2109ee-25fc-41ab-8647-fcdc3f07b6a4">
+
+### Checkout:
+<img width="400" alt="VancouberEats-checkout" src="https://github.com/EricSapsford/UberEats-Clone/assets/128769940/714efb87-4d16-4585-a77f-339dda9ba0eb">
+
+### Past Orders:
+<img width="400" alt="VancouberEats-orders" src="https://github.com/EricSapsford/UberEats-Clone/assets/128769940/7f0f3379-556d-4584-8e32-66b6c2ed5df3">
+
+### Manage Account:
+<img width="400" alt="VancouberEats-account" src="https://github.com/EricSapsford/UberEats-Clone/assets/128769940/ceaecb09-a6dd-465f-a4a9-5c5e031fc693">
 
 ## Future Features
 
