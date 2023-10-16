@@ -44,7 +44,7 @@ VancouberEats is an UberEats-inspired e-commerce platform designed to connect pe
 <img width="400" alt="VancouberEats-checkout" src="https://github.com/EricSapsford/UberEats-Clone/assets/128769940/714efb87-4d16-4585-a77f-339dda9ba0eb">
 
 ### Past Orders:
-<img width="400" alt="VancouberEats-orders" src="https://github.com/EricSapsford/UberEats-Clone/assets/128769940/7f0f3379-556d-4584-8e32-66b6c2ed5df3">
+<img width="400" alt="VancouberEats-orders" src="https://github.com/EricSapsford/UberEats-Clone/assets/128769940/c9a81a0a-26c8-43ed-8eea-67a2e77769d5">
 
 ### Manage Account:
 <img width="400" alt="VancouberEats-account" src="https://github.com/EricSapsford/UberEats-Clone/assets/128769940/ceaecb09-a6dd-465f-a4a9-5c5e031fc693">
