@@ -6,4 +6,5 @@
 .menu-item-error-text {
     color: rgba(255, 0, 0, 0.778);
     font-size: 12px;
+    margin-left: 5px;
 }
