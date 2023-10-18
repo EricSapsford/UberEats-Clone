@@ -10,7 +10,7 @@ import "./RestaurantFormUpdate.css"
 
 // restaurantActions.createRestaurantThunk(restaurant)
 
-function RestaurantForm({ restaurant, formType }) {
+export default function RestaurantForm({ restaurant, formType }) {
   const dispatch = useDispatch();
   const history = useHistory();
   const { restaurantId } = useParams();
@@ -163,8 +163,23 @@ function RestaurantForm({ restaurant, formType }) {
         }
       }
     }
-  }
+  };
 
+  useEffect(() => {
+    if (name.length > 25) {
+      errors.name = "Name must be a maximum of 25 characters";
+    } else {
+      errors.name = "";
+    }
+  }, [name]);
+
+  useEffect(() => {
+    if (streetAddress.length >= 31) {
+      errors.streetAddress = "Street address must be a maximum of 30 characters";
+    } else if (streetAddress.length <= 30) {
+      errors.streetAddress = "";
+    }
+  }, [streetAddress]);
 
   return (
     <>
@@ -225,7 +240,7 @@ function RestaurantForm({ restaurant, formType }) {
                     required
                   />
                 </div>
-                {errors.name && (<div className="errorsDiv">{errors.name}</div>)}
+                {errors.name && (<div className="menu-item-error-text">{errors.name}</div>)}
               </div>
 
               <div className={formType === "Update Restaurant" ? "update-restaurant-cat-address-div" : null}>
@@ -348,7 +363,7 @@ function RestaurantForm({ restaurant, formType }) {
                     required
                   />
                 </div>
-                {errors.streetAddress && (<div className="errorsDiv">{errors.streetAddress}</div>)}
+                {errors.streetAddress && (<div className="menu-item-error-text">{errors.streetAddress}</div>)}
               </div>
 
               {/* IMAGEURL - CREATE*/}
@@ -417,6 +432,4 @@ function RestaurantForm({ restaurant, formType }) {
       </form >
     </>
   )
-}
-
-export default RestaurantForm
+};
