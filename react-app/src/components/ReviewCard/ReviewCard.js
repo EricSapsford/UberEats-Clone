@@ -14,7 +14,7 @@ export default function ReviewCard() {
     const sessionUser = useSelector(state => state.session.user)
     const restaurant = useSelector(state => state.restaurant.singleRestaurant)
     const pastOrders = useSelector(state => state.orders.pastOrders)
-    console.log("pastOrders", pastOrders);
+    // console.log("pastOrders", pastOrders);
     const [isLoaded, setIsLoaded] = useState(false)
 
     useEffect(() => {

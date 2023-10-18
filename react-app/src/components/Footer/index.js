@@ -72,10 +72,10 @@ export default function Footer() {
                   <div>Erica Maranowski</div>
                 </a>
                 <div className='footer-links'>
-                  <a href="https://github.com/emaranowski" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.linkedin.com/in/erica-maranowski/" target="_blank" rel="noopener noreferrer">
                     <i class="fa-brands fa-linkedin"></i>
                   </a>
-                  <a href="https://www.linkedin.com/in/erica-maranowski/" target="_blank" rel="noopener noreferrer">
+                  <a href="https://github.com/emaranowski" target="_blank" rel="noopener noreferrer">
                     <i class="fa-brands fa-github"></i>
                   </a>
                 </div>

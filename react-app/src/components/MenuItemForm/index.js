@@ -141,6 +141,22 @@ export default function MenuItemForm({ formType, menuItem }) {
     }
   };
 
+  useEffect(() => {
+    if (name.length > 25) {
+      errors.name = "Name must be a maximum of 25 characters";
+    } else {
+      errors.name = "";
+    }
+  }, [name]);
+
+  useEffect(() => {
+    if (description.length > 200) {
+      errors.description = "Description must be a maximum of 200 characters";
+    } else {
+      errors.description = "";
+    }
+  }, [description]);
+
   return (
     <>
       {isLoaded && (

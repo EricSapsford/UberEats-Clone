@@ -25,7 +25,7 @@ export default function SignupFormModal() {
 		if (password === confirmPassword) {
 			const data = await dispatch(signUp(firstName, lastName, streetAddress, email, username, password));
 			if (data) {
-				console.log(data)
+				// console.log(data)
 				setSubmitErrors(data);
 			} else {
 				closeModal();
@@ -46,7 +46,7 @@ export default function SignupFormModal() {
 	}, [password])
 
 	useEffect(() => {
-		if (confirmPassword && (confirmPassword !== password) && confirmPassword.length < 8) {
+		if (confirmPassword && (confirmPassword !== password) && confirmPassword.length < 6) {
 			setErrors({ "confirmPassword": "Passwords do not match" })
 		} else {
 			setErrors({})
@@ -80,7 +80,7 @@ export default function SignupFormModal() {
 
 	useEffect(() => {
 		if (username && username.length < 4) {
-			setErrors({'username': 'Minimum 4 characters'})
+			setErrors({ 'username': 'Minimum 4 characters' })
 		} else {
 			setErrors({})
 		}
@@ -88,11 +88,11 @@ export default function SignupFormModal() {
 
 	useEffect(() => {
 		if (errors.firstName || errors.lastName || !isValidEmail || errors.email || errors.password || errors.confirmPassword) {
-		  setDisabled(true)
+			setDisabled(true)
 		} else {
-		  setDisabled(false)
+			setDisabled(false)
 		}
-	  }, [errors])
+	}, [errors])
 
 	// console.log("errors HERE", errors);
 
@@ -114,8 +114,8 @@ export default function SignupFormModal() {
 							value={firstName}
 							onChange={(e) => setFirstName(e.target.value)}
 							required
-							/>
-							{/* {errors.firstName && (<p className="error-message">{errors.firstName}</p>)} */}
+						/>
+						{/* {errors.firstName && (<p className="error-message">{errors.firstName}</p>)} */}
 					</label>
 					<label>
 						<span className='signup-label-text'>Last Name</span>
@@ -125,8 +125,8 @@ export default function SignupFormModal() {
 							value={lastName}
 							onChange={(e) => setLastName(e.target.value)}
 							required
-							/>
-							{errors.lastName && (<p className="error-message">{errors.lastName}</p>)}
+						/>
+						{errors.lastName && (<p className="error-message">{errors.lastName}</p>)}
 					</label>
 					<label>
 						<span className='signup-label-text'>Street Address</span>
