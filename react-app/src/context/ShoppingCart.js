@@ -1,15 +1,20 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 const ShoppingCartContext = createContext();
 
 export function ShoppingCartProvider({ children }) {
-  const [cart, setCart] = useState(() => {
-    const savedCart = localStorage.getItem('cart');
-    return savedCart ? JSON.parse(savedCart) : [];
-  });
+  const user = useSelector(state => state.session.user)
+
+  const [cart, setCart] = useState([])
 
   useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cart));
+     const savedCart = localStorage.getItem(`cart_${user?.id}`);
+     setCart(savedCart ? JSON.parse(savedCart) : []);
+  }, [user])
+
+  useEffect(() => {
+    localStorage.setItem(`cart_${user?.id}`, JSON.stringify(cart));
   }, [cart]);
 
   return (

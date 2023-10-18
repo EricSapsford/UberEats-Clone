@@ -38,8 +38,8 @@ export default function SignupFormModal() {
 	};
 
 	useEffect(() => {
-		if (password.length > 0 && password.length < 8) {
-			setErrors({ "password": "Password must be a minimum of 8 characters" })
+		if (password.length > 0 && password.length < 6) {
+			setErrors({ "password": "Password must be a minimum of 6 characters" })
 		} else {
 			setErrors({})
 		}
