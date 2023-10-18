@@ -91,12 +91,12 @@
 
 #yesNoButtons {
     display: flex;
-    flex-direction: row ;
+    flex-direction: row;
     justify-content: center;
     gap: 10px;
 }
 
-#yesNoButtons button{
+#yesNoButtons button {
     cursor: pointer;
     background-color: white;
     font-size: 10pt;
@@ -106,4 +106,15 @@
     margin-top: 15px;
     border: 2px solid black;
     padding: 8px 10px;
+}
+
+.review-error-text {
+    color: rgba(255, 0, 0, 0.778);
+    font-size: 12px;
+    margin-left: 25px;
+}
+
+.review-star-error-text {
+    color: rgba(255, 0, 0, 0.778);
+    font-size: 12px;
 }
