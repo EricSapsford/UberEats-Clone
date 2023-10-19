@@ -17,7 +17,7 @@ export default function SignupFormModal() {
   const [isValidEmail, setIsValidEmail] = useState(true);
   const [errors, setErrors] = useState({});
   const [submitErrors, setSubmitErrors] = useState([]);
-  const [disabled, setDisabled] = useState(true)
+  const [disabled, setDisabled] = useState(true);
   const [triggerRerenderToggle, setTriggerRerenderToggle] = useState(false);
   const { closeModal } = useModal();
 
@@ -40,6 +40,7 @@ export default function SignupFormModal() {
   useEffect(() => {
     if (firstName && firstName.length < 1) {
       errors.firstName = 'Minimum 1 character';
+      setDisabled(true);
       setTriggerRerenderToggle(!triggerRerenderToggle);
     } else {
       errors.firstName = "";
@@ -49,6 +50,7 @@ export default function SignupFormModal() {
   useEffect(() => {
     if (lastName && lastName.length < 2) {
       errors.lastName = 'Minimum 2 characters';
+      setDisabled(true);
       setTriggerRerenderToggle(!triggerRerenderToggle);
     } else {
       errors.lastName = "";
@@ -66,6 +68,7 @@ export default function SignupFormModal() {
   useEffect(() => {
     if (username && username.length < 4) {
       errors.username = 'Minimum 4 characters';
+      setDisabled(true);
       setTriggerRerenderToggle(!triggerRerenderToggle);
     } else {
       errors.username = "";
@@ -95,23 +98,28 @@ export default function SignupFormModal() {
     setTriggerRerenderToggle(!triggerRerenderToggle);
   }, [password, confirmPassword]);
 
+  // useEffect(() => {
+  //   if (errors.firstName || errors.lastName ||
+  //     !isValidEmail || errors.email ||
+  //     errors.password || errors.confirmPassword) {
+  //     setDisabled(true);
+  //     setTriggerRerenderToggle(!triggerRerenderToggle);
+  //   } else if (!errors.firstName || !errors.lastName ||
+  //     isValidEmail || !errors.email ||
+  //     !errors.password || !errors.confirmPassword) {
+  //     setDisabled(false);
+  //     setTriggerRerenderToggle(!triggerRerenderToggle);
+  //   };
+  //   setTriggerRerenderToggle(!triggerRerenderToggle);
+  // }, [errors, isValidEmail]);
+
   useEffect(() => {
-    if (errors.firstName || errors.lastName ||
-      !isValidEmail || errors.email ||
-      errors.password || errors.confirmPassword) {
-      setDisabled(true);
-      // setTriggerRerenderToggle(!triggerRerenderToggle);
-    } else if (!errors.firstName || !errors.lastName ||
+    if (!errors.firstName || !errors.lastName ||
       isValidEmail || !errors.email ||
       !errors.password || !errors.confirmPassword) {
       setDisabled(false);
-      // setTriggerRerenderToggle(!triggerRerenderToggle);
     };
-    setTriggerRerenderToggle(!triggerRerenderToggle);
-  }, [errors, isValidEmail]);
-
-  useEffect(() => {
-  }, [triggerRerenderToggle, disabled]);
+  }, [triggerRerenderToggle]);
 
   return (
     <>
