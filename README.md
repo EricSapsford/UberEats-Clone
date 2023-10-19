@@ -108,10 +108,10 @@ Users can manage their account and create, update, and delete restaurants and me
 
 ## Contact
 
-• [Will Campbell](https://willcampbell.xyz/) &nbsp; | &nbsp; [LinkedIn](https://www.linkedin.com/in/will-campbell22/) &nbsp; | &nbsp; [GitHub](https://github.com/wpcamp)
+• &nbsp; [Will Campbell](https://willcampbell.xyz/) &nbsp; | &nbsp; [LinkedIn](https://www.linkedin.com/in/will-campbell22/) &nbsp; | &nbsp; [GitHub](https://github.com/wpcamp)
 
-• [Erica Maranowski](https://emaranowski.com/) &nbsp; | &nbsp; [LinkedIn](https://www.linkedin.com/in/erica-maranowski/) &nbsp; | &nbsp; [GitHub](https://github.com/emaranowski)
+• &nbsp; [Erica Maranowski](https://emaranowski.com/) &nbsp; | &nbsp; [LinkedIn](https://www.linkedin.com/in/erica-maranowski/) &nbsp; | &nbsp; [GitHub](https://github.com/emaranowski)
 
-• [Josh Pascual](https://joshapascual.com/) &nbsp; | &nbsp; [LinkedIn](https://www.linkedin.com/in/josh-pascual/) &nbsp; | &nbsp; [GitHub](https://github.com/joshpas24)
+• &nbsp; [Josh Pascual](https://joshapascual.com/) &nbsp; | &nbsp; [LinkedIn](https://www.linkedin.com/in/josh-pascual/) &nbsp; | &nbsp; [GitHub](https://github.com/joshpas24)
 
-• [Eric Sapsford](https://github.com/EricSapsford) &nbsp; | &nbsp; [GitHub](https://github.com/EricSapsford)
+• &nbsp; [Eric Sapsford](https://github.com/EricSapsford) &nbsp; | &nbsp; [GitHub](https://github.com/EricSapsford)
