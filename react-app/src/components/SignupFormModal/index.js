@@ -18,11 +18,13 @@ export default function SignupFormModal() {
   const [errors, setErrors] = useState({});
   const [submitErrors, setSubmitErrors] = useState([]);
   const [disabled, setDisabled] = useState(true)
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [triggerRerenderToggle, setTriggerRerenderToggle] = useState(false);
   const { closeModal } = useModal();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (password === confirmPassword) {
+    if (password === confirmPassword && password.length >= 8) {
       const data = await dispatch(signUp(firstName, lastName, streetAddress, email, username, password));
       if (data) {
         // console.log(data)
@@ -75,6 +77,7 @@ export default function SignupFormModal() {
     } else {
       errors.password = "";
     }
+    setTriggerRerenderToggle(!triggerRerenderToggle);
   }, [password])
 
   useEffect(() => {
@@ -83,9 +86,7 @@ export default function SignupFormModal() {
     } else {
       errors.confirmPassword = "";
     }
-    console.log("**** errors:", errors)
-    console.log("**** password:", password)
-    console.log("**** confirmPassword:", confirmPassword)
+    setTriggerRerenderToggle(!triggerRerenderToggle);
   }, [password, confirmPassword])
 
   useEffect(() => {
@@ -96,105 +97,111 @@ export default function SignupFormModal() {
     } else {
       setDisabled(false)
     }
+    setIsLoaded(true);
   }, [errors, isValidEmail])
+
+  useEffect(() => {
+  }, [triggerRerenderToggle])
 
   // console.log("errors HERE", errors);
 
   return (
     <>
-      <div id="signUpModalDiv">
-        <h1>Sign Up</h1>
-        <form onSubmit={handleSubmit}>
-          {/* <ul>
+      {isLoaded && (
+        <div id="signUpModalDiv">
+          <h1>Sign Up</h1>
+          <form onSubmit={handleSubmit}>
+            {/* <ul>
 						{errors.map((error, idx) => (
 							<li key={idx}>{error}</li>
 						))}
 					</ul> */}
-          <label>
-            <span className='signup-label-text'>First Name</span>
-            <input
-              className="signUpLabel"
-              type="text"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-              required
-            />
-            {/* {errors.firstName && (<p className="error-message">{errors.firstName}</p>)} */}
-          </label>
-          <label>
-            <span className='signup-label-text'>Last Name</span>
-            <input
-              className="signUpLabel"
-              type="text"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-              required
-            />
-            {errors.lastName && (<p className="error-message">{errors.lastName}</p>)}
-          </label>
-          <label>
-            <span className='signup-label-text'>Street Address</span>
-            <input
-              className="signUpLabel"
-              type="text"
-              value={streetAddress}
-              onChange={(e) => setStreetAddress(e.target.value)}
-              required
-            />
-            {errors.streetAddress && (<p className="error-message">{errors.streetAddress}</p>)}
-          </label>
-          <label>
-            <span className='signup-label-text'>Email</span>
-            <input
-              className="signUpLabel"
-              type="text"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            {errors.email && (<p className="error-message">{errors.email}</p>)}
-            {!isValidEmail && <p className="error-message">Invalid email</p>}
-            {submitErrors.email && (<p className="error-message">{submitErrors.email}</p>)}
-          </label>
-          <label>
-            <span className='signup-label-text'>Username</span>
-            <input
-              className="signUpLabel"
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required
-            />
-            {errors.username && (<p className="error-message">{errors.username}</p>)}
-            {submitErrors.username && (<p className="error-message">{submitErrors.username}</p>)}
-          </label>
-          <label>
-            <span className='signup-label-text'>Password</span>
-            <input
-              className="signUpLabel"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-            {errors.password && (<p className="error-message">{errors.password}</p>)}
-          </label>
-          <label>
-            <span className='signup-label-text'>Confirm Password</span>
-            <input
-              className="signUpLabel"
-              type="password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-            />
-            {errors.confirmPassword && (<p className="error-message">{errors.confirmPassword}</p>)}
-          </label>
-          <button id='signupModalSignupButton' type="submit" disabled={disabled}>
-            Sign Up
-          </button>
-        </form>
-      </div>
+            <label>
+              <span className='signup-label-text'>First Name</span>
+              <input
+                className="signUpLabel"
+                type="text"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                required
+              />
+              {/* {errors.firstName && (<p className="error-message">{errors.firstName}</p>)} */}
+            </label>
+            <label>
+              <span className='signup-label-text'>Last Name</span>
+              <input
+                className="signUpLabel"
+                type="text"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                required
+              />
+              {errors.lastName && (<p className="error-message">{errors.lastName}</p>)}
+            </label>
+            <label>
+              <span className='signup-label-text'>Street Address</span>
+              <input
+                className="signUpLabel"
+                type="text"
+                value={streetAddress}
+                onChange={(e) => setStreetAddress(e.target.value)}
+                required
+              />
+              {errors.streetAddress && (<p className="error-message">{errors.streetAddress}</p>)}
+            </label>
+            <label>
+              <span className='signup-label-text'>Email</span>
+              <input
+                className="signUpLabel"
+                type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+              {errors.email && (<p className="error-message">{errors.email}</p>)}
+              {!isValidEmail && <p className="error-message">Invalid email</p>}
+              {submitErrors.email && (<p className="error-message">{submitErrors.email}</p>)}
+            </label>
+            <label>
+              <span className='signup-label-text'>Username</span>
+              <input
+                className="signUpLabel"
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+              />
+              {errors.username && (<p className="error-message">{errors.username}</p>)}
+              {submitErrors.username && (<p className="error-message">{submitErrors.username}</p>)}
+            </label>
+            <label>
+              <span className='signup-label-text'>Password</span>
+              <input
+                className="signUpLabel"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              {errors.password && (<p className="error-message">{errors.password}</p>)}
+            </label>
+            <label>
+              <span className='signup-label-text'>Confirm Password</span>
+              <input
+                className="signUpLabel"
+                type="password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+              />
+              {errors.confirmPassword && (<p className="error-message">{errors.confirmPassword}</p>)}
+            </label>
+            <button id='signupModalSignupButton' type="submit" disabled={disabled}>
+              Sign Up
+            </button>
+          </form>
+        </div>
+      )}
     </>
   );
 };
