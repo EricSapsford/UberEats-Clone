@@ -50,12 +50,20 @@ export default function SignupFormModal() {
   useEffect(() => {
     if (lastName.length > 0 && lastName.length < 2) {
       errors.lastName = 'Minimum 2 characters';
-      // setDisabled(true);
     } else {
       errors.lastName = "";
     };
     setTriggerRerenderToggle(!triggerRerenderToggle);
   }, [lastName]);
+
+  useEffect(() => {
+    if (streetAddress.length > 0 && streetAddress.length < 5) {
+      errors.streetAddress = 'Minimum 5 characters';
+    } else {
+      errors.streetAddress = "";
+    };
+    setTriggerRerenderToggle(!triggerRerenderToggle);
+  }, [streetAddress]);
 
   useEffect(() => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -68,7 +76,6 @@ export default function SignupFormModal() {
   useEffect(() => {
     if (username.length > 0 && username.length < 4) {
       errors.username = 'Minimum 4 characters';
-      // setDisabled(true);
     } else {
       errors.username = "";
     };
@@ -78,7 +85,6 @@ export default function SignupFormModal() {
   useEffect(() => {
     if (password.length > 0 && password.length < 8) {
       errors.password = "Minimum 8 characters";
-      // setDisabled(true);
     } else {
       errors.password = "";
     };
@@ -88,7 +94,6 @@ export default function SignupFormModal() {
   useEffect(() => {
     if (confirmPassword && (confirmPassword !== password)) {
       errors.confirmPassword = "Passwords must match";
-      // setDisabled(true);
     } else {
       errors.confirmPassword = "";
     };
@@ -97,12 +102,12 @@ export default function SignupFormModal() {
 
   useEffect(() => {
     if (errors.firstName || errors.lastName ||
-      !isValidEmail || errors.email ||
+      errors.streetAddress || !isValidEmail || errors.email ||
       errors.password || errors.confirmPassword) {
       setDisabled(true);
       setTriggerRerenderToggle(!triggerRerenderToggle);
     } else if (!errors.firstName || !errors.lastName ||
-      isValidEmail || !errors.email ||
+      !errors.streetAddress || isValidEmail || !errors.email ||
       !errors.password || !errors.confirmPassword) {
       setDisabled(false);
       setTriggerRerenderToggle(!triggerRerenderToggle);
@@ -111,11 +116,6 @@ export default function SignupFormModal() {
   }, [errors, isValidEmail]);
 
   useEffect(() => {
-    // if (!errors.firstName || !errors.lastName ||
-    //   isValidEmail || !errors.email ||
-    //   !errors.password || !errors.confirmPassword) {
-    //   setDisabled(false);
-    // };
   }, [triggerRerenderToggle, disabled]);
 
   return (
