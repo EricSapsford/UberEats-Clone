@@ -37,24 +37,24 @@ export default function SignupFormModal() {
     }
   };
 
-  useEffect(() => {
-    if (firstName && firstName.length < 1) {
-      errors.firstName = 'Minimum 1 character';
-      setDisabled(true);
-      setTriggerRerenderToggle(!triggerRerenderToggle);
-    } else {
-      errors.firstName = "";
-    };
-  }, [firstName]);
+  // useEffect(() => {
+  //   if (firstName && firstName.length < 1) {
+  //     errors.firstName = 'Minimum 1 character';
+  //     setDisabled(true);
+  //   } else {
+  //     errors.firstName = "";
+  //   };
+  //     setTriggerRerenderToggle(!triggerRerenderToggle);
+  // }, [firstName]);
 
   useEffect(() => {
-    if (lastName && lastName.length < 2) {
+    if (lastName.length > 0 && lastName.length < 2) {
       errors.lastName = 'Minimum 2 characters';
-      setDisabled(true);
-      setTriggerRerenderToggle(!triggerRerenderToggle);
+      // setDisabled(true);
     } else {
       errors.lastName = "";
     };
+    setTriggerRerenderToggle(!triggerRerenderToggle);
   }, [lastName]);
 
   useEffect(() => {
@@ -66,20 +66,19 @@ export default function SignupFormModal() {
   }, [email]);
 
   useEffect(() => {
-    if (username && username.length < 4) {
+    if (username.length > 0 && username.length < 4) {
       errors.username = 'Minimum 4 characters';
-      setDisabled(true);
-      setTriggerRerenderToggle(!triggerRerenderToggle);
+      // setDisabled(true);
     } else {
       errors.username = "";
     };
+    setTriggerRerenderToggle(!triggerRerenderToggle);
   }, [username]);
 
   useEffect(() => {
     if (password.length > 0 && password.length < 8) {
       errors.password = "Minimum 8 characters";
-      setDisabled(true);
-      setTriggerRerenderToggle(!triggerRerenderToggle);
+      // setDisabled(true);
     } else {
       errors.password = "";
     };
@@ -89,37 +88,35 @@ export default function SignupFormModal() {
   useEffect(() => {
     if (confirmPassword && (confirmPassword !== password)) {
       errors.confirmPassword = "Passwords must match";
-      setDisabled(true);
-      setTriggerRerenderToggle(!triggerRerenderToggle);
-
+      // setDisabled(true);
     } else {
       errors.confirmPassword = "";
     };
     setTriggerRerenderToggle(!triggerRerenderToggle);
   }, [password, confirmPassword]);
 
-  // useEffect(() => {
-  //   if (errors.firstName || errors.lastName ||
-  //     !isValidEmail || errors.email ||
-  //     errors.password || errors.confirmPassword) {
-  //     setDisabled(true);
-  //     setTriggerRerenderToggle(!triggerRerenderToggle);
-  //   } else if (!errors.firstName || !errors.lastName ||
-  //     isValidEmail || !errors.email ||
-  //     !errors.password || !errors.confirmPassword) {
-  //     setDisabled(false);
-  //     setTriggerRerenderToggle(!triggerRerenderToggle);
-  //   };
-  //   setTriggerRerenderToggle(!triggerRerenderToggle);
-  // }, [errors, isValidEmail]);
-
   useEffect(() => {
-    if (!errors.firstName || !errors.lastName ||
+    if (errors.firstName || errors.lastName ||
+      !isValidEmail || errors.email ||
+      errors.password || errors.confirmPassword) {
+      setDisabled(true);
+      setTriggerRerenderToggle(!triggerRerenderToggle);
+    } else if (!errors.firstName || !errors.lastName ||
       isValidEmail || !errors.email ||
       !errors.password || !errors.confirmPassword) {
       setDisabled(false);
+      setTriggerRerenderToggle(!triggerRerenderToggle);
     };
-  }, [triggerRerenderToggle]);
+    setTriggerRerenderToggle(!triggerRerenderToggle);
+  }, [errors, isValidEmail]);
+
+  useEffect(() => {
+    // if (!errors.firstName || !errors.lastName ||
+    //   isValidEmail || !errors.email ||
+    //   !errors.password || !errors.confirmPassword) {
+    //   setDisabled(false);
+    // };
+  }, [triggerRerenderToggle, disabled]);
 
   return (
     <>
@@ -212,7 +209,7 @@ export default function SignupFormModal() {
             {errors.confirmPassword && (<p className="error-message">{errors.confirmPassword}</p>)}
           </label>
           <button
-            id={disabled ? 'signupModalSignupButtonDisabled' : 'signupModalSignupButton'}
+            id='signupModalSignupButton'
             type="submit"
             disabled={disabled}
           >

@@ -15,20 +15,19 @@
     width: 94%;
 }
 
-#signupModalSignupButton {
-    cursor: pointer;
-}
-
 #signupModalSignupButton:hover {
+    cursor: pointer;
     background-color: green;
     border: 3px solid green !important;
 }
 
 #signupModalSignupButton:active {
+    cursor: pointer;
     border: 3px solid green !important;
 }
 
-#signupModalSignupButtonDisabled {
+#signupModalSignupButton:disabled {
+    cursor: default;
     background-color: grey;
     border: 3px solid grey !important;
 }
