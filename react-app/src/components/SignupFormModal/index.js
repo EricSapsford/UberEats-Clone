@@ -83,8 +83,9 @@ export default function SignupFormModal() {
     } else {
       errors.confirmPassword = "";
     }
-    // console.log("**** password:", password)
-    // console.log("**** confirmPassword:", confirmPassword)
+    console.log("**** errors:", errors)
+    console.log("**** password:", password)
+    console.log("**** confirmPassword:", confirmPassword)
   }, [password, confirmPassword])
 
   useEffect(() => {
