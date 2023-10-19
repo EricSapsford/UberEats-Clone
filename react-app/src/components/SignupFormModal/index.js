@@ -17,7 +17,7 @@ export default function SignupFormModal() {
   const [isValidEmail, setIsValidEmail] = useState(true);
   const [errors, setErrors] = useState({});
   const [submitErrors, setSubmitErrors] = useState([]);
-  const [disabled, setDisabled] = useState(true)
+  const [disabled, setDisabled] = useState(true);
   const [triggerRerenderToggle, setTriggerRerenderToggle] = useState(false);
   const { closeModal } = useModal();
 
@@ -38,19 +38,23 @@ export default function SignupFormModal() {
   };
 
   // useEffect(() => {
-  // 	if (firstName && firstName.length < 2) {
-  //     errors.firstName = 'Minimum 2 characters';
-  // 	} else {
+  //   if (firstName && firstName.length < 1) {
+  //     errors.firstName = 'Minimum 1 character';
+  //     setDisabled(true);
+  //   } else {
   //     errors.firstName = "";
-  // 	};
+  //   };
+  //     setTriggerRerenderToggle(!triggerRerenderToggle);
   // }, [firstName]);
 
   useEffect(() => {
-    if (lastName && lastName.length < 2) {
+    if (lastName.length > 0 && lastName.length < 2) {
       errors.lastName = 'Minimum 2 characters';
+      // setDisabled(true);
     } else {
       errors.lastName = "";
     };
+    setTriggerRerenderToggle(!triggerRerenderToggle);
   }, [lastName]);
 
   useEffect(() => {
@@ -62,16 +66,19 @@ export default function SignupFormModal() {
   }, [email]);
 
   useEffect(() => {
-    if (username && username.length < 4) {
+    if (username.length > 0 && username.length < 4) {
       errors.username = 'Minimum 4 characters';
+      // setDisabled(true);
     } else {
       errors.username = "";
     };
+    setTriggerRerenderToggle(!triggerRerenderToggle);
   }, [username]);
 
   useEffect(() => {
     if (password.length > 0 && password.length < 8) {
       errors.password = "Minimum 8 characters";
+      // setDisabled(true);
     } else {
       errors.password = "";
     };
@@ -81,6 +88,7 @@ export default function SignupFormModal() {
   useEffect(() => {
     if (confirmPassword && (confirmPassword !== password)) {
       errors.confirmPassword = "Passwords must match";
+      // setDisabled(true);
     } else {
       errors.confirmPassword = "";
     };
@@ -92,14 +100,23 @@ export default function SignupFormModal() {
       !isValidEmail || errors.email ||
       errors.password || errors.confirmPassword) {
       setDisabled(true);
-    } else {
+      setTriggerRerenderToggle(!triggerRerenderToggle);
+    } else if (!errors.firstName || !errors.lastName ||
+      isValidEmail || !errors.email ||
+      !errors.password || !errors.confirmPassword) {
       setDisabled(false);
+      setTriggerRerenderToggle(!triggerRerenderToggle);
     };
     setTriggerRerenderToggle(!triggerRerenderToggle);
   }, [errors, isValidEmail]);
 
   useEffect(() => {
-  }, [triggerRerenderToggle]);
+    // if (!errors.firstName || !errors.lastName ||
+    //   isValidEmail || !errors.email ||
+    //   !errors.password || !errors.confirmPassword) {
+    //   setDisabled(false);
+    // };
+  }, [triggerRerenderToggle, disabled]);
 
   return (
     <>
@@ -191,7 +208,11 @@ export default function SignupFormModal() {
             />
             {errors.confirmPassword && (<p className="error-message">{errors.confirmPassword}</p>)}
           </label>
-          <button id='signupModalSignupButton' type="submit" disabled={disabled}>
+          <button
+            id='signupModalSignupButton'
+            type="submit"
+            disabled={disabled}
+          >
             Sign Up
           </button>
         </form>
