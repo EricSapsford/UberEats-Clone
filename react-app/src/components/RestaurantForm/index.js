@@ -15,13 +15,14 @@ export default function RestaurantForm({ restaurant, formType }) {
   const history = useHistory();
   const { restaurantId } = useParams();
 
-  const [name, setName] = useState(restaurant?.name)
-  const [streetAddress, setStreetAddress] = useState(restaurant?.streetAddress)
-  const [category, setCategory] = useState(restaurant?.category)
-  const [priceRange, setPriceRange] = useState(restaurant?.priceRange)
-  const [imageFile, setImageFile] = useState('')
-  const [imageUrl, setImageUrl] = useState(restaurant?.imageUrl)
-  const [newImageToggle, setNewImageToggle] = useState(false)
+  const [name, setName] = useState(restaurant?.name);
+  const [streetAddress, setStreetAddress] = useState(restaurant?.streetAddress);
+  const [category, setCategory] = useState(restaurant?.category);
+  const [priceRange, setPriceRange] = useState(restaurant?.priceRange);
+  const [imageFile, setImageFile] = useState('');
+  const [imageUrl, setImageUrl] = useState(restaurant?.imageUrl);
+  const [newImageToggle, setNewImageToggle] = useState(false);
+  const [triggerRerenderToggle, setTriggerRerenderToggle] = useState(false);
 
   const [disabled, setDisabled] = useState(false);
   const [errors, setErrors] = useState([]);
@@ -29,11 +30,10 @@ export default function RestaurantForm({ restaurant, formType }) {
   const handleCancel = async (e) => {
     e.preventDefault();
 
-
     restaurant = {
       ...restaurant,
       restaurantId: restaurant.id
-    }
+    };
 
     try {
       const res = await dispatch(restaurantActions.updateRestaurantThunk(restaurant));
@@ -53,9 +53,8 @@ export default function RestaurantForm({ restaurant, formType }) {
       if (data && data.errors) {
         setErrors(data.errors);
       }
-    }
-  }
-
+    };
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -167,19 +166,24 @@ export default function RestaurantForm({ restaurant, formType }) {
 
   useEffect(() => {
     if (name.length > 25) {
-      errors.name = "Name must be a maximum of 25 characters";
+      errors.name = "Maximum 25 characters";
     } else {
       errors.name = "";
     }
+    setTriggerRerenderToggle(!triggerRerenderToggle);
   }, [name]);
 
   useEffect(() => {
     if (streetAddress.length >= 31) {
-      errors.streetAddress = "Street address must be a maximum of 30 characters";
+      errors.streetAddress = "Maximum 30 characters";
     } else if (streetAddress.length <= 30) {
       errors.streetAddress = "";
-    }
+    };
+    setTriggerRerenderToggle(!triggerRerenderToggle);
   }, [streetAddress]);
+
+  useEffect(() => {
+  }, [triggerRerenderToggle]);
 
   return (
     <>

@@ -24,10 +24,7 @@ export default function MenuItemForm({ formType, menuItem }) {
   const [disabled, setDisabled] = useState(false);
   const [errors, setErrors] = useState({});
   const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    setIsLoaded(true);
-  }, [dispatch]);
+  const [triggerRerenderToggle, setTriggerRerenderToggle] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -142,20 +139,29 @@ export default function MenuItemForm({ formType, menuItem }) {
   };
 
   useEffect(() => {
+    setIsLoaded(true);
+  }, [dispatch]);
+
+  useEffect(() => {
     if (name.length > 25) {
-      errors.name = "Name must be a maximum of 25 characters";
+      errors.name = "Maximum 25 characters";
     } else {
       errors.name = "";
-    }
+    };
+    setTriggerRerenderToggle(!triggerRerenderToggle);
   }, [name]);
 
   useEffect(() => {
     if (description.length > 200) {
-      errors.description = "Description must be a maximum of 200 characters";
+      errors.description = "Maximum 200 characters";
     } else {
       errors.description = "";
-    }
+    };
+    setTriggerRerenderToggle(!triggerRerenderToggle);
   }, [description]);
+
+  useEffect(() => {
+  }, [triggerRerenderToggle]);
 
   return (
     <>

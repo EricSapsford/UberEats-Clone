@@ -16,9 +16,9 @@ function CreateReviewModal(restaurantId) {
   const [errors, setErrors] = useState([]);
   const [reviewErrors, setReviewErrors] = useState({});
   const [starErrors, setStarErrors] = useState({});
+  const [triggerRerenderToggle, setTriggerRerenderToggle] = useState(false);
   const { closeModal } = useModal();
   const sessionUser = useSelector(state => state.session.user);
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,31 +28,53 @@ function CreateReviewModal(restaurantId) {
       userId: sessionUser.id,
       reviewText: reviewText,
       stars: stars,
-    }
+    };
 
-    const data = await dispatch(thunkCreateReview(restaurantId.restaurantId, review))
+    const data = await dispatch(thunkCreateReview(restaurantId.restaurantId, review));
+
     if (data) {
-      setErrors(data)
+      setErrors(data);
     } else {
-      closeModal()
-    }
-    closeModal()
+      closeModal();
+    };
+    closeModal();
   };
-  // console.log("heres the number of stars:", stars)
+
+  useEffect(() => {
+    if (reviewText.length > 0 && reviewText.length < 10) {
+      reviewErrors.reviewText = "Minimum 10 characters";
+    } else if (reviewText.length >= 10 && reviewText.length <= 200) {
+      reviewErrors.reviewText = "";
+    };
+    setTriggerRerenderToggle(!triggerRerenderToggle);
+  }, [reviewText]);
 
   useEffect(() => {
     if (reviewText.length > 200) {
-      reviewErrors.reviewText = "Review text must be a maximum of 200 characters";
-    } else {
+      reviewErrors.reviewText = "Maximum 200 characters";
+    } else if (reviewText.length >= 10 && reviewText.length <= 200) {
       reviewErrors.reviewText = "";
-    }
+    };
+    setTriggerRerenderToggle(!triggerRerenderToggle);
   }, [reviewText]);
+
+  useEffect(() => {
+    if (reviewText.length > 0 && stars === 0) {
+      starErrors.stars = "Please select a star rating";
+    } else {
+      starErrors.stars = "";
+    };
+    setTriggerRerenderToggle(!triggerRerenderToggle);
+  }, [reviewText, stars]);
+
+  useEffect(() => {
+  }, [triggerRerenderToggle]);
 
   return (
     <>
       <div id='createReviewModal'>
         <div id="createReviewHeader">How was your dining experience?</div>
-        <div id="reviewLengthNote">Please write at least 10 characters, and select a star rating</div>
+        {/* <div id="reviewLengthNote">Please write at least 10 characters, and select a star rating</div> */}
         <div>
           <textarea
             id="createReviewTextArea"
