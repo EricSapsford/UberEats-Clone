@@ -28,6 +28,11 @@
     border: 3px solid green !important;
 }
 
+#signupModalSignupButtonDisabled {
+    background-color: grey;
+    border: 3px solid grey !important;
+}
+
 .error-message {
     color: red;
     font-size: 12px;

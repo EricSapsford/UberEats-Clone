@@ -37,17 +37,19 @@ export default function SignupFormModal() {
     }
   };
 
-  // useEffect(() => {
-  // 	if (firstName && firstName.length < 2) {
-  //     errors.firstName = 'Minimum 2 characters';
-  // 	} else {
-  //     errors.firstName = "";
-  // 	};
-  // }, [firstName]);
+  useEffect(() => {
+    if (firstName && firstName.length < 1) {
+      errors.firstName = 'Minimum 1 character';
+      setTriggerRerenderToggle(!triggerRerenderToggle);
+    } else {
+      errors.firstName = "";
+    };
+  }, [firstName]);
 
   useEffect(() => {
     if (lastName && lastName.length < 2) {
       errors.lastName = 'Minimum 2 characters';
+      setTriggerRerenderToggle(!triggerRerenderToggle);
     } else {
       errors.lastName = "";
     };
@@ -64,6 +66,7 @@ export default function SignupFormModal() {
   useEffect(() => {
     if (username && username.length < 4) {
       errors.username = 'Minimum 4 characters';
+      setTriggerRerenderToggle(!triggerRerenderToggle);
     } else {
       errors.username = "";
     };
@@ -72,6 +75,8 @@ export default function SignupFormModal() {
   useEffect(() => {
     if (password.length > 0 && password.length < 8) {
       errors.password = "Minimum 8 characters";
+      setDisabled(true);
+      setTriggerRerenderToggle(!triggerRerenderToggle);
     } else {
       errors.password = "";
     };
@@ -81,6 +86,9 @@ export default function SignupFormModal() {
   useEffect(() => {
     if (confirmPassword && (confirmPassword !== password)) {
       errors.confirmPassword = "Passwords must match";
+      setDisabled(true);
+      setTriggerRerenderToggle(!triggerRerenderToggle);
+
     } else {
       errors.confirmPassword = "";
     };
@@ -92,14 +100,18 @@ export default function SignupFormModal() {
       !isValidEmail || errors.email ||
       errors.password || errors.confirmPassword) {
       setDisabled(true);
-    } else {
+      // setTriggerRerenderToggle(!triggerRerenderToggle);
+    } else if (!errors.firstName || !errors.lastName ||
+      isValidEmail || !errors.email ||
+      !errors.password || !errors.confirmPassword) {
       setDisabled(false);
+      // setTriggerRerenderToggle(!triggerRerenderToggle);
     };
     setTriggerRerenderToggle(!triggerRerenderToggle);
   }, [errors, isValidEmail]);
 
   useEffect(() => {
-  }, [triggerRerenderToggle]);
+  }, [triggerRerenderToggle, disabled]);
 
   return (
     <>
@@ -191,7 +203,11 @@ export default function SignupFormModal() {
             />
             {errors.confirmPassword && (<p className="error-message">{errors.confirmPassword}</p>)}
           </label>
-          <button id='signupModalSignupButton' type="submit" disabled={disabled}>
+          <button
+            id={disabled ? 'signupModalSignupButtonDisabled' : 'signupModalSignupButton'}
+            type="submit"
+            disabled={disabled}
+          >
             Sign Up
           </button>
         </form>
