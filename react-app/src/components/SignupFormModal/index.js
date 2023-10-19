@@ -18,7 +18,6 @@ export default function SignupFormModal() {
   const [errors, setErrors] = useState({});
   const [submitErrors, setSubmitErrors] = useState([]);
   const [disabled, setDisabled] = useState(true)
-  const [isLoaded, setIsLoaded] = useState(false);
   const [triggerRerenderToggle, setTriggerRerenderToggle] = useState(false);
   const { closeModal } = useModal();
 
@@ -27,7 +26,6 @@ export default function SignupFormModal() {
     if (password === confirmPassword && password.length >= 8) {
       const data = await dispatch(signUp(firstName, lastName, streetAddress, email, username, password));
       if (data) {
-        // console.log(data)
         setSubmitErrors(data);
       } else {
         closeModal();
@@ -41,26 +39,26 @@ export default function SignupFormModal() {
 
   // useEffect(() => {
   // 	if (firstName && firstName.length < 2) {
-  // 		setErrors({ 'firstName': 'Minimum 2 characters' })
+  //     errors.firstName = 'Minimum 2 characters';
   // 	} else {
-  // 		setErrors({})
-  // 	}
-  // }, [firstName])
+  //     errors.firstName = "";
+  // 	};
+  // }, [firstName]);
 
   useEffect(() => {
     if (lastName && lastName.length < 2) {
       errors.lastName = 'Minimum 2 characters';
     } else {
-      errors.label = "";
-    }
-  }, [lastName])
+      errors.lastName = "";
+    };
+  }, [lastName]);
 
   useEffect(() => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (email && email.length > 0) {
       const isValid = emailPattern.test(email);
       setIsValidEmail(isValid);
-    }
+    };
   }, [email]);
 
   useEffect(() => {
@@ -68,140 +66,136 @@ export default function SignupFormModal() {
       errors.username = 'Minimum 4 characters';
     } else {
       errors.username = "";
-    }
-  }, [username])
+    };
+  }, [username]);
 
   useEffect(() => {
     if (password.length > 0 && password.length < 8) {
-      errors.password = "Password must be a minimum of 8 characters";
+      errors.password = "Minimum 8 characters";
     } else {
       errors.password = "";
-    }
+    };
     setTriggerRerenderToggle(!triggerRerenderToggle);
-  }, [password])
+  }, [password]);
 
   useEffect(() => {
     if (confirmPassword && (confirmPassword !== password)) {
-      errors.confirmPassword = "Passwords do not match";
+      errors.confirmPassword = "Passwords must match";
     } else {
       errors.confirmPassword = "";
-    }
+    };
     setTriggerRerenderToggle(!triggerRerenderToggle);
-  }, [password, confirmPassword])
+  }, [password, confirmPassword]);
 
   useEffect(() => {
     if (errors.firstName || errors.lastName ||
       !isValidEmail || errors.email ||
       errors.password || errors.confirmPassword) {
-      setDisabled(true)
+      setDisabled(true);
     } else {
-      setDisabled(false)
-    }
-    setIsLoaded(true);
-  }, [errors, isValidEmail])
+      setDisabled(false);
+    };
+    setTriggerRerenderToggle(!triggerRerenderToggle);
+  }, [errors, isValidEmail]);
 
   useEffect(() => {
-  }, [triggerRerenderToggle])
-
-  // console.log("errors HERE", errors);
+  }, [triggerRerenderToggle]);
 
   return (
     <>
-      {isLoaded && (
-        <div id="signUpModalDiv">
-          <h1>Sign Up</h1>
-          <form onSubmit={handleSubmit}>
-            {/* <ul>
+      <div id="signUpModalDiv">
+        <h1>Sign Up</h1>
+        <form onSubmit={handleSubmit}>
+          {/* <ul>
 						{errors.map((error, idx) => (
 							<li key={idx}>{error}</li>
 						))}
 					</ul> */}
-            <label>
-              <span className='signup-label-text'>First Name</span>
-              <input
-                className="signUpLabel"
-                type="text"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-                required
-              />
-              {/* {errors.firstName && (<p className="error-message">{errors.firstName}</p>)} */}
-            </label>
-            <label>
-              <span className='signup-label-text'>Last Name</span>
-              <input
-                className="signUpLabel"
-                type="text"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-                required
-              />
-              {errors.lastName && (<p className="error-message">{errors.lastName}</p>)}
-            </label>
-            <label>
-              <span className='signup-label-text'>Street Address</span>
-              <input
-                className="signUpLabel"
-                type="text"
-                value={streetAddress}
-                onChange={(e) => setStreetAddress(e.target.value)}
-                required
-              />
-              {errors.streetAddress && (<p className="error-message">{errors.streetAddress}</p>)}
-            </label>
-            <label>
-              <span className='signup-label-text'>Email</span>
-              <input
-                className="signUpLabel"
-                type="text"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-              {errors.email && (<p className="error-message">{errors.email}</p>)}
-              {!isValidEmail && <p className="error-message">Invalid email</p>}
-              {submitErrors.email && (<p className="error-message">{submitErrors.email}</p>)}
-            </label>
-            <label>
-              <span className='signup-label-text'>Username</span>
-              <input
-                className="signUpLabel"
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                required
-              />
-              {errors.username && (<p className="error-message">{errors.username}</p>)}
-              {submitErrors.username && (<p className="error-message">{submitErrors.username}</p>)}
-            </label>
-            <label>
-              <span className='signup-label-text'>Password</span>
-              <input
-                className="signUpLabel"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-              {errors.password && (<p className="error-message">{errors.password}</p>)}
-            </label>
-            <label>
-              <span className='signup-label-text'>Confirm Password</span>
-              <input
-                className="signUpLabel"
-                type="password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                required
-              />
-              {errors.confirmPassword && (<p className="error-message">{errors.confirmPassword}</p>)}
-            </label>
-            <button id='signupModalSignupButton' type="submit" disabled={disabled}>
-              Sign Up
-            </button>
-          </form>
-        </div>
-      )}
+          <label>
+            <span className='signup-label-text'>First Name</span>
+            <input
+              className="signUpLabel"
+              type="text"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              required
+            />
+            {/* {errors.firstName && (<p className="error-message">{errors.firstName}</p>)} */}
+          </label>
+          <label>
+            <span className='signup-label-text'>Last Name</span>
+            <input
+              className="signUpLabel"
+              type="text"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              required
+            />
+            {errors.lastName && (<p className="error-message">{errors.lastName}</p>)}
+          </label>
+          <label>
+            <span className='signup-label-text'>Street Address</span>
+            <input
+              className="signUpLabel"
+              type="text"
+              value={streetAddress}
+              onChange={(e) => setStreetAddress(e.target.value)}
+              required
+            />
+            {errors.streetAddress && (<p className="error-message">{errors.streetAddress}</p>)}
+          </label>
+          <label>
+            <span className='signup-label-text'>Email</span>
+            <input
+              className="signUpLabel"
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            {errors.email && (<p className="error-message">{errors.email}</p>)}
+            {!isValidEmail && <p className="error-message">Invalid email</p>}
+            {submitErrors.email && (<p className="error-message">{submitErrors.email}</p>)}
+          </label>
+          <label>
+            <span className='signup-label-text'>Username</span>
+            <input
+              className="signUpLabel"
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+            {errors.username && (<p className="error-message">{errors.username}</p>)}
+            {submitErrors.username && (<p className="error-message">{submitErrors.username}</p>)}
+          </label>
+          <label>
+            <span className='signup-label-text'>Password</span>
+            <input
+              className="signUpLabel"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            {errors.password && (<p className="error-message">{errors.password}</p>)}
+          </label>
+          <label>
+            <span className='signup-label-text'>Confirm Password</span>
+            <input
+              className="signUpLabel"
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+            />
+            {errors.confirmPassword && (<p className="error-message">{errors.confirmPassword}</p>)}
+          </label>
+          <button id='signupModalSignupButton' type="submit" disabled={disabled}>
+            Sign Up
+          </button>
+        </form>
+      </div>
     </>
   );
 };
