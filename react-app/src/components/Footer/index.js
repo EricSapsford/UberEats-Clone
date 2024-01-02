@@ -96,6 +96,9 @@ export default function Footer() {
               <div className='footer-name'>
                 <div>Eric Sapsford</div>
                 <div className='footer-links'>
+                  <a href="https://www.linkedin.com/in/eric-sapsford-a2605b298/" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-linkedin"></i>
+                  </a>
                   <a href="https://github.com/EricSapsford" target="_blank" rel="noopener noreferrer">
                     <i class="fa-brands fa-github"></i>
                   </a>

@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "2b0a660af6970da82032f10895f6f166c09d8053222a37d70540d1a04c620bcd"
+            "sha256": "0cb3ec5490e0b5ee134670c9d197df87fc5fcc8113c71eb38606045a055e8607"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -26,19 +26,19 @@
         },
         "boto3": {
             "hashes": [
-                "sha256:6ff9a5b815e106656596064d51c9b6ba97a307807baa5f89634384b7d3f7ecc6",
-                "sha256:bd7c760afb195eaeaab907dc6b2c21fa64ddbba3fed4a869e80d820ddbd6cc70"
+                "sha256:4cd3e96900fb50bddc9f48007176c80d15396d08c5248b25a41220f3570e014f",
+                "sha256:c0211a3e830432851c73fa1e136b14dbb6d02b5c9a5e1272c557e63538620b88"
             ],
             "index": "pypi",
-            "version": "==1.28.40"
+            "version": "==1.28.43"
         },
         "botocore": {
             "hashes": [
-                "sha256:ce22a82ef8674f49691477d09558992cc87e7331f65c6a5b0da897ab192240ca",
-                "sha256:df766969f0d9ef9eda1a9c9946e0e173c10199f37a9e4c92861f11ddb5c9e702"
+                "sha256:b4a3a1fcf75011351e2b0d3eb991f51f8d44a375d3e065f907dac67db232fc97",
+                "sha256:d8b0c41c8c75d82f15fee57f7d54a852a99810faacbeb9d6f3f022558a2c330e"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==1.31.40"
+            "version": "==1.31.43"
         },
         "click": {
             "hashes": [
@@ -327,11 +327,11 @@
         },
         "setuptools": {
             "hashes": [
-                "sha256:3d4dfa6d95f1b101d695a6160a7626e15583af71a5f52176efa5d39a054d475d",
-                "sha256:3d8083eed2d13afc9426f227b24fd1659489ec107c0e86cec2ffdde5c92e790b"
+                "sha256:00478ca80aeebeecb2f288d3206b0de568df5cd2b8fada1209843cc9a8d88a48",
+                "sha256:af3d5949030c3f493f550876b2fd1dd5ec66689c4ee5d5344f009746f71fd5a8"
             ],
             "markers": "python_version >= '3.8'",
-            "version": "==68.1.2"
+            "version": "==68.2.0"
         },
         "six": {
             "hashes": [
@@ -405,9 +405,7 @@
             "version": "==2.2.2"
         },
         "wtforms": {
-            "extras": [
-                "email"
-            ],
+            "extras": [],
             "hashes": [
                 "sha256:6b351bbb12dd58af57ffef05bc78425d08d1914e0fd68ee14143b7ade023c5bc",
                 "sha256:837f2f0e0ca79481b92884962b914eba4e72b7a2daaf1f939c890ed0124b834b"
